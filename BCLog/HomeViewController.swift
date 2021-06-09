@@ -11,7 +11,14 @@ import Firebase
 
 class HomeViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet var searchTF: UITextField!
+    @IBOutlet var searchTF: UITextField! {
+        didSet {
+            let placeholderText = NSAttributedString(string: "Search",
+                                                        attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+            
+            searchTF.attributedPlaceholder = placeholderText
+        }
+    }
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var topStackView: UIStackView!
     @IBOutlet var barButtonItem: UIBarButtonItem!

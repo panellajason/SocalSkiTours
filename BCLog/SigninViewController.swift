@@ -13,8 +13,22 @@ import GoogleMaps
 
 class SigninViewController: UIViewController {
 
-    @IBOutlet weak var emailTF: UITextField!
-    @IBOutlet weak var passwordTF: UITextField!
+    @IBOutlet weak var emailTF: UITextField! {
+        didSet {
+            let placeholderText = NSAttributedString(string: "Email address",
+                                                        attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+            
+            emailTF.attributedPlaceholder = placeholderText
+        }
+    }
+    @IBOutlet weak var passwordTF: UITextField! {
+        didSet {
+            let placeholderText = NSAttributedString(string: "Password",
+                                                        attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+            
+            passwordTF.attributedPlaceholder = placeholderText
+        }
+    }
     @IBOutlet weak var errorLabel: UILabel!
     
     override func viewDidLoad() {

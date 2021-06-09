@@ -41,6 +41,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     
    @IBAction func logOut(_ sender: Any) {
        try! Auth.auth().signOut()
+       UserService.currentUserProfile = nil
        self.performSegue(withIdentifier: "toLogout", sender: self)
     }
     
