@@ -7,14 +7,44 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
+   
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FirebaseApp.configure()
+        
+        TourService.loadAllTours { tours in
+            TourService.allTours = tours
+        }
+        
+        _ = Auth.auth().addStateDidChangeListener { auth, user in
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            if user != nil {
+                
+                UserService.observeUserProfile(user!.uid) { userProfile in
+                    UserService.currentUserProfile = userProfile
+                }
+                
+                let controller = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as Any
+                self.window?.rootViewController = controller as? UITabBarController
+                self.window?.makeKeyAndVisible()
+            } else {
+                UserService.currentUserProfile = nil
+                
+                let controller = storyboard.instantiateViewController(withIdentifier: "SigninViewController") as Any
+                self.window?.rootViewController = controller as? UIViewController
+                self.window?.makeKeyAndVisible()
+            }
+        }
+        
         return true
     }
 

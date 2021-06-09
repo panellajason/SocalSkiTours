@@ -3,27 +3,65 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D8F6A5CD5C6AA57215784196 /* Pods_BCLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D47EC8EF3855F9A1BAD0623 /* Pods_BCLog.framework */; };
+		FA2C0BC8248C995F00CF6853 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2C0BC7248C995F00CF6853 /* SignUpViewController.swift */; };
+		FA2C0BCE248CD36700CF6853 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2C0BCD248CD36700CF6853 /* SigninViewController.swift */; };
+		FA2C0BD22493F40000CF6853 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2C0BD12493F40000CF6853 /* User.swift */; };
+		FA2C0BD6249690C200CF6853 /* HelperExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2C0BD5249690C200CF6853 /* HelperExtensions.swift */; };
+		FA2C0BDA24A081A500CF6853 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2C0BD924A081A500CF6853 /* LoadingCell.swift */; };
+		FA3A259F247E18F100A68C2C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA3A259E247E18F100A68C2C /* GoogleService-Info.plist */; };
 		FA50BAF6247D9156003D7507 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA50BAF5247D9156003D7507 /* AppDelegate.swift */; };
 		FA50BAF8247D9156003D7507 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA50BAF7247D9156003D7507 /* SceneDelegate.swift */; };
-		FA50BAFA247D9156003D7507 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA50BAF9247D9156003D7507 /* ViewController.swift */; };
 		FA50BAFD247D9156003D7507 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA50BAFB247D9156003D7507 /* Main.storyboard */; };
 		FA50BAFF247D915B003D7507 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA50BAFE247D915B003D7507 /* Assets.xcassets */; };
 		FA50BB02247D915B003D7507 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA50BB00247D915B003D7507 /* LaunchScreen.storyboard */; };
+		FA5B46AB265D9A26002F87B5 /* ToursCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B46AA265D9A26002F87B5 /* ToursCollectionViewCell.swift */; };
+		FA5B46AD2663674F002F87B5 /* BigBearTours.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B46AC2663674F002F87B5 /* BigBearTours.swift */; };
+		FA5B46AF26648CF1002F87B5 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B46AE26648CF0002F87B5 /* UserService.swift */; };
+		FA5B46B12667271B002F87B5 /* DetailMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B46B02667271B002F87B5 /* DetailMapViewController.swift */; };
+		FA5B46B3266878C6002F87B5 /* TourService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B46B2266878C6002F87B5 /* TourService.swift */; };
+		FA5B46B526687925002F87B5 /* SanGabrielsTours.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B46B426687925002F87B5 /* SanGabrielsTours.swift */; };
+		FA6BF0E52651FDE300AD3EF1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6BF0E42651FDE300AD3EF1 /* MapViewController.swift */; };
+		FA6BF0E72651FFA500AD3EF1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6BF0E62651FFA500AD3EF1 /* HomeViewController.swift */; };
+		FA6BF0E9265200A400AD3EF1 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6BF0E8265200A400AD3EF1 /* FavoritesViewController.swift */; };
+		FA6BF0EF2652E51100AD3EF1 /* Tour.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6BF0EE2652E51100AD3EF1 /* Tour.swift */; };
+		FA6BF0F1265390D900AD3EF1 /* DetailTourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6BF0F0265390D900AD3EF1 /* DetailTourViewController.swift */; };
+		FAFE5231266EB25400A99D36 /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE5230266EB25400A99D36 /* FavoritesTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E6EA046542FCBFB004B01ED /* Pods-BCLog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BCLog.release.xcconfig"; path = "Target Support Files/Pods-BCLog/Pods-BCLog.release.xcconfig"; sourceTree = "<group>"; };
+		7D47EC8EF3855F9A1BAD0623 /* Pods_BCLog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BCLog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F54F7EAACD13A70D5AB48BEE /* Pods-BCLog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BCLog.debug.xcconfig"; path = "Target Support Files/Pods-BCLog/Pods-BCLog.debug.xcconfig"; sourceTree = "<group>"; };
+		FA2C0BC7248C995F00CF6853 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		FA2C0BCD248CD36700CF6853 /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
+		FA2C0BD12493F40000CF6853 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FA2C0BD5249690C200CF6853 /* HelperExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperExtensions.swift; sourceTree = "<group>"; };
+		FA2C0BD924A081A500CF6853 /* LoadingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
+		FA3A259E247E18F100A68C2C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FA50BAF2247D9156003D7507 /* BCLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BCLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA50BAF5247D9156003D7507 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA50BAF7247D9156003D7507 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FA50BAF9247D9156003D7507 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FA50BAFC247D9156003D7507 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA50BAFE247D915B003D7507 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA50BB01247D915B003D7507 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA50BB03247D915B003D7507 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA5B46AA265D9A26002F87B5 /* ToursCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToursCollectionViewCell.swift; sourceTree = "<group>"; };
+		FA5B46AC2663674F002F87B5 /* BigBearTours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigBearTours.swift; sourceTree = "<group>"; };
+		FA5B46AE26648CF0002F87B5 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		FA5B46B02667271B002F87B5 /* DetailMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMapViewController.swift; sourceTree = "<group>"; };
+		FA5B46B2266878C6002F87B5 /* TourService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourService.swift; sourceTree = "<group>"; };
+		FA5B46B426687925002F87B5 /* SanGabrielsTours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SanGabrielsTours.swift; sourceTree = "<group>"; };
+		FA6BF0E42651FDE300AD3EF1 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		FA6BF0E62651FFA500AD3EF1 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		FA6BF0E8265200A400AD3EF1 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		FA6BF0EE2652E51100AD3EF1 /* Tour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tour.swift; sourceTree = "<group>"; };
+		FA6BF0F0265390D900AD3EF1 /* DetailTourViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTourViewController.swift; sourceTree = "<group>"; };
+		FAFE5230266EB25400A99D36 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +69,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8F6A5CD5C6AA57215784196 /* Pods_BCLog.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9CB651FAFF23B25DB9BA1018 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F54F7EAACD13A70D5AB48BEE /* Pods-BCLog.debug.xcconfig */,
+				3E6EA046542FCBFB004B01ED /* Pods-BCLog.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F53C146324E15D356A3B2E3C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7D47EC8EF3855F9A1BAD0623 /* Pods_BCLog.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FA50BAE9247D9156003D7507 = {
 			isa = PBXGroup;
 			children = (
 				FA50BAF4247D9156003D7507 /* BCLog */,
 				FA50BAF3247D9156003D7507 /* Products */,
+				9CB651FAFF23B25DB9BA1018 /* Pods */,
+				F53C146324E15D356A3B2E3C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,11 +116,28 @@
 			children = (
 				FA50BAF5247D9156003D7507 /* AppDelegate.swift */,
 				FA50BAF7247D9156003D7507 /* SceneDelegate.swift */,
-				FA50BAF9247D9156003D7507 /* ViewController.swift */,
-				FA50BAFB247D9156003D7507 /* Main.storyboard */,
 				FA50BAFE247D915B003D7507 /* Assets.xcassets */,
 				FA50BB00247D915B003D7507 /* LaunchScreen.storyboard */,
+				FA50BAFB247D9156003D7507 /* Main.storyboard */,
+				FA5B46AA265D9A26002F87B5 /* ToursCollectionViewCell.swift */,
+				FAFE5230266EB25400A99D36 /* FavoritesTableViewCell.swift */,
 				FA50BB03247D915B003D7507 /* Info.plist */,
+				FA2C0BD924A081A500CF6853 /* LoadingCell.swift */,
+				FA3A259E247E18F100A68C2C /* GoogleService-Info.plist */,
+				FA5B46AC2663674F002F87B5 /* BigBearTours.swift */,
+				FA5B46B426687925002F87B5 /* SanGabrielsTours.swift */,
+				FA5B46B2266878C6002F87B5 /* TourService.swift */,
+				FA5B46AE26648CF0002F87B5 /* UserService.swift */,
+				FA2C0BD5249690C200CF6853 /* HelperExtensions.swift */,
+				FA2C0BC7248C995F00CF6853 /* SignUpViewController.swift */,
+				FA2C0BCD248CD36700CF6853 /* SigninViewController.swift */,
+				FA6BF0EE2652E51100AD3EF1 /* Tour.swift */,
+				FA2C0BD12493F40000CF6853 /* User.swift */,
+				FA6BF0E62651FFA500AD3EF1 /* HomeViewController.swift */,
+				FA6BF0F0265390D900AD3EF1 /* DetailTourViewController.swift */,
+				FA6BF0E42651FDE300AD3EF1 /* MapViewController.swift */,
+				FA5B46B02667271B002F87B5 /* DetailMapViewController.swift */,
+				FA6BF0E8265200A400AD3EF1 /* FavoritesViewController.swift */,
 			);
 			path = BCLog;
 			sourceTree = "<group>";
@@ -74,9 +149,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA50BB06247D915B003D7507 /* Build configuration list for PBXNativeTarget "BCLog" */;
 			buildPhases = (
+				00DD4ECA1A966EDDC91D9ACA /* [CP] Check Pods Manifest.lock */,
 				FA50BAEE247D9156003D7507 /* Sources */,
 				FA50BAEF247D9156003D7507 /* Frameworks */,
 				FA50BAF0247D9156003D7507 /* Resources */,
+				AA900DBFF255708B05EBE43B /* [CP] Embed Pods Frameworks */,
+				53B14EDB4ED4348AFDB14404 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -126,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA50BB02247D915B003D7507 /* LaunchScreen.storyboard in Resources */,
+				FA3A259F247E18F100A68C2C /* GoogleService-Info.plist in Resources */,
 				FA50BAFF247D915B003D7507 /* Assets.xcassets in Resources */,
 				FA50BAFD247D9156003D7507 /* Main.storyboard in Resources */,
 			);
@@ -133,14 +212,89 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		00DD4ECA1A966EDDC91D9ACA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BCLog-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		53B14EDB4ED4348AFDB14404 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BCLog/Pods-BCLog-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BCLog/Pods-BCLog-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BCLog/Pods-BCLog-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AA900DBFF255708B05EBE43B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BCLog/Pods-BCLog-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BCLog/Pods-BCLog-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BCLog/Pods-BCLog-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FA50BAEE247D9156003D7507 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA50BAFA247D9156003D7507 /* ViewController.swift in Sources */,
+				FA6BF0E72651FFA500AD3EF1 /* HomeViewController.swift in Sources */,
+				FA2C0BC8248C995F00CF6853 /* SignUpViewController.swift in Sources */,
+				FA6BF0F1265390D900AD3EF1 /* DetailTourViewController.swift in Sources */,
+				FA2C0BDA24A081A500CF6853 /* LoadingCell.swift in Sources */,
+				FA5B46AF26648CF1002F87B5 /* UserService.swift in Sources */,
+				FAFE5231266EB25400A99D36 /* FavoritesTableViewCell.swift in Sources */,
 				FA50BAF6247D9156003D7507 /* AppDelegate.swift in Sources */,
+				FA6BF0EF2652E51100AD3EF1 /* Tour.swift in Sources */,
+				FA6BF0E9265200A400AD3EF1 /* FavoritesViewController.swift in Sources */,
+				FA5B46B12667271B002F87B5 /* DetailMapViewController.swift in Sources */,
+				FA5B46B526687925002F87B5 /* SanGabrielsTours.swift in Sources */,
+				FA2C0BD6249690C200CF6853 /* HelperExtensions.swift in Sources */,
 				FA50BAF8247D9156003D7507 /* SceneDelegate.swift in Sources */,
+				FA5B46AB265D9A26002F87B5 /* ToursCollectionViewCell.swift in Sources */,
+				FA5B46AD2663674F002F87B5 /* BigBearTours.swift in Sources */,
+				FA2C0BCE248CD36700CF6853 /* SigninViewController.swift in Sources */,
+				FA6BF0E52651FDE300AD3EF1 /* MapViewController.swift in Sources */,
+				FA5B46B3266878C6002F87B5 /* TourService.swift in Sources */,
+				FA2C0BD22493F40000CF6853 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,9 +436,11 @@
 		};
 		FA50BB07247D915B003D7507 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F54F7EAACD13A70D5AB48BEE /* Pods-BCLog.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HY4ASVY222;
 				INFOPLIST_FILE = BCLog/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -299,9 +455,11 @@
 		};
 		FA50BB08247D915B003D7507 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E6EA046542FCBFB004B01ED /* Pods-BCLog.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HY4ASVY222;
 				INFOPLIST_FILE = BCLog/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
