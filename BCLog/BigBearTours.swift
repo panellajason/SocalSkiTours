@@ -86,7 +86,7 @@ class BigBearTours {
         altPath.add(CLLocationCoordinate2D(latitude: 34.144195, longitude: -116.853840))
         altPath.add(CLLocationCoordinate2D(latitude: 34.136789, longitude: -116.858281))
         altPath.add(CLLocationCoordinate2D(latitude: 34.131813, longitude: -116.866294))
-        let altoDiablo = Tour(path: altPath, id: "34.131813 -116.866294", imageURL: [#imageLiteral(resourceName: "alt2"), #imageLiteral(resourceName: "alt1"), #imageLiteral(resourceName: "alt4")], distance: "3.5 miles", description: "One of the closer descents along the South Fork trail, this old avalanche path offers two moderate open pitches; the upper one being subject to windloading.", title: "Alto Diablo: Avy Path", aspect: "NE", base: "6,900 ft", trailhead: "South Fork Trailhead", summit: "10,200 ft", angle: "30")
+        let altoDiablo = Tour(path: altPath, id: "34.131813 -116.866294", imageURL: [#imageLiteral(resourceName: "alt2"), #imageLiteral(resourceName: "alt1"), #imageLiteral(resourceName: "alt4")], distance: "3.5 miles", description: "One of the closer descents along the South Fork trail, this avalanche path offers two moderate open pitches; the upper one being subject to windloading and some truly massive avalanches in the last decade; there aren't any trees left on the lower pitch for a reason. The upper pitch has some steep, short chutes that are great for lapping and practicing for more committing terrain. Follow the South Fork Trail for about 2 miles until the lower pitch comes into view, then follow the avy paths up to the summit. Alternatively, approach via the north facing trees for a safer ascent.", title: "Alto Diablo: Avy Path", aspect: "NE", base: "6,900 ft", trailhead: "South Fork Trailhead", summit: "10,200 ft", angle: "30")
         
         let altTPath = GMSMutablePath()
         altTPath.add(CLLocationCoordinate2D(latitude: 34.161167, longitude: -116.871683))
@@ -95,7 +95,7 @@ class BigBearTours {
         altTPath.add(CLLocationCoordinate2D(latitude: 34.155129, longitude: -116.868068))
         altTPath.add(CLLocationCoordinate2D(latitude: 34.147831, longitude: -116.855580))
         altTPath.add(CLLocationCoordinate2D(latitude: 34.137137, longitude: -116.865890))
-        let altoDiabloTrees = Tour(path: altTPath, id: "34.137137 -116.865890", imageURL: [#imageLiteral(resourceName: "IMG_1213"), #imageLiteral(resourceName: "alt3"), #imageLiteral(resourceName: "alt5")], distance: "3.5 miles", description: "The closest descent along the South Fork trail, these sheltered gullies and well-spaced trees have a relatively easy approach.", title: "Alto Diablo: North Trees", aspect: "NE", base: "6,900 ft", trailhead: "South Fork Trailhead", summit: "10,000 ft", angle: "25")
+        let altoDiabloTrees = Tour(path: altTPath, id: "34.137137 -116.865890", imageURL: [#imageLiteral(resourceName: "IMG_1213"), #imageLiteral(resourceName: "alt3"), #imageLiteral(resourceName: "alt5")], distance: "3.5 miles", description: "The closest descent along the South Fork trail, these sheltered gullies and well-spaced trees have a relatively easy approach, especially when coverage is adequate. Nearly the entire South Fork trail is a burn area and so is this descent, so there are many fallen trees and bushes scattered throughout the landscape that must be avoided. This area makes for good storm day/post storm day riding due to its protected nature, low-angle, and higher elevation for more powdery snow. Follow the South Fork Trail for about 1.5 miles and skin up the north facing trees and series of small gullies until the summit,.", title: "Alto Diablo: North Trees", aspect: "NE", base: "6,900 ft", trailhead: "South Fork Trailhead", summit: "10,000 ft", angle: "25")
         
         let sugPath = GMSMutablePath()
         sugPath.add(CLLocationCoordinate2D(latitude: 34.231631, longitude: -116.806132))
@@ -105,9 +105,7 @@ class BigBearTours {
         sugPath.add(CLLocationCoordinate2D(latitude: 34.215126, longitude: -116.795548))
         sugPath.add(CLLocationCoordinate2D(latitude: 34.209479, longitude: -116.794252))
         sugPath.add(CLLocationCoordinate2D(latitude: 34.204253, longitude: -116.796951))
-        let sugarloaf = Tour(path: sugPath, id: "34.204253 -116.796951", imageURL: [#imageLiteral(resourceName: "sug2"), #imageLiteral(resourceName: "sug"), #imageLiteral(resourceName: "sug3")], distance: "3-5 miles", description: "A low-angle beginner/intermediate tour which offers sheltered trees, gullies, and a few open bowls. The summit is a medium-full day but there are plenty of shorter tours around this mountainA low-angle beginner/intermediate tour which offers sheltered trees, gullies, and a few open bowls. The summit is a medium-full day but there are plenty of shorter tours around this mountain.", title: "Sugarloaf: Rock Bowl", aspect: "NE", base: "7,000 ft", trailhead: "2N23 and CA 38", summit: "9,400-10,000 ft", angle: "20-25")
-        
-
+        let sugarloaf = Tour(path: sugPath, id: "34.204253 -116.796951", imageURL: [#imageLiteral(resourceName: "sug2"), #imageLiteral(resourceName: "sug"), #imageLiteral(resourceName: "sug3")], distance: "3-5 miles", description: "A low-angle beginner/intermediate tour which offers sheltered trees, gullies, and a few open bowls. The summit is a medium-full day but there are plenty of shorter tours around this mountain.", title: "Sugarloaf: Rock Bowl", aspect: "NE", base: "7,000 ft", trailhead: "2N23 and CA 38", summit: "9,400-10,000 ft", angle: "20-25")
         
         tempTours.append(jepsonNW)
         tempTours.append(jepsonNE)
@@ -121,9 +119,7 @@ class BigBearTours {
         tempTours.append(altoDiabloTrees)
         tempTours.append(sugarloaf)
 
-        let sorted = tempTours.sorted(by: { $0.tourTitle < $1.tourTitle })
-
-        return completion(sorted)
+        return completion(tempTours)
     }
     
 }

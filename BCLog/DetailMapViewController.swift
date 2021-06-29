@@ -53,7 +53,7 @@ class DetailMapViewController: UIViewController, GMSMapViewDelegate {
         //Sugarloaf Trailhead
         let sugarTH = GMSMarker()
         sugarTH.position = CLLocationCoordinate2D(latitude: 34.231631, longitude: -116.806132)
-        sugarTH.title = "2N23 and CA 38"
+        sugarTH.title = "Sugarloaf Trailhead"
         sugarTH.icon = GMSMarker.markerImage(with: .brown)
         sugarTH.map = mapView
         
@@ -71,6 +71,19 @@ class DetailMapViewController: UIViewController, GMSMapViewDelegate {
         badenTH.icon = GMSMarker.markerImage(with: .brown)
         badenTH.map = mapView
         
+        //Krakta Trailhead
+        let kraktaTH = GMSMarker()
+        kraktaTH.position = CLLocationCoordinate2D(latitude: 34.351453, longitude: -117.896972)
+        kraktaTH.title = "Krakta Ridge Trailhead"
+        kraktaTH.icon = GMSMarker.markerImage(with: .brown)
+        kraktaTH.map = mapView
+        
+        //Waterman Trailhead
+        let watermanTH = GMSMarker()
+        watermanTH.position = CLLocationCoordinate2D(latitude: 34.349698, longitude: -117.928709)
+        watermanTH.title = "Waterman Trailhead"
+        watermanTH.icon = GMSMarker.markerImage(with: .brown)
+        watermanTH.map = mapView
 
     }
     

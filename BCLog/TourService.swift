@@ -22,7 +22,9 @@ class TourService {
             tempTours.append(contentsOf: moreTours)
         }
         
-        return completion(tempTours)
+        let sorted = tempTours.sorted(by: { $0.tourTitle < $1.tourTitle })
+
+        return completion(sorted)
     }
     
     static func findTour(withId id:String, completion:@escaping (_ tour:Tour)->()) {

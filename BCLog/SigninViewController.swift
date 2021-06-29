@@ -34,8 +34,6 @@ class SigninViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        GMSServices.provideAPIKey("AIzaSyAclakTYQKiFytFuk16Jhe_fYq2qJt7-Ko")
-
     }
     
     override func viewDidAppear(_ animated: Bool) {

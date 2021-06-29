@@ -52,6 +52,18 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         badenTH.icon = GMSMarker.markerImage(with: .brown)
         badenTH.map = mapView
         
+       let kraktaTH = GMSMarker()
+       kraktaTH.position = CLLocationCoordinate2D(latitude: 34.351453, longitude: -117.896972)
+       kraktaTH.title = "Krakta Ridge Trailhead"
+       kraktaTH.icon = GMSMarker.markerImage(with: .brown)
+       kraktaTH.map = mapView
+       
+       let watermanTH = GMSMarker()
+       watermanTH.position = CLLocationCoordinate2D(latitude: 34.349698, longitude: -117.928709)
+       watermanTH.title = "Waterman Trailhead"
+       watermanTH.icon = GMSMarker.markerImage(with: .brown)
+       watermanTH.map = mapView
+        
         
         let sugPath = GMSMutablePath()
         sugPath.add(CLLocationCoordinate2D(latitude: 34.231631, longitude: -116.806132))
@@ -138,6 +150,30 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         badenPath.add(CLLocationCoordinate2D(latitude: 34.360693, longitude: -117.763157))
         badenPath.add(CLLocationCoordinate2D(latitude: 34.358660, longitude: -117.764692))
         badenPath.add(CLLocationCoordinate2D(latitude: 34.358217, longitude: -117.764430))
+        
+        let kraktaPath = GMSMutablePath()
+        kraktaPath.add(CLLocationCoordinate2D(latitude: 34.351453, longitude: -117.896972))
+        kraktaPath.add(CLLocationCoordinate2D(latitude: 34.351197, longitude: -117.897462))
+        kraktaPath.add(CLLocationCoordinate2D(latitude: 34.351116, longitude: -117.899042))
+        kraktaPath.add(CLLocationCoordinate2D(latitude: 34.349336, longitude: -117.899723))
+        kraktaPath.add(CLLocationCoordinate2D(latitude: 34.347442, longitude: -117.898000))
+        
+        let watermanPath = GMSMutablePath()
+        watermanPath.add(CLLocationCoordinate2D(latitude: 34.349698, longitude: -117.928709))
+        watermanPath.add(CLLocationCoordinate2D(latitude: 34.349296, longitude: -117.928535))
+        watermanPath.add(CLLocationCoordinate2D(latitude: 34.349689, longitude: -117.926171))
+        watermanPath.add(CLLocationCoordinate2D(latitude: 34.348609, longitude: -117.927180))
+        watermanPath.add(CLLocationCoordinate2D(latitude: 34.346928, longitude: -117.925932))
+        watermanPath.add(CLLocationCoordinate2D(latitude: 34.345188, longitude: -117.929851))
+        watermanPath.add(CLLocationCoordinate2D(latitude: 34.345665, longitude: -117.933310))
+        
+        let kraktaLine = GMSPolyline(path: kraktaPath)
+        kraktaLine.strokeWidth = 3
+        kraktaLine.map = mapView
+        
+        let waterLine = GMSPolyline(path: watermanPath)
+        waterLine.strokeWidth = 3
+        waterLine.map = mapView
         
         let badenLine = GMSPolyline(path: badenPath)
         badenLine.strokeWidth = 3
@@ -270,17 +306,33 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         badenE.title = "Baden Powell"
         badenE.snippet = "East Face"
         badenE.map = mapView
+        
+        let krakta = GMSMarker()
+        krakta.position = CLLocationCoordinate2D(latitude: 34.347518, longitude: -117.897992)
+        krakta.title = "Krakta Ridge"
+        krakta.snippet = "Ski Area"
+        krakta.map = mapView
+        
+        let waterman = GMSMarker()
+        waterman.position = CLLocationCoordinate2D(latitude: 34.345932, longitude: -117.933253)
+        waterman.title = "Mount Waterman"
+        waterman.snippet = "Ski Area"
+        waterman.map = mapView
     }
         
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         
-        if marker.title == "South Fork Trailhead" || marker.title == "2N23 and CA 38" || marker.title == "Mt Baldy Trailhead"{
+        if marker.title == "South Fork Trailhead" || marker.title == "2N23 and CA 38" || marker.title == "Mt Baldy Trailhead" {
             
         }
         else {
             let id = marker.position.latitude.description + " " +  marker.position.longitude.description
+            
+            print(id)
+            
             TourService.findTour(withId: id) { tour in
                 self.tourToPass = tour
+                
                 self.performSegue(withIdentifier: "toDetailTour2", sender: self)
             }
         }
