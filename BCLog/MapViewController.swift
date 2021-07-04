@@ -63,6 +63,12 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
        watermanTH.title = "Waterman Trailhead"
        watermanTH.icon = GMSMarker.markerImage(with: .brown)
        watermanTH.map = mapView
+       
+       let sanJTram = GMSMarker()
+       sanJTram.position = CLLocationCoordinate2D(latitude: 33.813169, longitude: -116.638612)
+       sanJTram.title = "Palm Springs Aerial Tramway"
+       watermanTH.icon = GMSMarker.markerImage(with: .brown)
+       sanJTram.map = mapView
         
         
         let sugPath = GMSMutablePath()
@@ -318,6 +324,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         waterman.title = "Mount Waterman"
         waterman.snippet = "Ski Area"
         waterman.map = mapView
+        
     }
         
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {

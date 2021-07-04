@@ -95,7 +95,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     func filterText(_ query: String) {
         filteredTours.removeAll()
         for tour in tours {
-            if tour.tourTitle.lowercased().starts(with: query.lowercased()) {
+            if tour.tourTitle.lowercased().starts(with: query.lowercased()) || tour.tourTitle.lowercased().contains(query.lowercased()) {
                 filteredTours.append(tour)
             }
         }

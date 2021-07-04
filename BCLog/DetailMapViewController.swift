@@ -84,6 +84,12 @@ class DetailMapViewController: UIViewController, GMSMapViewDelegate {
         watermanTH.title = "Waterman Trailhead"
         watermanTH.icon = GMSMarker.markerImage(with: .brown)
         watermanTH.map = mapView
+        
+        //San Jacinto Tram Trailhead
+        let sanJTram = GMSMarker()
+        sanJTram.position = CLLocationCoordinate2D(latitude: 33.813169, longitude: -116.638612)
+        sanJTram.title = "Palm Springs Aerial Tramway"
+        sanJTram.map = mapView
 
     }
     

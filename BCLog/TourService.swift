@@ -21,6 +21,9 @@ class TourService {
         SanGabrielsTours.loadTours { moreTours in
             tempTours.append(contentsOf: moreTours)
         }
+        SanJacintoTours.loadTours { moreTours in
+            tempTours.append(contentsOf: moreTours)
+        }
         
         let sorted = tempTours.sorted(by: { $0.tourTitle < $1.tourTitle })
 
