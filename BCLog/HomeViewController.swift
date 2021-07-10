@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import DropDown
 
 class HomeViewController: UIViewController, UITextFieldDelegate {
     
@@ -28,20 +29,49 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     var tourToPass: Tour!
     var filtered = false
     
+    let menu: DropDown = {
+        let menu = DropDown()
+        menu.dataSource = ["San Gorgonio Wilderness", "San Gabriel Mountains", "San Jacinto Area"]
+        return menu
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 38))
         imageView.contentMode = .scaleToFill
         imageView.image = UIImage(named: "title2")
         navigationItem.titleView = imageView
-                
-        tours = TourService.allTours
-        
+            
         searchTF.delegate = self
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
         
+        menu.anchorView = collectionView
+        menu.selectionAction = { index, title in
+            
+            if index == 0 {
+                SanBernardinoTours.loadTours { moreTours in
+                    self.tours.append(contentsOf: moreTours)
+                }
+            }
+            else if index == 1 {
+                SanGabrielsTours.loadTours { moreTours in
+                    self.tours.append(contentsOf: moreTours)
+                }
+            } else {
+                SanJacintoTours.loadTours { moreTours in
+                    self.tours.append(contentsOf: moreTours)
+                }
+            }
+
+
+            self.filteredTours = self.tours
+            self.collectionView.reloadData()
+
+        }
+        
+        tours = TourService.allTours
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
@@ -53,15 +83,9 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         searchTF.text = ""
         filteredTours.removeAll()
         tours.removeAll()
-
-        SanGabrielsTours.loadTours { moreTours in
-            self.tours.append(contentsOf: moreTours)
-        }
-        
-        filteredTours = tours
-        collectionView.reloadData()
-            
+        menu.show()
     }
+    
     
     @IBAction func showOrHideSearch(_ sender: Any) {
         if topStackView.isHidden {
@@ -111,6 +135,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
             viewController.passedTour = tourToPass
         }
     }
+    
 }
 
 

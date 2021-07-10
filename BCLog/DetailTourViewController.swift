@@ -59,6 +59,9 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
         pageControl.currentPage = 0
         topScrollView.delegate = self
         topScrollView.frame = view.frame
+        
+        topScrollView.minimumZoomScale = 1.0
+        topScrollView.maximumZoomScale = 6.0
         for i in 0..<passedTour.tourImages.count {
             
             let imageView = UIImageView()
@@ -67,8 +70,8 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
             let xPos = self.view.frame.width * CGFloat(i)
             imageView.frame = CGRect(x: xPos, y: 0, width: self.topScrollView.frame.width, height: 300)
             topScrollView.contentSize.width = topScrollView.frame.width * CGFloat(i + 1)
-
             topScrollView.addSubview(imageView)
+            
         }
         
         detailTitle.text = passedTour.tourTitle
@@ -168,7 +171,5 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let pageIndex = round(scrollView.contentOffset.x/view.frame.width)
         pageControl.currentPage = Int(pageIndex)
-        
-       
     }
 }

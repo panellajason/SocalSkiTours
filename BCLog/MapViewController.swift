@@ -13,7 +13,8 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
 
     var tourToPass: Tour!
     var passedTour: Tour!
-
+    var isSatelliteView = false
+    var mapView: GMSMapView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,11 +22,12 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         //default camera view
         let camera = GMSCameraPosition.camera(withLatitude: 34.070986, longitude: -117.326830, zoom: 8.0)
             
-        let mapView = GMSMapView.map(withFrame: view.frame, camera: camera)
+        mapView = GMSMapView.map(withFrame: view.frame, camera: camera)
         mapView.delegate = self
         mapView.mapType = .terrain
         mapView.settings.myLocationButton = true
         mapView.settings.compassButton = true
+        mapView.isMyLocationEnabled = true
         view.addSubview(mapView)
         
         let southFork = GMSMarker()
@@ -36,7 +38,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         
         let sugarTH = GMSMarker()
         sugarTH.position = CLLocationCoordinate2D(latitude: 34.231631, longitude: -116.806132)
-        sugarTH.title = "2N23 and CA 38"
+        sugarTH.title = "Sugarloaf Trailhead"
         sugarTH.icon = GMSMarker.markerImage(with: .brown)
         sugarTH.map = mapView
         
@@ -67,9 +69,14 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
        let sanJTram = GMSMarker()
        sanJTram.position = CLLocationCoordinate2D(latitude: 33.813169, longitude: -116.638612)
        sanJTram.title = "Palm Springs Aerial Tramway"
-       watermanTH.icon = GMSMarker.markerImage(with: .brown)
+       sanJTram.icon = GMSMarker.markerImage(with: .brown)
        sanJTram.map = mapView
         
+        let snowCreek = GMSMarker()
+        snowCreek.position = CLLocationCoordinate2D(latitude: 33.898705, longitude: -116.679772)
+        snowCreek.title = "Snow Creek Trailhead"
+        snowCreek.icon = GMSMarker.markerImage(with: .brown)
+        snowCreek.map = mapView
         
         let sugPath = GMSMutablePath()
         sugPath.add(CLLocationCoordinate2D(latitude: 34.231631, longitude: -116.806132))
@@ -172,6 +179,45 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         watermanPath.add(CLLocationCoordinate2D(latitude: 34.346928, longitude: -117.925932))
         watermanPath.add(CLLocationCoordinate2D(latitude: 34.345188, longitude: -117.929851))
         watermanPath.add(CLLocationCoordinate2D(latitude: 34.345665, longitude: -117.933310))
+        
+        let tramPath = GMSMutablePath()
+        tramPath.add(CLLocationCoordinate2D(latitude: 33.813169, longitude: -116.638612))
+        tramPath.add(CLLocationCoordinate2D(latitude: 33.812777, longitude: -116.643131))
+        tramPath.add(CLLocationCoordinate2D(latitude: 33.810911, longitude: -116.650454))
+        tramPath.add(CLLocationCoordinate2D(latitude: 33.807053, longitude: -116.654017))
+        tramPath.add(CLLocationCoordinate2D(latitude: 33.802389, longitude: -116.658565))
+        tramPath.add(CLLocationCoordinate2D(latitude: 33.803233, longitude: -116.668098))
+        tramPath.add(CLLocationCoordinate2D(latitude: 33.800257, longitude: -116.673663))
+        tramPath.add(CLLocationCoordinate2D(latitude: 33.807066, longitude: -116.674223))
+        tramPath.add(CLLocationCoordinate2D(latitude: 33.809758, longitude: -116.677387))
+        tramPath.add(CLLocationCoordinate2D(latitude: 33.814823, longitude: -116.674842))
+        tramPath.add(CLLocationCoordinate2D(latitude: 33.811873, longitude: -116.678853))
+        tramPath.add(CLLocationCoordinate2D(latitude: 33.814957, longitude: -116.677273))
+        
+        let snowCreekPath = GMSMutablePath()
+        snowCreekPath.add(CLLocationCoordinate2D(latitude: 33.898705, longitude: -116.679772))
+        snowCreekPath.add(CLLocationCoordinate2D(latitude: 33.889856, longitude: -116.667558))
+        snowCreekPath.add(CLLocationCoordinate2D(latitude: 33.876617, longitude: -116.660691))
+        snowCreekPath.add(CLLocationCoordinate2D(latitude: 33.867031, longitude: -116.659710))
+        snowCreekPath.add(CLLocationCoordinate2D(latitude: 33.864940, longitude: -116.658947))
+        snowCreekPath.add(CLLocationCoordinate2D(latitude: 33.848338, longitude: -116.668714))
+        snowCreekPath.add(CLLocationCoordinate2D(latitude: 33.838387, longitude: -116.675962))
+        snowCreekPath.add(CLLocationCoordinate2D(latitude: 33.832746, longitude: -116.678100))
+        snowCreekPath.add(CLLocationCoordinate2D(latitude: 33.829154, longitude: -116.678306))
+        snowCreekPath.add(CLLocationCoordinate2D(latitude: 33.827295, longitude: -116.677794))
+        snowCreekPath.add(CLLocationCoordinate2D(latitude: 33.824613, longitude: -116.677588))
+        snowCreekPath.add(CLLocationCoordinate2D(latitude: 33.823428, longitude: -116.677259))
+        snowCreekPath.add(CLLocationCoordinate2D(latitude: 33.820956, longitude: -116.679014))
+        snowCreekPath.add(CLLocationCoordinate2D(latitude: 33.818889, longitude: -116.678740))
+        snowCreekPath.add(CLLocationCoordinate2D(latitude: 33.814693, longitude: -116.679236))
+
+        let snowCreekLine = GMSPolyline(path: snowCreekPath)
+        snowCreekLine.strokeWidth = 3
+        snowCreekLine.map = mapView
+                
+        let tramLine = GMSPolyline(path: tramPath)
+        tramLine.strokeWidth = 3
+        tramLine.map = mapView
         
         let kraktaLine = GMSPolyline(path: kraktaPath)
         kraktaLine.strokeWidth = 3
@@ -324,12 +370,24 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         waterman.title = "Mount Waterman"
         waterman.snippet = "Ski Area"
         waterman.map = mapView
+                
+        let sanJEast = GMSMarker()
+        sanJEast.position = CLLocationCoordinate2D(latitude: 33.814957, longitude: -116.677273)
+        sanJEast.title = "San Jacinto"
+        sanJEast.snippet = "East Face"
+        sanJEast.map = mapView
+        
+        let sanJSnwCrk = GMSMarker()
+        sanJSnwCrk.position = CLLocationCoordinate2D(latitude: 33.814693, longitude: -116.679236)
+        sanJSnwCrk.title = "San Jacinto"
+        sanJSnwCrk.snippet = "Snow Creek"
+        sanJSnwCrk.map = mapView
         
     }
         
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         
-        if marker.title == "South Fork Trailhead" || marker.title == "2N23 and CA 38" || marker.title == "Mt Baldy Trailhead" {
+        if marker.title == "South Fork Trailhead" || marker.title == "Sugarloaf Trailhead" || marker.title == "Mt Baldy Trailhead" || marker.title == "Vincent Gap Trailhead" || marker.title == "Krakta Ridge Trailhead" || marker.title == "Waterman Trailhead" || marker.title == "Palm Springs Aerial Tramway" || marker.title == "Snow Creek Trailhead"   {
             
         }
         else {
@@ -345,6 +403,18 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         }
     }
     
+    @IBAction func showOrHideSatelliteView(_ sender: Any) {
+        
+        if(isSatelliteView) {
+            mapView.mapType = .terrain
+            isSatelliteView = false
+        } else {
+            mapView.mapType = .satellite
+            isSatelliteView = true
+        }
+        
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
 
         if (segue.identifier == "toDetailTour2") {
@@ -356,18 +426,18 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
     }
     
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        // Hide the navigation bar on the this view controller
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        // Show the navigation bar on other view controllers
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//
+//        // Hide the navigation bar on the this view controller
+//        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+//    }
+//
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//
+//        // Show the navigation bar on other view controllers
+//        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+//    }
 
 }

@@ -345,6 +345,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="CGo-Nb-Kha">
                         <barButtonItem key="backBarButtonItem" title=" " id="jAP-S5-FbH"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="globe" catalog="system" id="4ok-Ee-wyr">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="showOrHideSatelliteView:" destination="WV3-vT-4DH" id="EAR-7z-T5R"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="NfK-m3-e3R" kind="show" identifier="toDetailTour2" id="aC0-AY-dPK"/>
@@ -522,7 +528,14 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <viewLayoutGuide key="safeArea" id="NGo-sQ-eBZ"/>
                     </view>
-                    <navigationItem key="navigationItem" id="x04-Yg-OQx"/>
+                    <navigationItem key="navigationItem" id="x04-Yg-OQx">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="globe" catalog="system" id="lr1-kj-xHK">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="showOrHideSatelliteView:" destination="SaB-nS-icq" id="KPB-jv-0UR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mfi-AB-aai" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -834,11 +847,12 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="NLH-Gv-DPh"/>
+        <segue reference="aC0-AY-dPK"/>
         <segue reference="IQQ-Hx-K96"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="IMG_0058" width="806" height="518"/>
+        <image name="globe" catalog="system" width="128" height="121"/>
         <image name="house" catalog="system" width="128" height="110"/>
         <image name="jepson_nw" width="2048" height="1536"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>

@@ -13,6 +13,8 @@ import GoogleMaps
 class DetailMapViewController: UIViewController, GMSMapViewDelegate {
 
     var passedTour: Tour!
+    var mapView: GMSMapView!
+    var isSatelliteView = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +27,7 @@ class DetailMapViewController: UIViewController, GMSMapViewDelegate {
 
         let camera = GMSCameraPosition.camera(withLatitude: lat, longitude: long, zoom: 14.0)
         
-        let mapView = GMSMapView.map(withFrame: view.frame, camera: camera)
+        mapView = GMSMapView.map(withFrame: view.frame, camera: camera)
         mapView.delegate = self
         mapView.mapType = .terrain
         mapView.settings.myLocationButton = true
@@ -90,10 +92,27 @@ class DetailMapViewController: UIViewController, GMSMapViewDelegate {
         sanJTram.position = CLLocationCoordinate2D(latitude: 33.813169, longitude: -116.638612)
         sanJTram.title = "Palm Springs Aerial Tramway"
         sanJTram.map = mapView
+        
+        //Snow Creek Trailhead
+        let snowCreek = GMSMarker()
+        snowCreek.position = CLLocationCoordinate2D(latitude: 33.898705, longitude: -116.679772)
+        snowCreek.title = "Snow Creek Trailhead"
+        snowCreek.icon = GMSMarker.markerImage(with: .brown)
+        snowCreek.map = mapView
 
     }
     
+    @IBAction func showOrHideSatelliteView(_ sender: Any) {
+        
+        if(isSatelliteView) {
+            mapView.mapType = .terrain
+            isSatelliteView = false
+        } else {
+            mapView.mapType = .satellite
+            isSatelliteView = true
+        }
+        
+    }
 
-    
 
 }

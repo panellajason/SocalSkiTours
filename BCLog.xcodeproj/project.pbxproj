@@ -20,7 +20,7 @@
 		FA50BAFF247D915B003D7507 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA50BAFE247D915B003D7507 /* Assets.xcassets */; };
 		FA50BB02247D915B003D7507 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA50BB00247D915B003D7507 /* LaunchScreen.storyboard */; };
 		FA5B46AB265D9A26002F87B5 /* ToursCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B46AA265D9A26002F87B5 /* ToursCollectionViewCell.swift */; };
-		FA5B46AD2663674F002F87B5 /* BigBearTours.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B46AC2663674F002F87B5 /* BigBearTours.swift */; };
+		FA5B46AD2663674F002F87B5 /* SanBernardinoTours.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B46AC2663674F002F87B5 /* SanBernardinoTours.swift */; };
 		FA5B46AF26648CF1002F87B5 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B46AE26648CF0002F87B5 /* UserService.swift */; };
 		FA5B46B12667271B002F87B5 /* DetailMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B46B02667271B002F87B5 /* DetailMapViewController.swift */; };
 		FA5B46B3266878C6002F87B5 /* TourService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B46B2266878C6002F87B5 /* TourService.swift */; };
@@ -52,7 +52,7 @@
 		FA50BB01247D915B003D7507 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA50BB03247D915B003D7507 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA5B46AA265D9A26002F87B5 /* ToursCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToursCollectionViewCell.swift; sourceTree = "<group>"; };
-		FA5B46AC2663674F002F87B5 /* BigBearTours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigBearTours.swift; sourceTree = "<group>"; };
+		FA5B46AC2663674F002F87B5 /* SanBernardinoTours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SanBernardinoTours.swift; sourceTree = "<group>"; };
 		FA5B46AE26648CF0002F87B5 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		FA5B46B02667271B002F87B5 /* DetailMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMapViewController.swift; sourceTree = "<group>"; };
 		FA5B46B2266878C6002F87B5 /* TourService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourService.swift; sourceTree = "<group>"; };
@@ -126,7 +126,7 @@
 				FA50BB03247D915B003D7507 /* Info.plist */,
 				FA2C0BD924A081A500CF6853 /* LoadingCell.swift */,
 				FA3A259E247E18F100A68C2C /* GoogleService-Info.plist */,
-				FA5B46AC2663674F002F87B5 /* BigBearTours.swift */,
+				FA5B46AC2663674F002F87B5 /* SanBernardinoTours.swift */,
 				FA5B46B426687925002F87B5 /* SanGabrielsTours.swift */,
 				FA85129B26916EBA0072E335 /* SanJacintoTours.swift */,
 				FA5B46B2266878C6002F87B5 /* TourService.swift */,
@@ -294,7 +294,7 @@
 				FA2C0BD6249690C200CF6853 /* HelperExtensions.swift in Sources */,
 				FA50BAF8247D9156003D7507 /* SceneDelegate.swift in Sources */,
 				FA5B46AB265D9A26002F87B5 /* ToursCollectionViewCell.swift in Sources */,
-				FA5B46AD2663674F002F87B5 /* BigBearTours.swift in Sources */,
+				FA5B46AD2663674F002F87B5 /* SanBernardinoTours.swift in Sources */,
 				FA2C0BCE248CD36700CF6853 /* SigninViewController.swift in Sources */,
 				FA6BF0E52651FDE300AD3EF1 /* MapViewController.swift in Sources */,
 				FA5B46B3266878C6002F87B5 /* TourService.swift in Sources */,

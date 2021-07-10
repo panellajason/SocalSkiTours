@@ -26,18 +26,11 @@ class UserService {
                     return
                 }
                 let favorites = documents.map { $0["tour_id"]! }
-                var tempTours = [Tour]()
-                BigBearTours.loadTours { newTours in
-                    tempTours.append(contentsOf: newTours)
-                }
-                SanGabrielsTours.loadTours { moreTours in
-                    tempTours.append(contentsOf: moreTours)
-                }
                 
                 var favoriteTours = [Tour]()
 
                 for favorite in favorites {
-                    for tour in tempTours {
+                    for tour in TourService.allTours {
                         if tour.tourID == (favorite as! String) {
                             favoriteTours.append(tour)
                         }
