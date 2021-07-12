@@ -18,7 +18,12 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 38))
+        imageView.contentMode = .scaleToFill
+        imageView.image = UIImage(named: "alltours")
+        navigationItem.titleView = imageView
+        
         //default camera view
         let camera = GMSCameraPosition.camera(withLatitude: 34.070986, longitude: -117.326830, zoom: 8.0)
             
@@ -28,6 +33,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         mapView.settings.myLocationButton = true
         mapView.settings.compassButton = true
         mapView.isMyLocationEnabled = true
+        mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 70, right: 0)
         view.addSubview(mapView)
         
         let southFork = GMSMarker()
@@ -48,29 +54,41 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         baldyTH.icon = GMSMarker.markerImage(with: .brown)
         baldyTH.map = mapView
         
+        let telegraphTH = GMSMarker()
+        telegraphTH.position = CLLocationCoordinate2D(latitude: 34.265280, longitude: -117.605923)
+        telegraphTH.title = "Mt Baldy Resort"
+        telegraphTH.icon = GMSMarker.markerImage(with: .brown)
+        telegraphTH.map = mapView
+        
+        let harwoodTH = GMSMarker()
+        harwoodTH.position = CLLocationCoordinate2D(latitude: 34.281825, longitude: -117.617570)
+        harwoodTH.title = "Mt Baldy Resort"
+        harwoodTH.icon = GMSMarker.markerImage(with: .brown)
+        harwoodTH.map = mapView
+        
         let badenTH = GMSMarker()
         badenTH.position = CLLocationCoordinate2D(latitude: 34.373250, longitude: -117.751986)
         badenTH.title = "Vincent Gap Trailhead"
         badenTH.icon = GMSMarker.markerImage(with: .brown)
         badenTH.map = mapView
         
-       let kraktaTH = GMSMarker()
-       kraktaTH.position = CLLocationCoordinate2D(latitude: 34.351453, longitude: -117.896972)
-       kraktaTH.title = "Krakta Ridge Trailhead"
-       kraktaTH.icon = GMSMarker.markerImage(with: .brown)
-       kraktaTH.map = mapView
+        let kraktaTH = GMSMarker()
+        kraktaTH.position = CLLocationCoordinate2D(latitude: 34.351453, longitude: -117.896972)
+        kraktaTH.title = "Krakta Ridge Trailhead"
+        kraktaTH.icon = GMSMarker.markerImage(with: .brown)
+        kraktaTH.map = mapView
        
-       let watermanTH = GMSMarker()
-       watermanTH.position = CLLocationCoordinate2D(latitude: 34.349698, longitude: -117.928709)
-       watermanTH.title = "Waterman Trailhead"
-       watermanTH.icon = GMSMarker.markerImage(with: .brown)
-       watermanTH.map = mapView
+        let watermanTH = GMSMarker()
+        watermanTH.position = CLLocationCoordinate2D(latitude: 34.349698, longitude: -117.928709)
+        watermanTH.title = "Mt Waterman Trailhead"
+        watermanTH.icon = GMSMarker.markerImage(with: .brown)
+        watermanTH.map = mapView
        
-       let sanJTram = GMSMarker()
-       sanJTram.position = CLLocationCoordinate2D(latitude: 33.813169, longitude: -116.638612)
-       sanJTram.title = "Palm Springs Aerial Tramway"
-       sanJTram.icon = GMSMarker.markerImage(with: .brown)
-       sanJTram.map = mapView
+        let sanJTram = GMSMarker()
+        sanJTram.position = CLLocationCoordinate2D(latitude: 33.813169, longitude: -116.638612)
+        sanJTram.title = "Palm Springs Aerial Tramway"
+        sanJTram.icon = GMSMarker.markerImage(with: .brown)
+        sanJTram.map = mapView
         
         let snowCreek = GMSMarker()
         snowCreek.position = CLLocationCoordinate2D(latitude: 33.898705, longitude: -116.679772)
@@ -117,8 +135,10 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         let charltonPath = GMSMutablePath()
         charltonPath.add(CLLocationCoordinate2D(latitude: 34.116077, longitude: -116.842706))
         charltonPath.add(CLLocationCoordinate2D(latitude: 34.114104, longitude: -116.851331))
-        charltonPath.add(CLLocationCoordinate2D(latitude: 34.116171, longitude: -116.853880))
-        
+        charltonPath.add(CLLocationCoordinate2D(latitude: 34.114789, longitude: -116.852401))
+        charltonPath.add(CLLocationCoordinate2D(latitude: 34.116171, longitude: -116.853881))
+        charltonPath.add(CLLocationCoordinate2D(latitude: 34.116468, longitude: -116.854931))
+
         let gorgPath = GMSMutablePath()
         gorgPath.add(CLLocationCoordinate2D(latitude: 34.130464, longitude: -116.843415))
         gorgPath.add(CLLocationCoordinate2D(latitude: 34.118907, longitude: -116.839350))
@@ -290,7 +310,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         let gorgN = GMSMarker()
         gorgN.position = CLLocationCoordinate2D(latitude: 34.101979, longitude: -116.830673)
         gorgN.title = "San Gorgonio"
-        gorgN.snippet = "North Slope"
+        gorgN.snippet = "North Face"
         gorgN.map = mapView
         
         let charDL = GMSMarker() 
@@ -300,13 +320,13 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         charDL.map = mapView
         
         let charMain = GMSMarker()
-        charMain.position = CLLocationCoordinate2D(latitude: 34.116171, longitude: -116.853880)
+        charMain.position = CLLocationCoordinate2D(latitude: 34.116171, longitude: -116.853881)
         charMain.title = "Charlton Peak"
         charMain.snippet = "Main Gully"
         charMain.map = mapView
         
         let charDol = GMSMarker()
-        charDol.position = CLLocationCoordinate2D(latitude: 34.116468, longitude: -116.854930)
+        charDol.position = CLLocationCoordinate2D(latitude: 34.116468, longitude: -116.854931)
         charDol.title = "Charlton Peak"
         charDol.snippet = "Dollar Col"
         charDol.map = mapView
@@ -347,6 +367,19 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         baldyN.snippet = "North Face"
         baldyN.map = mapView
         
+        let telegraph = GMSMarker()
+        telegraph.position = CLLocationCoordinate2D(latitude: 34.261694, longitude: -117.598649)
+        telegraph.title = "Telegraph Peak"
+        telegraph.snippet = "North Face"
+        telegraph.map = mapView
+        
+        let harwood = GMSMarker()
+        harwood.position = CLLocationCoordinate2D(latitude: 34.282861, longitude: -117.624912)
+        harwood.title = "Mt Harwood"
+        harwood.snippet = "East Chutes"
+        harwood.map = mapView
+        
+        
         let baden = GMSMarker()
         baden.position = CLLocationCoordinate2D(latitude: 34.361183, longitude: -117.762169)
         baden.title = "Baden Powell"
@@ -367,7 +400,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         
         let waterman = GMSMarker()
         waterman.position = CLLocationCoordinate2D(latitude: 34.345932, longitude: -117.933253)
-        waterman.title = "Mount Waterman"
+        waterman.title = "Mt Waterman"
         waterman.snippet = "Ski Area"
         waterman.map = mapView
                 
@@ -387,7 +420,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         
-        if marker.title == "South Fork Trailhead" || marker.title == "Sugarloaf Trailhead" || marker.title == "Mt Baldy Trailhead" || marker.title == "Vincent Gap Trailhead" || marker.title == "Krakta Ridge Trailhead" || marker.title == "Waterman Trailhead" || marker.title == "Palm Springs Aerial Tramway" || marker.title == "Snow Creek Trailhead"   {
+        if marker.title == "South Fork Trailhead" || marker.title == "Sugarloaf Trailhead" || marker.title == "Mt Baldy Trailhead" || marker.title == "Vincent Gap Trailhead" || marker.title == "Krakta Ridge Trailhead" || marker.title == "Mt Waterman Trailhead" || marker.title == "Palm Springs Aerial Tramway" || marker.title == "Snow Creek Trailhead" || marker.title == "Mt Baldy Resort"   {
             
         }
         else {
@@ -405,7 +438,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
     
     @IBAction func showOrHideSatelliteView(_ sender: Any) {
         
-        if(isSatelliteView) {
+        if isSatelliteView {
             mapView.mapType = .terrain
             isSatelliteView = false
         } else {

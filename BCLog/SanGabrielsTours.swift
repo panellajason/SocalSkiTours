@@ -50,6 +50,33 @@ class SanGabrielsTours {
         (nPath as AnyObject).add(CLLocationCoordinate2D(latitude: 34.289109, longitude: -117.647143))
         let baldyN = Tour(path: nPath as! GMSMutablePath, id: "34.289109 -117.647143", imageURL: [#imageLiteral(resourceName: "nface"), #imageLiteral(resourceName: "nface2"), #imageLiteral(resourceName: "northf1"), #imageLiteral(resourceName: "northf2"), #imageLiteral(resourceName: "Screen Shot 2021-06-05 at 12.08.30 PM")], distance: "4.5 miles", description: "Despite being the most popular mountain in Southern California, the North Face of Mt Baldy rarely gets ridden in comparison to the Bowl, due to a few reasons. To start, you have to hike back up to the summit after riding the line (after the nearly 4,000 vert to get to the summit) because there's no way out. Next, as Andy Lewicky puts it, 'The North face is usually an ice rink' for most of the season due to excessively high moisture-laden winds, and by the time spring comes around the Bowl is too melted out to descend to the trailhead making the skiing-to-hiking ratio quite low. Finally, the North Face ends in a steep, narrow couloir (aptly named the Bottleneck Couloir) which is more of a waterfall, but this feature can be skipped by traversing skier's right at the ~9,000 ft mark. All of the various lines down the North face and West Baldy's North Face are impressively steep and sustained, looking almost Colorado-esque from afar. Take the normal approach to Mt Baldy's summit and make sure you can climb back up the line you skied. Descend the Baldy Bowl to get back to the trailhead.", title: "Mt Baldy: North Face", aspect: "N", base: "6,100 ft", trailhead: "Mt Baldy Trailhead", summit: "10,000 ft", angle: "40-45")
         
+        //---------------------------------------------
+        //change trailhead from string to gms marker so detailmap only displays 1 TH
+        //paths for telegraph and harwood
+        //no favorites yet tablecell
+        
+        let telegraphPath = GMSMutablePath()
+        telegraphPath.add(CLLocationCoordinate2D(latitude: 34.349698, longitude: -117.928709))
+        
+        telegraphPath.add(CLLocationCoordinate2D(latitude: 34.349296, longitude: -117.928535))
+        telegraphPath.add(CLLocationCoordinate2D(latitude: 34.349689, longitude: -117.926171))
+        telegraphPath.add(CLLocationCoordinate2D(latitude: 34.348609, longitude: -117.927180))
+        telegraphPath.add(CLLocationCoordinate2D(latitude: 34.346928, longitude: -117.925932))
+        telegraphPath.add(CLLocationCoordinate2D(latitude: 34.345188, longitude: -117.929851))
+        telegraphPath.add(CLLocationCoordinate2D(latitude: 34.345665, longitude: -117.933310))
+        let telegraph = Tour(path: telegraphPath, id: "34.261694 -117.598649", imageURL: [#imageLiteral(resourceName: "telegraph"), #imageLiteral(resourceName: "telegraph3"),#imageLiteral(resourceName: "telegraph2")], distance: "1 mile", description: "Southern California isn't known for its lift-accessed backcountry but Mt Baldy Resort does offer some great descents when there's snow.", title: "Telegraph Peak: North Face", aspect: "N", base: "8,600 ft", trailhead: "Mt Baldy Resort", summit: "9,000 ft", angle: "40-45")
+        
+        let harwoodPath = GMSMutablePath()
+        harwoodPath.add(CLLocationCoordinate2D(latitude: 34.349698, longitude: -117.928709))
+        
+        harwoodPath.add(CLLocationCoordinate2D(latitude: 34.349296, longitude: -117.928535))
+        harwoodPath.add(CLLocationCoordinate2D(latitude: 34.349689, longitude: -117.926171))
+        harwoodPath.add(CLLocationCoordinate2D(latitude: 34.348609, longitude: -117.927180))
+        harwoodPath.add(CLLocationCoordinate2D(latitude: 34.346928, longitude: -117.925932))
+        harwoodPath.add(CLLocationCoordinate2D(latitude: 34.345188, longitude: -117.929851))
+        harwoodPath.add(CLLocationCoordinate2D(latitude: 34.345665, longitude: -117.933310))
+        let harwood = Tour(path: harwoodPath, id: "34.282861 -117.624912", imageURL: [#imageLiteral(resourceName: "harwood"),#imageLiteral(resourceName: "harwood4"), #imageLiteral(resourceName: "harwood2"),#imageLiteral(resourceName: "harwood3")], distance: "1/2 mile", description: "Situated along the infamous Devil's Backbone, Mt Harwood's East Chutes are some of Southern California's best lift-accessed backcountry. When the stars align, which doesn't happen all that often down here, these chutes offer a sustained 3,000 foot descent almost directly back to the resort parking lot. The snow conditions in the San Gabriel's can change very quickly; what may be soft powder on one aspect or elevation will be mashed potatoes on another, espescially on these sun-exposed, east-southeast facing slopes. Rockfall and avalanches are very common as a result. Year after year, the Backbone trail is closed from the resort after injuries and/or deaths due to ice and breaking cornices. From Mt Baldy resort, follow the Devil's Backbone ridge for about a half mile and the east facing chutes will be below you. Ski down for as long as the snow lasts and walk back to your car at the resort parking lot.", title: "Mt Harwood: East Chutes", aspect: "E-SE", base: "8,500 ft", trailhead: "Mt Baldy Resort", summit: "9,000 ft", angle: "40-45")
+        
         let kraktaPath = GMSMutablePath()
         kraktaPath.add(CLLocationCoordinate2D(latitude: 34.351453, longitude: -117.896972))
         kraktaPath.add(CLLocationCoordinate2D(latitude: 34.351197, longitude: -117.897462))
@@ -66,12 +93,14 @@ class SanGabrielsTours {
         watermanPath.add(CLLocationCoordinate2D(latitude: 34.346928, longitude: -117.925932))
         watermanPath.add(CLLocationCoordinate2D(latitude: 34.345188, longitude: -117.929851))
         watermanPath.add(CLLocationCoordinate2D(latitude: 34.345665, longitude: -117.933310))
-        let waterman = Tour(path: watermanPath, id: "34.345932 -117.933253", imageURL: [#imageLiteral(resourceName: "waterman"), #imageLiteral(resourceName: "waterman2")], distance: "1 mile", description: "Although still operating, Mount Waterman Ski Lifts is open at such an inconsistent rate (usually weekends, if at all) it may as well be considered a backcountry destination. Boasting the first chairlift in Southern California and second in the state, Waterman opened in 1939 and is a gem in Socal's ski history. The website is still active and lift-accessed skiing does happen here, so don't be suprised if the resort is open when you arrive; just drive down the road and ski something else (Krakta Ridge, Buckhorn, Throop, Islip). The joys of Waterman are its steep, open ski runs, tight gullies and parking as close as it gets to the goods. There are plently of other options just off of the resort area as well. Some of which that are much more committing and dangerous than the normal Waterman day, such as the Avalanche Chutes off of the summit which drop you a few miles down the road from the parking area. Highway 2 can be quite fickle with opening after a storm so keep an eye on Caltrans before making the drive; this is not a top priority highway compared to others in Socal. The western San Gabriels are lower elevation and very close to the ocean so San Gabriel Cement/Stucco (similar to Sierra Cement but worse) is common.", title: "Mount Waterman: Ski Area", aspect: "N", base: "6,800 ft", trailhead: "Waterman Parking", summit: "7,800 ft", angle: "25-30")
+        let waterman = Tour(path: watermanPath, id: "34.345932 -117.933253", imageURL: [#imageLiteral(resourceName: "waterman"), #imageLiteral(resourceName: "waterman2")], distance: "1 mile", description: "Although still operating, Mount Waterman Ski Lifts is open at such an inconsistent rate (usually weekends, if at all) it may as well be considered a backcountry destination. Boasting the first chairlift in Southern California and second in the state, Waterman opened in 1939 and is a gem in Socal's ski history. The website is still active and lift-accessed skiing does happen here, so don't be suprised if the resort is open when you arrive; just drive down the road and ski something else (Krakta Ridge, Buckhorn, Throop, Islip). The joys of Waterman are its steep, open ski runs, tight gullies and parking as close as it gets to the goods. There are plently of other options just off of the resort area as well. Some of which that are much more committing and dangerous than the normal Waterman day, such as the Avalanche Chutes off of the summit which drop you a few miles down the road from the parking area. Highway 2 can be quite fickle with opening after a storm so keep an eye on Caltrans before making the drive; this is not a top priority highway compared to others in Socal. The western San Gabriels are lower elevation and very close to the ocean so San Gabriel Cement/Stucco (similar to Sierra Cement but worse) is common.", title: "Mt Waterman: Ski Area", aspect: "N", base: "6,800 ft", trailhead: "Waterman Parking", summit: "7,800 ft", angle: "25-30")
         
         tempTours.append(baldyBowl)
         tempTours.append(baldyN)
         tempTours.append(baden)
         tempTours.append(badenE)
+        tempTours.append(telegraph)
+        tempTours.append(harwood)
         tempTours.append(krakta)
         tempTours.append(waterman)
 

@@ -762,10 +762,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pg7-Uv-f4r">
-                                                    <rect key="frame" x="5" y="0.0" width="404" height="95"/>
+                                                    <rect key="frame" x="5" y="5" width="404" height="90"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qcL-jy-P0i">
-                                                            <rect key="frame" x="5" y="5" width="85" height="85"/>
+                                                            <rect key="frame" x="5" y="2.6666666666666643" width="85" height="85"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="85" id="Td4-wY-df3"/>
                                                                 <constraint firstAttribute="width" constant="85" id="lhA-WL-YiN"/>
@@ -777,7 +777,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0tR-66-9yb">
-                                                            <rect key="frame" x="100" y="10" width="294" height="75"/>
+                                                            <rect key="frame" x="100" y="10" width="294" height="70"/>
                                                             <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -803,7 +803,7 @@
                                             <constraints>
                                                 <constraint firstItem="Pg7-Uv-f4r" firstAttribute="leading" secondItem="wy3-Ge-LIr" secondAttribute="leading" constant="5" id="4aF-Vm-N0j"/>
                                                 <constraint firstAttribute="bottom" secondItem="Pg7-Uv-f4r" secondAttribute="bottom" constant="5" id="9TU-2F-cPB"/>
-                                                <constraint firstItem="Pg7-Uv-f4r" firstAttribute="top" secondItem="wy3-Ge-LIr" secondAttribute="top" id="JTF-Zk-5AP"/>
+                                                <constraint firstItem="Pg7-Uv-f4r" firstAttribute="top" secondItem="wy3-Ge-LIr" secondAttribute="top" constant="5" id="JTF-Zk-5AP"/>
                                                 <constraint firstAttribute="trailing" secondItem="Pg7-Uv-f4r" secondAttribute="trailing" constant="5" id="tau-fi-puY"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -847,7 +847,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="aC0-AY-dPK"/>
+        <segue reference="7Pc-2i-bcE"/>
         <segue reference="IQQ-Hx-K96"/>
     </inferredMetricsTieBreakers>
     <resources>

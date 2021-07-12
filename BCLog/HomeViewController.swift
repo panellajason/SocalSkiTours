@@ -31,7 +31,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     
     let menu: DropDown = {
         let menu = DropDown()
-        menu.dataSource = ["San Gorgonio Wilderness", "San Gabriel Mountains", "San Jacinto Area"]
+        menu.dataSource = ["All Tours", "San Gorgonio Wilderness", "San Gabriel Mountains", "San Jacinto Area"]
         return menu
     }()
     
@@ -48,14 +48,20 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
         
         menu.anchorView = collectionView
+        menu.selectRow(0)
         menu.selectionAction = { index, title in
+            self.filteredTours.removeAll()
+            self.tours.removeAll()
             
             if index == 0 {
+                self.tours.append(contentsOf: TourService.allTours)
+            }
+            if index == 1 {
                 SanBernardinoTours.loadTours { moreTours in
                     self.tours.append(contentsOf: moreTours)
                 }
             }
-            else if index == 1 {
+            else if index == 2 {
                 SanGabrielsTours.loadTours { moreTours in
                     self.tours.append(contentsOf: moreTours)
                 }
@@ -64,11 +70,9 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
                     self.tours.append(contentsOf: moreTours)
                 }
             }
-
-
+            
             self.filteredTours = self.tours
             self.collectionView.reloadData()
-
         }
         
         tours = TourService.allTours
@@ -81,8 +85,8 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func filterByRegion(_ sender: Any) {
         searchTF.text = ""
-        filteredTours.removeAll()
-        tours.removeAll()
+        self.view.endEditing(true)
+        collectionView.setContentOffset(.zero, animated: true)
         menu.show()
     }
     
@@ -96,6 +100,8 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
             filteredTours.removeAll()
             filteredTours = TourService.allTours
             collectionView.reloadData()
+            collectionView.setContentOffset(.zero, animated: true)
+            menu.selectRow(0)
 
             topStackView.isHidden = true
             searchTF.resignFirstResponder()
@@ -125,6 +131,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         }
         filtered = true
         collectionView.reloadData()
+        collectionView.setContentOffset(.zero, animated: true)
     }
     
     

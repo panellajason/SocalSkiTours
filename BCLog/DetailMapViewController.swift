@@ -32,6 +32,8 @@ class DetailMapViewController: UIViewController, GMSMapViewDelegate {
         mapView.mapType = .terrain
         mapView.settings.myLocationButton = true
         mapView.settings.compassButton = true
+        mapView.isMyLocationEnabled = true
+        mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 70, right: 0)
         view.addSubview(mapView)
         
         //Tour Marker
@@ -65,6 +67,20 @@ class DetailMapViewController: UIViewController, GMSMapViewDelegate {
         baldyTH.title = "Mt Baldy Trailhead"
         baldyTH.icon = GMSMarker.markerImage(with: .brown)
         baldyTH.map = mapView
+        
+        //Telegraph Trailhead
+        let telegraphTH = GMSMarker()
+        telegraphTH.position = CLLocationCoordinate2D(latitude: 34.265280, longitude: -117.605923)
+        telegraphTH.title = "Mt Baldy Resort"
+        telegraphTH.icon = GMSMarker.markerImage(with: .brown)
+        
+        //Harwood Trailhead
+        let harwoodTH = GMSMarker()
+        harwoodTH.position = CLLocationCoordinate2D(latitude: 34.281825, longitude: -117.617570)
+        harwoodTH.title = "Mt Baldy Resort"
+        harwoodTH.icon = GMSMarker.markerImage(with: .brown)
+        harwoodTH.map = mapView
+        telegraphTH.map = mapView
         
         //Vincent Gulch Trailhead
         let badenTH = GMSMarker()
