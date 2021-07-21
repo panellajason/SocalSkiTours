@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 import FirebaseAuth
+import BLTNBoard
 
 class FavoritesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -17,8 +18,22 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     var ref: DocumentReference? = nil
     let db = Firestore.firestore()
     var tourToPass: Tour!
+    private lazy var boardManager: BLTNItemManager = {
+       
+        let item = BLTNPageItem(title: "Account")
+        item.appearance.titleTextColor = .black
+        item.actionButtonTitle = "Logout"
+        item.appearance.actionButtonColor = .systemRed
+        item.actionHandler = { _ in
+            try! Auth.auth().signOut()
+            UserService.currentUserProfile = nil
+            self.performSegue(withIdentifier: "toLogout", sender: self)
+        }
+        return BLTNItemManager(rootItem: item)
+    }()
     
     @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 38))
@@ -26,23 +41,24 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         imageView.image = UIImage(named: "favorites")
         navigationItem.titleView = imageView
                 
-        
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         favoriteTours = UserService.currentUserProfile!.favoriteTours
         tableView.reloadData()
     }
     
-   @IBAction func logOut(_ sender: Any) {
-       try! Auth.auth().signOut()
-       UserService.currentUserProfile = nil
-       self.performSegue(withIdentifier: "toLogout", sender: self)
+    @IBAction func openAccountPage(_ sender: Any) {
+        boardManager.showBulletin(above: self)
+    }
+    
+    @IBAction func openResourcesPage(_ sender: Any) {
+        self.performSegue(withIdentifier: "toResources", sender: self)
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

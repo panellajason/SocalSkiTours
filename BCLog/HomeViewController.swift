@@ -47,6 +47,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         collectionView.delegate = self
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
         
+        tours = TourService.allTours
         menu.anchorView = collectionView
         menu.selectRow(0)
         menu.selectionAction = { index, title in
@@ -75,7 +76,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
             self.collectionView.reloadData()
         }
         
-        tours = TourService.allTours
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
@@ -90,8 +90,9 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         menu.show()
     }
     
-    
     @IBAction func showOrHideSearch(_ sender: Any) {
+        collectionView.setContentOffset(.zero, animated: true)
+
         if topStackView.isHidden {
             topStackView.isHidden = false
             barButtonItem.image = UIImage(systemName: "xmark")
@@ -100,7 +101,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
             filteredTours.removeAll()
             filteredTours = TourService.allTours
             collectionView.reloadData()
-            collectionView.setContentOffset(.zero, animated: true)
             menu.selectRow(0)
 
             topStackView.isHidden = true

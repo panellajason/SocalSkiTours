@@ -52,6 +52,9 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
        self.view.endEditing(true)
     }
     
+    @IBAction func closeView(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     @IBAction func signUp(_ sender: UIButton) {
         handleSignUp()

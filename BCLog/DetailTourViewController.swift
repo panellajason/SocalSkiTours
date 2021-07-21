@@ -26,43 +26,21 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet var detailElevation: UILabel!
     @IBOutlet var detailTrailHead: UILabel!
     @IBOutlet var favoritesButton: UIBarButtonItem!
-    
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var topScrollView: UIScrollView!
     
-
-        
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //query data for one tour to apply correct star image
-        db.collection("user_favorites").whereField("tour_id", isEqualTo: passedTour.tourID).whereField("user_id", isEqualTo: userID as Any)
-            .getDocuments() { (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                    if !querySnapshot!.documents.isEmpty {
-                        self.favoritesButton.image = UIImage(systemName: "star.fill")
-                        self.isFavorite = true
-                        
-                    }
-                    else {
-                        self.favoritesButton.image = UIImage(systemName: "star")
-                        self.isFavorite = false
-
-                    }
-                }
-                self.removeSpinner()
-        }
+        self.title = passedTour.tourMarker.title?.uppercased()
         
         pageControl.numberOfPages = passedTour.tourImages.count
         pageControl.currentPage = 0
         topScrollView.delegate = self
         topScrollView.frame = view.frame
         
-        topScrollView.minimumZoomScale = 1.0
-        topScrollView.maximumZoomScale = 6.0
+        //Add the passed Tour's images to horizontal scrollview
         for i in 0..<passedTour.tourImages.count {
+            
             
             let imageView = UIImageView()
             imageView.image = passedTour.tourImages[i]
@@ -74,80 +52,30 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
             
         }
         
-        detailTitle.text = passedTour.tourTitle
+        //Add the passed Tour's details to textviews
+        detailTitle.text = passedTour.tourMarker.snippet
         detailDescription.text = passedTour.tourDescription
         detailAspect.text = "Aspect: " + passedTour.tourAspect + " // Slope Angle: " + passedTour.tourAngle + " degrees"
-        detailElevation.text = "Base: " + passedTour.tourBase + " // Summit: " + passedTour.tourSummitElevation
-        detailTrailHead.text = passedTour.tourTrailhead + " // Approach: " + passedTour.tourDistance
+        detailElevation.text = "Base: " + passedTour.tourBaseElevation + " // Summit: " + passedTour.tourSummitElevation
+        detailTrailHead.text = passedTour.tourTrailhead.title! + " // Approach: " + passedTour.tourDistance
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        //query data for one tour to apply correct star image
-        db.collection("user_favorites").whereField("tour_id", isEqualTo: passedTour.tourID).whereField("user_id", isEqualTo: userID as Any)
-            .getDocuments() { (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                    if !querySnapshot!.documents.isEmpty {
-                        self.favoritesButton.image = UIImage(systemName: "star.fill")
-                        self.isFavorite = true
-                        
-                    }
-                    else {
-                        self.favoritesButton.image = UIImage(systemName: "star")
-                        self.isFavorite = false
-
-                    }
-                }
-                self.removeSpinner()
-        }
+        checkForFavorites()
     }
     
     @IBAction func addToFavorites(_ sender: Any) {
         self.showSpinner(onView: self.view)
 
         if !isFavorite {
-            //add to favorites
-            ref = db.collection("user_favorites").addDocument(data: [
-                "tour_id": passedTour.tourID,
-                "user_id": userID as Any
-            ]) { err in
-                if let err = err {
-                    print("Error adding document: \(err)")
-                } else {
-                    self.isFavorite = true
-                    self.favoritesButton.image = UIImage(systemName: "star.fill")
-
-                }
-            }
-
+            
+            addToFavorites()
         } else {
-            //remove from favorites
-            db.collection("user_favorites").whereField("tour_id", isEqualTo: passedTour.tourID).whereField("user_id", isEqualTo: userID as Any)
-                .getDocuments() { (querySnapshot, err) in
-                    if let err = err {
-                        print("Error getting documents: \(err)")
-                    } else {
-                        if !querySnapshot!.documents.isEmpty {
-                            
-                            self.db.collection("user_favorites").document(querySnapshot!.documents[0].documentID).delete() { err in
-                                if let err = err {
-                                    print("Error removing document: \(err)")
-                                } else {
-                                    print("Document successfully removed!")
-                                }
-                            }
-
-                            self.isFavorite = false
-                            self.favoritesButton.image = UIImage(systemName: "star")
-
-                        }
-                    }
-            }
+            
+            removeFromFavorites()
         }
-        
         self.removeSpinner()
     }
     
@@ -162,14 +90,73 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
         if (segue.identifier == "toDetailMap") {
             
             let viewController = segue.destination as! DetailMapViewController
-       
             viewController.passedTour = tourToPass
+            
+        }
+        
+    }
+    
+    func checkForFavorites() {
+        //Query data for one tour to apply correct star image
+        db.collection("user_favorites").whereField("tour_id", isEqualTo: passedTour.tourID).whereField("user_id", isEqualTo: userID as Any)
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    if !querySnapshot!.documents.isEmpty {
+                        self.favoritesButton.image = UIImage(systemName: "star.fill")
+                        self.isFavorite = true
+                    }
+                    else {
+                        self.favoritesButton.image = UIImage(systemName: "star")
+                        self.isFavorite = false
+                    }
+                }
+                self.removeSpinner()
         }
     }
+    
+    func addToFavorites() {
 
+        ref = db.collection("user_favorites").addDocument(data: [
+            "tour_id": passedTour.tourID,
+            "user_id": userID as Any
+        ]) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+            } else {
+                self.isFavorite = true
+                self.favoritesButton.image = UIImage(systemName: "star.fill")
+            }
+        }
+    }
+    
+    func removeFromFavorites() {
+
+        db.collection("user_favorites").whereField("tour_id", isEqualTo: passedTour.tourID).whereField("user_id", isEqualTo: userID as Any)
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    if !querySnapshot!.documents.isEmpty {
+                        
+                        self.db.collection("user_favorites").document(querySnapshot!.documents[0].documentID).delete() { err in
+                            if let err = err {
+                                print("Error removing document: \(err)")
+                            } else {
+                                print("Document successfully removed!")
+                            }
+                        }
+                        self.isFavorite = false
+                        self.favoritesButton.image = UIImage(systemName: "star")
+                    }
+                }
+        }
+    }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let pageIndex = round(scrollView.contentOffset.x/view.frame.width)
         pageControl.currentPage = Int(pageIndex)
     }
+    
 }

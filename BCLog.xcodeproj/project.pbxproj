@@ -31,6 +31,7 @@
 		FA6BF0EF2652E51100AD3EF1 /* Tour.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6BF0EE2652E51100AD3EF1 /* Tour.swift */; };
 		FA6BF0F1265390D900AD3EF1 /* DetailTourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6BF0F0265390D900AD3EF1 /* DetailTourViewController.swift */; };
 		FA85129C26916EBA0072E335 /* SanJacintoTours.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA85129B26916EBA0072E335 /* SanJacintoTours.swift */; };
+		FA8512A026A73C1A0072E335 /* ResourcesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA85129F26A73C1A0072E335 /* ResourcesViewController.swift */; };
 		FAFE5231266EB25400A99D36 /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE5230266EB25400A99D36 /* FavoritesTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		FA6BF0EE2652E51100AD3EF1 /* Tour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tour.swift; sourceTree = "<group>"; };
 		FA6BF0F0265390D900AD3EF1 /* DetailTourViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTourViewController.swift; sourceTree = "<group>"; };
 		FA85129B26916EBA0072E335 /* SanJacintoTours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SanJacintoTours.swift; sourceTree = "<group>"; };
+		FA85129F26A73C1A0072E335 /* ResourcesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesViewController.swift; sourceTree = "<group>"; };
 		FAFE5230266EB25400A99D36 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,6 +143,7 @@
 				FA6BF0E42651FDE300AD3EF1 /* MapViewController.swift */,
 				FA5B46B02667271B002F87B5 /* DetailMapViewController.swift */,
 				FA6BF0E8265200A400AD3EF1 /* FavoritesViewController.swift */,
+				FA85129F26A73C1A0072E335 /* ResourcesViewController.swift */,
 			);
 			path = BCLog;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 			files = (
 				FA6BF0E72651FFA500AD3EF1 /* HomeViewController.swift in Sources */,
 				FA2C0BC8248C995F00CF6853 /* SignUpViewController.swift in Sources */,
+				FA8512A026A73C1A0072E335 /* ResourcesViewController.swift in Sources */,
 				FA6BF0F1265390D900AD3EF1 /* DetailTourViewController.swift in Sources */,
 				FA85129C26916EBA0072E335 /* SanJacintoTours.swift in Sources */,
 				FA2C0BDA24A081A500CF6853 /* LoadingCell.swift in Sources */,

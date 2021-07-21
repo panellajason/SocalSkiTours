@@ -18,15 +18,13 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 38))
         imageView.contentMode = .scaleToFill
         imageView.image = UIImage(named: "alltours")
         navigationItem.titleView = imageView
-        
-        //default camera view
-        let camera = GMSCameraPosition.camera(withLatitude: 34.070986, longitude: -117.326830, zoom: 8.0)
             
+        //MapView setup
+        let camera = GMSCameraPosition.camera(withLatitude: 34.070986, longitude: -117.326830, zoom: 8.0)
         mapView = GMSMapView.map(withFrame: view.frame, camera: camera)
         mapView.delegate = self
         mapView.mapType = .terrain
@@ -36,391 +34,32 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 70, right: 0)
         view.addSubview(mapView)
         
-        let southFork = GMSMarker()
-        southFork.position = CLLocationCoordinate2D(latitude: 34.161167, longitude: -116.871683)
-        southFork.title = "South Fork Trailhead"
-        southFork.icon = GMSMarker.markerImage(with: .brown)
-        southFork.map = mapView
         
-        let sugarTH = GMSMarker()
-        sugarTH.position = CLLocationCoordinate2D(latitude: 34.231631, longitude: -116.806132)
-        sugarTH.title = "Sugarloaf Trailhead"
-        sugarTH.icon = GMSMarker.markerImage(with: .brown)
-        sugarTH.map = mapView
+        //------------------------------------
+        //click on photo for zoom
+        //resources page
+        //welcome page
+        //about/disclosures
+        //forgot password
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        let baldyTH = GMSMarker()
-        baldyTH.position = CLLocationCoordinate2D(latitude: 34.266194, longitude: -117.626840)
-        baldyTH.title = "Mt Baldy Trailhead"
-        baldyTH.icon = GMSMarker.markerImage(with: .brown)
-        baldyTH.map = mapView
-        
-        let telegraphTH = GMSMarker()
-        telegraphTH.position = CLLocationCoordinate2D(latitude: 34.265280, longitude: -117.605923)
-        telegraphTH.title = "Mt Baldy Resort"
-        telegraphTH.icon = GMSMarker.markerImage(with: .brown)
-        telegraphTH.map = mapView
-        
-        let harwoodTH = GMSMarker()
-        harwoodTH.position = CLLocationCoordinate2D(latitude: 34.281825, longitude: -117.617570)
-        harwoodTH.title = "Mt Baldy Resort"
-        harwoodTH.icon = GMSMarker.markerImage(with: .brown)
-        harwoodTH.map = mapView
-        
-        let badenTH = GMSMarker()
-        badenTH.position = CLLocationCoordinate2D(latitude: 34.373250, longitude: -117.751986)
-        badenTH.title = "Vincent Gap Trailhead"
-        badenTH.icon = GMSMarker.markerImage(with: .brown)
-        badenTH.map = mapView
-        
-        let kraktaTH = GMSMarker()
-        kraktaTH.position = CLLocationCoordinate2D(latitude: 34.351453, longitude: -117.896972)
-        kraktaTH.title = "Krakta Ridge Trailhead"
-        kraktaTH.icon = GMSMarker.markerImage(with: .brown)
-        kraktaTH.map = mapView
-       
-        let watermanTH = GMSMarker()
-        watermanTH.position = CLLocationCoordinate2D(latitude: 34.349698, longitude: -117.928709)
-        watermanTH.title = "Mt Waterman Trailhead"
-        watermanTH.icon = GMSMarker.markerImage(with: .brown)
-        watermanTH.map = mapView
-       
-        let sanJTram = GMSMarker()
-        sanJTram.position = CLLocationCoordinate2D(latitude: 33.813169, longitude: -116.638612)
-        sanJTram.title = "Palm Springs Aerial Tramway"
-        sanJTram.icon = GMSMarker.markerImage(with: .brown)
-        sanJTram.map = mapView
-        
-        let snowCreek = GMSMarker()
-        snowCreek.position = CLLocationCoordinate2D(latitude: 33.898705, longitude: -116.679772)
-        snowCreek.title = "Snow Creek Trailhead"
-        snowCreek.icon = GMSMarker.markerImage(with: .brown)
-        snowCreek.map = mapView
-        
-        let sugPath = GMSMutablePath()
-        sugPath.add(CLLocationCoordinate2D(latitude: 34.231631, longitude: -116.806132))
-        sugPath.add(CLLocationCoordinate2D(latitude: 34.225995, longitude: -116.813088))
-        sugPath.add(CLLocationCoordinate2D(latitude: 34.218608, longitude: -116.805902))
-        sugPath.add(CLLocationCoordinate2D(latitude: 34.215235, longitude: -116.803571))
-        sugPath.add(CLLocationCoordinate2D(latitude: 34.215126, longitude: -116.795548))
-        sugPath.add(CLLocationCoordinate2D(latitude: 34.209479, longitude: -116.794252))
-        sugPath.add(CLLocationCoordinate2D(latitude: 34.204253, longitude: -116.796951))
-        
-        let sugTopPath = GMSMutablePath()
-        sugTopPath.add(CLLocationCoordinate2D(latitude: 34.225995, longitude: -116.813088))
-        sugTopPath.add(CLLocationCoordinate2D(latitude: 34.218420, longitude: -116.817519))
-        sugTopPath.add(CLLocationCoordinate2D(latitude: 34.212041, longitude: -116.819643))
-        sugTopPath.add(CLLocationCoordinate2D(latitude: 34.203841, longitude: -116.816965))
-        sugTopPath.add(CLLocationCoordinate2D(latitude: 34.198727, longitude: -116.814428))
-        
-        let sfPath = GMSMutablePath()
-        //to christmas tree hill
-        sfPath.add(CLLocationCoordinate2D(latitude: 34.161167, longitude: -116.871683))
-        sfPath.add(CLLocationCoordinate2D(latitude: 34.158697, longitude: -116.871030))
-        sfPath.add(CLLocationCoordinate2D(latitude: 34.157153, longitude: -116.867553))
-        sfPath.add(CLLocationCoordinate2D(latitude: 34.155129, longitude: -116.868068))
-        sfPath.add(CLLocationCoordinate2D(latitude: 34.147831, longitude: -116.855580))
-        sfPath.add(CLLocationCoordinate2D(latitude: 34.130464, longitude: -116.843415))
-        sfPath.add(CLLocationCoordinate2D(latitude: 34.120446, longitude: -116.842900))
-        
-        let altTreesPath = GMSMutablePath()
-        altTreesPath.add(CLLocationCoordinate2D(latitude: 34.147831, longitude: -116.855580))
-        altTreesPath.add(CLLocationCoordinate2D(latitude: 34.137137, longitude: -116.865890))
-
-        let altAvyPath = GMSMutablePath()
-        altAvyPath.add(CLLocationCoordinate2D(latitude: 34.147831, longitude: -116.855580))
-        altAvyPath.add(CLLocationCoordinate2D(latitude: 34.144195, longitude: -116.853840))
-        altAvyPath.add(CLLocationCoordinate2D(latitude: 34.136789, longitude: -116.858281))
-        altAvyPath.add(CLLocationCoordinate2D(latitude: 34.131813, longitude: -116.866294))
-
-        let charltonPath = GMSMutablePath()
-        charltonPath.add(CLLocationCoordinate2D(latitude: 34.116077, longitude: -116.842706))
-        charltonPath.add(CLLocationCoordinate2D(latitude: 34.114104, longitude: -116.851331))
-        charltonPath.add(CLLocationCoordinate2D(latitude: 34.114789, longitude: -116.852401))
-        charltonPath.add(CLLocationCoordinate2D(latitude: 34.116171, longitude: -116.853881))
-        charltonPath.add(CLLocationCoordinate2D(latitude: 34.116468, longitude: -116.854931))
-
-        let gorgPath = GMSMutablePath()
-        gorgPath.add(CLLocationCoordinate2D(latitude: 34.130464, longitude: -116.843415))
-        gorgPath.add(CLLocationCoordinate2D(latitude: 34.118907, longitude: -116.839350))
-        gorgPath.add(CLLocationCoordinate2D(latitude: 34.108832, longitude: -116.838182))
-        gorgPath.add(CLLocationCoordinate2D(latitude: 34.099683, longitude: -116.838692))
-        gorgPath.add(CLLocationCoordinate2D(latitude: 34.099769, longitude: -116.836071))
-        gorgPath.add(CLLocationCoordinate2D(latitude: 34.101406, longitude: -116.834642))
-        gorgPath.add(CLLocationCoordinate2D(latitude: 34.101979, longitude: -116.830673))
-
-        //to jepson NE
-        sfPath.add(CLLocationCoordinate2D(latitude: 34.116077, longitude: -116.842706))
-        sfPath.add(CLLocationCoordinate2D(latitude: 34.110304, longitude: -116.843963))
-        sfPath.add(CLLocationCoordinate2D(latitude: 34.107230, longitude: -116.850109))
-        sfPath.add(CLLocationCoordinate2D(latitude: 34.103873, longitude: -116.850108))
-        sfPath.add(CLLocationCoordinate2D(latitude: 34.103435, longitude: -116.847386))
-        sfPath.add(CLLocationCoordinate2D(latitude: 34.101618, longitude: -116.843024))
-
-        let mankerPath = GMSMutablePath()
-        mankerPath.add(CLLocationCoordinate2D(latitude: 34.266194, longitude: -117.626840))
-        mankerPath.add(CLLocationCoordinate2D(latitude: 34.266502, longitude: -117.627251))
-        mankerPath.add(CLLocationCoordinate2D(latitude: 34.266809, longitude: -117.631681))
-        mankerPath.add(CLLocationCoordinate2D(latitude: 34.270642, longitude: -117.632719))
-        mankerPath.add(CLLocationCoordinate2D(latitude: 34.267859, longitude: -117.630642))
-        mankerPath.add(CLLocationCoordinate2D(latitude: 34.268151, longitude: -117.629389))
-        mankerPath.add(CLLocationCoordinate2D(latitude: 34.268303, longitude: -117.630210))
-        mankerPath.add(CLLocationCoordinate2D(latitude: 34.274164, longitude: -117.631524))
-        mankerPath.add(CLLocationCoordinate2D(latitude: 34.281466, longitude: -117.639026))
-        mankerPath.add(CLLocationCoordinate2D(latitude: 34.280631, longitude: -117.641719))
-        mankerPath.add(CLLocationCoordinate2D(latitude: 34.278896, longitude: -117.642305))
-        mankerPath.add(CLLocationCoordinate2D(latitude: 34.278029, longitude: -117.644836))
-        mankerPath.add(CLLocationCoordinate2D(latitude: 34.281319, longitude: -117.647120))
-        mankerPath.add(CLLocationCoordinate2D(latitude: 34.283921, longitude: -117.646997))
-        mankerPath.add(CLLocationCoordinate2D(latitude: 34.286354, longitude: -117.644966))
-        mankerPath.add(CLLocationCoordinate2D(latitude: 34.289109, longitude: -117.647143))
-
-        let badenPath = GMSMutablePath()
-        badenPath.add(CLLocationCoordinate2D(latitude: 34.373250, longitude: -117.751986))
-        badenPath.add(CLLocationCoordinate2D(latitude: 34.372731, longitude: -117.755967))
-        badenPath.add(CLLocationCoordinate2D(latitude: 34.371467, longitude: -117.754773))
-        badenPath.add(CLLocationCoordinate2D(latitude: 34.368462, longitude: -117.758920))
-        badenPath.add(CLLocationCoordinate2D(latitude: 34.361183, longitude: -117.762169))
-        badenPath.add(CLLocationCoordinate2D(latitude: 34.360693, longitude: -117.763157))
-        badenPath.add(CLLocationCoordinate2D(latitude: 34.358660, longitude: -117.764692))
-        badenPath.add(CLLocationCoordinate2D(latitude: 34.358217, longitude: -117.764430))
-        
-        let kraktaPath = GMSMutablePath()
-        kraktaPath.add(CLLocationCoordinate2D(latitude: 34.351453, longitude: -117.896972))
-        kraktaPath.add(CLLocationCoordinate2D(latitude: 34.351197, longitude: -117.897462))
-        kraktaPath.add(CLLocationCoordinate2D(latitude: 34.351116, longitude: -117.899042))
-        kraktaPath.add(CLLocationCoordinate2D(latitude: 34.349336, longitude: -117.899723))
-        kraktaPath.add(CLLocationCoordinate2D(latitude: 34.347442, longitude: -117.898000))
-        
-        let watermanPath = GMSMutablePath()
-        watermanPath.add(CLLocationCoordinate2D(latitude: 34.349698, longitude: -117.928709))
-        watermanPath.add(CLLocationCoordinate2D(latitude: 34.349296, longitude: -117.928535))
-        watermanPath.add(CLLocationCoordinate2D(latitude: 34.349689, longitude: -117.926171))
-        watermanPath.add(CLLocationCoordinate2D(latitude: 34.348609, longitude: -117.927180))
-        watermanPath.add(CLLocationCoordinate2D(latitude: 34.346928, longitude: -117.925932))
-        watermanPath.add(CLLocationCoordinate2D(latitude: 34.345188, longitude: -117.929851))
-        watermanPath.add(CLLocationCoordinate2D(latitude: 34.345665, longitude: -117.933310))
-        
-        let tramPath = GMSMutablePath()
-        tramPath.add(CLLocationCoordinate2D(latitude: 33.813169, longitude: -116.638612))
-        tramPath.add(CLLocationCoordinate2D(latitude: 33.812777, longitude: -116.643131))
-        tramPath.add(CLLocationCoordinate2D(latitude: 33.810911, longitude: -116.650454))
-        tramPath.add(CLLocationCoordinate2D(latitude: 33.807053, longitude: -116.654017))
-        tramPath.add(CLLocationCoordinate2D(latitude: 33.802389, longitude: -116.658565))
-        tramPath.add(CLLocationCoordinate2D(latitude: 33.803233, longitude: -116.668098))
-        tramPath.add(CLLocationCoordinate2D(latitude: 33.800257, longitude: -116.673663))
-        tramPath.add(CLLocationCoordinate2D(latitude: 33.807066, longitude: -116.674223))
-        tramPath.add(CLLocationCoordinate2D(latitude: 33.809758, longitude: -116.677387))
-        tramPath.add(CLLocationCoordinate2D(latitude: 33.814823, longitude: -116.674842))
-        tramPath.add(CLLocationCoordinate2D(latitude: 33.811873, longitude: -116.678853))
-        tramPath.add(CLLocationCoordinate2D(latitude: 33.814957, longitude: -116.677273))
-        
-        let snowCreekPath = GMSMutablePath()
-        snowCreekPath.add(CLLocationCoordinate2D(latitude: 33.898705, longitude: -116.679772))
-        snowCreekPath.add(CLLocationCoordinate2D(latitude: 33.889856, longitude: -116.667558))
-        snowCreekPath.add(CLLocationCoordinate2D(latitude: 33.876617, longitude: -116.660691))
-        snowCreekPath.add(CLLocationCoordinate2D(latitude: 33.867031, longitude: -116.659710))
-        snowCreekPath.add(CLLocationCoordinate2D(latitude: 33.864940, longitude: -116.658947))
-        snowCreekPath.add(CLLocationCoordinate2D(latitude: 33.848338, longitude: -116.668714))
-        snowCreekPath.add(CLLocationCoordinate2D(latitude: 33.838387, longitude: -116.675962))
-        snowCreekPath.add(CLLocationCoordinate2D(latitude: 33.832746, longitude: -116.678100))
-        snowCreekPath.add(CLLocationCoordinate2D(latitude: 33.829154, longitude: -116.678306))
-        snowCreekPath.add(CLLocationCoordinate2D(latitude: 33.827295, longitude: -116.677794))
-        snowCreekPath.add(CLLocationCoordinate2D(latitude: 33.824613, longitude: -116.677588))
-        snowCreekPath.add(CLLocationCoordinate2D(latitude: 33.823428, longitude: -116.677259))
-        snowCreekPath.add(CLLocationCoordinate2D(latitude: 33.820956, longitude: -116.679014))
-        snowCreekPath.add(CLLocationCoordinate2D(latitude: 33.818889, longitude: -116.678740))
-        snowCreekPath.add(CLLocationCoordinate2D(latitude: 33.814693, longitude: -116.679236))
-
-        let snowCreekLine = GMSPolyline(path: snowCreekPath)
-        snowCreekLine.strokeWidth = 3
-        snowCreekLine.map = mapView
-                
-        let tramLine = GMSPolyline(path: tramPath)
-        tramLine.strokeWidth = 3
-        tramLine.map = mapView
-        
-        let kraktaLine = GMSPolyline(path: kraktaPath)
-        kraktaLine.strokeWidth = 3
-        kraktaLine.map = mapView
-        
-        let waterLine = GMSPolyline(path: watermanPath)
-        waterLine.strokeWidth = 3
-        waterLine.map = mapView
-        
-        let badenLine = GMSPolyline(path: badenPath)
-        badenLine.strokeWidth = 3
-        badenLine.map = mapView
-        
-        let mankerLine = GMSPolyline(path: mankerPath)
-        mankerLine.strokeWidth = 3
-        mankerLine.map = mapView
-        
-        let sugarLine = GMSPolyline(path: sugPath)
-        sugarLine.strokeWidth = 3
-        sugarLine.map = mapView
-        
-        let sugarTopLine = GMSPolyline(path: sugTopPath)
-        sugarTopLine.strokeWidth = 3
-        sugarTopLine.map = mapView
-        
-        let charLine = GMSPolyline(path: charltonPath)
-        charLine.strokeWidth = 3
-        charLine.map = mapView
-        
-        let altTreesLine = GMSPolyline(path: altTreesPath)
-        altTreesLine.strokeWidth = 3
-        altTreesLine.map = mapView
-        
-        let altAvyLine = GMSPolyline(path: altAvyPath)
-        altAvyLine.strokeWidth = 3
-        altAvyLine.map = mapView
-        
-        let gorgLine = GMSPolyline(path: gorgPath)
-        gorgLine.strokeWidth = 3
-        gorgLine.map = mapView
-        
-        let polyline = GMSPolyline(path: sfPath)
-        polyline.strokeWidth = 3
-        polyline.map = mapView
-        
-        let jepsonNW = GMSMarker()
-        jepsonNW.position = CLLocationCoordinate2D(latitude: 34.103435, longitude: -116.847386)
-        jepsonNW.title = "Jepson Peak"
-        jepsonNW.snippet = "N chutes"
-        jepsonNW.map = mapView
-        
-        let jepsonNE = GMSMarker()
-        jepsonNE.position = CLLocationCoordinate2D(latitude: 34.101618, longitude: -116.843024)
-        jepsonNE.title = "Jepson Peak"
-        jepsonNE.snippet = "NE Chutes"
-        jepsonNE.map = mapView
-        
-        let bigDraw = GMSMarker()
-        bigDraw.position = CLLocationCoordinate2D(latitude: 34.099683, longitude: -116.838692)
-        bigDraw.title = "San Gorgonio"
-        bigDraw.snippet = "The Big Draw"
-        bigDraw.map = mapView
-        
-        let gorgNW = GMSMarker()
-        gorgNW.position = CLLocationCoordinate2D(latitude: 34.101406, longitude: -116.834642)
-        gorgNW.title = "San Gorgonio"
-        gorgNW.snippet = "NW Chutes"
-        gorgNW.map = mapView
-        
-        let gorgN = GMSMarker()
-        gorgN.position = CLLocationCoordinate2D(latitude: 34.101979, longitude: -116.830673)
-        gorgN.title = "San Gorgonio"
-        gorgN.snippet = "North Face"
-        gorgN.map = mapView
-        
-        let charDL = GMSMarker() 
-        charDL.position = CLLocationCoordinate2D(latitude: 34.114789, longitude: -116.852401)
-        charDL.title = "Charlton Peak"
-        charDL.snippet = "Dog Leg"
-        charDL.map = mapView
-        
-        let charMain = GMSMarker()
-        charMain.position = CLLocationCoordinate2D(latitude: 34.116171, longitude: -116.853881)
-        charMain.title = "Charlton Peak"
-        charMain.snippet = "Main Gully"
-        charMain.map = mapView
-        
-        let charDol = GMSMarker()
-        charDol.position = CLLocationCoordinate2D(latitude: 34.116468, longitude: -116.854931)
-        charDol.title = "Charlton Peak"
-        charDol.snippet = "Dollar Col"
-        charDol.map = mapView
-                
-        let alt = GMSMarker()
-        alt.position = CLLocationCoordinate2D(latitude: 34.131813, longitude: -116.866294)
-        alt.title = "Alto Diablo"
-        alt.snippet = "Avy Path"
-        alt.map = mapView
-        
-        let altTrees = GMSMarker()
-        altTrees.position = CLLocationCoordinate2D(latitude: 34.137137, longitude: -116.865890)
-        altTrees.title = "Alto Diablo"
-        altTrees.snippet = "North Trees"
-        altTrees.map = mapView
-       
-        let sugarloaf = GMSMarker()
-        sugarloaf.position = CLLocationCoordinate2D(latitude: 34.204253, longitude: -116.796951)
-        sugarloaf.title = "Sugarloaf"
-        sugarloaf.snippet = "Rock Bowl"
-        sugarloaf.map = mapView
-        
-        let sugarSum = GMSMarker()
-        sugarSum.position = CLLocationCoordinate2D(latitude: 34.198727, longitude: -116.814428)
-        sugarSum.title = "Sugarloaf"
-        sugarSum.snippet = "Summit"
-        sugarSum.map = mapView
-        
-        let baldyBowl = GMSMarker()
-        baldyBowl.position = CLLocationCoordinate2D(latitude: 34.286354, longitude: -117.644966)
-        baldyBowl.title = "Mt Baldy"
-        baldyBowl.snippet = "Baldy Bowl"
-        baldyBowl.map = mapView
-        
-        let baldyN = GMSMarker()
-        baldyN.position = CLLocationCoordinate2D(latitude: 34.289109, longitude: -117.647143)
-        baldyN.title = "Mt Baldy"
-        baldyN.snippet = "North Face"
-        baldyN.map = mapView
-        
-        let telegraph = GMSMarker()
-        telegraph.position = CLLocationCoordinate2D(latitude: 34.261694, longitude: -117.598649)
-        telegraph.title = "Telegraph Peak"
-        telegraph.snippet = "North Face"
-        telegraph.map = mapView
-        
-        let harwood = GMSMarker()
-        harwood.position = CLLocationCoordinate2D(latitude: 34.282861, longitude: -117.624912)
-        harwood.title = "Mt Harwood"
-        harwood.snippet = "East Chutes"
-        harwood.map = mapView
-        
-        
-        let baden = GMSMarker()
-        baden.position = CLLocationCoordinate2D(latitude: 34.361183, longitude: -117.762169)
-        baden.title = "Baden Powell"
-        baden.snippet = "NE Gullies"
-        baden.map = mapView
-        
-        let badenE = GMSMarker()
-        badenE.position = CLLocationCoordinate2D(latitude: 34.358358, longitude: -117.764446)
-        badenE.title = "Baden Powell"
-        badenE.snippet = "East Face"
-        badenE.map = mapView
-        
-        let krakta = GMSMarker()
-        krakta.position = CLLocationCoordinate2D(latitude: 34.347518, longitude: -117.897992)
-        krakta.title = "Krakta Ridge"
-        krakta.snippet = "Ski Area"
-        krakta.map = mapView
-        
-        let waterman = GMSMarker()
-        waterman.position = CLLocationCoordinate2D(latitude: 34.345932, longitude: -117.933253)
-        waterman.title = "Mt Waterman"
-        waterman.snippet = "Ski Area"
-        waterman.map = mapView
-                
-        let sanJEast = GMSMarker()
-        sanJEast.position = CLLocationCoordinate2D(latitude: 33.814957, longitude: -116.677273)
-        sanJEast.title = "San Jacinto"
-        sanJEast.snippet = "East Face"
-        sanJEast.map = mapView
-        
-        let sanJSnwCrk = GMSMarker()
-        sanJSnwCrk.position = CLLocationCoordinate2D(latitude: 33.814693, longitude: -116.679236)
-        sanJSnwCrk.title = "San Jacinto"
-        sanJSnwCrk.snippet = "Snow Creek"
-        sanJSnwCrk.map = mapView
-        
+        addToursToMap()
+    }
+    
+    func addToursToMap() {
+        for tour in TourService.allTours {
+            tour.tourTrailhead.map = mapView
+            tour.tourMarker.map = mapView
+            tour.tourPath.map = mapView
+        }
     }
         
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         
-        if marker.title == "South Fork Trailhead" || marker.title == "Sugarloaf Trailhead" || marker.title == "Mt Baldy Trailhead" || marker.title == "Vincent Gap Trailhead" || marker.title == "Krakta Ridge Trailhead" || marker.title == "Mt Waterman Trailhead" || marker.title == "Palm Springs Aerial Tramway" || marker.title == "Snow Creek Trailhead" || marker.title == "Mt Baldy Resort"   {
+        if marker.title == "South Fork Trailhead" || marker.title == "Sugarloaf Trailhead" || marker.title == "Mt Baldy Trailhead" || marker.title == "Vincent Gap Trailhead" || marker.title == "Krakta Ridge Trailhead" || marker.title == "Mt Waterman Trailhead" || marker.title == "Palm Springs Tramway" || marker.title == "Snow Creek Trailhead" || marker.title == "Mt Baldy Resort"   {
             
         }
         else {
