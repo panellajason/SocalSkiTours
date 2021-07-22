@@ -43,6 +43,10 @@ class ResourcesViewController: UIViewController {
         let vc = SFSafariViewController(url: URL(string: "http://socalmountains.com/webcams")!)
         present(vc, animated: true, completion: nil)
     }
-    
+
+    @IBAction func openTramCamera(_ sender: Any) {
+        let vc = SFSafariViewController(url: URL(string:"https://pstramway.com/long-valley-cam")!)
+        present(vc, animated: true, completion: nil)
+    }
 
 }

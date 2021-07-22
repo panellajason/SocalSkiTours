@@ -18,6 +18,8 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     var ref: DocumentReference? = nil
     let db = Firestore.firestore()
     var tourToPass: Tour!
+    @IBOutlet weak var tableView: UITableView!
+
     private lazy var boardManager: BLTNItemManager = {
        
         let item = BLTNPageItem(title: "Account")
@@ -32,7 +34,6 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         return BLTNItemManager(rootItem: item)
     }()
     
-    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +41,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         imageView.contentMode = .scaleToFill
         imageView.image = UIImage(named: "favorites")
         navigationItem.titleView = imageView
-                
+        
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
@@ -48,17 +49,12 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         favoriteTours = UserService.currentUserProfile!.favoriteTours
         tableView.reloadData()
     }
     
     @IBAction func openAccountPage(_ sender: Any) {
         boardManager.showBulletin(above: self)
-    }
-    
-    @IBAction func openResourcesPage(_ sender: Any) {
-        self.performSegue(withIdentifier: "toResources", sender: self)
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -68,25 +64,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
             let deleteAction = UIContextualAction(style: .normal, title: nil) { (_, _, completionHandler) in
                 
-                self.db.collection("user_favorites").whereField("tour_id", isEqualTo: self.favoriteTours[indexPath.row].tourID).whereField("user_id", isEqualTo: UserService.currentUserProfile?.userID as Any)
-                    .getDocuments() { (querySnapshot, err) in
-                        if let err = err {
-                            print("Error getting documents: \(err)")
-                        } else {
-                            if !querySnapshot!.documents.isEmpty {
-                                
-                                self.db.collection("user_favorites").document(querySnapshot!.documents[0].documentID).delete() { err in
-                                    if let err = err {
-                                        print("Error removing document: \(err)")
-                                    } else {
-                                        print("Document successfully removed!")
-                                        self.favoriteTours.remove(at: indexPath.row)
-                                        self.tableView.reloadData()
-                                    }
-                                }
-                            }
-                        }
-                }
+                self.removeFromFavorites(indexPathToDelete: indexPath)
                     
                 completionHandler(true)
             }
@@ -99,13 +77,13 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         return 100
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        favoriteTours.count
+        return favoriteTours.count
     }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: FavoritesTableViewCell.identifier, for: indexPath) as! FavoritesTableViewCell
-        cell.configure(with: favoriteTours[indexPath.row])
-        return cell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let favoritesCell = tableView.dequeueReusableCell(withIdentifier: FavoritesTableViewCell.identifier, for: indexPath) as! FavoritesTableViewCell
+        favoritesCell.configure(with: favoriteTours[indexPath.row])
+        return favoritesCell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -113,7 +91,27 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         self.performSegue(withIdentifier: "toDetailTour3", sender: self)
     }
     
-    
+    func removeFromFavorites(indexPathToDelete: IndexPath) {
+        db.collection("user_favorites").whereField("tour_id", isEqualTo: self.favoriteTours[indexPathToDelete.row].tourID).whereField("user_id", isEqualTo: UserService.currentUserProfile?.userID as Any)
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    if !querySnapshot!.documents.isEmpty {
+                        
+                        self.db.collection("user_favorites").document(querySnapshot!.documents[0].documentID).delete() { err in
+                            if let err = err {
+                                print("Error removing document: \(err)")
+                            } else {
+                                print("Document successfully removed!")
+                                self.favoriteTours.remove(at: indexPathToDelete.row)
+                                self.tableView.reloadData()
+                            }
+                        }
+                    }
+                }
+        }
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
 

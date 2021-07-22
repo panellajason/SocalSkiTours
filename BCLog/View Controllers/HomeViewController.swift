@@ -54,22 +54,23 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
             self.filteredTours.removeAll()
             self.tours.removeAll()
             
-            if index == 0 {
-                self.tours.append(contentsOf: TourService.allTours)
-            }
-            if index == 1 {
-                SanBernardinoTours.loadTours { moreTours in
-                    self.tours.append(contentsOf: moreTours)
-                }
-            }
-            else if index == 2 {
-                SanGabrielsTours.loadTours { moreTours in
-                    self.tours.append(contentsOf: moreTours)
-                }
-            } else {
-                SanJacintoTours.loadTours { moreTours in
-                    self.tours.append(contentsOf: moreTours)
-                }
+            switch index {
+                case 0:
+                    self.tours.append(contentsOf: TourService.allTours)
+                case 1:
+                    SanBernardinoTours.loadTours { moreTours in
+                        self.tours.append(contentsOf: moreTours)
+                    }
+                case 2:
+                    SanGabrielsTours.loadTours { moreTours in
+                        self.tours.append(contentsOf: moreTours)
+                    }
+                case 3:
+                    SanJacintoTours.loadTours { moreTours in
+                        self.tours.append(contentsOf: moreTours)
+                    }
+                default:
+                    self.tours.append(contentsOf: TourService.allTours)
             }
             
             self.filteredTours = self.tours
@@ -136,7 +137,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-
         if (segue.identifier == "toDetailTour") {
             let viewController = segue.destination as! DetailTourViewController
             viewController.passedTour = tourToPass

@@ -11,8 +11,6 @@
 		FA2C0BC8248C995F00CF6853 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2C0BC7248C995F00CF6853 /* SignUpViewController.swift */; };
 		FA2C0BCE248CD36700CF6853 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2C0BCD248CD36700CF6853 /* SigninViewController.swift */; };
 		FA2C0BD22493F40000CF6853 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2C0BD12493F40000CF6853 /* User.swift */; };
-		FA2C0BD6249690C200CF6853 /* HelperExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2C0BD5249690C200CF6853 /* HelperExtensions.swift */; };
-		FA2C0BDA24A081A500CF6853 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2C0BD924A081A500CF6853 /* LoadingCell.swift */; };
 		FA3A259F247E18F100A68C2C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA3A259E247E18F100A68C2C /* GoogleService-Info.plist */; };
 		FA50BAF6247D9156003D7507 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA50BAF5247D9156003D7507 /* AppDelegate.swift */; };
 		FA50BAF8247D9156003D7507 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA50BAF7247D9156003D7507 /* SceneDelegate.swift */; };
@@ -32,6 +30,7 @@
 		FA6BF0F1265390D900AD3EF1 /* DetailTourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6BF0F0265390D900AD3EF1 /* DetailTourViewController.swift */; };
 		FA85129C26916EBA0072E335 /* SanJacintoTours.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA85129B26916EBA0072E335 /* SanJacintoTours.swift */; };
 		FA8512A026A73C1A0072E335 /* ResourcesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA85129F26A73C1A0072E335 /* ResourcesViewController.swift */; };
+		FA8512A726A911FD0072E335 /* LoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8512A526A911FD0072E335 /* LoadingTableViewCell.swift */; };
 		FAFE5231266EB25400A99D36 /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE5230266EB25400A99D36 /* FavoritesTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,8 +41,6 @@
 		FA2C0BC7248C995F00CF6853 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		FA2C0BCD248CD36700CF6853 /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
 		FA2C0BD12493F40000CF6853 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		FA2C0BD5249690C200CF6853 /* HelperExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperExtensions.swift; sourceTree = "<group>"; };
-		FA2C0BD924A081A500CF6853 /* LoadingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
 		FA3A259E247E18F100A68C2C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FA50BAF2247D9156003D7507 /* BCLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BCLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA50BAF5247D9156003D7507 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +62,7 @@
 		FA6BF0F0265390D900AD3EF1 /* DetailTourViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTourViewController.swift; sourceTree = "<group>"; };
 		FA85129B26916EBA0072E335 /* SanJacintoTours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SanJacintoTours.swift; sourceTree = "<group>"; };
 		FA85129F26A73C1A0072E335 /* ResourcesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesViewController.swift; sourceTree = "<group>"; };
+		FA8512A526A911FD0072E335 /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTableViewCell.swift; sourceTree = "<group>"; };
 		FAFE5230266EB25400A99D36 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,21 +121,42 @@
 				FA50BAFE247D915B003D7507 /* Assets.xcassets */,
 				FA50BB00247D915B003D7507 /* LaunchScreen.storyboard */,
 				FA50BAFB247D9156003D7507 /* Main.storyboard */,
-				FA5B46AA265D9A26002F87B5 /* ToursCollectionViewCell.swift */,
-				FAFE5230266EB25400A99D36 /* FavoritesTableViewCell.swift */,
 				FA50BB03247D915B003D7507 /* Info.plist */,
-				FA2C0BD924A081A500CF6853 /* LoadingCell.swift */,
 				FA3A259E247E18F100A68C2C /* GoogleService-Info.plist */,
+				FA8512A426A90F5E0072E335 /* Cells */,
+				FA8512A126A90E620072E335 /* Models */,
+				FA8512A226A90EC60072E335 /* Controllers */,
+				FA8512A326A90F3B0072E335 /* View Controllers */,
+			);
+			path = BCLog;
+			sourceTree = "<group>";
+		};
+		FA8512A126A90E620072E335 /* Models */ = {
+			isa = PBXGroup;
+			children = (
 				FA5B46AC2663674F002F87B5 /* SanBernardinoTours.swift */,
-				FA5B46B426687925002F87B5 /* SanGabrielsTours.swift */,
 				FA85129B26916EBA0072E335 /* SanJacintoTours.swift */,
-				FA5B46B2266878C6002F87B5 /* TourService.swift */,
-				FA5B46AE26648CF0002F87B5 /* UserService.swift */,
-				FA2C0BD5249690C200CF6853 /* HelperExtensions.swift */,
-				FA2C0BC7248C995F00CF6853 /* SignUpViewController.swift */,
-				FA2C0BCD248CD36700CF6853 /* SigninViewController.swift */,
+				FA5B46B426687925002F87B5 /* SanGabrielsTours.swift */,
 				FA6BF0EE2652E51100AD3EF1 /* Tour.swift */,
 				FA2C0BD12493F40000CF6853 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FA8512A226A90EC60072E335 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FA5B46AE26648CF0002F87B5 /* UserService.swift */,
+				FA5B46B2266878C6002F87B5 /* TourService.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		FA8512A326A90F3B0072E335 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FA2C0BC7248C995F00CF6853 /* SignUpViewController.swift */,
+				FA2C0BCD248CD36700CF6853 /* SigninViewController.swift */,
 				FA6BF0E62651FFA500AD3EF1 /* HomeViewController.swift */,
 				FA6BF0F0265390D900AD3EF1 /* DetailTourViewController.swift */,
 				FA6BF0E42651FDE300AD3EF1 /* MapViewController.swift */,
@@ -145,7 +164,17 @@
 				FA6BF0E8265200A400AD3EF1 /* FavoritesViewController.swift */,
 				FA85129F26A73C1A0072E335 /* ResourcesViewController.swift */,
 			);
-			path = BCLog;
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		FA8512A426A90F5E0072E335 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FAFE5230266EB25400A99D36 /* FavoritesTableViewCell.swift */,
+				FA5B46AA265D9A26002F87B5 /* ToursCollectionViewCell.swift */,
+				FA8512A526A911FD0072E335 /* LoadingTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,7 +316,6 @@
 				FA8512A026A73C1A0072E335 /* ResourcesViewController.swift in Sources */,
 				FA6BF0F1265390D900AD3EF1 /* DetailTourViewController.swift in Sources */,
 				FA85129C26916EBA0072E335 /* SanJacintoTours.swift in Sources */,
-				FA2C0BDA24A081A500CF6853 /* LoadingCell.swift in Sources */,
 				FA5B46AF26648CF1002F87B5 /* UserService.swift in Sources */,
 				FAFE5231266EB25400A99D36 /* FavoritesTableViewCell.swift in Sources */,
 				FA50BAF6247D9156003D7507 /* AppDelegate.swift in Sources */,
@@ -295,11 +323,11 @@
 				FA6BF0E9265200A400AD3EF1 /* FavoritesViewController.swift in Sources */,
 				FA5B46B12667271B002F87B5 /* DetailMapViewController.swift in Sources */,
 				FA5B46B526687925002F87B5 /* SanGabrielsTours.swift in Sources */,
-				FA2C0BD6249690C200CF6853 /* HelperExtensions.swift in Sources */,
 				FA50BAF8247D9156003D7507 /* SceneDelegate.swift in Sources */,
 				FA5B46AB265D9A26002F87B5 /* ToursCollectionViewCell.swift in Sources */,
 				FA5B46AD2663674F002F87B5 /* SanBernardinoTours.swift in Sources */,
 				FA2C0BCE248CD36700CF6853 /* SigninViewController.swift in Sources */,
+				FA8512A726A911FD0072E335 /* LoadingTableViewCell.swift in Sources */,
 				FA6BF0E52651FDE300AD3EF1 /* MapViewController.swift in Sources */,
 				FA5B46B3266878C6002F87B5 /* TourService.swift in Sources */,
 				FA2C0BD22493F40000CF6853 /* User.swift in Sources */,

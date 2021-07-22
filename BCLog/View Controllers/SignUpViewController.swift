@@ -61,9 +61,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     @objc func handleSignUp() {
-        
         self.showSpinner(onView: self.view)
-
         guard let email = emailTF.text else { return }
         guard let pass = passwordTF.text else { return }
         guard let pass2 = password2TF.text else { return }
@@ -92,7 +90,6 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
             errorLabel.text = "Error: Fields cannot be empty."
             self.removeSpinner()
         }
-        
     }
 }
 

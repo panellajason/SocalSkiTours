@@ -23,7 +23,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         imageView.image = UIImage(named: "alltours")
         navigationItem.titleView = imageView
             
-        //MapView setup
+        // Generic MapView setup
         let camera = GMSCameraPosition.camera(withLatitude: 34.070986, longitude: -117.326830, zoom: 8.0)
         mapView = GMSMapView.map(withFrame: view.frame, camera: camera)
         mapView.delegate = self
@@ -37,7 +37,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         
         //------------------------------------
         //click on photo for zoom
-        //resources page
         //welcome page
         //about/disclosures
         //forgot password
@@ -45,7 +44,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         addToursToMap()
     }
     
@@ -58,25 +56,20 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
     }
         
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
-        
         if marker.title == "South Fork Trailhead" || marker.title == "Sugarloaf Trailhead" || marker.title == "Mt Baldy Trailhead" || marker.title == "Vincent Gap Trailhead" || marker.title == "Krakta Ridge Trailhead" || marker.title == "Mt Waterman Trailhead" || marker.title == "Palm Springs Tramway" || marker.title == "Snow Creek Trailhead" || marker.title == "Mt Baldy Resort"   {
             
         }
         else {
             let id = marker.position.latitude.description + " " +  marker.position.longitude.description
-            
-            print(id)
-            
+    
             TourService.findTour(withId: id) { tour in
                 self.tourToPass = tour
-                
                 self.performSegue(withIdentifier: "toDetailTour2", sender: self)
             }
         }
     }
     
     @IBAction func showOrHideSatelliteView(_ sender: Any) {
-        
         if isSatelliteView {
             mapView.mapType = .terrain
             isSatelliteView = false
@@ -84,11 +77,9 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
             mapView.mapType = .satellite
             isSatelliteView = true
         }
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-
         if (segue.identifier == "toDetailTour2") {
             
             let viewController = segue.destination as! DetailTourViewController
@@ -96,20 +87,5 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
             viewController.passedTour = tourToPass
         }
     }
-    
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//
-//        // Hide the navigation bar on the this view controller
-//        self.navigationController?.setNavigationBarHidden(true, animated: animated)
-//    }
-//
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//
-//        // Show the navigation bar on other view controllers
-//        self.navigationController?.setNavigationBarHidden(false, animated: animated)
-//    }
 
 }

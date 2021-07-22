@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 import FirebaseAuth
+import SafariServices
 
 class DetailTourViewController: UIViewController, UIScrollViewDelegate {
     
@@ -20,7 +21,6 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
     let db = Firestore.firestore()
     var userID = UserService.currentUserProfile?.userID
 
-    @IBOutlet var detailTitle: UILabel!
     @IBOutlet var detailDescription: UILabel!
     @IBOutlet var detailAspect: UILabel!
     @IBOutlet var detailElevation: UILabel!
@@ -31,7 +31,13 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = passedTour.tourMarker.title?.uppercased()
+        self.title = passedTour.tourTitle.uppercased()
+        
+        //Add the passed Tour's details to textviews
+        detailDescription.text = passedTour.tourDescription
+        detailAspect.text = "Aspect: " + passedTour.tourAspect + " // Slope Angle: " + passedTour.tourAngle + " degrees"
+        detailElevation.text = "Base: " + passedTour.tourBaseElevation + " // Summit: " + passedTour.tourSummitElevation
+        detailTrailHead.text = passedTour.tourTrailhead.title! + " // Approach: " + passedTour.tourDistance
         
         pageControl.numberOfPages = passedTour.tourImages.count
         pageControl.currentPage = 0
@@ -41,7 +47,6 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
         //Add the passed Tour's images to horizontal scrollview
         for i in 0..<passedTour.tourImages.count {
             
-            
             let imageView = UIImageView()
             imageView.image = passedTour.tourImages[i]
             imageView.contentMode = .scaleToFill
@@ -49,26 +54,17 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
             imageView.frame = CGRect(x: xPos, y: 0, width: self.topScrollView.frame.width, height: 300)
             topScrollView.contentSize.width = topScrollView.frame.width * CGFloat(i + 1)
             topScrollView.addSubview(imageView)
-            
         }
         
-        //Add the passed Tour's details to textviews
-        detailTitle.text = passedTour.tourMarker.snippet
-        detailDescription.text = passedTour.tourDescription
-        detailAspect.text = "Aspect: " + passedTour.tourAspect + " // Slope Angle: " + passedTour.tourAngle + " degrees"
-        detailElevation.text = "Base: " + passedTour.tourBaseElevation + " // Summit: " + passedTour.tourSummitElevation
-        detailTrailHead.text = passedTour.tourTrailhead.title! + " // Approach: " + passedTour.tourDistance
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         checkForFavorites()
     }
     
     @IBAction func addToFavorites(_ sender: Any) {
         self.showSpinner(onView: self.view)
-
         if !isFavorite {
             
             addToFavorites()
@@ -84,16 +80,25 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
         self.tourToPass = passedTour
         self.performSegue(withIdentifier: "toDetailMap", sender: self)
     }
+        
+    @IBAction func goToWeather(_ sender: Any) {
+        let location = passedTour.tourID.split(separator: " ").map{ String($0) }
+        let lat = location[0]
+        let long = location[1]
+        
+        let tourURL = "https://forecast.weather.gov/MapClick.php?lat="
+        let url = tourURL + lat + "&lon=" + long + "#.YPeKJhNKjeo"
+    
+        let vc = SFSafariViewController(url: URL(string: url)!)
+        
+        present(vc, animated: true, completion: nil)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-
         if (segue.identifier == "toDetailMap") {
-            
             let viewController = segue.destination as! DetailMapViewController
             viewController.passedTour = tourToPass
-            
         }
-        
     }
     
     func checkForFavorites() {
@@ -117,7 +122,6 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func addToFavorites() {
-
         ref = db.collection("user_favorites").addDocument(data: [
             "tour_id": passedTour.tourID,
             "user_id": userID as Any
@@ -132,7 +136,6 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func removeFromFavorites() {
-
         db.collection("user_favorites").whereField("tour_id", isEqualTo: passedTour.tourID).whereField("user_id", isEqualTo: userID as Any)
             .getDocuments() { (querySnapshot, err) in
                 if let err = err {

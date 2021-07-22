@@ -37,12 +37,10 @@ class DetailMapViewController: UIViewController, GMSMapViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         addTourToMap()
     }
     
     @IBAction func showOrHideSatelliteView(_ sender: Any) {
-        
         if(isSatelliteView) {
             mapView.mapType = .terrain
             isSatelliteView = false
@@ -53,7 +51,6 @@ class DetailMapViewController: UIViewController, GMSMapViewDelegate {
     }
     
     func addTourToMap() {
-        
         //Tour Marker
         passedTour.tourMarker.title = passedTour.tourMarker.snippet
         passedTour.tourMarker.snippet = passedTour.tourSummitElevation
