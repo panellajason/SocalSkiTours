@@ -39,7 +39,6 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -67,7 +66,6 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
         guard let pass2 = password2TF.text else { return }
 
         if !email.isEmpty && !pass.isEmpty && !pass2.isEmpty {
-            
             if pass == pass2 {
                 Auth.auth().createUser(withEmail: email, password: pass) { user, error in
                     if error == nil && user != nil {

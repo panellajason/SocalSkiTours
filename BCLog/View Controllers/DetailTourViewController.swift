@@ -29,6 +29,11 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var topScrollView: UIScrollView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        checkForFavorites()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = passedTour.tourTitle.uppercased()
@@ -39,14 +44,12 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
         detailElevation.text = "Base: " + passedTour.tourBaseElevation + " // Summit: " + passedTour.tourSummitElevation
         detailTrailHead.text = passedTour.tourTrailhead.title! + " // Approach: " + passedTour.tourDistance
         
+        //Add the passed Tour's images to horizontal scrollview
         pageControl.numberOfPages = passedTour.tourImages.count
         pageControl.currentPage = 0
         topScrollView.delegate = self
         topScrollView.frame = view.frame
-        
-        //Add the passed Tour's images to horizontal scrollview
         for i in 0..<passedTour.tourImages.count {
-            
             let imageView = UIImageView()
             imageView.image = passedTour.tourImages[i]
             imageView.contentMode = .scaleToFill
@@ -55,26 +58,22 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
             topScrollView.contentSize.width = topScrollView.frame.width * CGFloat(i + 1)
             topScrollView.addSubview(imageView)
         }
-        
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        checkForFavorites()
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let pageIndex = round(scrollView.contentOffset.x/view.frame.width)
+        pageControl.currentPage = Int(pageIndex)
     }
     
-    @IBAction func addToFavorites(_ sender: Any) {
+    @IBAction func addOrRemoveFavorite(_ sender: Any) {
         self.showSpinner(onView: self.view)
         if !isFavorite {
-            
             addToFavorites()
         } else {
-            
             removeFromFavorites()
         }
         self.removeSpinner()
     }
-    
     
     @IBAction func goToMapView(_ sender: Any) {
         self.tourToPass = passedTour
@@ -84,21 +83,10 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
     @IBAction func goToWeather(_ sender: Any) {
         let location = passedTour.tourID.split(separator: " ").map{ String($0) }
         let lat = location[0]
-        let long = location[1]
-        
-        let tourURL = "https://forecast.weather.gov/MapClick.php?lat="
-        let url = tourURL + lat + "&lon=" + long + "#.YPeKJhNKjeo"
-    
-        let vc = SFSafariViewController(url: URL(string: url)!)
-        
-        present(vc, animated: true, completion: nil)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        if (segue.identifier == "toDetailMap") {
-            let viewController = segue.destination as! DetailMapViewController
-            viewController.passedTour = tourToPass
-        }
+        let lon = location[1]
+        let url = "https://forecast.weather.gov/MapClick.php?lat="+lat+"&lon="+lon+"#.YPeKJhNKjeo"
+        let webViewController = SFSafariViewController(url: URL(string: url)!)
+        present(webViewController, animated: true, completion: nil)
     }
     
     func checkForFavorites() {
@@ -117,7 +105,6 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
                         self.isFavorite = false
                     }
                 }
-                self.removeSpinner()
         }
     }
     
@@ -147,7 +134,6 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
                             if let err = err {
                                 print("Error removing document: \(err)")
                             } else {
-                                print("Document successfully removed!")
                             }
                         }
                         self.isFavorite = false
@@ -156,10 +142,11 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
                 }
         }
     }
-
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let pageIndex = round(scrollView.contentOffset.x/view.frame.width)
-        pageControl.currentPage = Int(pageIndex)
-    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if (segue.identifier == "toDetailMap") {
+            let viewController = segue.destination as! DetailMapViewController
+            viewController.passedTour = tourToPass
+        }
+    }
 }

@@ -72,11 +72,9 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
                 default:
                     self.tours.append(contentsOf: TourService.allTours)
             }
-            
             self.filteredTours = self.tours
             self.collectionView.reloadData()
         }
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
@@ -93,7 +91,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func showOrHideSearch(_ sender: Any) {
         collectionView.setContentOffset(.zero, animated: true)
-
         if topStackView.isHidden {
             topStackView.isHidden = false
             barButtonItem.image = UIImage(systemName: "xmark")
@@ -111,7 +108,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
         if let text = textField.text {
             if string.count == 0 {
                 filterText(String(text.dropLast()))
@@ -119,7 +115,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
                 filterText(text + string)
             }
         }
-        
         return true
     }
     
@@ -142,7 +137,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
             viewController.passedTour = tourToPass
         }
     }
-    
 }
 
 
@@ -161,15 +155,15 @@ extension HomeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ToursCollectionViewCell.identifier, for: indexPath) as! ToursCollectionViewCell
+        
         if !filteredTours.isEmpty {
             cell.configure(with: filteredTours[indexPath.row])
         }
         else {
             cell.configure(with: tours[indexPath.row])
         }
-       return cell
+        return cell
     }
 }
 
@@ -183,7 +177,5 @@ extension HomeViewController: UICollectionViewDelegate {
             tourToPass = tours[indexPath.row]
         }
         self.performSegue(withIdentifier: "toDetailTour", sender: self)
-        self.showSpinner(onView: self.view)
-
     }
 }

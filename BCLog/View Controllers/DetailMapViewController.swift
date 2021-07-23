@@ -9,13 +9,17 @@
 import UIKit
 import GoogleMaps
 
-
 class DetailMapViewController: UIViewController, GMSMapViewDelegate {
 
     var passedTour: Tour!
     var mapView: GMSMapView!
     var isSatelliteView = false
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        addTourToMap()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = passedTour.tourTitle.uppercased()
@@ -33,11 +37,6 @@ class DetailMapViewController: UIViewController, GMSMapViewDelegate {
         mapView.isMyLocationEnabled = true
         mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 70, right: 0)
         view.addSubview(mapView)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        addTourToMap()
     }
     
     @IBAction func showOrHideSatelliteView(_ sender: Any) {
@@ -60,7 +59,5 @@ class DetailMapViewController: UIViewController, GMSMapViewDelegate {
         //Tour Trailhead
         passedTour.tourTrailhead.snippet = passedTour.tourBaseElevation
         passedTour.tourTrailhead.map = mapView
-
     }
-
 }

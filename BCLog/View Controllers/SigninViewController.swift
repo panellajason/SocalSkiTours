@@ -33,17 +33,17 @@ class SigninViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
-
+        super.viewDidAppear(animated)
         if Auth.auth().currentUser != nil {
             self.performSegue(withIdentifier: "toHome", sender: self)
         }
     }
     
     @IBAction func toSignUp(_ sender: Any) {
+        errorLabel.text = ""
         self.performSegue(withIdentifier: "toSignUp", sender: self)
     }
     
@@ -74,7 +74,7 @@ class SigninViewController: UIViewController {
                     }
                     self.performSegue(withIdentifier: "toHome", sender: self)
                 } else {
-                    self.errorLabel.text = "Error: Email or password does not exist."
+                    self.errorLabel.text = "Error: Email or password is incorrect."
                 }
                 self.removeSpinner()
             }
@@ -85,15 +85,7 @@ class SigninViewController: UIViewController {
     }
 }
 
-
-
-
-
-
-
-
 var vSpinner : UIView?
- 
 extension UIViewController {
     func showSpinner(onView : UIView) {
         let spinnerView = UIView.init(frame: onView.bounds)
@@ -101,15 +93,12 @@ extension UIViewController {
         let ai = UIActivityIndicatorView.init(style: .large)
         ai.startAnimating()
         ai.center = spinnerView.center
-        
         DispatchQueue.main.async {
             spinnerView.addSubview(ai)
             onView.addSubview(spinnerView)
         }
-        
         vSpinner = spinnerView
     }
-    
     func removeSpinner() {
         DispatchQueue.main.async {
             vSpinner?.removeFromSuperview()
@@ -117,3 +106,4 @@ extension UIViewController {
         }
     }
 }
+

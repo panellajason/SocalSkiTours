@@ -34,6 +34,11 @@ class ResourcesViewController: UIViewController {
         present(vc, animated: true, completion: nil)
     }
     
+    @IBAction func openDailySnow(_ sender: Any) {
+        let vc = SFSafariViewController(url: URL(string: "https://opensnow.com/dailysnow/southerncalifornia")!)
+        present(vc, animated: true, completion: nil)
+    }
+    
     @IBAction func openNWS(_ sender: Any) {
         let vc = SFSafariViewController(url: URL(string:"https://www.wpc.ncep.noaa.gov/qpf/day1-7.shtml")!)
         present(vc, animated: true, completion: nil)
@@ -48,5 +53,4 @@ class ResourcesViewController: UIViewController {
         let vc = SFSafariViewController(url: URL(string:"https://pstramway.com/long-valley-cam")!)
         present(vc, animated: true, completion: nil)
     }
-
 }

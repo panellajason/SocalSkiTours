@@ -16,6 +16,11 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
     var isSatelliteView = false
     var mapView: GMSMapView!
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        addToursToMap()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 38))
@@ -23,7 +28,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         imageView.image = UIImage(named: "alltours")
         navigationItem.titleView = imageView
             
-        // Generic MapView setup
+        //MapView setup
         let camera = GMSCameraPosition.camera(withLatitude: 34.070986, longitude: -117.326830, zoom: 8.0)
         mapView = GMSMapView.map(withFrame: view.frame, camera: camera)
         mapView.delegate = self
@@ -42,30 +47,11 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         //forgot password
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        addToursToMap()
-    }
-    
     func addToursToMap() {
         for tour in TourService.allTours {
             tour.tourTrailhead.map = mapView
             tour.tourMarker.map = mapView
             tour.tourPath.map = mapView
-        }
-    }
-        
-    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
-        if marker.title == "South Fork Trailhead" || marker.title == "Sugarloaf Trailhead" || marker.title == "Mt Baldy Trailhead" || marker.title == "Vincent Gap Trailhead" || marker.title == "Krakta Ridge Trailhead" || marker.title == "Mt Waterman Trailhead" || marker.title == "Palm Springs Tramway" || marker.title == "Snow Creek Trailhead" || marker.title == "Mt Baldy Resort"   {
-            
-        }
-        else {
-            let id = marker.position.latitude.description + " " +  marker.position.longitude.description
-    
-            TourService.findTour(withId: id) { tour in
-                self.tourToPass = tour
-                self.performSegue(withIdentifier: "toDetailTour2", sender: self)
-            }
         }
     }
     
@@ -78,6 +64,20 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
             isSatelliteView = true
         }
     }
+        
+    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
+        if marker.title == "South Fork Trailhead" || marker.title == "Sugarloaf Trailhead" || marker.title == "Mt Baldy Trailhead" || marker.title == "Vincent Gap Trailhead" || marker.title == "Krakta Ridge Trailhead" || marker.title == "Mt Waterman Trailhead" || marker.title == "Palm Springs Tramway" || marker.title == "Snow Creek Trailhead" || marker.title == "Mt Baldy Resort"   {
+            //do nothing
+        }
+        else {
+            let id = marker.position.latitude.description + " " +  marker.position.longitude.description
+    
+            TourService.findTour(withId: id) { tour in
+                self.tourToPass = tour
+                self.performSegue(withIdentifier: "toDetailTour2", sender: self)
+            }
+        }
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         if (segue.identifier == "toDetailTour2") {
@@ -87,5 +87,4 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
             viewController.passedTour = tourToPass
         }
     }
-
 }

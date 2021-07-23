@@ -34,6 +34,11 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         return BLTNItemManager(rootItem: item)
     }()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        favoriteTours = UserService.currentUserProfile!.favoriteTours
+        tableView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,12 +50,6 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        favoriteTours = UserService.currentUserProfile!.favoriteTours
-        tableView.reloadData()
     }
     
     @IBAction func openAccountPage(_ sender: Any) {

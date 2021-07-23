@@ -17,3 +17,5 @@ class User {
         self.favoriteTours = favoriteTours
     }
 }
+
+
