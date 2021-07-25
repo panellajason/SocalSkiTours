@@ -11,7 +11,7 @@
         <!--Signin View Controller-->
         <scene sceneID="cQF-Zr-ojG">
             <objects>
-                <viewController storyboardIdentifier="SigninViewController" modalPresentationStyle="fullScreen" id="vEw-8x-5rR" customClass="SigninViewController" customModule="BCLog" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SigninViewController" modalPresentationStyle="fullScreen" id="vEw-8x-5rR" customClass="SigninViewController" customModule="Socal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jBb-cv-u5n">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -95,23 +95,23 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="200" translatesAutoresizingMaskIntoConstraints="NO" id="eLk-aA-Q0B">
-                                        <rect key="frame" x="8" y="577" width="398" height="205"/>
+                                        <rect key="frame" x="8" y="577" width="398" height="199"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rkK-cl-mRL">
-                                        <rect key="frame" x="8" y="790" width="398" height="27"/>
+                                        <rect key="frame" x="8" y="784" width="398" height="33"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="q6F-fg-Qtt">
-                                                <rect key="frame" x="61" y="0.0" width="276.33333333333331" height="27"/>
+                                                <rect key="frame" x="61" y="0.0" width="276.33333333333331" height="33"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6L-bm-PSI">
-                                                        <rect key="frame" x="0.0" y="0.0" width="202.33333333333334" height="27"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="202.33333333333334" height="33"/>
                                                         <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBN-2U-Cbs">
-                                                        <rect key="frame" x="210.33333333333331" y="0.0" width="66" height="27"/>
+                                                        <rect key="frame" x="210.33333333333331" y="0.0" width="66" height="33"/>
                                                         <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="18"/>
                                                         <state key="normal" title="Sign up">
                                                             <color key="titleColor" red="0.0" green="0.46954255709999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -200,13 +200,13 @@
         <!--SignUp View Controller-->
         <scene sceneID="HyW-DE-8yb">
             <objects>
-                <viewController id="UWr-Wf-nrH" userLabel="SignUp View Controller" customClass="SignUpViewController" customModule="BCLog" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="UWr-Wf-nrH" userLabel="SignUp View Controller" customClass="SignUpViewController" customModule="Socal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oO0-Dq-jGm">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eLz-RP-lCv">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="759"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="676"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RRf-2G-HET">
                                         <rect key="frame" x="8" y="0.0" width="398" height="25"/>
@@ -228,7 +228,7 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Vn2-iR-J0U">
-                                        <rect key="frame" x="8" y="25" width="398" height="726"/>
+                                        <rect key="frame" x="8" y="25" width="398" height="643"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_0058" translatesAutoresizingMaskIntoConstraints="NO" id="Pmd-8F-8fM">
                                                 <rect key="frame" x="0.0" y="0.0" width="398" height="180"/>
@@ -303,11 +303,11 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" verticalHuggingPriority="100" translatesAutoresizingMaskIntoConstraints="NO" id="GDY-3Y-3Ao">
-                                                <rect key="frame" x="0.0" y="518" width="398" height="171"/>
+                                                <rect key="frame" x="0.0" y="518" width="398" height="88"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="G4v-Ic-9ui">
-                                                <rect key="frame" x="0.0" y="697" width="398" height="29"/>
+                                                <rect key="frame" x="0.0" y="614" width="398" height="29"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="9Ek-0d-6bs">
                                                         <rect key="frame" x="125.00000000000001" y="0.0" width="148.33333333333337" height="29"/>
@@ -382,7 +382,7 @@
         <!--Map View Controller-->
         <scene sceneID="yVZ-r8-v7u">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="WV3-vT-4DH" customClass="MapViewController" customModule="BCLog" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="WV3-vT-4DH" customClass="MapViewController" customModule="Socal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZGd-OR-Mza">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="786"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -426,7 +426,7 @@
         <!--Home View Controller-->
         <scene sceneID="yMJ-UF-5Ul">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="4RI-7G-zGC" customClass="HomeViewController" customModule="BCLog" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="4RI-7G-zGC" customClass="HomeViewController" customModule="Socal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mez-t6-u7s">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="786"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -487,7 +487,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ToursCollectionViewCell" id="qTS-7a-N4y" customClass="ToursCollectionViewCell" customModule="BCLog" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ToursCollectionViewCell" id="qTS-7a-N4y" customClass="ToursCollectionViewCell" customModule="Socal_Ski_Tours" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="183" height="296"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="OJb-Yi-qrz">
@@ -567,7 +567,7 @@
         <!--Detail Map View Controller-->
         <scene sceneID="2vm-Mc-0e5">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="SaB-nS-icq" customClass="DetailMapViewController" customModule="BCLog" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="SaB-nS-icq" customClass="DetailMapViewController" customModule="Socal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gP4-8A-7ae">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="786"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -590,7 +590,7 @@
         <!--Detail Tour View Controller-->
         <scene sceneID="Ybq-oI-n3X">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="NfK-m3-e3R" customClass="DetailTourViewController" customModule="BCLog" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="NfK-m3-e3R" customClass="DetailTourViewController" customModule="Socal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8UQ-AR-72u">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="786"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -634,7 +634,7 @@
                                                                 <rect key="frame" x="8" y="8" width="398" height="26"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="j9F-7m-Lcc">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="227" height="26"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="277" height="26"/>
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rg9-vZ-osd">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="141" height="26"/>
@@ -653,10 +653,10 @@
                                                                                 </connections>
                                                                             </button>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t5f-GY-sDZ">
-                                                                                <rect key="frame" x="153" y="0.0" width="74" height="26"/>
+                                                                                <rect key="frame" x="153" y="0.0" width="124" height="26"/>
                                                                                 <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="12"/>
-                                                                                <state key="normal" title="  WEATHER  ">
+                                                                                <state key="normal" title="  SUMMIT WEATHER  ">
                                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 </state>
                                                                                 <userDefinedRuntimeAttributes>
@@ -797,7 +797,7 @@
         <!--Favorites View Controller-->
         <scene sceneID="C0H-sB-G2M">
             <objects>
-                <viewController id="XNX-lh-kTB" customClass="FavoritesViewController" customModule="BCLog" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XNX-lh-kTB" customClass="FavoritesViewController" customModule="Socal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VcA-GC-Tho">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="786"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -806,7 +806,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="757"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FavoritesTableViewCell" rowHeight="100" id="hZL-rl-gvq" customClass="FavoritesTableViewCell" customModule="BCLog" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FavoritesTableViewCell" rowHeight="100" id="hZL-rl-gvq" customClass="FavoritesTableViewCell" customModule="Socal_Ski_Tours" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hZL-rl-gvq" id="wy3-Ge-LIr">
@@ -917,7 +917,7 @@
         <!--Resources View Controller-->
         <scene sceneID="PF9-S6-bnY">
             <objects>
-                <viewController id="EXi-30-3kK" customClass="ResourcesViewController" customModule="BCLog" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="EXi-30-3kK" customClass="ResourcesViewController" customModule="Socal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0TS-c5-S9j">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -928,7 +928,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cSA-E9-GWr">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Snow" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZPU-LI-TUV">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="SNOW" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZPU-LI-TUV">
                                                 <rect key="frame" x="8" y="0.0" width="398" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="fhq-bC-GSv"/>
@@ -975,7 +975,7 @@
                                                     <action selector="openAIARE:" destination="EXi-30-3kK" eventType="touchUpInside" id="h6Z-92-ip0"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5K-YL-rf7">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WEATHER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5K-YL-rf7">
                                                 <rect key="frame" x="8" y="144" width="398" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="tdn-FH-M0v"/>
@@ -1041,7 +1041,7 @@
                                                     <action selector="openNWS:" destination="EXi-30-3kK" eventType="touchUpInside" id="RYM-fp-1dU"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cameras" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Msv-2a-Bre">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CAMERAS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Msv-2a-Bre">
                                                 <rect key="frame" x="8" y="341" width="398" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="M6E-Ok-l1l"/>
@@ -1154,6 +1154,6 @@
         <image name="signup" width="158" height="76"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
-        <image name="title" width="330" height="70"/>
+        <image name="title" width="346" height="74"/>
     </resources>
 </document>

@@ -72,6 +72,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
                 default:
                     self.tours.append(contentsOf: TourService.allTours)
             }
+            self.collectionView.setContentOffset(.zero, animated: true)
             self.filteredTours = self.tours
             self.collectionView.reloadData()
         }
@@ -85,12 +86,10 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     @IBAction func filterByRegion(_ sender: Any) {
         searchTF.text = ""
         self.view.endEditing(true)
-        collectionView.setContentOffset(.zero, animated: true)
         menu.show()
     }
     
     @IBAction func showOrHideSearch(_ sender: Any) {
-        collectionView.setContentOffset(.zero, animated: true)
         if topStackView.isHidden {
             topStackView.isHidden = false
             barButtonItem.image = UIImage(systemName: "xmark")
@@ -100,7 +99,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
             filteredTours = TourService.allTours
             collectionView.reloadData()
             menu.selectRow(0)
-
+            collectionView.setContentOffset(.zero, animated: true)
             topStackView.isHidden = true
             searchTF.resignFirstResponder()
             barButtonItem.image = UIImage(systemName: "magnifyingglass")

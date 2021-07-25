@@ -51,13 +51,20 @@ class DetailMapViewController: UIViewController, GMSMapViewDelegate {
     
     func addTourToMap() {
         //Tour Marker
-        passedTour.tourMarker.title = passedTour.tourMarker.snippet
-        passedTour.tourMarker.snippet = passedTour.tourSummitElevation
-        passedTour.tourMarker.map = mapView
+        let tempMarker = GMSMarker()
+        tempMarker.title = passedTour.tourMarker.snippet
+        tempMarker.snippet = passedTour.tourSummitElevation
+        tempMarker.position = passedTour.tourMarker.position
+        tempMarker.icon = GMSMarker.markerImage(with: .blue)
+        tempMarker.map = mapView
         //Tour Path
         passedTour.tourPath.map = mapView
         //Tour Trailhead
-        passedTour.tourTrailhead.snippet = passedTour.tourBaseElevation
-        passedTour.tourTrailhead.map = mapView
+        let tempTH = GMSMarker()
+        tempTH.title = passedTour.tourTrailhead.title
+        tempTH.snippet = passedTour.tourBaseElevation
+        tempTH.position = passedTour.tourTrailhead.position
+        tempTH.icon = GMSMarker.markerImage(with: .black)
+        tempTH.map = mapView
     }
 }

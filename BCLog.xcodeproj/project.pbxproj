@@ -15,14 +15,14 @@
 		FA50BAF6247D9156003D7507 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA50BAF5247D9156003D7507 /* AppDelegate.swift */; };
 		FA50BAF8247D9156003D7507 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA50BAF7247D9156003D7507 /* SceneDelegate.swift */; };
 		FA50BAFD247D9156003D7507 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA50BAFB247D9156003D7507 /* Main.storyboard */; };
-		FA50BAFF247D915B003D7507 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA50BAFE247D915B003D7507 /* Assets.xcassets */; };
-		FA50BB02247D915B003D7507 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA50BB00247D915B003D7507 /* LaunchScreen.storyboard */; };
 		FA5B46AB265D9A26002F87B5 /* ToursCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B46AA265D9A26002F87B5 /* ToursCollectionViewCell.swift */; };
 		FA5B46AD2663674F002F87B5 /* SanBernardinoTours.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B46AC2663674F002F87B5 /* SanBernardinoTours.swift */; };
 		FA5B46AF26648CF1002F87B5 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B46AE26648CF0002F87B5 /* UserService.swift */; };
 		FA5B46B12667271B002F87B5 /* DetailMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B46B02667271B002F87B5 /* DetailMapViewController.swift */; };
 		FA5B46B3266878C6002F87B5 /* TourService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B46B2266878C6002F87B5 /* TourService.swift */; };
 		FA5B46B526687925002F87B5 /* SanGabrielsTours.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B46B426687925002F87B5 /* SanGabrielsTours.swift */; };
+		FA6BD6FE26AD28DB0046D263 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA50BAFE247D915B003D7507 /* Assets.xcassets */; };
+		FA6BD70026AD299B0046D263 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA50BB00247D915B003D7507 /* LaunchScreen.storyboard */; };
 		FA6BF0E52651FDE300AD3EF1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6BF0E42651FDE300AD3EF1 /* MapViewController.swift */; };
 		FA6BF0E72651FFA500AD3EF1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6BF0E62651FFA500AD3EF1 /* HomeViewController.swift */; };
 		FA6BF0E9265200A400AD3EF1 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6BF0E8265200A400AD3EF1 /* FavoritesViewController.swift */; };
@@ -41,7 +41,7 @@
 		FA2C0BCD248CD36700CF6853 /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
 		FA2C0BD12493F40000CF6853 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FA3A259E247E18F100A68C2C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		FA50BAF2247D9156003D7507 /* BCLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BCLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA50BAF2247D9156003D7507 /* SoCal Ski Tours .app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SoCal Ski Tours .app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA50BAF5247D9156003D7507 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA50BAF7247D9156003D7507 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FA50BAFC247D9156003D7507 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -106,7 +106,7 @@
 		FA50BAF3247D9156003D7507 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FA50BAF2247D9156003D7507 /* BCLog.app */,
+				FA50BAF2247D9156003D7507 /* SoCal Ski Tours .app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -194,7 +194,7 @@
 			);
 			name = BCLog;
 			productName = BCLog;
-			productReference = FA50BAF2247D9156003D7507 /* BCLog.app */;
+			productReference = FA50BAF2247D9156003D7507 /* SoCal Ski Tours .app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -235,9 +235,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA50BB02247D915B003D7507 /* LaunchScreen.storyboard in Resources */,
 				FA3A259F247E18F100A68C2C /* GoogleService-Info.plist in Resources */,
-				FA50BAFF247D915B003D7507 /* Assets.xcassets in Resources */,
+				FA6BD70026AD299B0046D263 /* LaunchScreen.storyboard in Resources */,
+				FA6BD6FE26AD28DB0046D263 /* Assets.xcassets in Resources */,
 				FA50BAFD247D9156003D7507 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -479,7 +479,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jp.BCLog;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "SoCal Ski Tours ";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -498,7 +498,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jp.BCLog;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "SoCal Ski Tours ";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
