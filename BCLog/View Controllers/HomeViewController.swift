@@ -28,7 +28,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     var filteredTours = [Tour]()
     var tourToPass: Tour!
     var filtered = false
-    
     let menu: DropDown = {
         let menu = DropDown()
         menu.dataSource = ["All Tours", "San Gorgonio Wilderness", "San Gabriel Mountains", "San Jacinto Area"]
@@ -91,9 +90,11 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func showOrHideSearch(_ sender: Any) {
         if topStackView.isHidden {
+            //open search
             topStackView.isHidden = false
             barButtonItem.image = UIImage(systemName: "xmark")
         } else {
+            //Reset everything and close search
             searchTF.text = ""
             filteredTours.removeAll()
             filteredTours = TourService.allTours

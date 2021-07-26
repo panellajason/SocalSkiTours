@@ -27,5 +27,4 @@ class FavoritesTableViewCell: UITableViewCell {
         imageview.image = tour.tourImages[0]
         titleLabel.text = tour.tourTitle
     }
-
 }

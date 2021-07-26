@@ -14,7 +14,6 @@ class TourService {
     
     static func loadAllTours(completion:@escaping (_ tours:[Tour])->()) {
         var tempTours = [Tour]()
-        
         SanBernardinoTours.loadTours { newTours in
             tempTours.append(contentsOf: newTours)
         }
@@ -24,9 +23,7 @@ class TourService {
         SanJacintoTours.loadTours { moreTours in
             tempTours.append(contentsOf: moreTours)
         }
-        
         let sorted = tempTours.sorted(by: { $0.tourTitle < $1.tourTitle })
-
         return completion(sorted)
     }
     
@@ -38,6 +35,4 @@ class TourService {
         }
         return completion(allTours[0])
     }
-  
-    
 }

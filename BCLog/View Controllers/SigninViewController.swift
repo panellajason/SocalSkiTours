@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import GoogleMaps
+import BLTNBoard
 
 class SigninViewController: UIViewController {
 
@@ -30,6 +31,23 @@ class SigninViewController: UIViewController {
         }
     }
     @IBOutlet weak var errorLabel: UILabel!
+    private lazy var disclaimerBoardManager: BLTNItemManager = {
+        let item = BLTNPageItem(title: "Disclaimer")
+        item.appearance.titleTextColor = .black
+        item.descriptionText = "WARNING: Skiing and snowboarding are dangerous sports that can result in death, paralysis, or serious injury. Please take all precautions and use your own ability, evaluation, and judgement to assess the risks of your terrain choice on a particular day, rather than relying on the information in this app. It is imperative that you own, carry, and know how to use an avalanche beacon, shovel, and probe when skiing in the backcountry. The user assumes all risk associated with the use of this app and with the activities of skiing and snowboarding."
+        item.actionButtonTitle = "Ok"
+        item.appearance.actionButtonColor = .systemBlue
+        item.actionHandler = { _ in
+            self.dismiss(animated: true, completion: nil)
+        }
+        return BLTNItemManager(rootItem: item)
+    }()
+    private lazy var aboutBoardManager: BLTNItemManager = {
+        let item = BLTNPageItem(title: "About")
+        item.appearance.titleTextColor = .black
+        item.descriptionText = ""
+        return BLTNItemManager(rootItem: item)
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +58,14 @@ class SigninViewController: UIViewController {
         if Auth.auth().currentUser != nil {
             self.performSegue(withIdentifier: "toHome", sender: self)
         }
+    }
+    
+    @IBAction func openAbout(_ sender: Any) {
+        aboutBoardManager.showBulletin(above: self)
+    }
+    
+    @IBAction func openDisclaimer(_ sender: Any) {
+        disclaimerBoardManager.showBulletin(above: self)
     }
     
     @IBAction func toSignUp(_ sender: Any) {
@@ -53,7 +79,7 @@ class SigninViewController: UIViewController {
     }
     
     @IBAction func forgotPassword(_ sender: Any) {
-        
+        self.performSegue(withIdentifier: "toForgotPassword", sender: self)
     }
     
     @IBAction func login(_ sender: UIButton) {

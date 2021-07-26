@@ -12,6 +12,7 @@
 		FA2C0BCE248CD36700CF6853 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2C0BCD248CD36700CF6853 /* SigninViewController.swift */; };
 		FA2C0BD22493F40000CF6853 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2C0BD12493F40000CF6853 /* User.swift */; };
 		FA3A259F247E18F100A68C2C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA3A259E247E18F100A68C2C /* GoogleService-Info.plist */; };
+		FA4AB36026AE82D0006F416C /* ForgotPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4AB35F26AE82D0006F416C /* ForgotPassViewController.swift */; };
 		FA50BAF6247D9156003D7507 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA50BAF5247D9156003D7507 /* AppDelegate.swift */; };
 		FA50BAF8247D9156003D7507 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA50BAF7247D9156003D7507 /* SceneDelegate.swift */; };
 		FA50BAFD247D9156003D7507 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA50BAFB247D9156003D7507 /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 		FA2C0BCD248CD36700CF6853 /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
 		FA2C0BD12493F40000CF6853 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FA3A259E247E18F100A68C2C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FA4AB35F26AE82D0006F416C /* ForgotPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassViewController.swift; sourceTree = "<group>"; };
 		FA50BAF2247D9156003D7507 /* SoCal Ski Tours .app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SoCal Ski Tours .app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA50BAF5247D9156003D7507 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA50BAF7247D9156003D7507 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -155,12 +157,13 @@
 			children = (
 				FA2C0BC7248C995F00CF6853 /* SignUpViewController.swift */,
 				FA2C0BCD248CD36700CF6853 /* SigninViewController.swift */,
+				FA4AB35F26AE82D0006F416C /* ForgotPassViewController.swift */,
 				FA6BF0E62651FFA500AD3EF1 /* HomeViewController.swift */,
-				FA6BF0F0265390D900AD3EF1 /* DetailTourViewController.swift */,
 				FA6BF0E42651FDE300AD3EF1 /* MapViewController.swift */,
-				FA5B46B02667271B002F87B5 /* DetailMapViewController.swift */,
-				FA6BF0E8265200A400AD3EF1 /* FavoritesViewController.swift */,
 				FA85129F26A73C1A0072E335 /* ResourcesViewController.swift */,
+				FA6BF0E8265200A400AD3EF1 /* FavoritesViewController.swift */,
+				FA6BF0F0265390D900AD3EF1 /* DetailTourViewController.swift */,
+				FA5B46B02667271B002F87B5 /* DetailMapViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA4AB36026AE82D0006F416C /* ForgotPassViewController.swift in Sources */,
 				FA6BF0E72651FFA500AD3EF1 /* HomeViewController.swift in Sources */,
 				FA2C0BC8248C995F00CF6853 /* SignUpViewController.swift in Sources */,
 				FA8512A026A73C1A0072E335 /* ResourcesViewController.swift in Sources */,

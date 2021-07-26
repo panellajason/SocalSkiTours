@@ -113,11 +113,8 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-
         if (segue.identifier == "toDetailTour3") {
-            
             let viewController = segue.destination as! DetailTourViewController
-       
             viewController.passedTour = tourToPass
         }
     }

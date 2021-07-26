@@ -17,12 +17,8 @@ class ToursCollectionViewCell: UICollectionViewCell {
     weak var tour:Tour?
     
     func configure(with tour: Tour) {
-        
         self.tour = tour
         self.title.text = tour.tourTitle
-        
-        self.imageView.image = nil
         self.imageView.image = tour.tourImages[0]
-        
     }
 }

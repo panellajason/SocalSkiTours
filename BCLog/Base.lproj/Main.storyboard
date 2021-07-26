@@ -128,12 +128,15 @@
                                         <rect key="frame" x="8" y="825" width="398" height="29"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WHp-g4-Gee">
-                                                <rect key="frame" x="125.00000000000001" y="0.0" width="148.33333333333337" height="29"/>
+                                                <rect key="frame" x="128.33333333333331" y="0.0" width="141.33333333333331" height="29"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NHi-Sg-2yQ">
                                                         <rect key="frame" x="0.0" y="0.0" width="42" height="29"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                         <state key="normal" title="About"/>
+                                                        <connections>
+                                                            <action selector="openAbout:" destination="vEw-8x-5rR" eventType="touchUpInside" id="yQv-OS-EvH"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="|" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4KK-sE-H7H">
                                                         <rect key="frame" x="52" y="0.0" width="5.3333333333333357" height="29"/>
@@ -142,9 +145,12 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HdI-yu-6P6">
-                                                        <rect key="frame" x="67.333333333333343" y="0.0" width="81" height="29"/>
+                                                        <rect key="frame" x="67.333333333333314" y="0.0" width="74" height="29"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                        <state key="normal" title="Disclosures"/>
+                                                        <state key="normal" title="Disclaimer"/>
+                                                        <connections>
+                                                            <action selector="openDisclaimer:" destination="vEw-8x-5rR" eventType="touchUpInside" id="3Po-vn-yYa"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -169,11 +175,112 @@
                         <outlet property="passwordTF" destination="8Qe-SR-9i2" id="RkB-hv-UV8"/>
                         <segue destination="rHl-dG-xoK" kind="showDetail" identifier="toHome" id="dJO-Ia-wA0"/>
                         <segue destination="UWr-Wf-nrH" kind="show" identifier="toSignUp" id="JBh-ua-Tyd"/>
+                        <segue destination="9qW-qB-qdf" kind="show" identifier="toForgotPassword" animates="NO" id="9oA-rF-uFS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hY3-8T-BXQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1681" y="131"/>
+        </scene>
+        <!--Forgot Pass View Controller-->
+        <scene sceneID="Pqe-MK-Nw7">
+            <objects>
+                <viewController id="9qW-qB-qdf" customClass="ForgotPassViewController" customModule="SoCal_Ski_Tours_" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pKS-hX-RH4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IHw-uc-5kB">
+                                <rect key="frame" x="79" y="302.33333333333331" width="256" height="237.33333333333331"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Pxm-h0-JKU">
+                                        <rect key="frame" x="0.0" y="0.0" width="256" height="207.33333333333334"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aKK-G3-yNk">
+                                                <rect key="frame" x="8" y="8" width="240" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="g2q-dm-ykN"/>
+                                                </constraints>
+                                                <state key="normal" title="X">
+                                                    <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="closeView:" destination="9qW-qB-qdf" eventType="touchUpInside" id="EBk-hU-HSB"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trouble signing in?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jd5-Uu-mDT">
+                                                <rect key="frame" x="8" y="43" width="240" height="31.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E5Q-5c-5Wq">
+                                                <rect key="frame" x="8" y="89.333333333333371" width="240" height="10"/>
+                                                <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="10" id="6fX-xz-dN1"/>
+                                                </constraints>
+                                            </view>
+                                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aHA-G9-L0v">
+                                                <rect key="frame" x="8" y="114.33333333333337" width="240" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="BXB-ze-iv1"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eV9-d7-J6k">
+                                                <rect key="frame" x="8" y="164.33333333333337" width="240" height="35"/>
+                                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="YsY-Ut-eMy"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <state key="normal" title=" Send password recovery email ">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="sendPasswordRecoveryEmail:" destination="9qW-qB-qdf" eventType="touchUpInside" id="3dL-Yc-deM"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Pxm-h0-JKU" secondAttribute="trailing" id="4fd-fn-HEX"/>
+                                    <constraint firstAttribute="bottom" secondItem="Pxm-h0-JKU" secondAttribute="bottom" constant="30" id="L2O-gR-cei"/>
+                                    <constraint firstItem="Pxm-h0-JKU" firstAttribute="leading" secondItem="IHw-uc-5kB" secondAttribute="leading" id="OnK-CF-UzL"/>
+                                    <constraint firstItem="Pxm-h0-JKU" firstAttribute="top" secondItem="IHw-uc-5kB" secondAttribute="top" id="jy4-bn-PgS"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="IHw-uc-5kB" firstAttribute="centerX" secondItem="pKS-hX-RH4" secondAttribute="centerX" id="Dok-41-xJA"/>
+                            <constraint firstItem="IHw-uc-5kB" firstAttribute="centerY" secondItem="pKS-hX-RH4" secondAttribute="centerY" id="fKX-Yj-YHA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cyU-v0-0y8"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="COL-dv-jMh"/>
+                    <connections>
+                        <outlet property="emailTF" destination="aHA-G9-L0v" id="5wz-7I-tYm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X33-ry-Mj8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1681" y="838"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="jPH-qr-l2Q">
@@ -310,12 +417,15 @@
                                                 <rect key="frame" x="0.0" y="614" width="398" height="29"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="9Ek-0d-6bs">
-                                                        <rect key="frame" x="125.00000000000001" y="0.0" width="148.33333333333337" height="29"/>
+                                                        <rect key="frame" x="128.33333333333331" y="0.0" width="141.33333333333331" height="29"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="piA-fG-DUQ">
                                                                 <rect key="frame" x="0.0" y="0.0" width="42" height="29"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                                 <state key="normal" title="About"/>
+                                                                <connections>
+                                                                    <action selector="openAbout:" destination="UWr-Wf-nrH" eventType="touchUpInside" id="Lmg-7o-DdN"/>
+                                                                </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="|" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lac-tj-m5Y">
                                                                 <rect key="frame" x="52" y="0.0" width="5.3333333333333357" height="29"/>
@@ -324,9 +434,12 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8jZ-Vy-dLW">
-                                                                <rect key="frame" x="67.333333333333343" y="0.0" width="81" height="29"/>
+                                                                <rect key="frame" x="67.333333333333314" y="0.0" width="74" height="29"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                                <state key="normal" title="Disclosures"/>
+                                                                <state key="normal" title="Disclaimer"/>
+                                                                <connections>
+                                                                    <action selector="openDisclaimer:" destination="UWr-Wf-nrH" eventType="touchUpInside" id="VSe-Fz-2Te"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
