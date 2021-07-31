@@ -48,8 +48,8 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
     
     func addToursToMap() {
         for tour in TourService.allTours {
-            tour.tourTrailhead.map = mapView
             tour.tourMarker.map = mapView
+            tour.tourTrailhead.map = mapView
             tour.tourPath.map = mapView
         }
     }

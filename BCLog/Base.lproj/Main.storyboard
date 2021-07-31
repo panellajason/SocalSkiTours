@@ -1057,7 +1057,7 @@
                                                     <constraint firstAttribute="height" constant="45" id="sy2-gF-zBJ"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                <state key="normal" title="Socal Snow Avalanche Center">
+                                                <state key="normal" title="SoCal Snow Avalanche Center">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>

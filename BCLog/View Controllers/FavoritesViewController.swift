@@ -12,16 +12,14 @@ import FirebaseFirestore
 import FirebaseAuth
 import BLTNBoard
 
-class FavoritesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FavoritesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITableViewDragDelegate {
     
     var favoriteTours = [Tour]()
     var ref: DocumentReference? = nil
     let db = Firestore.firestore()
     var tourToPass: Tour!
     @IBOutlet weak var tableView: UITableView!
-
     private lazy var boardManager: BLTNItemManager = {
-       
         let item = BLTNPageItem(title: "Account")
         item.appearance.titleTextColor = .black
         item.actionButtonTitle = "Logout"
@@ -50,6 +48,8 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
+        tableView.dragInteractionEnabled = true
+        tableView.dragDelegate = self
     }
     
     @IBAction func openAccountPage(_ sender: Any) {
@@ -64,7 +64,6 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
             let deleteAction = UIContextualAction(style: .normal, title: nil) { (_, _, completionHandler) in
                 
                 self.removeFromFavorites(indexPathToDelete: indexPath)
-                    
                 completionHandler(true)
             }
             deleteAction.image = UIImage(systemName: "xmark.circle")
@@ -88,6 +87,29 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tourToPass = favoriteTours[indexPath.row]
         self.performSegue(withIdentifier: "toDetailTour3", sender: self)
+    }
+    
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let mover = favoriteTours.remove(at: sourceIndexPath.row)
+        favoriteTours.insert(mover, at: destinationIndexPath.row)
+        print("update firebase")
+        updateOrderOfFavorites()
+    }
+    
+    func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        let dragItem = UIDragItem(itemProvider: NSItemProvider())
+        dragItem.localObject = favoriteTours[indexPath.row]
+        return [ dragItem ]
+    }
+    
+    func updateOrderOfFavorites () {
+        //delete collection
+        
+        //add newly ordered collection
     }
     
     func removeFromFavorites(indexPathToDelete: IndexPath) {
