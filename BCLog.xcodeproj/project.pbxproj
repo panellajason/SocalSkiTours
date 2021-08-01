@@ -43,7 +43,7 @@
 		FA2C0BD12493F40000CF6853 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FA3A259E247E18F100A68C2C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FA4AB35F26AE82D0006F416C /* ForgotPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassViewController.swift; sourceTree = "<group>"; };
-		FA50BAF2247D9156003D7507 /* SoCal Ski Tours .app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SoCal Ski Tours .app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA50BAF2247D9156003D7507 /* SoCal Ski Tours.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SoCal Ski Tours.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA50BAF5247D9156003D7507 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA50BAF7247D9156003D7507 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FA50BAFC247D9156003D7507 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -108,7 +108,7 @@
 		FA50BAF3247D9156003D7507 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FA50BAF2247D9156003D7507 /* SoCal Ski Tours .app */,
+				FA50BAF2247D9156003D7507 /* SoCal Ski Tours.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -197,7 +197,7 @@
 			);
 			name = BCLog;
 			productName = BCLog;
-			productReference = FA50BAF2247D9156003D7507 /* SoCal Ski Tours .app */;
+			productReference = FA50BAF2247D9156003D7507 /* SoCal Ski Tours.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -483,7 +483,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jp.BCLog;
-				PRODUCT_NAME = "SoCal Ski Tours ";
+				PRODUCT_NAME = "SoCal Ski Tours";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -502,7 +502,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jp.BCLog;
-				PRODUCT_NAME = "SoCal Ski Tours ";
+				PRODUCT_NAME = "SoCal Ski Tours";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -41,7 +41,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         
         
         //------------------------------------
-        //click on photo for zoom
         //welcome page
         //about
     }

@@ -21,7 +21,6 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var tableView: UITableView!
     private lazy var boardManager: BLTNItemManager = {
         let item = BLTNPageItem(title: "Account")
-        item.appearance.titleTextColor = .black
         item.actionButtonTitle = "Logout"
         item.appearance.actionButtonColor = .systemRed
         item.actionHandler = { _ in
@@ -96,20 +95,13 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let mover = favoriteTours.remove(at: sourceIndexPath.row)
         favoriteTours.insert(mover, at: destinationIndexPath.row)
-        print("update firebase")
-        updateOrderOfFavorites()
+        UserService.currentUserProfile?.favoriteTours = favoriteTours
     }
     
     func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
         let dragItem = UIDragItem(itemProvider: NSItemProvider())
         dragItem.localObject = favoriteTours[indexPath.row]
         return [ dragItem ]
-    }
-    
-    func updateOrderOfFavorites () {
-        //delete collection
-        
-        //add newly ordered collection
     }
     
     func removeFromFavorites(indexPathToDelete: IndexPath) {

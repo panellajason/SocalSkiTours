@@ -11,6 +11,7 @@ import Firebase
 import FirebaseFirestore
 import FirebaseAuth
 import SafariServices
+import EEZoomableImageView
 
 class DetailTourViewController: UIViewController, UIScrollViewDelegate {
     
@@ -50,7 +51,7 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
         topScrollView.delegate = self
         topScrollView.frame = view.frame
         for i in 0..<passedTour.tourImages.count {
-            let imageView = UIImageView()
+            let imageView = EEZoomableImageView()
             imageView.image = passedTour.tourImages[i]
             imageView.contentMode = .scaleToFill
             let xPos = self.view.frame.width * CGFloat(i)

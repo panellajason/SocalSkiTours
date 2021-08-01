@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import DropDown
+import BLTNBoard
 
 class HomeViewController: UIViewController, UITextFieldDelegate {
     
@@ -32,6 +33,17 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         let menu = DropDown()
         menu.dataSource = ["All Tours", "San Gorgonio Wilderness", "San Gabriel Mountains", "San Jacinto Area"]
         return menu
+    }()
+    private lazy var welcomeBoardManager1: BLTNItemManager = {
+        let item = BLTNPageItem(title: "Welcome")
+        item.descriptionText = ""
+        item.actionButtonTitle = "Continue"
+        item.actionHandler = { _ in
+            //open new card
+        }
+        item.alternativeButtonTitle = "Skip"
+        item.appearance.actionButtonColor = .systemBlue
+        return BLTNItemManager(rootItem: item)
     }()
     
     override func viewDidLoad() {

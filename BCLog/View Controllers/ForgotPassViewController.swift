@@ -14,6 +14,7 @@ import BLTNBoard
 
 class ForgotPassViewController: UIViewController {
 
+    @IBOutlet weak var smallView: UIView!
     @IBOutlet weak var emailTF: UITextField! {
         didSet {
             let placeholderText = NSAttributedString(string: "Email address",
@@ -24,7 +25,6 @@ class ForgotPassViewController: UIViewController {
     }
     private lazy var successBoardManager: BLTNItemManager = {
         let item = BLTNPageItem(title: "Success!")
-        item.appearance.titleTextColor = .black
         item.descriptionText = "Check your email for more information."
         item.actionButtonTitle = "Ok"
         item.appearance.actionButtonColor = .systemBlue
@@ -35,7 +35,6 @@ class ForgotPassViewController: UIViewController {
     }()
     private lazy var invalidBoardManager: BLTNItemManager = {
         let item = BLTNPageItem(title: "Invalid entry.")
-        item.appearance.titleTextColor = .black
         item.descriptionText = "There is no user corresponding to this email address."
         item.actionButtonTitle = "Ok"
         item.appearance.actionButtonColor = .systemBlue
@@ -48,6 +47,8 @@ class ForgotPassViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.smallView.layer.borderWidth = 1
+        self.smallView.layer.borderColor = UIColor.white.cgColor
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
