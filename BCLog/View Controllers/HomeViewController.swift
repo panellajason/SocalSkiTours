@@ -25,19 +25,35 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var topStackView: UIStackView!
     @IBOutlet var barButtonItem: UIBarButtonItem!
     
+    var isNewUser: Bool?
     var tours = [Tour]()
     var filteredTours = [Tour]()
     var tourToPass: Tour!
-    var filtered = false
+    var isFiltered = false
     let menu: DropDown = {
         let menu = DropDown()
         menu.dataSource = ["All Tours", "San Gorgonio Wilderness", "San Gabriel Mountains", "San Jacinto Area"]
         return menu
     }()
     private lazy var welcomeBoardManager1: BLTNItemManager = {
-        let item = BLTNPageItem(title: "Welcome")
-        item.descriptionText = ""
-        item.actionButtonTitle = "Continue"
+        let item = BLTNPageItem(title: "Welcome!")
+        item.image = UIImage(named: "titlePic")
+        item.actionButtonTitle = "Learn more"
+        item.actionHandler = { _ in
+            self.dismiss(animated: true, completion: nil)
+            self.welcomeBoardManager2.showBulletin(above: self)
+        }
+        item.alternativeButtonTitle = "Skip"
+        item.alternativeHandler = { _ in
+            self.dismiss(animated: true, completion: nil)
+        }
+        item.appearance.actionButtonColor = .systemBlue
+        return BLTNItemManager(rootItem: item)
+    }()
+    private lazy var welcomeBoardManager2: BLTNItemManager = {
+        let item = BLTNPageItem(title: "Getting started")
+        //item.image = UIImage(named: "titlePic")
+        item.actionButtonTitle = "Learn more"
         item.actionHandler = { _ in
             //open new card
         }
@@ -53,6 +69,10 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         imageView.image = UIImage(named: "title2")
         navigationItem.titleView = imageView
             
+        if isNewUser ?? false {
+            welcomeBoardManager1.showBulletin(above: self)
+        }
+
         searchTF.delegate = self
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -137,11 +157,10 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
                 filteredTours.append(tour)
             }
         }
-        filtered = true
+        isFiltered = true
         collectionView.reloadData()
         collectionView.setContentOffset(.zero, animated: true)
     }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         if (segue.identifier == "toDetailTour") {
@@ -150,7 +169,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         }
     }
 }
-
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -163,7 +181,7 @@ extension HomeViewController: UICollectionViewDataSource {
         if !filteredTours.isEmpty {
             return filteredTours.count
         }
-        return filtered ? 0 : tours.count
+        return isFiltered ? 0 : tours.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

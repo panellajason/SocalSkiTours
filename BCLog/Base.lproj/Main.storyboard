@@ -170,7 +170,7 @@
                         <viewLayoutGuide key="safeArea" id="XG4-7O-eM9"/>
                     </view>
                     <connections>
-                        <outlet property="emailTF" destination="Tsa-Vf-uC2" id="7fW-Gc-AKt"/>
+                        <outlet property="emailTF" destination="Tsa-Vf-uC2" id="Oa9-TZ-Eln"/>
                         <outlet property="errorLabel" destination="XC3-nV-wta" id="Qmg-0b-QXY"/>
                         <outlet property="passwordTF" destination="8Qe-SR-9i2" id="RkB-hv-UV8"/>
                         <segue destination="rHl-dG-xoK" kind="showDetail" identifier="toHome" id="dJO-Ia-wA0"/>
@@ -185,7 +185,7 @@
         <!--Forgot Pass View Controller-->
         <scene sceneID="Pqe-MK-Nw7">
             <objects>
-                <viewController id="9qW-qB-qdf" customClass="ForgotPassViewController" customModule="SoCal_Ski_Tours_" sceneMemberID="viewController">
+                <viewController id="9qW-qB-qdf" customClass="ForgotPassViewController" customModule="Socal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pKS-hX-RH4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -276,7 +276,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="COL-dv-jMh"/>
                     <connections>
-                        <outlet property="emailTF" destination="aHA-G9-L0v" id="5wz-7I-tYm"/>
+                        <outlet property="emailTF" destination="aHA-G9-L0v" id="RWH-9K-xzB"/>
                         <outlet property="smallView" destination="IHw-uc-5kB" id="cpq-jQ-ebW"/>
                     </connections>
                 </viewController>
@@ -362,6 +362,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="FWY-a8-Py2"/>
                                                 </constraints>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" textContentType="email"/>
                                             </textField>
@@ -371,6 +372,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="AFR-VC-ehK"/>
                                                 </constraints>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                             </textField>
@@ -380,6 +382,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="2O7-Bj-THl"/>
                                                 </constraints>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                             </textField>

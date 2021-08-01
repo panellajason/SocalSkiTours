@@ -12,6 +12,7 @@ import BLTNBoard
 
 class SignUpViewController: UIViewController, UINavigationControllerDelegate {
 
+    var isNewUser = false
     @IBOutlet weak var emailTF: UITextField! {
         didSet {
             let placeholderText = NSAttributedString(string: "Email address",
@@ -90,8 +91,8 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
                     if error == nil && user != nil {
                         guard let userID = Auth.auth().currentUser?.uid else { return }
                         UserService.currentUserProfile = User(userID: userID, favoriteTours: [])
+                        self.isNewUser = true
                         self.performSegue(withIdentifier: "toHome2", sender: self)
-                        
                     } else {
                         print("Error: \(error!.localizedDescription)")
                         self.errorLabel.text = "Error: " + error!.localizedDescription
@@ -106,6 +107,15 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
         else {
             errorLabel.text = "Error: Fields cannot be empty."
             self.removeSpinner()
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if (segue.identifier == "toHome2") {
+            let tabCtrl: UITabBarController = segue.destination as! UITabBarController
+            let viewController = tabCtrl.viewControllers![0] as! UINavigationController
+            let vc = viewController.viewControllers[0] as! HomeViewController
+            vc.isNewUser = isNewUser
         }
     }
 }

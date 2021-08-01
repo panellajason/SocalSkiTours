@@ -31,6 +31,8 @@ class SigninViewController: UIViewController {
         }
     }
     @IBOutlet weak var errorLabel: UILabel!
+    
+    var isNewUser = false
     private lazy var disclaimerBoardManager: BLTNItemManager = {
         let item = BLTNPageItem(title: "Disclaimer")
         item.descriptionText = "WARNING: Skiing and snowboarding are dangerous sports that can result in death, paralysis, or serious injury. Please take all precautions and use your own ability, evaluation, and judgement to assess the risks of your terrain choice on a particular day, rather than relying on the information in this app. It is imperative that you own, carry, and know how to use an avalanche beacon, shovel, and probe when skiing in the backcountry. The user assumes all risk associated with the use of this app and with the activities of skiing and snowboarding."
@@ -105,6 +107,15 @@ class SigninViewController: UIViewController {
         } else {
             errorLabel.text = "Error: Fields cannot be empty."
             self.removeSpinner()
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if (segue.identifier == "toHome") {
+            let tabCtrl: UITabBarController = segue.destination as! UITabBarController
+            let viewController = tabCtrl.viewControllers![0] as! UINavigationController
+            let vc = viewController.viewControllers[0] as! HomeViewController
+            vc.isNewUser = isNewUser
         }
     }
 }
