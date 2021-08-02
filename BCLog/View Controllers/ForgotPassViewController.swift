@@ -19,12 +19,12 @@ class ForgotPassViewController: UIViewController {
         didSet {
             let placeholderText = NSAttributedString(string: "Email address",
                                                         attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
-            
             emailTF.attributedPlaceholder = placeholderText
         }
     }
     private lazy var successBoardManager: BLTNItemManager = {
         let item = BLTNPageItem(title: "Success!")
+        item.appearance.titleTextColor = .green
         item.descriptionText = "Check your email for more information."
         item.actionButtonTitle = "Ok"
         item.appearance.actionButtonColor = .systemBlue
@@ -35,6 +35,7 @@ class ForgotPassViewController: UIViewController {
     }()
     private lazy var invalidBoardManager: BLTNItemManager = {
         let item = BLTNPageItem(title: "Invalid entry.")
+        item.appearance.titleTextColor = .red
         item.descriptionText = "There is no user corresponding to this email address."
         item.actionButtonTitle = "Ok"
         item.appearance.actionButtonColor = .systemBlue

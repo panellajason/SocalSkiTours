@@ -25,10 +25,9 @@ class UserService {
                     print("Error fetching documents: \(error!)")
                     return
                 }
-                let favorites = documents.map { $0["tour_id"]! }
                 
                 var favoriteTours = [Tour]()
-
+                let favorites = documents.map { $0["tour_id"]! }
                 for favorite in favorites {
                     for tour in TourService.allTours {
                         if tour.tourID == (favorite as! String) {

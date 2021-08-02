@@ -11,7 +11,7 @@
         <!--Signin View Controller-->
         <scene sceneID="cQF-Zr-ojG">
             <objects>
-                <viewController storyboardIdentifier="SigninViewController" modalPresentationStyle="fullScreen" id="vEw-8x-5rR" customClass="SigninViewController" customModule="Socal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SigninViewController" modalPresentationStyle="fullScreen" id="vEw-8x-5rR" customClass="SigninViewController" customModule="SoCal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jBb-cv-u5n">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -185,7 +185,7 @@
         <!--Forgot Pass View Controller-->
         <scene sceneID="Pqe-MK-Nw7">
             <objects>
-                <viewController id="9qW-qB-qdf" customClass="ForgotPassViewController" customModule="Socal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9qW-qB-qdf" customClass="ForgotPassViewController" customModule="SoCal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pKS-hX-RH4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -227,6 +227,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="BXB-ze-iv1"/>
                                                 </constraints>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -309,13 +310,13 @@
         <!--SignUp View Controller-->
         <scene sceneID="HyW-DE-8yb">
             <objects>
-                <viewController id="UWr-Wf-nrH" userLabel="SignUp View Controller" customClass="SignUpViewController" customModule="Socal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="UWr-Wf-nrH" userLabel="SignUp View Controller" customClass="SignUpViewController" customModule="SoCal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oO0-Dq-jGm">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eLz-RP-lCv">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="676"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="759"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RRf-2G-HET">
                                         <rect key="frame" x="8" y="0.0" width="398" height="25"/>
@@ -337,7 +338,7 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Vn2-iR-J0U">
-                                        <rect key="frame" x="8" y="25" width="398" height="643"/>
+                                        <rect key="frame" x="8" y="25" width="398" height="726"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_0058" translatesAutoresizingMaskIntoConstraints="NO" id="Pmd-8F-8fM">
                                                 <rect key="frame" x="0.0" y="0.0" width="398" height="180"/>
@@ -351,13 +352,13 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signup" translatesAutoresizingMaskIntoConstraints="NO" id="olV-DN-FR3">
-                                                <rect key="frame" x="0.0" y="188" width="398" height="60"/>
+                                                <rect key="frame" x="0.0" y="188" width="398" height="55"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="60" id="6cZ-Dw-Hq1"/>
+                                                    <constraint firstAttribute="height" constant="55" id="6cZ-Dw-Hq1"/>
                                                 </constraints>
                                             </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GZr-3P-U4d">
-                                                <rect key="frame" x="0.0" y="256" width="398" height="45"/>
+                                                <rect key="frame" x="0.0" y="251" width="398" height="45"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="FWY-a8-Py2"/>
@@ -367,7 +368,7 @@
                                                 <textInputTraits key="textInputTraits" textContentType="email"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Do-Yb-RB9">
-                                                <rect key="frame" x="0.0" y="309" width="398" height="45"/>
+                                                <rect key="frame" x="0.0" y="304" width="398" height="45"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="AFR-VC-ehK"/>
@@ -377,7 +378,7 @@
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Re-enter password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q0M-dd-u4t">
-                                                <rect key="frame" x="0.0" y="362" width="398" height="45"/>
+                                                <rect key="frame" x="0.0" y="357" width="398" height="45"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="2O7-Bj-THl"/>
@@ -387,7 +388,7 @@
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0b-77-NkD">
-                                                <rect key="frame" x="0.0" y="415" width="398" height="45"/>
+                                                <rect key="frame" x="0.0" y="410" width="398" height="45"/>
                                                 <color key="backgroundColor" red="0.0" green="0.46954255709999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="XP2-Mi-QTa"/>
@@ -406,7 +407,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDH-lb-zOf">
-                                                <rect key="frame" x="0.0" y="468" width="398" height="42"/>
+                                                <rect key="frame" x="0.0" y="463" width="398" height="42"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="42" id="MiO-DU-VF2"/>
                                                 </constraints>
@@ -415,11 +416,11 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" verticalHuggingPriority="100" translatesAutoresizingMaskIntoConstraints="NO" id="GDY-3Y-3Ao">
-                                                <rect key="frame" x="0.0" y="518" width="398" height="88"/>
+                                                <rect key="frame" x="0.0" y="513" width="398" height="176"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="G4v-Ic-9ui">
-                                                <rect key="frame" x="0.0" y="614" width="398" height="29"/>
+                                                <rect key="frame" x="0.0" y="697" width="398" height="29"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="9Ek-0d-6bs">
                                                         <rect key="frame" x="128.33333333333331" y="0.0" width="141.33333333333331" height="29"/>
@@ -473,7 +474,7 @@
                         <outlet property="errorLabel" destination="GDH-lb-zOf" id="Aqg-wm-RT4"/>
                         <outlet property="password2TF" destination="Q0M-dd-u4t" id="wTR-kt-LnW"/>
                         <outlet property="passwordTF" destination="9Do-Yb-RB9" id="fzV-Ns-MHS"/>
-                        <segue destination="rHl-dG-xoK" kind="showDetail" identifier="toHome2" id="IQQ-Hx-K96"/>
+                        <segue destination="rHl-dG-xoK" kind="showDetail" identifier="toHome2" id="fkI-It-cda"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NoX-ez-lgZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -500,7 +501,7 @@
         <!--Map View Controller-->
         <scene sceneID="yVZ-r8-v7u">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="WV3-vT-4DH" customClass="MapViewController" customModule="Socal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="WV3-vT-4DH" customClass="MapViewController" customModule="SoCal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZGd-OR-Mza">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="786"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -524,11 +525,11 @@
             </objects>
             <point key="canvasLocation" x="1454" y="-277"/>
         </scene>
-        <!--Ski Tours-->
+        <!--Home-->
         <scene sceneID="2ZZ-iJ-Ann">
             <objects>
                 <navigationController id="2aj-jI-C2i" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Ski Tours" image="house" catalog="system" selectedImage="house.fill" id="Nsd-ei-Zse"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" selectedImage="house.fill" id="Nsd-ei-Zse"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="ZeQ-Hh-DNl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -539,12 +540,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tkU-SK-mew" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="661" y="-991"/>
+            <point key="canvasLocation" x="1571.0144927536232" y="-991.07142857142856"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="yMJ-UF-5Ul">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="4RI-7G-zGC" customClass="HomeViewController" customModule="Socal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="4RI-7G-zGC" customClass="HomeViewController" customModule="SoCal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mez-t6-u7s">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="786"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -605,7 +606,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ToursCollectionViewCell" id="qTS-7a-N4y" customClass="ToursCollectionViewCell" customModule="Socal_Ski_Tours" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ToursCollectionViewCell" id="qTS-7a-N4y" customClass="ToursCollectionViewCell" customModule="SoCal_Ski_Tours" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="183" height="296"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="OJb-Yi-qrz">
@@ -680,12 +681,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VwU-u3-r4K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1433" y="-991"/>
+            <point key="canvasLocation" x="2342.0289855072465" y="-991.07142857142856"/>
         </scene>
         <!--Detail Map View Controller-->
         <scene sceneID="2vm-Mc-0e5">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="SaB-nS-icq" customClass="DetailMapViewController" customModule="Socal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="SaB-nS-icq" customClass="DetailMapViewController" customModule="SoCal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gP4-8A-7ae">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="786"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -703,12 +704,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mfi-AB-aai" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3068" y="-991"/>
+            <point key="canvasLocation" x="3976.811594202899" y="-991.07142857142856"/>
         </scene>
         <!--Detail Tour View Controller-->
         <scene sceneID="Ybq-oI-n3X">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="NfK-m3-e3R" customClass="DetailTourViewController" customModule="Socal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="NfK-m3-e3R" customClass="DetailTourViewController" customModule="SoCal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8UQ-AR-72u">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="786"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -893,7 +894,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BDS-Jr-Gyj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2266.666666666667" y="-991.07142857142856"/>
+            <point key="canvasLocation" x="3176.811594202899" y="-991.07142857142856"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="ZP3-5f-Sr8">
@@ -915,7 +916,7 @@
         <!--Favorites View Controller-->
         <scene sceneID="C0H-sB-G2M">
             <objects>
-                <viewController id="XNX-lh-kTB" customClass="FavoritesViewController" customModule="Socal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XNX-lh-kTB" customClass="FavoritesViewController" customModule="SoCal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VcA-GC-Tho">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="786"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -924,7 +925,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="757"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FavoritesTableViewCell" rowHeight="100" id="hZL-rl-gvq" customClass="FavoritesTableViewCell" customModule="Socal_Ski_Tours" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FavoritesTableViewCell" rowHeight="100" id="hZL-rl-gvq" customClass="FavoritesTableViewCell" customModule="SoCal_Ski_Tours" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hZL-rl-gvq" id="wy3-Ge-LIr">
@@ -1035,16 +1036,16 @@
         <!--Resources View Controller-->
         <scene sceneID="PF9-S6-bnY">
             <objects>
-                <viewController id="EXi-30-3kK" customClass="ResourcesViewController" customModule="Socal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="EXi-30-3kK" customClass="ResourcesViewController" customModule="SoCal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0TS-c5-S9j">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="786"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dAE-uu-x7G">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="786"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cSA-E9-GWr">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="786"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="SNOW" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZPU-LI-TUV">
                                                 <rect key="frame" x="8" y="0.0" width="398" height="30"/>
@@ -1207,7 +1208,7 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dn6-Sx-a3K">
-                                                <rect key="frame" x="8" y="485" width="398" height="315"/>
+                                                <rect key="frame" x="8" y="485" width="398" height="293"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                             </view>
                                         </subviews>
@@ -1241,7 +1242,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Item" image="questionmark" catalog="system" id="noU-RU-kP1">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <action selector="showOrHideSatelliteView:" destination="WV3-vT-4DH" id="eps-Eu-PPo"/>
+                                <action selector="openHelp:" destination="EXi-30-3kK" id="0Mj-9y-JCe"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1253,8 +1254,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="7Pc-2i-bcE"/>
-        <segue reference="dJO-Ia-wA0"/>
+        <segue reference="NLH-Gv-DPh"/>
+        <segue reference="fkI-It-cda"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="IMG_0058" width="806" height="518"/>

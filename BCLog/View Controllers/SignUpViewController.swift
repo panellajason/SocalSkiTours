@@ -12,12 +12,10 @@ import BLTNBoard
 
 class SignUpViewController: UIViewController, UINavigationControllerDelegate {
 
-    var isNewUser = false
     @IBOutlet weak var emailTF: UITextField! {
         didSet {
             let placeholderText = NSAttributedString(string: "Email address",
                                                         attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
-            
             emailTF.attributedPlaceholder = placeholderText
         }
     }
@@ -25,7 +23,6 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
         didSet {
             let placeholderText = NSAttributedString(string: "Password",
                                                         attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
-            
             passwordTF.attributedPlaceholder = placeholderText
         }
     }
@@ -33,13 +30,13 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
         didSet {
             let placeholderText = NSAttributedString(string: "Confirm Password",
                                                         attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
-            
             password2TF.attributedPlaceholder = placeholderText
         }
     }
     @IBOutlet weak var errorLabel: UILabel!
     private lazy var disclaimerBoardManager: BLTNItemManager = {
         let item = BLTNPageItem(title: "Disclaimer")
+        item.appearance.titleTextColor = .systemRed
         item.descriptionText = "WARNING: Skiing and snowboarding are dangerous sports that can result in death, paralysis, or serious injury. Please take all precautions and use your own ability, evaluation, and judgement to assess the risks of your terrain choice on a particular day, rather than relying on the information in this app. It is imperative that you own, carry, and know how to use an avalanche beacon, shovel, and probe when skiing in the backcountry. The user assumes all risk associated with the use of this app and with the activities of skiing and snowboarding."
         item.actionButtonTitle = "Ok"
         item.appearance.actionButtonColor = .systemBlue
@@ -50,6 +47,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
     }()
     private lazy var aboutBoardManager: BLTNItemManager = {
         let item = BLTNPageItem(title: "About")
+        item.appearance.titleTextColor = .systemBlue
         item.descriptionText = ""
         return BLTNItemManager(rootItem: item)
     }()
@@ -91,7 +89,6 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
                     if error == nil && user != nil {
                         guard let userID = Auth.auth().currentUser?.uid else { return }
                         UserService.currentUserProfile = User(userID: userID, favoriteTours: [])
-                        self.isNewUser = true
                         self.performSegue(withIdentifier: "toHome2", sender: self)
                     } else {
                         print("Error: \(error!.localizedDescription)")
@@ -115,7 +112,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
             let tabCtrl: UITabBarController = segue.destination as! UITabBarController
             let viewController = tabCtrl.viewControllers![0] as! UINavigationController
             let vc = viewController.viewControllers[0] as! HomeViewController
-            vc.isNewUser = isNewUser
+            vc.isNewUser = true
         }
     }
 }

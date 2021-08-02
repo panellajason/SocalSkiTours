@@ -21,6 +21,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var tableView: UITableView!
     private lazy var boardManager: BLTNItemManager = {
         let item = BLTNPageItem(title: "Account")
+        item.appearance.titleTextColor = .systemBlue
         item.actionButtonTitle = "Logout"
         item.appearance.actionButtonColor = .systemRed
         item.actionHandler = { _ in

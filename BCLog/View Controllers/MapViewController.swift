@@ -39,17 +39,15 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 70, right: 0)
         view.addSubview(mapView)
         
-        
         //------------------------------------
-        //welcome page
         //about
     }
     
     func addToursToMap() {
         for tour in TourService.allTours {
-            tour.tourMarker.map = mapView
             tour.tourTrailhead.map = mapView
             tour.tourPath.map = mapView
+            tour.tourMarker.map = mapView
         }
     }
     
