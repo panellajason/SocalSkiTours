@@ -35,8 +35,8 @@ class SigninViewController: UIViewController {
         item.descriptionText = "WARNING: Skiing and snowboarding are dangerous sports that can result in death, paralysis, or serious injury. Please take all precautions and use your own ability, evaluation, and judgement to assess the risks of your terrain choice on a particular day, rather than relying on the information in this app. It is imperative that you own, carry, and know how to use an avalanche beacon, shovel, and probe when skiing in the backcountry. The user assumes all risk associated with the use of this app and with the activities of skiing and snowboarding."
         item.actionButtonTitle = "Ok"
         item.appearance.actionButtonColor = .systemBlue
-        item.actionHandler = { _ in
-            self.dismiss(animated: true, completion: nil)
+        item.actionHandler = { [weak self] _ in
+            self?.dismiss(animated: true, completion: nil)
         }
         return BLTNItemManager(rootItem: item)
     }()
@@ -85,7 +85,7 @@ class SigninViewController: UIViewController {
         handleSignIn()
     }
     
-    @objc func handleSignIn() {
+    @objc private func handleSignIn() {
         guard let email = emailTF.text else { return }
         guard let pass = passwordTF.text else { return }
         

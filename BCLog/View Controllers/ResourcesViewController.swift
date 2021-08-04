@@ -83,7 +83,9 @@ class ResourcesViewController: UIViewController {
         item.image = UIImage(named: "tab2a")
         item.descriptionText = "Tap on any tour to view its details. Tap on the search icon to filter by keyword or region."
         item.actionButtonTitle = "Continue"
-        item.actionHandler = { _ in
+        item.actionHandler = { [weak self] _ in
+            guard let self = self else { return }
+
             self.dismiss(animated: true, completion: nil)
             self.welcomeBoardManager3.showBulletin(above: self)
         }

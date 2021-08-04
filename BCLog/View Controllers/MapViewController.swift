@@ -11,10 +11,10 @@ import GoogleMaps
 
 class MapViewController: UIViewController, GMSMapViewDelegate {
 
-    var tourToPass: Tour!
-    var passedTour: Tour!
-    var isSatelliteView = false
-    var mapView: GMSMapView!
+    private var tourToPass: Tour!
+    private var passedTour: Tour!
+    private lazy var isSatelliteView = false
+    private var mapView: GMSMapView!
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -43,7 +43,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         //about
     }
     
-    func addToursToMap() {
+    private func addToursToMap() {
         for tour in TourService.allTours {
             tour.tourTrailhead.map = mapView
             tour.tourPath.map = mapView

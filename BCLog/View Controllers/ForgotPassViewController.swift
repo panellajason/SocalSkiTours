@@ -28,8 +28,8 @@ class ForgotPassViewController: UIViewController {
         item.descriptionText = "Check your email for more information."
         item.actionButtonTitle = "Ok"
         item.appearance.actionButtonColor = .systemBlue
-        item.actionHandler = { _ in
-            self.dismiss(animated: true, completion: nil)
+        item.actionHandler = { [weak self] _ in
+            self?.dismiss(animated: true, completion: nil)
         }
         return BLTNItemManager(rootItem: item)
     }()
@@ -39,8 +39,8 @@ class ForgotPassViewController: UIViewController {
         item.descriptionText = "There is no user corresponding to this email address."
         item.actionButtonTitle = "Ok"
         item.appearance.actionButtonColor = .systemBlue
-        item.actionHandler = { _ in
-            self.dismiss(animated: true, completion: nil)
+        item.actionHandler = { [weak self] _ in
+            self?.dismiss(animated: true, completion: nil)
         }
         return BLTNItemManager(rootItem: item)
     }()
@@ -65,7 +65,9 @@ class ForgotPassViewController: UIViewController {
         self.showSpinner(onView: self.view)
         guard let email = emailTF.text else { return }
         if !email.isEmpty {
-            Auth.auth().sendPasswordReset(withEmail: email) { error in
+            Auth.auth().sendPasswordReset(withEmail: email) { [weak self] error in
+                guard let self = self else { return }
+
                 if error == nil {
                     self.successBoardManager.showBulletin(above: self)
                 } else {

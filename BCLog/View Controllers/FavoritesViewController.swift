@@ -14,17 +14,20 @@ import BLTNBoard
 
 class FavoritesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITableViewDragDelegate {
     
-    var favoriteTours = [Tour]()
-    var ref: DocumentReference? = nil
-    let db = Firestore.firestore()
-    var tourToPass: Tour!
     @IBOutlet weak var tableView: UITableView!
+
+    private var favoriteTours = [Tour]()
+    private lazy var ref: DocumentReference? = nil
+    private let db = Firestore.firestore()
+    private var tourToPass: Tour!
     private lazy var boardManager: BLTNItemManager = {
         let item = BLTNPageItem(title: "Account")
         item.appearance.titleTextColor = .systemBlue
         item.actionButtonTitle = "Logout"
         item.appearance.actionButtonColor = .systemRed
-        item.actionHandler = { _ in
+        item.actionHandler = { [weak self] _ in
+            guard let self = self else { return }
+
             try! Auth.auth().signOut()
             UserService.currentUserProfile = nil
             self.performSegue(withIdentifier: "toLogout", sender: self)
@@ -61,8 +64,9 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-            let deleteAction = UIContextualAction(style: .normal, title: nil) { (_, _, completionHandler) in
-                
+            let deleteAction = UIContextualAction(style: .normal, title: nil) { [weak self] (_, _, completionHandler) in
+                guard let self = self else { return }
+
                 self.removeFromFavorites(indexPathToDelete: indexPath)
                 completionHandler(true)
             }
@@ -105,14 +109,15 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         return [ dragItem ]
     }
     
-    func removeFromFavorites(indexPathToDelete: IndexPath) {
+    private func removeFromFavorites(indexPathToDelete: IndexPath) {
         db.collection("user_favorites").whereField("tour_id", isEqualTo: self.favoriteTours[indexPathToDelete.row].tourID).whereField("user_id", isEqualTo: UserService.currentUserProfile?.userID as Any)
-            .getDocuments() { (querySnapshot, err) in
+            .getDocuments() { [weak self] (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
                     if !querySnapshot!.documents.isEmpty {
-                        
+                        guard let self = self else { return }
+
                         self.db.collection("user_favorites").document(querySnapshot!.documents[0].documentID).delete() { err in
                             if let err = err {
                                 print("Error removing document: \(err)")

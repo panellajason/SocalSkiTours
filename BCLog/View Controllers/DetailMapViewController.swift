@@ -12,8 +12,8 @@ import GoogleMaps
 class DetailMapViewController: UIViewController, GMSMapViewDelegate {
 
     var passedTour: Tour!
-    var mapView: GMSMapView!
-    var isSatelliteView = false
+    private var mapView: GMSMapView!
+    private lazy var isSatelliteView = false
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -49,7 +49,7 @@ class DetailMapViewController: UIViewController, GMSMapViewDelegate {
         }
     }
     
-    func addTourToMap() {
+    private func addTourToMap() {
         //Tour Marker
         let tempMarker = GMSMarker()
         tempMarker.title = passedTour.tourMarker.snippet

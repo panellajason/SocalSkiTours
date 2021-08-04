@@ -23,12 +23,13 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var topStackView: UIStackView!
     @IBOutlet var barButtonItem: UIBarButtonItem!
+    
     var isNewUser: Bool!
-    var tours = [Tour]()
-    var filteredTours = [Tour]()
-    var tourToPass: Tour!
-    var isFiltered = false
-    let menu: DropDown = {
+    private lazy var tours = [Tour]()
+    private lazy var filteredTours = [Tour]()
+    private var tourToPass: Tour!
+    private lazy var isFiltered = false
+    private let menu: DropDown = {
         let menu = DropDown()
         menu.dataSource = ["All Tours", "San Gorgonio Wilderness", "San Gabriel Mountains", "San Jacinto Area"]
         return menu
@@ -53,7 +54,9 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         tours = TourService.allTours
         menu.anchorView = collectionView
         menu.selectRow(0)
-        menu.selectionAction = { index, title in
+        menu.selectionAction = { [weak self] index, title in
+            guard let self = self else { return }
+
             self.filteredTours.removeAll()
             self.tours.removeAll()
             
@@ -81,8 +84,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
-    {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
@@ -159,6 +161,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         item.appearance.actionButtonColor = .systemBlue
         return BLTNItemManager(rootItem: item)
     }()
+    
     private lazy var welcomeBoardManager2: BLTNItemManager = {
         let item = BLTNPageItem(title: "Getting started")
         item.appearance.titleTextColor = .systemBlue
@@ -178,6 +181,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         item.appearance.alternativeButtonTitleColor = .systemGray
         return BLTNItemManager(rootItem: item)
     }()
+    
     private lazy var welcomeBoardManager2a: BLTNItemManager = {
         let item = BLTNPageItem(title: "Home")
         item.appearance.titleTextColor = .systemBlue

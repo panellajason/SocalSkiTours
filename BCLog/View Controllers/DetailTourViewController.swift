@@ -16,11 +16,11 @@ import EEZoomableImageView
 class DetailTourViewController: UIViewController, UIScrollViewDelegate {
     
     var passedTour: Tour!
-    var tourToPass: Tour!
-    var isFavorite: Bool = false
-    var ref: DocumentReference? = nil
-    let db = Firestore.firestore()
-    var userID = UserService.currentUserProfile?.userID
+    private var tourToPass: Tour!
+    private lazy var isFavorite: Bool = false
+    private lazy var ref: DocumentReference? = nil
+    private let db = Firestore.firestore()
+    private lazy var userID = UserService.currentUserProfile?.userID
 
     @IBOutlet var detailDescription: UILabel!
     @IBOutlet var detailAspect: UILabel!
@@ -91,10 +91,12 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
         present(webViewController, animated: true, completion: nil)
     }
     
-    func checkForFavorites() {
+    private func checkForFavorites() {
         //Query data for one tour to apply correct star image
         db.collection("user_favorites").whereField("tour_id", isEqualTo: passedTour.tourID).whereField("user_id", isEqualTo: userID as Any)
-            .getDocuments() { (querySnapshot, err) in
+            .getDocuments() { [weak self] (querySnapshot, err) in
+                guard let self = self else { return }
+
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
@@ -110,28 +112,31 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    func addToFavorites() {
+    private func addToFavorites() {
         ref = db.collection("user_favorites").addDocument(data: [
             "tour_id": passedTour.tourID,
             "user_id": userID as Any
-        ]) { err in
+        ]) { [weak self] err in
             if let err = err {
                 print("Error adding document: \(err)")
             } else {
+                guard let self = self else { return }
+
                 self.isFavorite = true
                 self.favoritesButton.image = UIImage(systemName: "star.fill")
             }
         }
     }
     
-    func removeFromFavorites() {
+    private func removeFromFavorites() {
         db.collection("user_favorites").whereField("tour_id", isEqualTo: passedTour.tourID).whereField("user_id", isEqualTo: userID as Any)
-            .getDocuments() { (querySnapshot, err) in
+            .getDocuments() { [weak self] (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
                     if !querySnapshot!.documents.isEmpty {
-                        
+                        guard let self = self else { return }
+
                         self.db.collection("user_favorites").document(querySnapshot!.documents[0].documentID).delete() { err in
                             if let err = err {
                                 print("Error removing document: \(err)")

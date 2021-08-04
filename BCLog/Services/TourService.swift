@@ -28,10 +28,8 @@ class TourService {
     }
     
     static func findTour(withId id:String, completion:@escaping (_ tour:Tour)->()) {
-        for tour in allTours {
-            if tour.tourID == id {
-                return completion(tour)
-            }
+        for tour in allTours where tour.tourID == id {
+            return completion(tour)
         }
         return completion(allTours[0])
     }
