@@ -64,16 +64,16 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
                 case 0:
                     self.tours.append(contentsOf: TourService.allTours)
                 case 1:
-                    SanBernardinoTours.loadTours { moreTours in
-                        self.tours.append(contentsOf: moreTours)
+                    SanBernardinoTours.loadTours { [weak self] moreTours in
+                        self?.tours.append(contentsOf: moreTours)
                     }
                 case 2:
-                    SanGabrielsTours.loadTours { moreTours in
-                        self.tours.append(contentsOf: moreTours)
+                    SanGabrielsTours.loadTours { [weak self] moreTours in
+                        self?.tours.append(contentsOf: moreTours)
                     }
                 case 3:
-                    SanJacintoTours.loadTours { moreTours in
-                        self.tours.append(contentsOf: moreTours)
+                    SanJacintoTours.loadTours { [weak self] moreTours in
+                        self?.tours.append(contentsOf: moreTours)
                     }
                 default:
                     self.tours.append(contentsOf: TourService.allTours)

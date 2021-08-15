@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D8F6A5CD5C6AA57215784196 /* Pods_BCLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D47EC8EF3855F9A1BAD0623 /* Pods_BCLog.framework */; };
+		FA0557C426C43AF3000D50F5 /* ErrorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0557C326C43AF3000D50F5 /* ErrorService.swift */; };
+		FA0557C626C4413E000D50F5 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0557C526C4413E000D50F5 /* DatabaseService.swift */; };
 		FA2C0BC8248C995F00CF6853 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2C0BC7248C995F00CF6853 /* SignUpViewController.swift */; };
 		FA2C0BCE248CD36700CF6853 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2C0BCD248CD36700CF6853 /* SigninViewController.swift */; };
 		FA2C0BD22493F40000CF6853 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2C0BD12493F40000CF6853 /* User.swift */; };
@@ -38,6 +40,8 @@
 		3E6EA046542FCBFB004B01ED /* Pods-BCLog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BCLog.release.xcconfig"; path = "Target Support Files/Pods-BCLog/Pods-BCLog.release.xcconfig"; sourceTree = "<group>"; };
 		7D47EC8EF3855F9A1BAD0623 /* Pods_BCLog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BCLog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F54F7EAACD13A70D5AB48BEE /* Pods-BCLog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BCLog.debug.xcconfig"; path = "Target Support Files/Pods-BCLog/Pods-BCLog.debug.xcconfig"; sourceTree = "<group>"; };
+		FA0557C326C43AF3000D50F5 /* ErrorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorService.swift; sourceTree = "<group>"; };
+		FA0557C526C4413E000D50F5 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		FA2C0BC7248C995F00CF6853 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		FA2C0BCD248CD36700CF6853 /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
 		FA2C0BD12493F40000CF6853 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -148,6 +152,8 @@
 			children = (
 				FA5B46AE26648CF0002F87B5 /* UserService.swift */,
 				FA5B46B2266878C6002F87B5 /* TourService.swift */,
+				FA0557C326C43AF3000D50F5 /* ErrorService.swift */,
+				FA0557C526C4413E000D50F5 /* DatabaseService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -321,6 +327,7 @@
 				FAFE5231266EB25400A99D36 /* FavoritesTableViewCell.swift in Sources */,
 				FA50BAF6247D9156003D7507 /* AppDelegate.swift in Sources */,
 				FA6BF0EF2652E51100AD3EF1 /* Tour.swift in Sources */,
+				FA0557C626C4413E000D50F5 /* DatabaseService.swift in Sources */,
 				FA6BF0E9265200A400AD3EF1 /* FavoritesViewController.swift in Sources */,
 				FA5B46B12667271B002F87B5 /* DetailMapViewController.swift in Sources */,
 				FA5B46B526687925002F87B5 /* SanGabrielsTours.swift in Sources */,
@@ -331,6 +338,7 @@
 				FA6BF0E52651FDE300AD3EF1 /* MapViewController.swift in Sources */,
 				FA5B46B3266878C6002F87B5 /* TourService.swift in Sources */,
 				FA2C0BD22493F40000CF6853 /* User.swift in Sources */,
+				FA0557C426C43AF3000D50F5 /* ErrorService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

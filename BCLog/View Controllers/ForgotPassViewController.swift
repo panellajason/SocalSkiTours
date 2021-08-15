@@ -14,7 +14,6 @@ import BLTNBoard
 
 class ForgotPassViewController: UIViewController {
 
-    @IBOutlet weak var smallView: UIView!
     @IBOutlet weak var emailTF: UITextField! {
         didSet {
             let placeholderText = NSAttributedString(string: "Email address",
@@ -48,8 +47,6 @@ class ForgotPassViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.smallView.layer.borderWidth = 1
-        self.smallView.layer.borderColor = UIColor.white.cgColor
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
@@ -57,26 +54,27 @@ class ForgotPassViewController: UIViewController {
        self.view.endEditing(true)
     }
     
-    @IBAction func closeView(_ sender: Any) {
-        self.dismiss(animated: false, completion: nil)
-    }
-    
     @IBAction func sendPasswordRecoveryEmail(_ sender: Any) {
-        self.showSpinner(onView: self.view)
+        
         guard let email = emailTF.text else { return }
+        
         if !email.isEmpty {
-            Auth.auth().sendPasswordReset(withEmail: email) { [weak self] error in
+            self.showSpinner(onView: self.view)
+
+            DatabaseService.handlePasswordRecoveryEmail(email: email) { [weak self] error in
                 guard let self = self else { return }
 
-                if error == nil {
-                    self.successBoardManager.showBulletin(above: self)
-                } else {
+                guard error == nil else {
                     self.invalidBoardManager.showBulletin(above: self)
+                    return
                 }
+                self.successBoardManager.showBulletin(above: self)
+
                 self.removeSpinner()
+
             }
-        } else {
-            self.removeSpinner()
-        }
+        } 
     }
 }
+
+

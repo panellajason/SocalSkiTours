@@ -62,14 +62,14 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
     }
         
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
-        if marker.title == "South Fork Trailhead" || marker.title == "Sugarloaf Trailhead" || marker.title == "Mt Baldy Trailhead" || marker.title == "Vincent Gap Trailhead" || marker.title == "Krakta Ridge Trailhead" || marker.title == "Mt Waterman Trailhead" || marker.title == "Palm Springs Tramway" || marker.title == "Snow Creek Trailhead" || marker.title == "Mt Baldy Ski Lifts"   {
+        if marker.title == "South Fork Trailhead" || marker.title == "Sugarloaf Trailhead" || marker.title == "Mt Baldy Trailhead" || marker.title == "Vincent Gap Trailhead" || marker.title == "Krakta Ridge Trailhead" || marker.title == "Mt Waterman Trailhead" || marker.title == "Palm Springs Tramway" || marker.title == "Snow Creek Trailhead" || marker.title == "Mt Baldy Ski Lifts" {
             //do nothing
         }
         else {
             let id = marker.position.latitude.description + " " +  marker.position.longitude.description
-            TourService.findTour(withId: id) { tour in
-                self.tourToPass = tour
-                self.performSegue(withIdentifier: "toDetailTour2", sender: self)
+            TourService.findTour(withId: id) { [weak self] tour in
+                self?.tourToPass = tour
+                self?.performSegue(withIdentifier: "toDetailTour2", sender: self)
             }
         }
     }

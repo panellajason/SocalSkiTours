@@ -14,6 +14,7 @@ class TourService {
     
     static func loadAllTours(completion:@escaping (_ tours:[Tour])->()) {
         var tempTours = [Tour]()
+        
         SanBernardinoTours.loadTours { newTours in
             tempTours.append(contentsOf: newTours)
         }

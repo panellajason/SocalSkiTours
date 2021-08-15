@@ -69,41 +69,32 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
        self.view.endEditing(true)
     }
     
-    @IBAction func closeView(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
     @IBAction func signUp(_ sender: UIButton) {
-        handleSignUp()
-    }
-    
-    @objc private func handleSignUp() {
-        self.showSpinner(onView: self.view)
+        errorLabel.text = ""
+        
         guard let email = emailTF.text else { return }
-        guard let pass = passwordTF.text else { return }
-        guard let pass2 = password2TF.text else { return }
+        guard let password1 = passwordTF.text else { return }
+        guard let password2 = password2TF.text else { return }
 
-        if !email.isEmpty && !pass.isEmpty && !pass2.isEmpty {
-            if pass == pass2 {
-                Auth.auth().createUser(withEmail: email, password: pass) { user, error in
-                    if error == nil && user != nil {
-                        guard let userID = Auth.auth().currentUser?.uid else { return }
-                        UserService.currentUserProfile = User(userID: userID, favoriteTours: [])
-                        self.performSegue(withIdentifier: "toHome2", sender: self)
-                    } else {
-                        print("Error: \(error!.localizedDescription)")
-                        self.errorLabel.text = "Error: " + error!.localizedDescription
-                        self.removeSpinner()
+        if !email.isEmpty && !password1.isEmpty && !password2.isEmpty {
+            if password1 == password2 {
+                self.showSpinner(onView: self.view)
+                
+                DatabaseService.handleSignUp(email: email, password: password1) { [weak self] error in
+                    
+                    guard error == nil else {
+                        
+                        self?.errorLabel.text = error?.localizedDescription
+                        self?.removeSpinner()
+                        return
                     }
+                    self?.performSegue(withIdentifier: "toHome2", sender: self)
                 }
             } else {
-                errorLabel.text = "Error: Passwords must match."
-                self.removeSpinner()
+                errorLabel.text = ValidationError.passwordsMustMatch.localizedDescription
             }
-        }
-        else {
-            errorLabel.text = "Error: Fields cannot be empty."
-            self.removeSpinner()
+        } else {
+            errorLabel.text = ValidationError.emptyTextFields.localizedDescription
         }
     }
     

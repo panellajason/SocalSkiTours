@@ -47,8 +47,12 @@ class SigninViewController: UIViewController {
         return BLTNItemManager(rootItem: item)
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+        errorLabel.text = ""
+        emailTF.text = ""
+        passwordTF.text = ""
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -56,6 +60,15 @@ class SigninViewController: UIViewController {
         if Auth.auth().currentUser != nil {
             self.performSegue(withIdentifier: "toHome", sender: self)
         }
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     @IBAction func openAbout(_ sender: Any) {
@@ -67,7 +80,6 @@ class SigninViewController: UIViewController {
     }
     
     @IBAction func toSignUp(_ sender: Any) {
-        errorLabel.text = ""
         self.performSegue(withIdentifier: "toSignUp", sender: self)
     }
     
@@ -81,33 +93,35 @@ class SigninViewController: UIViewController {
     }
     
     @IBAction func login(_ sender: UIButton) {
-        self.showSpinner(onView: self.view)
-        handleSignIn()
-    }
-    
-    @objc private func handleSignIn() {
+        errorLabel.text = ""
+
         guard let email = emailTF.text else { return }
-        guard let pass = passwordTF.text else { return }
-        
-        if !email.isEmpty && !pass.isEmpty {
-            Auth.auth().signIn(withEmail: email, password: pass) { user, error in
-                if error == nil && user != nil {
-                    guard let userID = Auth.auth().currentUser?.uid else { return }
-                    UserService.observeUserProfile(userID) { userProfile in
-                        UserService.currentUserProfile = userProfile
-                    }
-                    self.performSegue(withIdentifier: "toHome", sender: self)
-                } else {
-                    self.errorLabel.text = "Error: Email or password is incorrect."
+        guard let password = passwordTF.text else { return }
+
+        if !email.isEmpty && !password.isEmpty {
+            self.showSpinner(onView: self.view)
+
+            DatabaseService.handleSignIn(email: email, password: password) { [weak self] error in
+                
+                guard error == nil else {
+                    
+                    self?.errorLabel.text = ValidationError.invalidCredentials.localizedDescription
+                    self?.removeSpinner()
+                    return
                 }
-                self.removeSpinner()
+                self?.performSegue(withIdentifier: "toHome", sender: self)
             }
         } else {
-            errorLabel.text = "Error: Fields cannot be empty."
-            self.removeSpinner()
+            errorLabel.text = ValidationError.emptyTextFields.localizedDescription
         }
     }
+    
 }
+
+
+
+
+
 
 var vSpinner : UIView?
 extension UIViewController {
