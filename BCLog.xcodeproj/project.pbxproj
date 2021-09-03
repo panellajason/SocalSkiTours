@@ -20,7 +20,6 @@
 		FA50BAFD247D9156003D7507 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA50BAFB247D9156003D7507 /* Main.storyboard */; };
 		FA5B46AB265D9A26002F87B5 /* ToursCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B46AA265D9A26002F87B5 /* ToursCollectionViewCell.swift */; };
 		FA5B46AD2663674F002F87B5 /* SanBernardinoTours.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B46AC2663674F002F87B5 /* SanBernardinoTours.swift */; };
-		FA5B46AF26648CF1002F87B5 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B46AE26648CF0002F87B5 /* UserService.swift */; };
 		FA5B46B12667271B002F87B5 /* DetailMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B46B02667271B002F87B5 /* DetailMapViewController.swift */; };
 		FA5B46B3266878C6002F87B5 /* TourService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B46B2266878C6002F87B5 /* TourService.swift */; };
 		FA5B46B526687925002F87B5 /* SanGabrielsTours.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B46B426687925002F87B5 /* SanGabrielsTours.swift */; };
@@ -56,7 +55,6 @@
 		FA50BB03247D915B003D7507 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA5B46AA265D9A26002F87B5 /* ToursCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToursCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA5B46AC2663674F002F87B5 /* SanBernardinoTours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SanBernardinoTours.swift; sourceTree = "<group>"; };
-		FA5B46AE26648CF0002F87B5 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		FA5B46B02667271B002F87B5 /* DetailMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMapViewController.swift; sourceTree = "<group>"; };
 		FA5B46B2266878C6002F87B5 /* TourService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourService.swift; sourceTree = "<group>"; };
 		FA5B46B426687925002F87B5 /* SanGabrielsTours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SanGabrielsTours.swift; sourceTree = "<group>"; };
@@ -150,7 +148,6 @@
 		FA8512A226A90EC60072E335 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				FA5B46AE26648CF0002F87B5 /* UserService.swift */,
 				FA5B46B2266878C6002F87B5 /* TourService.swift */,
 				FA0557C326C43AF3000D50F5 /* ErrorService.swift */,
 				FA0557C526C4413E000D50F5 /* DatabaseService.swift */,
@@ -323,7 +320,6 @@
 				FA8512A026A73C1A0072E335 /* ResourcesViewController.swift in Sources */,
 				FA6BF0F1265390D900AD3EF1 /* DetailTourViewController.swift in Sources */,
 				FA85129C26916EBA0072E335 /* SanJacintoTours.swift in Sources */,
-				FA5B46AF26648CF1002F87B5 /* UserService.swift in Sources */,
 				FAFE5231266EB25400A99D36 /* FavoritesTableViewCell.swift in Sources */,
 				FA50BAF6247D9156003D7507 /* AppDelegate.swift in Sources */,
 				FA6BF0EF2652E51100AD3EF1 /* Tour.swift in Sources */,

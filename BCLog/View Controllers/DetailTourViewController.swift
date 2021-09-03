@@ -7,9 +7,6 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseFirestore
-import FirebaseAuth
 import SafariServices
 import EEZoomableImageView
 
@@ -18,9 +15,6 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
     var passedTour: Tour!
     private var tourToPass: Tour!
     private lazy var isFavorite: Bool = false
-    private lazy var ref: DocumentReference? = nil
-    private let db = Firestore.firestore()
-    private lazy var userID = UserService.currentUserProfile?.userID
 
     @IBOutlet var detailDescription: UILabel!
     @IBOutlet var detailAspect: UILabel!
@@ -32,13 +26,88 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        checkForFavorites()
+        
+        DatabaseService.checkIfTourIsFavorite(tourID: passedTour.tourID) { [weak self] error, isFavorite in
+            
+            guard error == nil else {
+                return
+            }
+            
+            if isFavorite {
+                self?.favoritesButton.image = UIImage(systemName: "star.fill")
+                self?.isFavorite = true
+            } else {
+                self?.isFavorite = false
+                self?.favoritesButton.image = UIImage(systemName: "star")
+            }
+        }
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = passedTour.tourTitle.uppercased()
         
+        setUpUI()
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        //Determine current page by calculating x posistion of scrollview
+        let pageIndex = round(scrollView.contentOffset.x/view.frame.width)
+        pageControl.currentPage = Int(pageIndex)
+    }
+    
+    @IBAction func addOrRemoveFavorite(_ sender: Any) {
+        self.showSpinner(onView: self.view)
+        
+        if !isFavorite {
+            
+            DatabaseService.addToFavorites(tourID: passedTour.tourID) { [weak self] error in
+                
+                guard error == nil else {
+                    let errorAlert = UIAlertController(title: "Error", message: "Unable to add to favorites.", preferredStyle: .alert)
+                    errorAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                    self?.present(errorAlert, animated: true)
+                    return
+                }
+                
+                self?.isFavorite = true
+                self?.favoritesButton.image = UIImage(systemName: "star.fill")
+            }
+            
+        } else {
+            
+            DatabaseService.removeFromFavorites(tourID: passedTour.tourID) { [weak self] error in
+                
+                guard error == nil else {
+                    let errorAlert = UIAlertController(title: "Error", message: "Unable to remove from favorites.", preferredStyle: .alert)
+                    errorAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                    self?.present(errorAlert, animated: true)
+                    return
+                }
+                
+                self?.isFavorite = false
+                self?.favoritesButton.image = UIImage(systemName: "star")
+            }
+        }
+        self.removeSpinner()
+    }
+    
+    @IBAction func goToMapView(_ sender: Any) {
+        self.tourToPass = passedTour
+        self.performSegue(withIdentifier: "toDetailMap", sender: self)
+    }
+        
+    @IBAction func goToWeather(_ sender: Any) {
+        let location = passedTour.tourID.split(separator: " ").map{ String($0) }
+        let lat = location[0]
+        let lon = location[1]
+        let url = "https://forecast.weather.gov/MapClick.php?lat="+lat+"&lon="+lon+"#.YPeKJhNKjeo"
+        let webViewController = SFSafariViewController(url: URL(string: url)!)
+        present(webViewController, animated: true, completion: nil)
+    }
+    
+    private func setUpUI() {
         //Add the passed Tour's details to textviews
         detailDescription.text = passedTour.tourDescription
         detailAspect.text = "Aspect: " + passedTour.tourAspect + " // Slope Angle: " + passedTour.tourAngle + " degrees"
@@ -58,95 +127,6 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
             imageView.frame = CGRect(x: xPos, y: 0, width: self.topScrollView.frame.width, height: 300)
             topScrollView.contentSize.width = topScrollView.frame.width * CGFloat(i + 1)
             topScrollView.addSubview(imageView)
-        }
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        //Determine current page by calculating x posistion of scrollview
-        let pageIndex = round(scrollView.contentOffset.x/view.frame.width)
-        pageControl.currentPage = Int(pageIndex)
-    }
-    
-    @IBAction func addOrRemoveFavorite(_ sender: Any) {
-        self.showSpinner(onView: self.view)
-        if !isFavorite {
-            addToFavorites()
-        } else {
-            removeFromFavorites()
-        }
-        self.removeSpinner()
-    }
-    
-    @IBAction func goToMapView(_ sender: Any) {
-        self.tourToPass = passedTour
-        self.performSegue(withIdentifier: "toDetailMap", sender: self)
-    }
-        
-    @IBAction func goToWeather(_ sender: Any) {
-        let location = passedTour.tourID.split(separator: " ").map{ String($0) }
-        let lat = location[0]
-        let lon = location[1]
-        let url = "https://forecast.weather.gov/MapClick.php?lat="+lat+"&lon="+lon+"#.YPeKJhNKjeo"
-        let webViewController = SFSafariViewController(url: URL(string: url)!)
-        present(webViewController, animated: true, completion: nil)
-    }
-    
-    private func checkForFavorites() {
-        //Query data for one tour to apply correct star image
-        db.collection("user_favorites").whereField("tour_id", isEqualTo: passedTour.tourID).whereField("user_id", isEqualTo: userID as Any)
-            .getDocuments() { [weak self] (querySnapshot, err) in
-                guard let self = self else { return }
-
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                    if !querySnapshot!.documents.isEmpty {
-                        self.favoritesButton.image = UIImage(systemName: "star.fill")
-                        self.isFavorite = true
-                    }
-                    else {
-                        self.favoritesButton.image = UIImage(systemName: "star")
-                        self.isFavorite = false
-                    }
-                }
-        }
-    }
-    
-    private func addToFavorites() {
-        ref = db.collection("user_favorites").addDocument(data: [
-            "tour_id": passedTour.tourID,
-            "user_id": userID as Any
-        ]) { [weak self] err in
-            if let err = err {
-                print("Error adding document: \(err)")
-            } else {
-                guard let self = self else { return }
-
-                self.isFavorite = true
-                self.favoritesButton.image = UIImage(systemName: "star.fill")
-            }
-        }
-    }
-    
-    private func removeFromFavorites() {
-        db.collection("user_favorites").whereField("tour_id", isEqualTo: passedTour.tourID).whereField("user_id", isEqualTo: userID as Any)
-            .getDocuments() { [weak self] (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                    if !querySnapshot!.documents.isEmpty {
-                        guard let self = self else { return }
-
-                        self.db.collection("user_favorites").document(querySnapshot!.documents[0].documentID).delete() { err in
-                            if let err = err {
-                                print("Error removing document: \(err)")
-                            } else {
-                            }
-                        }
-                        self.isFavorite = false
-                        self.favoritesButton.image = UIImage(systemName: "star")
-                    }
-                }
         }
     }
     

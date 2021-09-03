@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseAuth
 import BLTNBoard
 
 
@@ -57,7 +55,7 @@ class ForgotPassViewController: UIViewController {
     @IBAction func sendPasswordRecoveryEmail(_ sender: Any) {
         
         guard let email = emailTF.text else { return }
-        
+    
         if !email.isEmpty {
             self.showSpinner(onView: self.view)
 
@@ -68,8 +66,8 @@ class ForgotPassViewController: UIViewController {
                     self.invalidBoardManager.showBulletin(above: self)
                     return
                 }
+                
                 self.successBoardManager.showBulletin(above: self)
-
                 self.removeSpinner()
 
             }

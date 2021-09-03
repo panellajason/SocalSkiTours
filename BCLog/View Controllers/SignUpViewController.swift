@@ -6,8 +6,6 @@
 //  Copyright © 2020 Jason Panella. All rights reserved.
 //
 import UIKit
-import Firebase
-import FirebaseAuth
 import BLTNBoard
 
 class SignUpViewController: UIViewController, UINavigationControllerDelegate {
@@ -45,10 +43,16 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
         }
         return BLTNItemManager(rootItem: item)
     }()
+    
     private lazy var aboutBoardManager: BLTNItemManager = {
         let item = BLTNPageItem(title: "About")
         item.appearance.titleTextColor = .systemBlue
-        item.descriptionText = ""
+        item.descriptionText = "Known for its beaches and sunny weather, Southern California doesn't usually come to mind as a backcountry skiing destination. When winter does decide to show its face, the alpine terrain comes to life and so do the dedicated backcountry riders. This app can serve as a starting point for getting to know the area and what is has in store for human-powered skiing. Visit socalsnow.org for avalanche observations and snowpack summaries."
+        item.actionButtonTitle = "Ok"
+        item.appearance.actionButtonColor = .systemBlue
+        item.actionHandler = { [weak self] _ in
+            self?.dismiss(animated: true, completion: nil)
+        }
         return BLTNItemManager(rootItem: item)
     }()
     
@@ -70,8 +74,8 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     @IBAction func signUp(_ sender: UIButton) {
-        errorLabel.text = ""
         
+        errorLabel.text = ""
         guard let email = emailTF.text else { return }
         guard let password1 = passwordTF.text else { return }
         guard let password2 = password2TF.text else { return }
@@ -88,11 +92,13 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
                         self?.removeSpinner()
                         return
                     }
+                    
                     self?.performSegue(withIdentifier: "toHome2", sender: self)
                 }
             } else {
                 errorLabel.text = ValidationError.passwordsMustMatch.localizedDescription
             }
+            
         } else {
             errorLabel.text = ValidationError.emptyTextFields.localizedDescription
         }

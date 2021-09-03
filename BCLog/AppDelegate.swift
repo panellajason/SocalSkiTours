@@ -28,15 +28,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
             if user != nil {
-                UserService.observeUserProfile(user!.uid) { userProfile in
-                    UserService.currentUserProfile = userProfile
+                DatabaseService.observeUserProfile(user!.uid) { userProfile in
+                    DatabaseService.currentUserProfile = userProfile
                 }
                 
                 let controller = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as Any
                 self.window?.rootViewController = controller as? UITabBarController
                 self.window?.makeKeyAndVisible()
+                
             } else {
-                UserService.currentUserProfile = nil
+                
+                DatabaseService.currentUserProfile = nil
                 
                 let controller = storyboard.instantiateViewController(withIdentifier: "SigninViewController") as Any
                 self.window?.rootViewController = controller as? UIViewController
