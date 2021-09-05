@@ -12,6 +12,7 @@ import GoogleMaps
 class SanGabrielsTours {
     
     static func loadTours(completion:@escaping (_ tours:[Tour])->()) {
+        
         var tempTours = [Tour]()
         
         //Mt Baldy Trailhead
