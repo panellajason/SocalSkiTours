@@ -38,17 +38,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         mapView.isMyLocationEnabled = true
         mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 70, right: 0)
         view.addSubview(mapView)
-        
-        //------------------------------------
-        //about
-    }
-    
-    private func addToursToMap() {
-        for tour in TourService.allTours {
-            tour.tourTrailhead.map = mapView
-            tour.tourPath.map = mapView
-            tour.tourMarker.map = mapView
-        }
     }
     
     @IBAction func showOrHideSatelliteView(_ sender: Any) {
@@ -60,8 +49,18 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
             isSatelliteView = true
         }
     }
+    
+    private func addToursToMap() {
+        
+        for tour in TourService.allTours {
+            tour.tourTrailhead.map = mapView
+            tour.tourPath.map = mapView
+            tour.tourMarker.map = mapView
+        }
+    }
         
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
+        
         if marker.title == "South Fork Trailhead" || marker.title == "Sugarloaf Trailhead" || marker.title == "Mt Baldy Trailhead" || marker.title == "Vincent Gap Trailhead" || marker.title == "Krakta Ridge Trailhead" || marker.title == "Mt Waterman Trailhead" || marker.title == "Palm Springs Tramway" || marker.title == "Snow Creek Trailhead" || marker.title == "Mt Baldy Ski Lifts" {
             //do nothing
         }

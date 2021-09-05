@@ -27,8 +27,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
     private lazy var tours = [Tour]()
     private lazy var filteredTours = [Tour]()
     private var tourToPass: Tour!
-    private lazy var isFiltered = false
-    private let menu: DropDown = {
+    private let filterMenu: DropDown = {
         let menu = DropDown()
         menu.dataSource = ["All Tours", "San Gorgonio Wilderness", "San Gabriel Mountains", "San Jacinto Area"]
         return menu
@@ -58,12 +57,14 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
     }
     
     @IBAction func filterByRegion(_ sender: Any) {
+        
         searchTF.text = ""
         self.view.endEditing(true)
-        menu.show()
+        filterMenu.show()
     }
     
     @IBAction func showOrHideSearch(_ sender: Any) {
+        
         if topStackView.isHidden {
             //open search
             topStackView.isHidden = false
@@ -74,7 +75,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
             filteredTours.removeAll()
             filteredTours = TourService.allTours
             collectionView.reloadData()
-            menu.selectRow(0)
+            filterMenu.selectRow(0)
             collectionView.setContentOffset(.zero, animated: true)
             topStackView.isHidden = true
             searchTF.resignFirstResponder()
@@ -87,13 +88,16 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         if !filteredTours.isEmpty {
             return filteredTours.count
         }
-        return isFiltered ? 0 : tours.count
+        
+        return tours.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ToursCollectionViewCell.identifier, for: indexPath) as! ToursCollectionViewCell
         
         if !filteredTours.isEmpty {
@@ -117,6 +121,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
         if let text = textField.text {
             if string.count == 0 {
                 filterText(String(text.dropLast()))
@@ -129,21 +134,22 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
     
     func filterText(_ query: String) {
         filteredTours.removeAll()
+        
         for tour in tours {
             if tour.tourTitle.lowercased().starts(with: query.lowercased()) || tour.tourTitle.lowercased().contains(query.lowercased()) {
                 filteredTours.append(tour)
             }
         }
-        isFiltered = true
+        
         collectionView.reloadData()
         collectionView.setContentOffset(.zero, animated: true)
     }
     
     private func setUpMenu() {
         
-        menu.anchorView = collectionView
-        menu.selectRow(0)
-        menu.selectionAction = { [weak self] index, title in
+        filterMenu.anchorView = collectionView
+        filterMenu.selectRow(0)
+        filterMenu.selectionAction = { [weak self] index, title in
             guard let self = self else { return }
 
             self.filteredTours.removeAll()
@@ -180,7 +186,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
         }
     }
     
-    //-----------------------------------------ONBOARDING----------------------------------------
+    //-----------------------------------------ONBOARDING----------------------------------------------------------
     private lazy var welcomeBoardManager1: BLTNItemManager = {
         let item = BLTNPageItem(title: "Welcome!")
         item.appearance.titleTextColor = .systemBlue

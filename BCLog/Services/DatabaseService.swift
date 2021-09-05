@@ -59,10 +59,7 @@ class DatabaseService {
             databaseInstance.collection("user_favorites").whereField("user_id", isEqualTo: uid)
             .addSnapshotListener { querySnapshot, error in
                 
-                guard let documents = querySnapshot?.documents else {
-                    print("Error fetching documents: \(error!)")
-                    return
-                }
+                guard let documents = querySnapshot?.documents else { return }
                 
                 var favoriteTours = [Tour]()
                 let favorites = documents.map { $0["tour_id"]! }

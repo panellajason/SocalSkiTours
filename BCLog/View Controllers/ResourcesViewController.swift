@@ -21,41 +21,49 @@ class ResourcesViewController: UIViewController {
     }
     
     @IBAction func openSocalSnow(_ sender: Any) {
+        
         let vc = SFSafariViewController(url: URL(string: "http://socalsnow.org")!)
         present(vc, animated: true, completion: nil)
     }
     
     @IBAction func openAIARE(_ sender: Any) {
+        
         let vc = SFSafariViewController(url: URL(string: "https://avtraining.org")!)
         present(vc, animated: true, completion: nil)
     }
     
     @IBAction func openBensWeather(_ sender: Any) {
+        
         let vc = SFSafariViewController(url: URL(string: "http://bensweather.com")!)
         present(vc, animated: true, completion: nil)
     }
     
     @IBAction func openGOESWest(_ sender: Any) {
+        
         let vc = SFSafariViewController(url: URL(string:"https://www.star.nesdis.noaa.gov/GOES/sector_band.php?sat=G17&sector=psw&band=GEOCOLOR&length=24")!)
         present(vc, animated: true, completion: nil)
     }
     
     @IBAction func openNWS(_ sender: Any) {
+        
         let vc = SFSafariViewController(url: URL(string:"https://www.wpc.ncep.noaa.gov/qpf/day1-7.shtml")!)
         present(vc, animated: true, completion: nil)
     }
     
     @IBAction func openSocalMountainsCameras(_ sender: Any) {
+        
         let vc = SFSafariViewController(url: URL(string: "http://socalmountains.com/webcams")!)
         present(vc, animated: true, completion: nil)
     }
 
     @IBAction func openTramCamera(_ sender: Any) {
+        
         let vc = SFSafariViewController(url: URL(string:"https://pstramway.com/long-valley-cam")!)
         present(vc, animated: true, completion: nil)
     }
     
     @IBAction func openMtBaldyCamera(_ sender: Any) {
+        
         let vc = SFSafariViewController(url: URL(string:"https://mtbaldyresort.com/webcam/")!)
         present(vc, animated: true, completion: nil)
     }

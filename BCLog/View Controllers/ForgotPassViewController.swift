@@ -9,7 +9,6 @@
 import UIKit
 import BLTNBoard
 
-
 class ForgotPassViewController: UIViewController {
 
     @IBOutlet weak var emailTF: UITextField! {

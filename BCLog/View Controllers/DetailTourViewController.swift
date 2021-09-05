@@ -29,29 +29,29 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
         
         DatabaseService.checkIfTourIsFavorite(tourID: passedTour.tourID) { [weak self] error, isFavorite in
             
-            guard error == nil else {
-                return
-            }
+            guard error == nil else { return }
             
             if isFavorite {
+                
                 self?.favoritesButton.image = UIImage(systemName: "star.fill")
                 self?.isFavorite = true
             } else {
+                
                 self?.isFavorite = false
                 self?.favoritesButton.image = UIImage(systemName: "star")
             }
         }
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = passedTour.tourTitle.uppercased()
         
+        self.title = passedTour.tourTitle.uppercased()
         setUpUI()
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
         //Determine current page by calculating x posistion of scrollview
         let pageIndex = round(scrollView.contentOffset.x/view.frame.width)
         pageControl.currentPage = Int(pageIndex)
@@ -65,6 +65,7 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
             DatabaseService.addToFavorites(tourID: passedTour.tourID) { [weak self] error in
                 
                 guard error == nil else {
+                    
                     let errorAlert = UIAlertController(title: "Error", message: "Unable to add to favorites.", preferredStyle: .alert)
                     errorAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
                     self?.present(errorAlert, animated: true)
@@ -80,6 +81,7 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
             DatabaseService.removeFromFavorites(tourID: passedTour.tourID) { [weak self] error in
                 
                 guard error == nil else {
+                    
                     let errorAlert = UIAlertController(title: "Error", message: "Unable to remove from favorites.", preferredStyle: .alert)
                     errorAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
                     self?.present(errorAlert, animated: true)
@@ -94,11 +96,13 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
     }
     
     @IBAction func goToMapView(_ sender: Any) {
+        
         self.tourToPass = passedTour
         self.performSegue(withIdentifier: "toDetailMap", sender: self)
     }
         
     @IBAction func goToWeather(_ sender: Any) {
+        
         let location = passedTour.tourID.split(separator: " ").map{ String($0) }
         let lat = location[0]
         let lon = location[1]
@@ -108,6 +112,7 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
     }
     
     private func setUpUI() {
+        
         //Add the passed Tour's details to textviews
         detailDescription.text = passedTour.tourDescription
         detailAspect.text = "Aspect: " + passedTour.tourAspect + " // Slope Angle: " + passedTour.tourAngle + " degrees"

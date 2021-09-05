@@ -13,7 +13,6 @@ import BLTNBoard
 class FavoritesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITableViewDragDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-
     private var favoriteTours = [Tour]()
     private var tourToPass: Tour!
     
@@ -83,12 +82,15 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
                     
                     self?.favoriteTours.remove(at: indexPath.row)
                     self?.tableView.reloadData()
+                    
+                    //Hide tableView if last tour has been deleted from Favorites
                     if self?.favoriteTours.count == 0 {
                         self?.tableView.isHidden = true
                     }
                 }
                 completionHandler(true)
             }
+        
             deleteAction.image = UIImage(systemName: "xmark.circle")
             deleteAction.backgroundColor = .black
             return UISwipeActionsConfiguration(actions: [deleteAction])
@@ -102,8 +104,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         return favoriteTours.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let favoritesCell = tableView.dequeueReusableCell(withIdentifier: FavoritesTableViewCell.identifier, for: indexPath) as! FavoritesTableViewCell
         favoritesCell.configure(with: favoriteTours[indexPath.row])
@@ -112,6 +113,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         self.tourToPass = favoriteTours[indexPath.row]
         self.performSegue(withIdentifier: "toDetailTour3", sender: self)
     }
@@ -121,12 +123,14 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     }
 
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        
         let mover = favoriteTours.remove(at: sourceIndexPath.row)
         favoriteTours.insert(mover, at: destinationIndexPath.row)
         DatabaseService.currentUserProfile?.favoriteTours = favoriteTours
     }
     
     func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        
         let dragItem = UIDragItem(itemProvider: NSItemProvider())
         dragItem.localObject = favoriteTours[indexPath.row]
         return [ dragItem ]
