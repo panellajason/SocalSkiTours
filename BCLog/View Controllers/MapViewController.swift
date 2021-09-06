@@ -15,6 +15,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
     private var passedTour: Tour!
     private lazy var isSatelliteView = false
     private var mapView: GMSMapView!
+    @IBOutlet var satelliteButton: UIBarButtonItem!
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -42,9 +43,13 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
     
     @IBAction func showOrHideSatelliteView(_ sender: Any) {
         if isSatelliteView {
+            
+            satelliteButton.image = UIImage(systemName: "safari")
             mapView.mapType = .terrain
             isSatelliteView = false
         } else {
+            
+            satelliteButton.image = UIImage(systemName: "safari.fill")
             mapView.mapType = .satellite
             isSatelliteView = true
         }
@@ -53,6 +58,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
     private func addToursToMap() {
         
         for tour in TourService.allTours {
+            
             tour.tourTrailhead.map = mapView
             tour.tourPath.map = mapView
             tour.tourMarker.map = mapView
@@ -60,13 +66,15 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
     }
         
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
-        
-        if marker.title == "South Fork Trailhead" || marker.title == "Sugarloaf Trailhead" || marker.title == "Mt Baldy Trailhead" || marker.title == "Vincent Gap Trailhead" || marker.title == "Krakta Ridge Trailhead" || marker.title == "Mt Waterman Trailhead" || marker.title == "Palm Springs Tramway" || marker.title == "Snow Creek Trailhead" || marker.title == "Mt Baldy Ski Lifts" {
-            //do nothing
+                
+        if marker.snippet == nil {
+            //do nothing for now
         }
         else {
             let id = marker.position.latitude.description + " " +  marker.position.longitude.description
+            
             TourService.findTour(withId: id) { [weak self] tour in
+                
                 self?.tourToPass = tour
                 self?.performSegue(withIdentifier: "toDetailTour2", sender: self)
             }

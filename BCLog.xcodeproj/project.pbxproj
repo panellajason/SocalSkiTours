@@ -32,6 +32,8 @@
 		FA6BF0F1265390D900AD3EF1 /* DetailTourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6BF0F0265390D900AD3EF1 /* DetailTourViewController.swift */; };
 		FA85129C26916EBA0072E335 /* SanJacintoTours.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA85129B26916EBA0072E335 /* SanJacintoTours.swift */; };
 		FA8512A026A73C1A0072E335 /* ResourcesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA85129F26A73C1A0072E335 /* ResourcesViewController.swift */; };
+		FAA9007526E5B14400088888 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9007426E5B14400088888 /* OnboardingPageViewController.swift */; };
+		FAA9007726E5D0C600088888 /* PreOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9007626E5D0C600088888 /* PreOnboardingViewController.swift */; };
 		FAFE5231266EB25400A99D36 /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE5230266EB25400A99D36 /* FavoritesTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +67,8 @@
 		FA6BF0F0265390D900AD3EF1 /* DetailTourViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTourViewController.swift; sourceTree = "<group>"; };
 		FA85129B26916EBA0072E335 /* SanJacintoTours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SanJacintoTours.swift; sourceTree = "<group>"; };
 		FA85129F26A73C1A0072E335 /* ResourcesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesViewController.swift; sourceTree = "<group>"; };
+		FAA9007426E5B14400088888 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
+		FAA9007626E5D0C600088888 /* PreOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreOnboardingViewController.swift; sourceTree = "<group>"; };
 		FAFE5230266EB25400A99D36 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -167,6 +171,8 @@
 				FA6BF0E8265200A400AD3EF1 /* FavoritesViewController.swift */,
 				FA6BF0F0265390D900AD3EF1 /* DetailTourViewController.swift */,
 				FA5B46B02667271B002F87B5 /* DetailMapViewController.swift */,
+				FAA9007426E5B14400088888 /* OnboardingPageViewController.swift */,
+				FAA9007626E5D0C600088888 /* PreOnboardingViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -323,8 +329,10 @@
 				FAFE5231266EB25400A99D36 /* FavoritesTableViewCell.swift in Sources */,
 				FA50BAF6247D9156003D7507 /* AppDelegate.swift in Sources */,
 				FA6BF0EF2652E51100AD3EF1 /* Tour.swift in Sources */,
+				FAA9007526E5B14400088888 /* OnboardingPageViewController.swift in Sources */,
 				FA0557C626C4413E000D50F5 /* DatabaseService.swift in Sources */,
 				FA6BF0E9265200A400AD3EF1 /* FavoritesViewController.swift in Sources */,
+				FAA9007726E5D0C600088888 /* PreOnboardingViewController.swift in Sources */,
 				FA5B46B12667271B002F87B5 /* DetailMapViewController.swift in Sources */,
 				FA5B46B526687925002F87B5 /* SanGabrielsTours.swift in Sources */,
 				FA50BAF8247D9156003D7507 /* SceneDelegate.swift in Sources */,

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GMK-5Q-W7s">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vEw-8x-5rR">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -13,11 +13,11 @@
             <objects>
                 <viewController storyboardIdentifier="SigninViewController" modalPresentationStyle="fullScreen" id="vEw-8x-5rR" customClass="SigninViewController" customModule="SoCal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jBb-cv-u5n">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1Vu-wa-Ury">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jepson_nw" translatesAutoresizingMaskIntoConstraints="NO" id="cRs-qf-hYX">
                                         <rect key="frame" x="8" y="0.0" width="398" height="200"/>
@@ -95,11 +95,11 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="200" translatesAutoresizingMaskIntoConstraints="NO" id="eLk-aA-Q0B">
-                                        <rect key="frame" x="8" y="533" width="398" height="167.66666666666663"/>
+                                        <rect key="frame" x="8" y="533" width="398" height="118.66666666666663"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rkK-cl-mRL">
-                                        <rect key="frame" x="8" y="708.66666666666663" width="398" height="20.333333333333371"/>
+                                        <rect key="frame" x="8" y="659.66666666666663" width="398" height="20.333333333333371"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="q6F-fg-Qtt">
                                                 <rect key="frame" x="56.333333333333343" y="0.0" width="285.33333333333326" height="20.333333333333332"/>
@@ -125,7 +125,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="IOa-TM-BzT">
-                                        <rect key="frame" x="8" y="737" width="398" height="29"/>
+                                        <rect key="frame" x="8" y="688" width="398" height="29"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WHp-g4-Gee">
                                                 <rect key="frame" x="117.00000000000001" y="0.0" width="164.33333333333337" height="29"/>
@@ -190,11 +190,11 @@
             <objects>
                 <viewController id="9qW-qB-qdf" customClass="ForgotPassViewController" customModule="SoCal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pKS-hX-RH4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="Pxm-h0-JKU">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trouble" translatesAutoresizingMaskIntoConstraints="NO" id="sGt-rz-qZr">
                                         <rect key="frame" x="20" y="16" width="374" height="75"/>
@@ -232,7 +232,7 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="200" translatesAutoresizingMaskIntoConstraints="NO" id="bTs-hZ-aCq">
-                                        <rect key="frame" x="20" y="257" width="374" height="509"/>
+                                        <rect key="frame" x="20" y="257" width="374" height="460"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
@@ -248,6 +248,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cyU-v0-0y8"/>
                     </view>
+                    <navigationItem key="navigationItem" id="2S7-w7-abr"/>
                     <connections>
                         <outlet property="emailTF" destination="aHA-G9-L0v" id="RWH-9K-xzB"/>
                     </connections>
@@ -261,7 +262,7 @@
             <objects>
                 <tabBarController storyboardIdentifier="MainTabBarController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rHl-dG-xoK" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="swM-aP-BXU"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="mii-bd-nRr">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="mii-bd-nRr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -283,14 +284,14 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="UWr-Wf-nrH" userLabel="SignUp View Controller" customClass="SignUpViewController" customModule="SoCal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oO0-Dq-jGm">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eLz-RP-lCv">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Vn2-iR-J0U">
-                                        <rect key="frame" x="8" y="0.0" width="398" height="766"/>
+                                        <rect key="frame" x="8" y="0.0" width="398" height="717"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_0058" translatesAutoresizingMaskIntoConstraints="NO" id="Pmd-8F-8fM">
                                                 <rect key="frame" x="0.0" y="0.0" width="398" height="180"/>
@@ -368,11 +369,11 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" verticalHuggingPriority="100" translatesAutoresizingMaskIntoConstraints="NO" id="GDY-3Y-3Ao">
-                                                <rect key="frame" x="0.0" y="513" width="398" height="216"/>
+                                                <rect key="frame" x="0.0" y="513" width="398" height="167"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="G4v-Ic-9ui">
-                                                <rect key="frame" x="0.0" y="737" width="398" height="29"/>
+                                                <rect key="frame" x="0.0" y="688" width="398" height="29"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="9Ek-0d-6bs">
                                                         <rect key="frame" x="117.00000000000001" y="0.0" width="164.33333333333337" height="29"/>
@@ -419,6 +420,7 @@
                         <viewLayoutGuide key="safeArea" id="7ct-DE-vAe"/>
                     </view>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="CjD-dp-Z5l"/>
                     <connections>
                         <outlet property="emailTF" destination="GZr-3P-U4d" id="bWN-uQ-O8f"/>
                         <outlet property="errorLabel" destination="GDH-lb-zOf" id="Aqg-wm-RT4"/>
@@ -453,14 +455,14 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="WV3-vT-4DH" customClass="MapViewController" customModule="SoCal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZGd-OR-Mza">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <viewLayoutGuide key="safeArea" id="TnF-iQ-D6b"/>
                     </view>
                     <navigationItem key="navigationItem" id="CGo-Nb-Kha">
                         <barButtonItem key="backBarButtonItem" title=" " id="jAP-S5-FbH"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="globe" catalog="system" id="4ok-Ee-wyr">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="safari" catalog="system" id="4ok-Ee-wyr">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="showOrHideSatelliteView:" destination="WV3-vT-4DH" id="EAR-7z-T5R"/>
@@ -468,6 +470,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="satelliteButton" destination="4ok-Ee-wyr" id="Bjb-Jp-Ojp"/>
                         <segue destination="NfK-m3-e3R" kind="show" identifier="toDetailTour2" id="aC0-AY-dPK"/>
                     </connections>
                 </viewController>
@@ -497,11 +500,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="4RI-7G-zGC" customClass="HomeViewController" customModule="SoCal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mez-t6-u7s">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Z3e-pT-aet">
-                                <rect key="frame" x="10" y="4" width="394" height="713"/>
+                                <rect key="frame" x="10" y="0.0" width="394" height="717"/>
                                 <subviews>
                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yff-2a-EvA">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="30"/>
@@ -547,7 +550,7 @@
                                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                     </stackView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Lcb-8d-SXy">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="713"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="717"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="5" id="RsS-HN-rOn">
                                             <size key="itemSize" width="183" height="296"/>
@@ -605,7 +608,7 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
-                            <constraint firstItem="Z3e-pT-aet" firstAttribute="top" secondItem="Dm3-t1-HvG" secondAttribute="top" constant="4" id="6iu-2b-mSA"/>
+                            <constraint firstItem="Z3e-pT-aet" firstAttribute="top" secondItem="Dm3-t1-HvG" secondAttribute="top" id="6iu-2b-mSA"/>
                             <constraint firstItem="Dm3-t1-HvG" firstAttribute="bottom" secondItem="Z3e-pT-aet" secondAttribute="bottom" constant="8" id="F8l-80-vT7"/>
                             <constraint firstItem="Z3e-pT-aet" firstAttribute="leading" secondItem="Dm3-t1-HvG" secondAttribute="leading" constant="10" id="Gij-Ls-iSM"/>
                             <constraint firstAttribute="trailing" secondItem="Z3e-pT-aet" secondAttribute="trailing" constant="10" id="OES-At-KOK"/>
@@ -638,13 +641,13 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="SaB-nS-icq" customClass="DetailMapViewController" customModule="SoCal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gP4-8A-7ae">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <viewLayoutGuide key="safeArea" id="NGo-sQ-eBZ"/>
                     </view>
                     <navigationItem key="navigationItem" id="x04-Yg-OQx">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="globe" catalog="system" id="lr1-kj-xHK">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="safari" catalog="system" id="lr1-kj-xHK">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="showOrHideSatelliteView:" destination="SaB-nS-icq" id="KPB-jv-0UR"/>
@@ -661,7 +664,7 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="NfK-m3-e3R" customClass="DetailTourViewController" customModule="SoCal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8UQ-AR-72u">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TUt-RN-Ns6">
@@ -868,7 +871,7 @@
             <objects>
                 <viewController id="XNX-lh-kTB" customClass="FavoritesViewController" customModule="SoCal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VcA-GC-Tho">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No favorites." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7v4-Tp-nAO">
@@ -889,10 +892,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pg7-Uv-f4r">
-                                                    <rect key="frame" x="8" y="5" width="398" height="90"/>
+                                                    <rect key="frame" x="8" y="0.0" width="398" height="95"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qcL-jy-P0i">
-                                                            <rect key="frame" x="2" y="2.6666666666666643" width="85" height="85"/>
+                                                            <rect key="frame" x="2" y="5" width="85" height="85"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="85" id="Td4-wY-df3"/>
                                                                 <constraint firstAttribute="width" constant="85" id="lhA-WL-YiN"/>
@@ -904,7 +907,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0tR-66-9yb">
-                                                            <rect key="frame" x="97" y="10" width="291" height="70"/>
+                                                            <rect key="frame" x="97" y="10" width="291" height="75"/>
                                                             <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -926,11 +929,11 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="Pg7-Uv-f4r" firstAttribute="leading" secondItem="wy3-Ge-LIr" secondAttribute="leading" constant="8" id="4aF-Vm-N0j"/>
                                                 <constraint firstAttribute="bottom" secondItem="Pg7-Uv-f4r" secondAttribute="bottom" constant="5" id="9TU-2F-cPB"/>
-                                                <constraint firstItem="Pg7-Uv-f4r" firstAttribute="top" secondItem="wy3-Ge-LIr" secondAttribute="top" constant="5" id="JTF-Zk-5AP"/>
+                                                <constraint firstItem="Pg7-Uv-f4r" firstAttribute="top" secondItem="wy3-Ge-LIr" secondAttribute="top" id="JTF-Zk-5AP"/>
                                                 <constraint firstAttribute="trailing" secondItem="Pg7-Uv-f4r" secondAttribute="trailing" constant="8" id="tau-fi-puY"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -1250,14 +1253,13 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="7Pc-2i-bcE"/>
+        <segue reference="NLH-Gv-DPh"/>
         <segue reference="dJO-Ia-wA0"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="IMG_0058" width="806" height="518"/>
         <image name="doc.text" catalog="system" width="115" height="128"/>
         <image name="doc.text.fill" catalog="system" width="115" height="128"/>
-        <image name="globe" catalog="system" width="128" height="121"/>
         <image name="house" catalog="system" width="128" height="110"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="jepson_nw" width="2048" height="1536"/>
@@ -1266,6 +1268,7 @@
         <image name="map.fill" catalog="system" width="128" height="113"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
         <image name="questionmark" catalog="system" width="96" height="128"/>
+        <image name="safari" catalog="system" width="128" height="121"/>
         <image name="signup" width="158" height="76"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>

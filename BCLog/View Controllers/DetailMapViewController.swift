@@ -14,6 +14,7 @@ class DetailMapViewController: UIViewController, GMSMapViewDelegate {
     var passedTour: Tour!
     private var mapView: GMSMapView!
     private lazy var isSatelliteView = false
+    @IBOutlet var satelliteButton: UIBarButtonItem!
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -45,10 +46,12 @@ class DetailMapViewController: UIViewController, GMSMapViewDelegate {
         
         if(isSatelliteView) {
             
+            satelliteButton.image = UIImage(systemName: "safari")
             mapView.mapType = .terrain
             isSatelliteView = false
         } else {
             
+            satelliteButton.image = UIImage(systemName: "safari.fill")
             mapView.mapType = .satellite
             isSatelliteView = true
         }
