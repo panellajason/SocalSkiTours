@@ -16,7 +16,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     private var favoriteTours = [Tour]()
     private var tourToPass: Tour!
     
-    private lazy var boardManager: BLTNItemManager = {
+    private lazy var accountPage: BLTNItemManager = {
         let item = BLTNPageItem(title: "Account")
         item.appearance.titleTextColor = .systemBlue
         item.actionButtonTitle = "Logout"
@@ -59,7 +59,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     @IBAction func openAccountPage(_ sender: Any) {
-        boardManager.showBulletin(above: self)
+        accountPage.showBulletin(above: self)
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

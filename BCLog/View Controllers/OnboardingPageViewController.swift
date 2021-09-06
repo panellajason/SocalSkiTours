@@ -11,9 +11,9 @@ import EEZoomableImageView
 
 class OnboardingPageViewController: UIPageViewController {
 
-    var pages = [UIViewController]()
-    let pageControl = UIPageControl()
-    let initialPage = 0
+    private var pages = [UIViewController]()
+    private let pageControl = UIPageControl()
+    private let initialPage = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,7 @@ class OnboardingPageViewController: UIPageViewController {
         layout()
     }
     
-    func setupPages() {
+    private func setupPages() {
         
         dataSource = self
         delegate = self
@@ -51,7 +51,7 @@ class OnboardingPageViewController: UIPageViewController {
         setViewControllers([pages[initialPage]], direction: .forward, animated: false, completion: nil)
     }
     
-    func style() {
+    private func style() {
         
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         pageControl.currentPageIndicatorTintColor = .blue
@@ -60,7 +60,7 @@ class OnboardingPageViewController: UIPageViewController {
         pageControl.currentPage = initialPage
     }
     
-    func layout() {
+    private func layout() {
         
         view.addSubview(pageControl)
         
@@ -109,10 +109,10 @@ extension OnboardingPageViewController: UIPageViewControllerDelegate {
 }
 
 class OnboardingViewController: UIViewController {
-    let stackView = UIStackView()
-    let imageView = EEZoomableImageView()
-    let titleLabel = UILabel()
-    let subtitleLabel = UILabel()
+    private let stackView = UIStackView()
+    private let imageView = EEZoomableImageView()
+    private let titleLabel = UILabel()
+    private let subtitleLabel = UILabel()
     
     init(imageName: String, titleText: String, subtitleText: String) {
         super.init(nibName: nil, bundle: nil)
@@ -132,7 +132,7 @@ class OnboardingViewController: UIViewController {
         layout()
     }
     
-    func style() {
+    private func style() {
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -153,7 +153,7 @@ class OnboardingViewController: UIViewController {
         subtitleLabel.numberOfLines = 0
     }
         
-    func layout() {
+    private func layout() {
         
         stackView.addArrangedSubview(imageView)
         stackView.addArrangedSubview(titleLabel)
@@ -174,11 +174,11 @@ class OnboardingViewController: UIViewController {
 }
 
 class LastOnboardingViewController: UIViewController {
-    let stackView = UIStackView()
-    let imageView = EEZoomableImageView()
-    let titleLabel = UILabel()
-    let subtitleLabel = UILabel()
-    let endOnboardingButton = makeButton(withText: "Continue", textColor: .white, backgroundColor: .systemBlue)
+    private let stackView = UIStackView()
+    private let imageView = EEZoomableImageView()
+    private let titleLabel = UILabel()
+    private let subtitleLabel = UILabel()
+    private let endOnboardingButton = makeButton(withText: "Continue", textColor: .white, backgroundColor: .systemBlue)
 
     init(imageName: String, titleText: String, subtitleText: String) {
         super.init(nibName: nil, bundle: nil)
@@ -198,11 +198,11 @@ class LastOnboardingViewController: UIViewController {
         layout()
     }
     
-    @objc func endOnBoarding(_ sender: UIButton) {
+    @objc private func endOnBoarding(_ sender: UIButton) {
         self.presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
     }
     
-    func style() {
+    private func style() {
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -225,7 +225,7 @@ class LastOnboardingViewController: UIViewController {
         endOnboardingButton.addTarget(self, action: #selector(endOnBoarding(_:)), for: .primaryActionTriggered)
     }
         
-    func layout() {
+    private func layout() {
         
         stackView.addArrangedSubview(imageView)
         stackView.addArrangedSubview(titleLabel)

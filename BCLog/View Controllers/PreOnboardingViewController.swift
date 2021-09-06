@@ -9,11 +9,11 @@
 import UIKit
 
 class PreOnboardingViewController: UIViewController {
-    let stackView = UIStackView()
-    let imageView = UIImageView()
-    let titleLabel = UILabel()
-    let getStartedButton = makeButton(withText: "Learn more", textColor: .white, backgroundColor: .systemBlue)
-    let skipButton = makeButton(withText: "Skip", textColor: .white, backgroundColor: .systemGray)
+    private let stackView = UIStackView()
+    private let imageView = UIImageView()
+    private let titleLabel = UILabel()
+    private let getStartedButton = makeButton(withText: "Learn more", textColor: .white, backgroundColor: .systemBlue)
+    private let skipButton = makeButton(withText: "Skip", textColor: .white, backgroundColor: .systemGray)
 
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -32,7 +32,7 @@ class PreOnboardingViewController: UIViewController {
         layout()
     }
     
-    func style() {
+    private func style() {
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -53,7 +53,7 @@ class PreOnboardingViewController: UIViewController {
         skipButton.addTarget(self, action: #selector(skipOnboarding (_:)), for: .primaryActionTriggered)
     }
         
-    func layout() {
+    private func layout() {
         
         stackView.addArrangedSubview(imageView)
         stackView.addArrangedSubview(titleLabel)
@@ -77,13 +77,13 @@ class PreOnboardingViewController: UIViewController {
         ])
     }
     
-    @objc func openOnboarding(_ sender: UIButton) {
+    @objc private func openOnboarding(_ sender: UIButton) {
         let vc = OnboardingPageViewController()
         vc.modalPresentationStyle = .fullScreen //or .overFullScreen for transparency
         present(vc, animated: false, completion: nil)
     }
     
-    @objc func skipOnboarding(_ sender: UIButton) {
+    @objc private func skipOnboarding(_ sender: UIButton) {
         self.dismiss(animated: false, completion: nil)
     }
 }

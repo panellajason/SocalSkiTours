@@ -34,6 +34,7 @@
 		FA8512A026A73C1A0072E335 /* ResourcesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA85129F26A73C1A0072E335 /* ResourcesViewController.swift */; };
 		FAA9007526E5B14400088888 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9007426E5B14400088888 /* OnboardingPageViewController.swift */; };
 		FAA9007726E5D0C600088888 /* PreOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9007626E5D0C600088888 /* PreOnboardingViewController.swift */; };
+		FAA9007926E6879B00088888 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9007826E6879B00088888 /* EntryViewController.swift */; };
 		FAFE5231266EB25400A99D36 /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE5230266EB25400A99D36 /* FavoritesTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,7 @@
 		FA85129F26A73C1A0072E335 /* ResourcesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesViewController.swift; sourceTree = "<group>"; };
 		FAA9007426E5B14400088888 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		FAA9007626E5D0C600088888 /* PreOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreOnboardingViewController.swift; sourceTree = "<group>"; };
+		FAA9007826E6879B00088888 /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		FAFE5230266EB25400A99D36 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -173,6 +175,7 @@
 				FA5B46B02667271B002F87B5 /* DetailMapViewController.swift */,
 				FAA9007426E5B14400088888 /* OnboardingPageViewController.swift */,
 				FAA9007626E5D0C600088888 /* PreOnboardingViewController.swift */,
+				FAA9007826E6879B00088888 /* EntryViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				FA2C0BC8248C995F00CF6853 /* SignUpViewController.swift in Sources */,
 				FA8512A026A73C1A0072E335 /* ResourcesViewController.swift in Sources */,
 				FA6BF0F1265390D900AD3EF1 /* DetailTourViewController.swift in Sources */,
+				FAA9007926E6879B00088888 /* EntryViewController.swift in Sources */,
 				FA85129C26916EBA0072E335 /* SanJacintoTours.swift in Sources */,
 				FAFE5231266EB25400A99D36 /* FavoritesTableViewCell.swift in Sources */,
 				FA50BAF6247D9156003D7507 /* AppDelegate.swift in Sources */,

@@ -108,7 +108,7 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
         let lon = location[1]
         let url = "https://forecast.weather.gov/MapClick.php?lat="+lat+"&lon="+lon+"#.YPeKJhNKjeo"
         let webViewController = SFSafariViewController(url: URL(string: url)!)
-        present(webViewController, animated: true, completion: nil)
+        present(webViewController, animated: false, completion: nil)
     }
     
     private func setUpUI() {
