@@ -12,7 +12,7 @@ import FirebaseAuth
 import GoogleMaps
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+    class AppDelegate: UIResponder, UIApplicationDelegate {
    
     var window: UIWindow?
 

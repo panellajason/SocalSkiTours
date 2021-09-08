@@ -17,7 +17,7 @@ class PreOnboardingViewController: UIViewController {
 
     init() {
         super.init(nibName: nil, bundle: nil)
-        imageView.image = UIImage(named: "jepson_ne")
+        imageView.image = UIImage(named: "big_draw")
         titleLabel.text = " Welcome! "
     }
     
@@ -43,11 +43,8 @@ class PreOnboardingViewController: UIViewController {
         imageView.contentMode = .scaleAspectFill
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 38)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 45)
         titleLabel.textColor = .black
-        titleLabel.backgroundColor = .white
-        titleLabel.layer.masksToBounds = true
-        titleLabel.layer.cornerRadius = 5
  
         getStartedButton.addTarget(self, action: #selector(openOnboarding(_:)), for: .primaryActionTriggered)
         skipButton.addTarget(self, action: #selector(skipOnboarding (_:)), for: .primaryActionTriggered)

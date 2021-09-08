@@ -43,7 +43,7 @@ class SigninViewController: UIViewController {
     private lazy var aboutBoardManager: BLTNItemManager = {
         let item = BLTNPageItem(title: "About")
         item.appearance.titleTextColor = .systemBlue
-        item.descriptionText = "Known for its beaches and sunny weather, Southern California doesn't usually come to mind as a backcountry skiing destination. When winter does decide to show its face, the alpine terrain comes to life and so do the dedicated backcountry riders. This app can serve as a starting point for getting to know the area and what it has in store for human-powered skiing. Visit socalsnow.org for avalanche observations and snowpack summaries."
+        item.descriptionText = "Known for its beaches and sunny weather, Southern California doesn't usually come to mind as a backcountry skiing destination. When winter does decide to show its face, the alpine terrain comes to life and so do the dedicated backcountry riders. This app can serve as a starting point for getting to know the area and what it has in store for human-powered skiing."
         item.actionButtonTitle = "Ok"
         item.appearance.actionButtonColor = .systemBlue
         item.actionHandler = { [weak self] _ in

@@ -13,12 +13,10 @@ class ToursCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var title: UILabel!
     static let identifier = "ToursCollectionViewCell"
-
-    weak var tour:Tour?
     
     func configure(with tour: Tour) {
-        self.tour = tour
-        self.title.text = tour.tourTitle
-        self.imageView.image = tour.tourImages[0]
+        title.text = tour.tourTitle
+        imageView.image = tour.tourImages[0]
     }
+    
 }

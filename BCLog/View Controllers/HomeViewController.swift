@@ -22,7 +22,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
     }
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var topStackView: UIStackView!
-    @IBOutlet var barButtonItem: UIBarButtonItem!
     
     var isNewUser: Bool!
     private lazy var tours = [Tour]()
@@ -36,7 +35,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 38))
+        let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
         imageView.image = UIImage(named: "title2")
         navigationItem.titleView = imageView
@@ -51,6 +50,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
+        
         tours = TourService.allTours
         setUpMenu()
     }
@@ -71,7 +71,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
         if topStackView.isHidden {
             //open search
             topStackView.isHidden = false
-            barButtonItem.image = UIImage(systemName: "xmark")
+            
         } else {
             //Reset everything and close search
             searchTF.text = ""
@@ -79,10 +79,9 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
             filteredTours = TourService.allTours
             collectionView.reloadData()
             filterMenu.selectRow(0)
-            collectionView.setContentOffset(.zero, animated: true)
+            collectionView.setContentOffset(.zero, animated: false)
             topStackView.isHidden = true
             searchTF.resignFirstResponder()
-            barButtonItem.image = UIImage(systemName: "magnifyingglass")
         }
     }
     
