@@ -38,7 +38,7 @@ class DetailMapViewController: UIViewController, GMSMapViewDelegate {
         mapView.settings.myLocationButton = true
         mapView.settings.compassButton = true
         mapView.isMyLocationEnabled = true
-        mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 70, right: 0)
+        mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 110, right: 0)
         view.addSubview(mapView)
     }
     

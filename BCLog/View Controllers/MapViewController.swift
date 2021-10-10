@@ -37,7 +37,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         mapView.settings.myLocationButton = true
         mapView.settings.compassButton = true
         mapView.isMyLocationEnabled = true
-        mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 70, right: 0)
+        mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 110, right: 0)
         view.addSubview(mapView)
     }
     
@@ -69,8 +69,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
                 
         if marker.snippet == nil {
             //do nothing for now
-        }
-        else {
+        } else {
             let id = marker.position.latitude.description + " " +  marker.position.longitude.description
             
             TourService.findTour(withId: id) { [weak self] tour in

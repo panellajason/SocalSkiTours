@@ -40,7 +40,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
     }()
     private let difficultyMenu: DropDown = {
         let menu = DropDown()
-        menu.dataSource = ["Easiest", "Most Difficult"]
+        menu.dataSource = ["Least Difficult", "Most Difficult"]
         return menu
     }()
     private let distanceMenu: DropDown = {
@@ -99,8 +99,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
             let placeholderText = NSAttributedString(string: "Search", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
             searchTF.attributedPlaceholder = placeholderText
             searchTF.resignFirstResponder()
-            filteredTours.removeAll()
-            regionMenu.selectRow(0)
             collectionView.reloadData()
             collectionView.setContentOffset(.zero, animated: false)
         }
@@ -124,13 +122,15 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ToursCollectionViewCell.identifier, for: indexPath) as! ToursCollectionViewCell
         
+        var tour: Tour
+        
         if isFiltered {
-            cell.configure(with: filteredTours[indexPath.row])
-        }
-        else {
-            cell.configure(with: tours[indexPath.row])
+            tour = filteredTours[indexPath.row]
+        } else {
+            tour = tours[indexPath.row]
         }
         
+        cell.configure(with: tour.tourTitle, tourImage: tour.tourImages[0])
         return cell
     }
     
@@ -138,8 +138,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
         
         if isFiltered {
             tourToPass = filteredTours[indexPath.row]
-        }
-        else {
+        } else {
             tourToPass = tours[indexPath.row]
         }
         
@@ -176,7 +175,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
     
     private func setUpMainMenu() {
         mainMenu.anchorView = collectionView
-        mainMenu.clearSelection()
         
         mainMenu.selectionAction = { [weak self] index, title in
             guard let self = self else { return }
@@ -193,14 +191,14 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
                     self.distanceMenu.show()
                 
                 default:
-                    self.regionMenu.show()
+                    break
             }
+            self.mainMenu.clearSelection()
         }
     }
     
     private func setUpRegionMenu() {
         regionMenu.anchorView = collectionView
-        regionMenu.clearSelection()
         
         regionMenu.selectionAction = { [weak self] index, title in
             guard let self = self else { return }
@@ -232,7 +230,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
                     placeholderText = NSAttributedString(string: "San Jacinto Mountains", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
                 
                 default:
-                    self.filteredTours.append(contentsOf: self.tours)
+                    break
             }
             
             self.searchTF.text = ""
@@ -240,48 +238,64 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
             self.isFiltered = true
             self.collectionView.setContentOffset(.zero, animated: true)
             self.collectionView.reloadData()
+            self.regionMenu.clearSelection()
         }
     }
     
     private func setUpDifficultyMenu() {
         difficultyMenu.anchorView = collectionView
-        difficultyMenu.clearSelection()
         
         difficultyMenu.selectionAction = { [weak self] index, title in
             guard let self = self else { return }
             
+            let sorted1 = self.tours.sorted(by: { $0.tourDistance < $1.tourDistance })
+            let sorted2 = sorted1.sorted(by: { $0.tourAngle < $1.tourAngle })
+            let sorted = sorted2.sorted(by: { $0.tourDifficulty < $1.tourDifficulty })
+
             switch index {
                 
                 case 0:
-                    self.regionMenu.show()
-                
+                    self.filteredTours = sorted
+
                 case 1:
-                   self.regionMenu.show()
-                
+                   self.filteredTours = sorted.reversed()
+
                 default:
-                    self.regionMenu.show()
+                    break
             }
+            self.searchTF.text = ""
+            self.isFiltered = true
+            self.collectionView.setContentOffset(.zero, animated: true)
+            self.collectionView.reloadData()
+            self.difficultyMenu.clearSelection()
         }
     }
     
     private func setUpDistanceMenu() {
         distanceMenu.anchorView = collectionView
-        distanceMenu.clearSelection()
         
         distanceMenu.selectionAction = { [weak self] index, title in
             guard let self = self else { return }
             
+            let sorted = self.tours.sorted(by: { $0.tourDistance < $1.tourDistance })
+
             switch index {
-                
+            
                 case 0:
-                    self.regionMenu.show()
+                    self.filteredTours = sorted
                 
                 case 1:
-                   self.regionMenu.show()
-                
+                    self.filteredTours = sorted.reversed()
+
                 default:
-                    self.regionMenu.show()
+                    break
             }
+            
+            self.searchTF.text = ""
+            self.isFiltered = true
+            self.collectionView.setContentOffset(.zero, animated: true)
+            self.collectionView.reloadData()
+            self.distanceMenu.clearSelection()
         }
     }
     

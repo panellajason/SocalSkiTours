@@ -14,9 +14,9 @@ class ToursCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var title: UILabel!
     static let identifier = "ToursCollectionViewCell"
     
-    func configure(with tour: Tour) {
-        title.text = tour.tourTitle
-        imageView.image = tour.tourImages[0]
+    func configure(with tourTitle: String, tourImage: UIImage) {
+        title.text = tourTitle
+        imageView.image = tourImage
     }
     
 }

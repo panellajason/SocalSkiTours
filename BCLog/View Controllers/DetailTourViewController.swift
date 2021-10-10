@@ -16,11 +16,15 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
     private var tourToPass: Tour!
     private lazy var isFavorite: Bool = false
 
-    @IBOutlet var detailDescription: UILabel!
-    @IBOutlet var detailAspect: UILabel!
-    @IBOutlet var detailElevation: UILabel!
-    @IBOutlet var detailTrailHead: UILabel!
-    @IBOutlet var favoritesButton: UIBarButtonItem!
+    @IBOutlet weak var detailDescription: UILabel!
+    @IBOutlet weak var detailAspect: UILabel!
+    @IBOutlet weak var detailElevation: UILabel!
+    @IBOutlet weak var detailTrailHead: UILabel!
+    @IBOutlet weak var difficultyLabel: UILabel!
+    @IBOutlet weak var diffcultyBTN1: UIImageView!
+    @IBOutlet weak var diffcultyBTN2: UIImageView!
+    @IBOutlet weak var diffcultyBTN3: UIImageView!
+    @IBOutlet weak var favoritesButton: UIBarButtonItem!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var topScrollView: UIScrollView!
     
@@ -117,7 +121,23 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
         detailDescription.text = passedTour.tourDescription
         detailAspect.text = "Aspect: " + passedTour.tourAspect + " // Slope Angle: " + passedTour.tourAngle + " degrees"
         detailElevation.text = "Base: " + passedTour.tourBaseElevation + " // Summit: " + passedTour.tourSummitElevation
-        detailTrailHead.text = passedTour.tourTrailhead.title! + " // Approach: " + passedTour.tourDistance
+        let approach: String = String(format: "%.1f", passedTour.tourDistance)
+        let miles = (passedTour.tourDistance == 1.0) ? " mile" : " miles"
+        detailTrailHead.text = passedTour.tourTrailhead.title! + " // Approach: " + approach + miles
+        
+        switch passedTour.tourDifficulty {
+            case 3:
+                difficultyLabel.text = " Most Difficult"
+                diffcultyBTN3.image = UIImage(systemName: "star.fill")
+                diffcultyBTN2.image = UIImage(systemName: "star.fill")
+            case 2:
+                difficultyLabel.text = " Intermediate"
+                diffcultyBTN2.image = UIImage(systemName: "star.fill")
+            case 1:
+                difficultyLabel.text = " Least Difficult"
+            default:
+                break
+        }
         
         //Add the passed Tour's images to horizontal scrollview
         pageControl.numberOfPages = passedTour.tourImages.count
@@ -125,6 +145,7 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
         topScrollView.delegate = self
         topScrollView.frame = view.frame
         for i in 0..<passedTour.tourImages.count {
+    
             let imageView = EEZoomableImageView()
             imageView.image = passedTour.tourImages[i]
             imageView.contentMode = .scaleToFill

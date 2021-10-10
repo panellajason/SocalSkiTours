@@ -30,10 +30,10 @@ class OnboardingPageViewController: UIPageViewController {
         
         let page1 = OnboardingViewController(imageName: "OB1",
                                              titleText: "Home",
-                                             subtitleText: "The Home tab displays the entire collection of ski tours. Tap on any tour to view its details. Tap on the search icon to filter by keyword or region.")
+                                             subtitleText: "The Home tab displays the entire collection of ski tours. Tap on any tour to view its details. Tap the search icon to filter by keyword or region/difficulty/distance.")
         let page2 = OnboardingViewController(imageName: "OB2",
                                              titleText: "Tour Details",
-                                             subtitleText: "Once a tour is chosen, swipe-to-view all of its photos and pinch-to-zoom. Tap on the star icon to favorite. The route and weather, as well as other relevant details are also listed.")
+                                             subtitleText: "Once a tour is chosen, swipe-to-view all of its photos and pinch-to-zoom. Tap the star icon to favorite. The route and weather, as well as other relevant details are also listed here.")
         let page3 = OnboardingViewController(imageName: "OB3",
                                              titleText: "Map",
                                              subtitleText: "The Map tab displays routes, trailheads, and summit markers for all of the ski tours. Tap on summit markers (blue icons) for details.")
@@ -42,7 +42,7 @@ class OnboardingPageViewController: UIPageViewController {
                                              subtitleText: "The Resources tab contains links to information about the snow and weather, as well as links to live cameras.")
         let page5 = LastOnboardingViewController(imageName: "OB5",
                                                  titleText: "Favorites",
-                                                 subtitleText: "The Favorites tab displays the tours you have favorited. Tap on any tour to view its details. Swipe to delete and press-and-hold to reorganize. Tap on the account icon to logout.")
+                                                 subtitleText: "The Favorites tab displays the tours you have favorited. Tap on any tour to view its details. Swipe to delete and press-and-hold to reorganize. Tap the account icon to logout.")
         pages.append(page1)
         pages.append(page2)
         pages.append(page3)
@@ -54,8 +54,8 @@ class OnboardingPageViewController: UIPageViewController {
     private func style() {
         
         pageControl.translatesAutoresizingMaskIntoConstraints = false
-        pageControl.currentPageIndicatorTintColor = .blue
-        pageControl.pageIndicatorTintColor = .systemGray5
+        pageControl.currentPageIndicatorTintColor = .white
+        pageControl.pageIndicatorTintColor = .darkGray
         pageControl.numberOfPages = pages.count
         pageControl.currentPage = initialPage
     }
@@ -178,7 +178,7 @@ class LastOnboardingViewController: UIViewController {
     private let imageView = EEZoomableImageView()
     private let titleLabel = UILabel()
     private let subtitleLabel = UILabel()
-    private let endOnboardingButton = makeButton(withText: "Continue", textColor: .white, backgroundColor: .systemBlue)
+    private let endOnboardingButton = makeButton(withText: "Done", textColor: .white, backgroundColor: .systemBlue)
 
     init(imageName: String, titleText: String, subtitleText: String) {
         super.init(nibName: nil, bundle: nil)
