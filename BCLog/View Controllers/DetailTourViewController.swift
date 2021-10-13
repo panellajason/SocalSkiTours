@@ -118,13 +118,13 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
     private func setUpUI() {
         
         //Add the passed Tour's details to textviews
-        detailDescription.text = passedTour.tourDescription
         detailAspect.text = "Aspect: " + passedTour.tourAspect + " // Slope Angle: " + passedTour.tourAngle + " degrees"
         detailElevation.text = "Base: " + passedTour.tourBaseElevation + " // Summit: " + passedTour.tourSummitElevation
         let approach: String = String(format: "%.1f", passedTour.tourDistance)
         let miles = (passedTour.tourDistance == 1.0) ? " mile" : " miles"
         detailTrailHead.text = passedTour.tourTrailhead.title! + " // Approach: " + approach + miles
-        
+        detailDescription.text = "Other info: " + passedTour.tourDescription
+
         switch passedTour.tourDifficulty {
             case 3:
                 difficultyLabel.text = " Most Difficult"

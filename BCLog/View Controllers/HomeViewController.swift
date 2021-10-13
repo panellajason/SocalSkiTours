@@ -38,16 +38,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
         menu.dataSource = ["All Tours", "San Bernardino Mountains", "San Gabriel Mountains", "San Jacinto Mountains"]
         return menu
     }()
-    private let difficultyMenu: DropDown = {
-        let menu = DropDown()
-        menu.dataSource = ["Least Difficult", "Most Difficult"]
-        return menu
-    }()
-    private let distanceMenu: DropDown = {
-        let menu = DropDown()
-        menu.dataSource = ["Shortest Approach", "Longest Approach"]
-        return menu
-    }()
     
     
     override func viewDidLoad() {
@@ -71,8 +61,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
         tours = TourService.allTours
         setUpMainMenu()
         setUpRegionMenu()
-        setUpDifficultyMenu()
-        setUpDistanceMenu()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -185,10 +173,10 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
                     self.regionMenu.show()
                 
                 case 1:
-                   self.difficultyMenu.show()
+                    self.filterByDifficulty()
                 
                 case 2:
-                    self.distanceMenu.show()
+                    self.filterByDistance()
                 
                 default:
                     break
@@ -233,72 +221,37 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
                     break
             }
             
-            self.searchTF.text = ""
-            self.searchTF.attributedPlaceholder = placeholderText
-            self.isFiltered = true
-            self.collectionView.setContentOffset(.zero, animated: true)
-            self.collectionView.reloadData()
+            self.resetCollectionView()
             self.regionMenu.clearSelection()
+            self.searchTF.attributedPlaceholder = placeholderText
         }
     }
     
-    private func setUpDifficultyMenu() {
-        difficultyMenu.anchorView = collectionView
+    private func filterByDifficulty() {
         
-        difficultyMenu.selectionAction = { [weak self] index, title in
-            guard let self = self else { return }
-            
-            let sorted1 = self.tours.sorted(by: { $0.tourDistance < $1.tourDistance })
-            let sorted2 = sorted1.sorted(by: { $0.tourAngle < $1.tourAngle })
-            let sorted = sorted2.sorted(by: { $0.tourDifficulty < $1.tourDifficulty })
-
-            switch index {
-                
-                case 0:
-                    self.filteredTours = sorted
-
-                case 1:
-                   self.filteredTours = sorted.reversed()
-
-                default:
-                    break
-            }
-            self.searchTF.text = ""
-            self.isFiltered = true
-            self.collectionView.setContentOffset(.zero, animated: true)
-            self.collectionView.reloadData()
-            self.difficultyMenu.clearSelection()
-        }
-    }
-    
-    private func setUpDistanceMenu() {
-        distanceMenu.anchorView = collectionView
+        let sorted1 = self.tours.sorted(by: { $0.tourDistance < $1.tourDistance })
+        let sorted2 = sorted1.sorted(by: { $0.tourAngle < $1.tourAngle })
+        filteredTours = sorted2.sorted(by: { $0.tourDifficulty < $1.tourDifficulty })
         
-        distanceMenu.selectionAction = { [weak self] index, title in
-            guard let self = self else { return }
-            
-            let sorted = self.tours.sorted(by: { $0.tourDistance < $1.tourDistance })
-
-            switch index {
-            
-                case 0:
-                    self.filteredTours = sorted
-                
-                case 1:
-                    self.filteredTours = sorted.reversed()
-
-                default:
-                    break
-            }
-            
-            self.searchTF.text = ""
-            self.isFiltered = true
-            self.collectionView.setContentOffset(.zero, animated: true)
-            self.collectionView.reloadData()
-            self.distanceMenu.clearSelection()
-        }
+        let placeholderText = NSAttributedString(string: "Difficulty: Least to Most", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        searchTF.attributedPlaceholder = placeholderText
+        resetCollectionView()
     }
     
+    private func filterByDistance() {
+        
+        filteredTours = self.tours.sorted(by: { $0.tourDistance < $1.tourDistance })
+        let placeholderText = NSAttributedString(string: "Distance: Shortest to Longest", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        searchTF.attributedPlaceholder = placeholderText
+        resetCollectionView()
+    }
+    
+    private func resetCollectionView() {
+        searchTF.text = ""
+        isFiltered = true
+        collectionView.setContentOffset(.zero, animated: true)
+        collectionView.reloadData()
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         if (segue.identifier == "toDetailTour") {

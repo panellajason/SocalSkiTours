@@ -50,6 +50,18 @@ class ResourcesViewController: UIViewController {
         present(vc, animated: false, completion: nil)
     }
     
+    @IBAction func openCalTrans(_ sender: Any) {
+        
+        let vc = SFSafariViewController(url: URL(string:"https://roads.dot.ca.gov/roadscell.php")!)
+        present(vc, animated: false, completion: nil)
+    }
+    
+    @IBAction func openBigBearRoads(_ sender: Any) {
+        
+        let vc = SFSafariViewController(url: URL(string:"http://www.socalmountains.com/roads/")!)
+        present(vc, animated: false, completion: nil)
+    }
+    
     @IBAction func openSocalMountainsCameras(_ sender: Any) {
         
         let vc = SFSafariViewController(url: URL(string: "http://socalmountains.com/webcams")!)

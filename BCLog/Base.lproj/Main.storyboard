@@ -513,7 +513,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="394" height="30"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="200" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="search" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Anr-to-jiE">
-                                                        <rect key="frame" x="0.0" y="0.0" width="280" height="30"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="290" height="30"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="5AF-Cw-mw9"/>
@@ -522,14 +522,14 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0TE-ZY-BGU">
-                                                        <rect key="frame" x="282" y="0.0" width="80" height="30"/>
+                                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0TE-ZY-BGU">
+                                                        <rect key="frame" x="292" y="0.0" width="70" height="30"/>
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="om3-pX-Uif"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="om3-pX-Uif"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                        <state key="normal" image="filter2">
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                        <state key="normal" title="Filter">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
@@ -685,7 +685,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="703"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TUt-RN-Ns6">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TUt-RN-Ns6">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="703"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="D2J-En-eDO">
@@ -822,10 +822,10 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="QJT-xV-vlJ">
-                                                                <rect key="frame" x="8" y="139" width="398" height="24"/>
+                                                                <rect key="frame" x="8" y="139" width="398" height="28"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="35" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rtq-mP-3Bn">
-                                                                        <rect key="frame" x="0.0" y="6" width="398" height="18"/>
+                                                                        <rect key="frame" x="0.0" y="10" width="398" height="18"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="700" id="Pxe-a6-jUH"/>
                                                                         </constraints>
@@ -834,10 +834,10 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
-                                                                <edgeInsets key="layoutMargins" top="6" left="0.0" bottom="0.0" right="0.0"/>
+                                                                <edgeInsets key="layoutMargins" top="10" left="0.0" bottom="0.0" right="0.0"/>
                                                             </stackView>
                                                             <view contentMode="scaleToFill" verticalHuggingPriority="200" translatesAutoresizingMaskIntoConstraints="NO" id="n8A-1b-g4V">
-                                                                <rect key="frame" x="8" y="165" width="398" height="627"/>
+                                                                <rect key="frame" x="8" y="169" width="398" height="623"/>
                                                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             </view>
                                                         </subviews>
@@ -1058,26 +1058,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dAE-uu-x7G">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="akr-bW-ckl">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cSA-E9-GWr">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VA2-gx-e7f">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="720"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="SNOW" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZPU-LI-TUV">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="SNOW" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iA1-Y3-qhp">
                                                 <rect key="frame" x="16" y="0.0" width="382" height="30"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="fhq-bC-GSv"/>
+                                                    <constraint firstAttribute="height" constant="30" id="UFE-YX-hCA"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Yo-RP-vNW">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zLt-h0-13z">
                                                 <rect key="frame" x="16" y="38" width="382" height="45"/>
                                                 <color key="backgroundColor" red="0.0" green="0.46954255709999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="45" id="sy2-gF-zBJ"/>
+                                                    <constraint firstAttribute="height" constant="45" id="my5-fJ-imv"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <state key="normal" title="SoCal Snow Avalanche Center">
@@ -1089,14 +1089,14 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="openSocalSnow:" destination="EXi-30-3kK" eventType="touchUpInside" id="c3E-6g-rP4"/>
+                                                    <action selector="openSocalSnow:" destination="EXi-30-3kK" eventType="touchUpInside" id="WeQ-j7-QVp"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PTA-ZE-IRW">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hr9-5M-qe5">
                                                 <rect key="frame" x="16" y="91" width="382" height="45"/>
                                                 <color key="backgroundColor" red="0.0" green="0.46954255709999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="45" id="pe7-z8-sHw"/>
+                                                    <constraint firstAttribute="height" constant="45" id="eIb-Ku-NTh"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <state key="normal" title="AIARE Avalanche Training">
@@ -1108,23 +1108,23 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="openAIARE:" destination="EXi-30-3kK" eventType="touchUpInside" id="h6Z-92-ip0"/>
+                                                    <action selector="openAIARE:" destination="EXi-30-3kK" eventType="touchUpInside" id="0DG-sq-jx0"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GENERAL WEATHER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5K-YL-rf7">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GENERAL WEATHER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RSI-nb-CA6">
                                                 <rect key="frame" x="16" y="144" width="382" height="30"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="tdn-FH-M0v"/>
+                                                    <constraint firstAttribute="height" constant="30" id="Md4-GT-sGH"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pZj-NZ-mpD">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TPx-NT-a0Q">
                                                 <rect key="frame" x="16" y="182" width="382" height="45"/>
                                                 <color key="backgroundColor" red="0.0" green="0.46954255709999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="45" id="LPa-fk-OGx"/>
+                                                    <constraint firstAttribute="height" constant="45" id="I1K-I4-MGU"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <state key="normal" title="Ben's Weather">
@@ -1136,14 +1136,14 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="openBensWeather:" destination="EXi-30-3kK" eventType="touchUpInside" id="sjN-dx-1j2"/>
+                                                    <action selector="openBensWeather:" destination="EXi-30-3kK" eventType="touchUpInside" id="49X-EB-89z"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Qr-kw-uZV">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qYo-LH-q83">
                                                 <rect key="frame" x="16" y="235" width="382" height="45"/>
                                                 <color key="backgroundColor" red="0.0" green="0.46954255709999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="45" id="23W-J2-aq5"/>
+                                                    <constraint firstAttribute="height" constant="45" id="xaR-Yg-yJf"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <state key="normal" title="GOES West Satellite">
@@ -1155,14 +1155,14 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="openGOESWest:" destination="EXi-30-3kK" eventType="touchUpInside" id="VUA-6w-Rt1"/>
+                                                    <action selector="openGOESWest:" destination="EXi-30-3kK" eventType="touchUpInside" id="CYa-J1-4o7"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F6S-WW-vaZ">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K3P-8z-41s">
                                                 <rect key="frame" x="16" y="288" width="382" height="45"/>
                                                 <color key="backgroundColor" red="0.0" green="0.46954255709999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="45" id="Dtf-IX-foj"/>
+                                                    <constraint firstAttribute="height" constant="45" id="rTp-NP-Prl"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <state key="normal" title="NWS Precipitation Forecast">
@@ -1174,23 +1174,70 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="openNWS:" destination="EXi-30-3kK" eventType="touchUpInside" id="RYM-fp-1dU"/>
+                                                    <action selector="openNWS:" destination="EXi-30-3kK" eventType="touchUpInside" id="kGT-Nt-76D"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CAMERAS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Msv-2a-Bre">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ROAD CONDITIONS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xri-Nu-9kE">
                                                 <rect key="frame" x="16" y="341" width="382" height="30"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="M6E-Ok-l1l"/>
+                                                    <constraint firstAttribute="height" constant="30" id="HoO-cH-dbI"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="USf-VZ-Nji">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4O-ob-teE">
                                                 <rect key="frame" x="16" y="379" width="382" height="45"/>
                                                 <color key="backgroundColor" red="0.0" green="0.46954255709999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="45" id="zDa-hm-E09"/>
+                                                    <constraint firstAttribute="height" constant="45" id="pza-94-kSY"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <state key="normal" title="CalTrans">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="openCalTrans:" destination="EXi-30-3kK" eventType="touchUpInside" id="aPd-Qe-7Gk"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6yd-nl-ubV">
+                                                <rect key="frame" x="16" y="432" width="382" height="45"/>
+                                                <color key="backgroundColor" red="0.0" green="0.46954255709999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="45" id="Pmx-a2-yY8"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <state key="normal" title="Big Bear Area">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="openBigBearRoads:" destination="EXi-30-3kK" eventType="touchUpInside" id="FjE-eT-L96"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CAMERAS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBD-LS-8DG">
+                                                <rect key="frame" x="16" y="485" width="382" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="2Ef-AY-Aef"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X6a-mW-aCW">
+                                                <rect key="frame" x="16" y="523" width="382" height="45"/>
+                                                <color key="backgroundColor" red="0.0" green="0.46954255709999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="45" id="4HV-fm-fG3"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <state key="normal" title="Socalmountains.com">
@@ -1202,14 +1249,14 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="openSocalMountainsCameras:" destination="EXi-30-3kK" eventType="touchUpInside" id="BF7-Lb-44J"/>
+                                                    <action selector="openSocalMountainsCameras:" destination="EXi-30-3kK" eventType="touchUpInside" id="Vi8-Ui-NnQ"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tDp-ee-rfw">
-                                                <rect key="frame" x="16" y="432" width="382" height="45"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Qb-qP-bgd">
+                                                <rect key="frame" x="16" y="576" width="382" height="45"/>
                                                 <color key="backgroundColor" red="0.0" green="0.46954255709999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="45" id="Akj-KR-kJY"/>
+                                                    <constraint firstAttribute="height" constant="45" id="MV9-mw-r1V"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <state key="normal" title="Palm Springs Tramway">
@@ -1221,14 +1268,14 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="openTramCamera:" destination="EXi-30-3kK" eventType="touchUpInside" id="Vb9-Qc-uFu"/>
+                                                    <action selector="openTramCamera:" destination="EXi-30-3kK" eventType="touchUpInside" id="bbo-JG-cRF"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fL-Im-DHY">
-                                                <rect key="frame" x="16" y="485" width="382" height="45"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzN-YQ-KMQ">
+                                                <rect key="frame" x="16" y="629" width="382" height="45"/>
                                                 <color key="backgroundColor" red="0.0" green="0.46954255709999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="45" id="QnM-A9-fke"/>
+                                                    <constraint firstAttribute="height" constant="45" id="Zl9-hp-0qV"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <state key="normal" title="Mt Baldy Resort">
@@ -1240,12 +1287,15 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="openMtBaldyCamera:" destination="EXi-30-3kK" eventType="touchUpInside" id="cIl-zM-3rh"/>
+                                                    <action selector="openMtBaldyCamera:" destination="EXi-30-3kK" eventType="touchUpInside" id="dAU-9v-gpY"/>
                                                 </connections>
                                             </button>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dn6-Sx-a3K">
-                                                <rect key="frame" x="16" y="538" width="382" height="262"/>
+                                            <view contentMode="scaleToFill" verticalHuggingPriority="200" translatesAutoresizingMaskIntoConstraints="NO" id="vsT-St-bZn">
+                                                <rect key="frame" x="16" y="682" width="382" height="30"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="lyU-JC-VuJ"/>
+                                                </constraints>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1253,23 +1303,22 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="cSA-E9-GWr" firstAttribute="top" secondItem="dAE-uu-x7G" secondAttribute="top" id="1dr-Ny-Xej"/>
-                                    <constraint firstItem="cSA-E9-GWr" firstAttribute="centerY" secondItem="dAE-uu-x7G" secondAttribute="centerY" id="SkD-Fj-us8"/>
-                                    <constraint firstAttribute="trailing" secondItem="cSA-E9-GWr" secondAttribute="trailing" id="gWl-ky-QMN"/>
-                                    <constraint firstAttribute="bottom" secondItem="cSA-E9-GWr" secondAttribute="bottom" id="ke9-ob-ReA"/>
-                                    <constraint firstItem="cSA-E9-GWr" firstAttribute="trailing" secondItem="rg8-ER-Shj" secondAttribute="trailing" id="qCW-dF-E7F"/>
-                                    <constraint firstItem="cSA-E9-GWr" firstAttribute="leading" secondItem="rg8-ER-Shj" secondAttribute="leading" id="uGT-0c-aQw"/>
+                                    <constraint firstItem="VA2-gx-e7f" firstAttribute="leading" secondItem="dmb-bp-qYX" secondAttribute="leading" id="2ur-OX-dk2"/>
+                                    <constraint firstAttribute="bottom" secondItem="VA2-gx-e7f" secondAttribute="bottom" id="6k4-j1-wOu"/>
+                                    <constraint firstItem="VA2-gx-e7f" firstAttribute="trailing" secondItem="dmb-bp-qYX" secondAttribute="trailing" id="RYQ-PZ-8sC"/>
+                                    <constraint firstItem="VA2-gx-e7f" firstAttribute="top" secondItem="akr-bW-ckl" secondAttribute="top" id="f4H-cb-MbS"/>
+                                    <constraint firstAttribute="trailing" secondItem="VA2-gx-e7f" secondAttribute="trailing" id="ss8-tR-wVf"/>
                                 </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="Lad-Wm-7pQ"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="rg8-ER-Shj"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="J3f-Hr-Stu"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="dmb-bp-qYX"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="dAE-uu-x7G" secondAttribute="trailing" id="3Pc-OX-dd7"/>
-                            <constraint firstItem="dAE-uu-x7G" firstAttribute="leading" secondItem="0TS-c5-S9j" secondAttribute="leading" id="8ct-D1-X04"/>
-                            <constraint firstItem="dAE-uu-x7G" firstAttribute="top" secondItem="1Ay-o2-qLJ" secondAttribute="top" id="JSu-Ks-Dd2"/>
-                            <constraint firstItem="dAE-uu-x7G" firstAttribute="centerY" secondItem="0TS-c5-S9j" secondAttribute="centerY" id="dIb-3Y-29D"/>
+                            <constraint firstItem="akr-bW-ckl" firstAttribute="top" secondItem="1Ay-o2-qLJ" secondAttribute="top" id="1bJ-Kj-Gp4"/>
+                            <constraint firstItem="akr-bW-ckl" firstAttribute="centerX" secondItem="0TS-c5-S9j" secondAttribute="centerX" id="IL3-Fb-9Te"/>
+                            <constraint firstItem="akr-bW-ckl" firstAttribute="leading" secondItem="1Ay-o2-qLJ" secondAttribute="leading" id="bNz-iM-oSu"/>
+                            <constraint firstItem="akr-bW-ckl" firstAttribute="centerY" secondItem="0TS-c5-S9j" secondAttribute="centerY" id="jYe-Xt-Xss"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1Ay-o2-qLJ"/>
                     </view>
@@ -1335,7 +1384,6 @@
         <image name="cover" width="4032" height="3024"/>
         <image name="doc.text" catalog="system" width="115" height="128"/>
         <image name="doc.text.fill" catalog="system" width="115" height="128"/>
-        <image name="filter2" width="68" height="24"/>
         <image name="house" catalog="system" width="128" height="110"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="icon" width="1024" height="1024"/>

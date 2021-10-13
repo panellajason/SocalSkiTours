@@ -39,7 +39,7 @@ class OnboardingPageViewController: UIPageViewController {
                                              subtitleText: "The Map tab displays routes, trailheads, and summit markers for all of the ski tours. Tap on summit markers (blue icons) for details.")
         let page4 = OnboardingViewController(imageName: "OB4",
                                              titleText: "Resources",
-                                             subtitleText: "The Resources tab contains links to information about the snow and weather, as well as links to live cameras.")
+                                             subtitleText: "The Resources tab contains links to information about the snow, weather, and road conditions, as well as links to live cameras for the region.")
         let page5 = LastOnboardingViewController(imageName: "OB5",
                                                  titleText: "Favorites",
                                                  subtitleText: "The Favorites tab displays the tours you have favorited. Tap on any tour to view its details. Swipe to delete and press-and-hold to reorganize. Tap the account icon to logout.")
