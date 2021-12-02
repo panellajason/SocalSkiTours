@@ -14,6 +14,8 @@ class DatabaseService {
     
     private static var databaseInstance = Firestore.firestore()
     static var currentUserProfile:User?
+    static var newsArticles = [Article]()
+    static var skiResorts = [Resort]()
 
     static func handleSignIn(email: String, password: String, completion: @escaping(Error?) ->()) {
         
@@ -56,6 +58,9 @@ class DatabaseService {
     
     static func observeUserProfile(_ uid:String, completion: @escaping ((_ userProfile:User?)->())) {
                     
+            getArticles()
+            getResortForecast()
+            
             databaseInstance.collection("user_favorites").whereField("user_id", isEqualTo: uid)
             .addSnapshotListener { querySnapshot, error in
                 
@@ -106,7 +111,6 @@ class DatabaseService {
                             completion(removeError)
                             return
                         }
-                        
                         //Successfully removed Tour from favorites
                         completion(removeError)
                     }
@@ -136,6 +140,45 @@ class DatabaseService {
         }
     }
     
+    static private func getArticles() {
+        let url = "https://snow-news-api.herokuapp.com/allnews"
+        let task = URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: {data, response, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            let articles = try! JSONDecoder().decode([Article].self, from: data)
+            for article in articles {
+                self.newsArticles.append(article)
+            }
+        })
+        task.resume()
+    }
     
-    
+    static private func getResortForecast() {
+        let url = "https://snow-news-api.herokuapp.com/forecast"
+        let task = URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: {data, response, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            let resorts = try! JSONDecoder().decode([Resort].self, from: data)
+            for resort in resorts {
+                self.skiResorts.append(resort)
+            }
+        })
+        task.resume()
+    }
+}
+
+
+struct Resort : Codable {
+    var resort: String
+    var url: String
+}
+
+struct Article : Codable {
+    var title: String
+    var url: String
+    var source: String
 }

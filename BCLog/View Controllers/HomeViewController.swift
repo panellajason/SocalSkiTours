@@ -63,10 +63,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
         setUpRegionMenu()
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
-    
     @IBAction func filterByRegion(_ sender: Any) {
         
         self.view.endEditing(true)
@@ -94,6 +90,10 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
+        if (UIScreen.main.bounds.width > 375.0) {
+            return CGSize(width: 190, height: 225)
+        }
+
         return CGSize(width: 170, height: 200)
     }
     
@@ -133,6 +133,14 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
         self.performSegue(withIdentifier: "toDetailTour", sender: self)
     }
     
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        self.view.endEditing(true)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+          self.view.endEditing(true)
+    }
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         if let text = textField.text {
@@ -146,7 +154,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
         return true
     }
     
-    func filterText(_ query: String) {
+    private func filterText(_ query: String) {
         filteredTours.removeAll()
         
         for tour in tours {
@@ -258,5 +266,10 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
             let viewController = segue.destination as! DetailTourViewController
             viewController.passedTour = tourToPass
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(false)
+        UIView.setAnimationsEnabled(true)
     }
 }

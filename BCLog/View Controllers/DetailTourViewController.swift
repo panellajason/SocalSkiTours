@@ -16,10 +16,10 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
     private var tourToPass: Tour!
     private lazy var isFavorite: Bool = false
 
+    @IBOutlet weak var firstLine: UILabel!
+    @IBOutlet weak var secondLine: UILabel!
+    @IBOutlet weak var thirdLine: UILabel!
     @IBOutlet weak var detailDescription: UILabel!
-    @IBOutlet weak var detailAspect: UILabel!
-    @IBOutlet weak var detailElevation: UILabel!
-    @IBOutlet weak var detailTrailHead: UILabel!
     @IBOutlet weak var difficultyLabel: UILabel!
     @IBOutlet weak var diffcultyBTN1: UIImageView!
     @IBOutlet weak var diffcultyBTN2: UIImageView!
@@ -64,14 +64,14 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
     @IBAction func addOrRemoveFavorite(_ sender: Any) {
         self.showSpinner(onView: self.view)
         
+        let errorAlert = UIAlertController(title: "Error", message: "Unable to add to favorites.", preferredStyle: .alert)
+        errorAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+        
         if !isFavorite {
             
             DatabaseService.addToFavorites(tourID: passedTour.tourID) { [weak self] error in
                 
                 guard error == nil else {
-                    
-                    let errorAlert = UIAlertController(title: "Error", message: "Unable to add to favorites.", preferredStyle: .alert)
-                    errorAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
                     self?.present(errorAlert, animated: true)
                     return
                 }
@@ -85,9 +85,7 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
             DatabaseService.removeFromFavorites(tourID: passedTour.tourID) { [weak self] error in
                 
                 guard error == nil else {
-                    
-                    let errorAlert = UIAlertController(title: "Error", message: "Unable to remove from favorites.", preferredStyle: .alert)
-                    errorAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                    errorAlert.message = "Unable to remove from favorites."
                     self?.present(errorAlert, animated: true)
                     return
                 }
@@ -117,26 +115,10 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
     
     private func setUpUI() {
         
-        //Add the passed Tour's details to textviews
-        detailAspect.text = "Aspect: " + passedTour.tourAspect + " // Slope Angle: " + passedTour.tourAngle + " degrees"
-        detailElevation.text = "Base: " + passedTour.tourBaseElevation + " // Summit: " + passedTour.tourSummitElevation
-        let approach: String = String(format: "%.1f", passedTour.tourDistance)
-        let miles = (passedTour.tourDistance == 1.0) ? " mile" : " miles"
-        detailTrailHead.text = passedTour.tourTrailhead.title! + " // Approach: " + approach + miles
-        detailDescription.text = "Other info: " + passedTour.tourDescription
-
-        switch passedTour.tourDifficulty {
-            case 3:
-                difficultyLabel.text = " Most Difficult"
-                diffcultyBTN3.image = UIImage(systemName: "star.fill")
-                diffcultyBTN2.image = UIImage(systemName: "star.fill")
-            case 2:
-                difficultyLabel.text = " Intermediate"
-                diffcultyBTN2.image = UIImage(systemName: "star.fill")
-            case 1:
-                difficultyLabel.text = " Least Difficult"
-            default:
-                break
+        if (UIScreen.main.bounds.width > 375.0) {
+            sizeLabels(sizeOfFont: 16)
+        } else {
+            sizeLabels(sizeOfFont: 15)
         }
         
         //Add the passed Tour's images to horizontal scrollview
@@ -154,6 +136,41 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
             topScrollView.contentSize.width = topScrollView.frame.width * CGFloat(i + 1)
             topScrollView.addSubview(imageView)
         }
+    }
+    
+    private func sizeLabels(sizeOfFont: CGFloat) {
+        
+        let approach: String = String(format: "%.1f", passedTour.tourDistance)
+        let miles = (passedTour.tourDistance == 1.0) ? " mile" : " miles"
+        firstLine.text = passedTour.tourTrailhead.title! + " // Approach: " + approach + miles
+        firstLine.font = firstLine.font.withSize(sizeOfFont)
+        
+        secondLine.text = "Base: " + passedTour.tourBaseElevation + " // Summit: " + passedTour.tourSummitElevation
+        secondLine.font = secondLine.font.withSize(sizeOfFont)
+        
+        thirdLine.text = "Aspect: " + passedTour.tourAspect + " // Slope Angle: " + passedTour.tourAngle + " degrees"
+        thirdLine.font = thirdLine.font.withSize(sizeOfFont)
+        
+        detailDescription.font = detailDescription.font.withSize(sizeOfFont + 1)
+        let attrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: sizeOfFont)]
+        let attributedString = NSMutableAttributedString(string:"Other info: ", attributes:attrs)
+        attributedString.append(NSMutableAttributedString(string: passedTour.tourDescription))
+        detailDescription.attributedText = attributedString
+        
+        switch passedTour.tourDifficulty {
+            case 3:
+                difficultyLabel.text = " Most Difficult"
+                diffcultyBTN3.image = UIImage(systemName: "star.fill")
+                diffcultyBTN2.image = UIImage(systemName: "star.fill")
+            case 2:
+                difficultyLabel.text = " Intermediate"
+                diffcultyBTN2.image = UIImage(systemName: "star.fill")
+            case 1:
+                difficultyLabel.text = " Least Difficult"
+            default:
+                break
+        }
+        difficultyLabel.font = difficultyLabel.font.withSize(sizeOfFont - 1)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){

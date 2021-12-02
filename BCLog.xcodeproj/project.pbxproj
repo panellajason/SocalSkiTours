@@ -35,6 +35,8 @@
 		FAA9007526E5B14400088888 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9007426E5B14400088888 /* OnboardingPageViewController.swift */; };
 		FAA9007726E5D0C600088888 /* PreOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9007626E5D0C600088888 /* PreOnboardingViewController.swift */; };
 		FAA9007926E6879B00088888 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9007826E6879B00088888 /* EntryViewController.swift */; };
+		FAC0B72A2758A7770025BE06 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0B7292758A7770025BE06 /* NewsViewController.swift */; };
+		FAC0B72C2758A9A00025BE06 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0B72B2758A9A00025BE06 /* NewsTableViewCell.swift */; };
 		FAFE5231266EB25400A99D36 /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE5230266EB25400A99D36 /* FavoritesTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +73,8 @@
 		FAA9007426E5B14400088888 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		FAA9007626E5D0C600088888 /* PreOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreOnboardingViewController.swift; sourceTree = "<group>"; };
 		FAA9007826E6879B00088888 /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
+		FAC0B7292758A7770025BE06 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		FAC0B72B2758A9A00025BE06 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		FAFE5230266EB25400A99D36 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -169,10 +173,11 @@
 				FA4AB35F26AE82D0006F416C /* ForgotPassViewController.swift */,
 				FA6BF0E62651FFA500AD3EF1 /* HomeViewController.swift */,
 				FA6BF0E42651FDE300AD3EF1 /* MapViewController.swift */,
-				FA85129F26A73C1A0072E335 /* ResourcesViewController.swift */,
+				FAC0B7292758A7770025BE06 /* NewsViewController.swift */,
 				FA6BF0E8265200A400AD3EF1 /* FavoritesViewController.swift */,
 				FA6BF0F0265390D900AD3EF1 /* DetailTourViewController.swift */,
 				FA5B46B02667271B002F87B5 /* DetailMapViewController.swift */,
+				FA85129F26A73C1A0072E335 /* ResourcesViewController.swift */,
 				FAA9007426E5B14400088888 /* OnboardingPageViewController.swift */,
 				FAA9007626E5D0C600088888 /* PreOnboardingViewController.swift */,
 				FAA9007826E6879B00088888 /* EntryViewController.swift */,
@@ -185,6 +190,7 @@
 			children = (
 				FAFE5230266EB25400A99D36 /* FavoritesTableViewCell.swift */,
 				FA5B46AA265D9A26002F87B5 /* ToursCollectionViewCell.swift */,
+				FAC0B72B2758A9A00025BE06 /* NewsTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -326,6 +332,8 @@
 				FA4AB36026AE82D0006F416C /* ForgotPassViewController.swift in Sources */,
 				FA6BF0E72651FFA500AD3EF1 /* HomeViewController.swift in Sources */,
 				FA2C0BC8248C995F00CF6853 /* SignUpViewController.swift in Sources */,
+				FAC0B72A2758A7770025BE06 /* NewsViewController.swift in Sources */,
+				FAC0B72C2758A9A00025BE06 /* NewsTableViewCell.swift in Sources */,
 				FA8512A026A73C1A0072E335 /* ResourcesViewController.swift in Sources */,
 				FA6BF0F1265390D900AD3EF1 /* DetailTourViewController.swift in Sources */,
 				FAA9007926E6879B00088888 /* EntryViewController.swift in Sources */,

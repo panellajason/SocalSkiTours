@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 import GoogleMaps
 
 class Tour {
@@ -26,7 +25,7 @@ class Tour {
     var tourSummitElevation: String
 
     init(title: String, difficulty: Int, path: GMSPolyline, id: String, imageURL: [UIImage], distance: Double, description: String, marker: GMSMarker, aspect: String, base: String, trailhead: GMSMarker, summit: String, angle: String) {
-        
+
         self.tourID = id
         self.tourTitle = title
         self.tourDifficulty = difficulty

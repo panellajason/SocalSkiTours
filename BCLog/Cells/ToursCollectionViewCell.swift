@@ -16,6 +16,9 @@ class ToursCollectionViewCell: UICollectionViewCell {
     
     func configure(with tourTitle: String, tourImage: UIImage) {
         title.text = tourTitle
+        if (UIScreen.main.bounds.width > 375.0) {
+            title.font = title.font.withSize(20)
+        }
         imageView.image = tourImage
     }
     

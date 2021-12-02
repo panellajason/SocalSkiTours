@@ -43,7 +43,7 @@ class SigninViewController: UIViewController {
     private lazy var aboutBoardManager: BLTNItemManager = {
         let item = BLTNPageItem(title: "About")
         item.appearance.titleTextColor = .systemBlue
-        item.descriptionText = "Known for its beaches and sunny weather, Southern California doesn't usually come to mind as a backcountry skiing destination. When winter does decide to show its face, the alpine terrain comes to life and so do the dedicated backcountry riders. This app can serve as a starting point for getting to know the area and what it has in store for human-powered skiing."
+        item.descriptionText = "Known for its beaches and sunny weather, Southern California doesn't usually come to mind as a backcountry skiing destination. When winter does decide to show its face, the alpine terrain comes to life and so do the dedicated backcountry riders. This app is a great way to get to know the area and what it has in store for human-powered skiing."
         item.actionButtonTitle = "Ok"
         item.appearance.actionButtonColor = .systemBlue
         item.actionHandler = { [weak self] _ in
@@ -56,9 +56,6 @@ class SigninViewController: UIViewController {
         super.viewWillAppear(animated)
         
         navigationController?.setNavigationBarHidden(true, animated: animated)
-        errorLabel.text = ""
-        emailTF.text = ""
-        passwordTF.text = ""
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -76,6 +73,12 @@ class SigninViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
+        
+        errorLabel.text = ""
+        emailTF.text = ""
+        passwordTF.text = ""
+        self.view.endEditing(true)
+        UIView.setAnimationsEnabled(false)
     }
     
     @IBAction func openAbout(_ sender: Any) {
@@ -123,28 +126,6 @@ class SigninViewController: UIViewController {
             errorLabel.text = ValidationError.emptyTextFields.localizedDescription
         }
     }
-    
 }
 
-var vSpinner : UIView?
-extension UIViewController {
-    func showSpinner(onView : UIView) {
-        let spinnerView = UIView.init(frame: onView.bounds)
-        spinnerView.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
-        let ai = UIActivityIndicatorView.init(style: .large)
-        ai.startAnimating()
-        ai.center = spinnerView.center
-        DispatchQueue.main.async {
-            spinnerView.addSubview(ai)
-            onView.addSubview(spinnerView)
-        }
-        vSpinner = spinnerView
-    }
-    func removeSpinner() {
-        DispatchQueue.main.async {
-            vSpinner?.removeFromSuperview()
-            vSpinner = nil
-        }
-    }
-}
 
