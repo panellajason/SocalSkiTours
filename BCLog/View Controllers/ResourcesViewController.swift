@@ -14,10 +14,6 @@ class ResourcesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 38))
-        imageView.contentMode = .scaleToFill
-        imageView.image = UIImage(named: "resources")
-        navigationItem.titleView = imageView
         
     }
     

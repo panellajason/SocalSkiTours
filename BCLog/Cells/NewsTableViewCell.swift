@@ -30,7 +30,6 @@ class NewsTableViewCell: UITableViewCell {
             imageview.image = UIImage(named: "snowbrains")
         } else if (article.source == "Open Snow") {
             imageview.image = UIImage(named: "opensnow")
-            titleLabel.text! += " Report"
         } else {
             imageview.image = UIImage(named: "powderchasers")
         }

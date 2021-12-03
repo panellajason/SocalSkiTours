@@ -24,10 +24,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 38))
-        imageView.contentMode = .scaleToFill
-        imageView.image = UIImage(named: "alltours")
-        navigationItem.titleView = imageView
             
         //MapView setup
         let camera = GMSCameraPosition.camera(withLatitude: 34.070986, longitude: -117.326830, zoom: 8.0)

@@ -84,7 +84,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
             searchTF.attributedPlaceholder = placeholderText
             searchTF.resignFirstResponder()
             collectionView.reloadData()
-            collectionView.setContentOffset(.zero, animated: false)
+            collectionView.setContentOffset(.zero, animated: true)
         }
     }
     
@@ -171,7 +171,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
     
     private func setUpMainMenu() {
         mainMenu.anchorView = collectionView
-        
         mainMenu.selectionAction = { [weak self] index, title in
             guard let self = self else { return }
             

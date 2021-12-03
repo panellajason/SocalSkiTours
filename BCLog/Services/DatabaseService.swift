@@ -57,9 +57,6 @@ class DatabaseService {
     }
     
     static func observeUserProfile(_ uid:String, completion: @escaping ((_ userProfile:User?)->())) {
-                    
-            getArticles()
-            getResortForecast()
             
             databaseInstance.collection("user_favorites").whereField("user_id", isEqualTo: uid)
             .addSnapshotListener { querySnapshot, error in
@@ -80,6 +77,12 @@ class DatabaseService {
     }
     
     static func addToFavorites(tourID: String, completion: @escaping(Error?) ->()) {
+        
+        for tour in currentUserProfile!.favoriteTours {
+            if tourID == tour.tourID {
+                return
+            }
+        }
         
         databaseInstance.collection("user_favorites").addDocument(data: [
             "tour_id": tourID,
@@ -140,22 +143,19 @@ class DatabaseService {
         }
     }
     
-    static private func getArticles() {
+    static func getArticles() {
         let url = "https://snow-news-api.herokuapp.com/allnews"
         let task = URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: {data, response, error in
             guard let data = data, error == nil else {
                 return
             }
             
-            let articles = try! JSONDecoder().decode([Article].self, from: data)
-            for article in articles {
-                self.newsArticles.append(article)
-            }
+            newsArticles = try! JSONDecoder().decode([Article].self, from: data)
         })
         task.resume()
     }
     
-    static private func getResortForecast() {
+    static func getResortForecast() {
         let url = "https://snow-news-api.herokuapp.com/forecast"
         let task = URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: {data, response, error in
             guard let data = data, error == nil else {
@@ -163,17 +163,32 @@ class DatabaseService {
             }
             
             let resorts = try! JSONDecoder().decode([Resort].self, from: data)
-            for resort in resorts {
-                self.skiResorts.append(resort)
-            }
+            skiResorts = resorts.sorted(by: { $0.fiveDaySnowTotal < $1.fiveDaySnowTotal })
+            skiResorts = skiResorts.sorted(by: { $0.resort < $1.resort })
         })
         task.resume()
+    }
+    
+    static func getResortForecast(completion: @escaping ((_ resorts:[Resort]?)->())) {
+            let url = "https://snow-news-api.herokuapp.com/forecast"
+            let task = URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: {data, response, error in
+                guard let data = data, error == nil else {
+                    return
+                }
+                
+                var resorts = try! JSONDecoder().decode([Resort].self, from: data)
+                resorts = resorts.sorted(by: { $0.fiveDaySnowTotal < $1.fiveDaySnowTotal })
+                resorts = skiResorts.sorted(by: { $0.resort < $1.resort })
+                return(completion(resorts))
+            })
+            task.resume()
     }
 }
 
 
 struct Resort : Codable {
     var resort: String
+    var fiveDaySnowTotal: String
     var url: String
 }
 

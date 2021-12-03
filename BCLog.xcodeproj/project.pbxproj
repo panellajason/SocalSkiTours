@@ -37,6 +37,7 @@
 		FAA9007926E6879B00088888 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9007826E6879B00088888 /* EntryViewController.swift */; };
 		FAC0B72A2758A7770025BE06 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0B7292758A7770025BE06 /* NewsViewController.swift */; };
 		FAC0B72C2758A9A00025BE06 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0B72B2758A9A00025BE06 /* NewsTableViewCell.swift */; };
+		FAC0B730275925540025BE06 /* ResortsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0B72F275925540025BE06 /* ResortsCollectionViewCell.swift */; };
 		FAFE5231266EB25400A99D36 /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE5230266EB25400A99D36 /* FavoritesTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		FAA9007826E6879B00088888 /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		FAC0B7292758A7770025BE06 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		FAC0B72B2758A9A00025BE06 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
+		FAC0B72F275925540025BE06 /* ResortsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResortsCollectionViewCell.swift; sourceTree = "<group>"; };
 		FAFE5230266EB25400A99D36 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -191,6 +193,7 @@
 				FAFE5230266EB25400A99D36 /* FavoritesTableViewCell.swift */,
 				FA5B46AA265D9A26002F87B5 /* ToursCollectionViewCell.swift */,
 				FAC0B72B2758A9A00025BE06 /* NewsTableViewCell.swift */,
+				FAC0B72F275925540025BE06 /* ResortsCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				FA5B46AD2663674F002F87B5 /* SanBernardinoTours.swift in Sources */,
 				FA2C0BCE248CD36700CF6853 /* SigninViewController.swift in Sources */,
 				FA6BF0E52651FDE300AD3EF1 /* MapViewController.swift in Sources */,
+				FAC0B730275925540025BE06 /* ResortsCollectionViewCell.swift in Sources */,
 				FA5B46B3266878C6002F87B5 /* TourService.swift in Sources */,
 				FA2C0BD22493F40000CF6853 /* User.swift in Sources */,
 				FA0557C426C43AF3000D50F5 /* ErrorService.swift in Sources */,

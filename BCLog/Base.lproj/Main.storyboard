@@ -13,11 +13,11 @@
             <objects>
                 <viewController storyboardIdentifier="SigninViewController" modalPresentationStyle="fullScreen" id="vEw-8x-5rR" customClass="SigninViewController" customModule="SoCal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jBb-cv-u5n">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="786"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1Vu-wa-Ury">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="786"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cover" translatesAutoresizingMaskIntoConstraints="NO" id="cRs-qf-hYX" customClass="EEZoomableImageView" customModule="EEZoomableImageView">
                                         <rect key="frame" x="16" y="0.0" width="382" height="220"/>
@@ -95,11 +95,11 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="200" translatesAutoresizingMaskIntoConstraints="NO" id="eLk-aA-Q0B">
-                                        <rect key="frame" x="16" y="543" width="382" height="181"/>
+                                        <rect key="frame" x="16" y="543" width="382" height="120"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gTb-d4-bmx">
-                                        <rect key="frame" x="16" y="732" width="382" height="54"/>
+                                        <rect key="frame" x="16" y="671" width="382" height="54"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rkK-cl-mRL">
                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="25"/>
@@ -204,11 +204,11 @@
             <objects>
                 <viewController id="9qW-qB-qdf" customClass="ForgotPassViewController" customModule="SoCal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pKS-hX-RH4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="786"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="Pxm-h0-JKU">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="786"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trouble" translatesAutoresizingMaskIntoConstraints="NO" id="sGt-rz-qZr">
                                         <rect key="frame" x="16" y="0.0" width="382" height="75"/>
@@ -251,7 +251,7 @@
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="200" translatesAutoresizingMaskIntoConstraints="NO" id="bTs-hZ-aCq">
-                                        <rect key="frame" x="16" y="311" width="382" height="475"/>
+                                        <rect key="frame" x="16" y="311" width="382" height="414"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
@@ -303,11 +303,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="UWr-Wf-nrH" userLabel="SignUp View Controller" customClass="SignUpViewController" customModule="SoCal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oO0-Dq-jGm">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="786"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="eLz-RP-lCv">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="786"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3kw-Q9-Sv8">
                                         <rect key="frame" x="16" y="0.0" width="382" height="235"/>
@@ -332,7 +332,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wXT-C5-by6">
-                                        <rect key="frame" x="16" y="247" width="382" height="539"/>
+                                        <rect key="frame" x="16" y="247" width="382" height="478"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GZr-3P-U4d">
                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="45"/>
@@ -393,11 +393,11 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" verticalHuggingPriority="100" translatesAutoresizingMaskIntoConstraints="NO" id="GDY-3Y-3Ao">
-                                                <rect key="frame" x="0.0" y="262" width="382" height="240"/>
+                                                <rect key="frame" x="0.0" y="262" width="382" height="179"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="G4v-Ic-9ui">
-                                                <rect key="frame" x="0.0" y="510" width="382" height="29"/>
+                                                <rect key="frame" x="0.0" y="449" width="382" height="29"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="9Ek-0d-6bs">
                                                         <rect key="frame" x="109.00000000000001" y="0.0" width="164.33333333333337" height="29"/>
@@ -463,7 +463,7 @@
                 <navigationController modalPresentationStyle="fullScreen" id="Kew-zW-zHp" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Map" image="map" catalog="system" selectedImage="map.fill" id="EkS-nS-GBA"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="PZ6-ka-Lyd">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -479,7 +479,7 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="WV3-vT-4DH" customClass="MapViewController" customModule="SoCal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZGd-OR-Mza">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="703"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="TnF-iQ-D6b"/>
@@ -505,68 +505,192 @@
         <!--News View Controller-->
         <scene sceneID="LJk-NW-VQA">
             <objects>
-                <viewController id="wdv-nc-Bt3" customClass="NewsViewController" customModule="SoCal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="wdv-nc-Bt3" customClass="NewsViewController" customModule="SoCal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AcF-WV-m7G">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="703"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="r3m-WL-1QJ">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewsTableViewCell" id="Fd1-Y9-gnm" customClass="NewsTableViewCell" customModule="SoCal_Ski_Tours" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="75.333335876464844"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fd1-Y9-gnm" id="Nwq-o8-vwD">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="75.333335876464844"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="60w-jo-F5Y">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="75.333333333333329"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nGJ-Fd-qLG">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="703"/>
+                                <subviews>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Try refreshing or connecting to the internet." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10O-An-uvG">
+                                        <rect key="frame" x="4" y="-22" width="406" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="dlC-bI-Ba6"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 Day Snow Forecast:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WtO-3O-QZH">
+                                        <rect key="frame" x="4" y="0.0" width="406" height="25"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="YXv-Xe-ojf"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Duo-gz-qcI">
+                                        <rect key="frame" x="4" y="33" width="406" height="100"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="JGT-lA-4EM"/>
+                                        </constraints>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="t9A-qh-0po">
+                                            <size key="itemSize" width="128" height="128"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ResortsCollectionViewCell" id="ruE-GA-bYB" customClass="ResortsCollectionViewCell" customModule="SoCal_Ski_Tours" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="-14" width="128" height="128"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="1is-Zt-n2F">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EPh-Vj-iEf">
-                                                            <rect key="frame" x="0.0" y="0.3333333333333357" width="75" height="75"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="o1k-P9-FMO">
+                                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0&quot;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfM-Xy-kRa">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="60"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="60" id="7ho-aW-xqO"/>
+                                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="110" id="y4O-bA-bPu"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bear Mountain" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Xj-Il-t5c">
+                                                                    <rect key="frame" x="0.0" y="60" width="128" height="68"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="110" id="TNI-nj-tdi"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="75" id="5xl-rL-TKK"/>
-                                                                <constraint firstAttribute="height" constant="75" id="JeU-Eg-YtR"/>
+                                                                <constraint firstAttribute="height" constant="100" id="BJq-Jl-bfD"/>
+                                                                <constraint firstAttribute="width" constant="110" id="wMb-7f-In9"/>
                                                             </constraints>
-                                                        </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hma-bc-sGC">
-                                                            <rect key="frame" x="85" y="27.666666666666671" width="329" height="20.333333333333329"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        </stackView>
                                                     </subviews>
-                                                </stackView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="60w-jo-F5Y" secondAttribute="bottom" id="MSj-1K-ekJ"/>
-                                                <constraint firstItem="60w-jo-F5Y" firstAttribute="top" secondItem="Nwq-o8-vwD" secondAttribute="top" id="OSB-ch-MW0"/>
-                                                <constraint firstAttribute="trailing" secondItem="60w-jo-F5Y" secondAttribute="trailing" id="ZIF-UI-X2c"/>
-                                                <constraint firstItem="60w-jo-F5Y" firstAttribute="leading" secondItem="Nwq-o8-vwD" secondAttribute="leading" id="aAD-tG-4c1"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="imageview" destination="EPh-Vj-iEf" id="QVt-VF-aDT"/>
-                                            <outlet property="titleLabel" destination="Hma-bc-sGC" id="tjC-Kl-slj"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
+                                                    <constraints>
+                                                        <constraint firstItem="o1k-P9-FMO" firstAttribute="top" secondItem="1is-Zt-n2F" secondAttribute="top" id="Dk9-wc-Tjf"/>
+                                                        <constraint firstItem="o1k-P9-FMO" firstAttribute="leading" secondItem="1is-Zt-n2F" secondAttribute="leading" id="NIh-qd-dGR"/>
+                                                        <constraint firstAttribute="bottom" secondItem="o1k-P9-FMO" secondAttribute="bottom" id="QkN-oC-fuy"/>
+                                                        <constraint firstAttribute="trailing" secondItem="o1k-P9-FMO" secondAttribute="trailing" id="vHn-fU-ghJ"/>
+                                                    </constraints>
+                                                </collectionViewCellContentView>
+                                                <color key="backgroundColor" red="0.0" green="0.46954255709999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outlet property="snowAmount" destination="sfM-Xy-kRa" id="IES-Cl-b3U"/>
+                                                    <outlet property="title" destination="0Xj-Il-t5c" id="84f-M9-GzQ"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recent Snow News:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMd-Xp-5LU">
+                                        <rect key="frame" x="4" y="141" width="406" height="25"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="0cf-SS-gi5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="r3m-WL-1QJ">
+                                        <rect key="frame" x="4" y="174" width="406" height="529"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewsTableViewCell" id="Fd1-Y9-gnm" customClass="NewsTableViewCell" customModule="SoCal_Ski_Tours" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="406" height="78.333335876464844"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fd1-Y9-gnm" id="Nwq-o8-vwD">
+                                                    <rect key="frame" x="0.0" y="0.0" width="406" height="78.333335876464844"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="60w-jo-F5Y">
+                                                            <rect key="frame" x="0.0" y="0.0" width="406" height="78.333333333333329"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EPh-Vj-iEf">
+                                                                    <rect key="frame" x="4" y="4.3333333333333357" width="75" height="70"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="75" id="5xl-rL-TKK"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hma-bc-sGC">
+                                                                    <rect key="frame" x="83" y="30.333333333333329" width="319" height="18"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <edgeInsets key="layoutMargins" top="4" left="4" bottom="4" right="4"/>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="60w-jo-F5Y" secondAttribute="bottom" id="MSj-1K-ekJ"/>
+                                                        <constraint firstItem="60w-jo-F5Y" firstAttribute="top" secondItem="Nwq-o8-vwD" secondAttribute="top" id="OSB-ch-MW0"/>
+                                                        <constraint firstAttribute="trailing" secondItem="60w-jo-F5Y" secondAttribute="trailing" id="ZIF-UI-X2c"/>
+                                                        <constraint firstItem="60w-jo-F5Y" firstAttribute="leading" secondItem="Nwq-o8-vwD" secondAttribute="leading" id="aAD-tG-4c1"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <outlet property="imageview" destination="EPh-Vj-iEf" id="QVt-VF-aDT"/>
+                                                    <outlet property="titleLabel" destination="Hma-bc-sGC" id="tjC-Kl-slj"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                </subviews>
+                                <edgeInsets key="layoutMargins" top="0.0" left="4" bottom="0.0" right="4"/>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="r3m-WL-1QJ" firstAttribute="top" secondItem="HFd-Lt-9br" secondAttribute="top" id="3Df-bC-Zar"/>
-                            <constraint firstItem="HFd-Lt-9br" firstAttribute="trailing" secondItem="r3m-WL-1QJ" secondAttribute="trailing" id="Afc-bI-8N4"/>
-                            <constraint firstItem="HFd-Lt-9br" firstAttribute="bottom" secondItem="r3m-WL-1QJ" secondAttribute="bottom" id="TXn-Q1-aJv"/>
-                            <constraint firstItem="r3m-WL-1QJ" firstAttribute="leading" secondItem="HFd-Lt-9br" secondAttribute="leading" id="crb-iq-PXv"/>
+                            <constraint firstItem="nGJ-Fd-qLG" firstAttribute="top" secondItem="AcF-WV-m7G" secondAttribute="top" id="7HV-5d-Ag1"/>
+                            <constraint firstItem="nGJ-Fd-qLG" firstAttribute="bottom" secondItem="HFd-Lt-9br" secondAttribute="bottom" id="7SD-BK-r42"/>
+                            <constraint firstItem="nGJ-Fd-qLG" firstAttribute="leading" secondItem="AcF-WV-m7G" secondAttribute="leading" id="CuE-d1-Bdb"/>
+                            <constraint firstItem="HFd-Lt-9br" firstAttribute="trailing" secondItem="nGJ-Fd-qLG" secondAttribute="trailing" id="fgC-X4-7Si"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HFd-Lt-9br"/>
                     </view>
-                    <navigationItem key="navigationItem" id="2Mb-Xz-lue"/>
+                    <navigationItem key="navigationItem" id="2Mb-Xz-lue">
+                        <barButtonItem key="backBarButtonItem" title=" " id="kl3-KM-lzg"/>
+                        <rightBarButtonItems>
+                            <barButtonItem image="arrow.clockwise" catalog="system" id="bte-eI-R2i">
+                                <connections>
+                                    <action selector="refresh:" destination="wdv-nc-Bt3" id="OyN-PG-tDH"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Resources" id="Zr2-f2-LUh">
+                                <connections>
+                                    <action selector="openResources:" destination="wdv-nc-Bt3" id="IjX-6V-V5i"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <connections>
                         <outlet property="articlesTableView" destination="r3m-WL-1QJ" id="5OD-CG-uYr"/>
+                        <outlet property="refreshLabel" destination="10O-An-uvG" id="Rvi-Pf-qQW"/>
+                        <outlet property="resortsCollectionView" destination="Duo-gz-qcI" id="XKS-Bz-QFs"/>
+                        <segue destination="EXi-30-3kK" kind="show" identifier="toResources" id="pOp-y0-Bpm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R2i-nv-XBj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -579,7 +703,7 @@
                 <navigationController id="2aj-jI-C2i" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" selectedImage="house.fill" id="Nsd-ei-Zse"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="ZeQ-Hh-DNl">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -595,11 +719,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="4RI-7G-zGC" customClass="HomeViewController" customModule="SoCal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mez-t6-u7s">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="703"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Z3e-pT-aet">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="703"/>
                                 <subviews>
                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yff-2a-EvA">
                                         <rect key="frame" x="10" y="0.0" width="394" height="30"/>
@@ -661,7 +785,7 @@
                                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                     </stackView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Lcb-8d-SXy">
-                                        <rect key="frame" x="10" y="4" width="394" height="721"/>
+                                        <rect key="frame" x="10" y="4" width="394" height="699"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="5" id="RsS-HN-rOn">
                                             <size key="itemSize" width="183" height="296"/>
@@ -752,7 +876,7 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="SaB-nS-icq" customClass="DetailMapViewController" customModule="SoCal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gP4-8A-7ae">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="703"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="NGo-sQ-eBZ"/>
@@ -778,11 +902,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="NfK-m3-e3R" customClass="DetailTourViewController" customModule="SoCal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8UQ-AR-72u">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="703"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="white" translatesAutoresizingMaskIntoConstraints="NO" id="TUt-RN-Ns6">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="703"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="D2J-En-eDO">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1120"/>
@@ -1006,7 +1130,7 @@
                 <navigationController id="6Nl-zm-wUx" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Favorites" image="star" catalog="system" selectedImage="star.fill" id="NQ2-1c-KHe"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="f5c-BC-9FD">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -1017,12 +1141,12 @@
             </objects>
             <point key="canvasLocation" x="1571" y="1146"/>
         </scene>
-        <!--Favorites View Controller-->
+        <!--Favorites-->
         <scene sceneID="C0H-sB-G2M">
             <objects>
                 <viewController id="XNX-lh-kTB" customClass="FavoritesViewController" customModule="SoCal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VcA-GC-Tho">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="703"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No favorites." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7v4-Tp-nAO">
@@ -1032,7 +1156,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OSM-gV-4ha">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="703"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FavoritesTableViewCell" rowHeight="100" id="hZL-rl-gvq" customClass="FavoritesTableViewCell" customModule="SoCal_Ski_Tours" customModuleProvider="target">
@@ -1110,7 +1234,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vDh-Q3-Im3"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Vxm-cb-jUp">
+                    <navigationItem key="navigationItem" title="Favorites" id="Vxm-cb-jUp">
                         <barButtonItem key="backBarButtonItem" title=" " id="Rn2-4s-Rou"/>
                         <barButtonItem key="rightBarButtonItem" image="person.circle" catalog="system" id="NTx-2q-SHM">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1129,16 +1253,16 @@
             </objects>
             <point key="canvasLocation" x="2404" y="1147"/>
         </scene>
-        <!--Resources View Controller-->
+        <!--Resources-->
         <scene sceneID="PF9-S6-bnY">
             <objects>
-                <viewController id="EXi-30-3kK" customClass="ResourcesViewController" customModule="SoCal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="EXi-30-3kK" customClass="ResourcesViewController" customModule="SoCal_Ski_Tours" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0TS-c5-S9j">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="white" translatesAutoresizingMaskIntoConstraints="NO" id="akr-bW-ckl">
-                                <rect key="frame" x="0.0" y="44" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VA2-gx-e7f">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="673"/>
@@ -1402,7 +1526,7 @@
                         <viewLayoutGuide key="safeArea" id="1Ay-o2-qLJ"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="tHO-TY-Weq">
+                    <navigationItem key="navigationItem" title="Resources" id="tHO-TY-Weq">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="questionmark" catalog="system" id="noU-RU-kP1">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -1414,7 +1538,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UuX-Br-KWI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3549" y="556"/>
+            <point key="canvasLocation" x="3204" y="431"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jsi-3f-Q4H">
@@ -1459,7 +1583,7 @@
                 <navigationController modalPresentationStyle="fullScreen" id="Vkp-ci-ktq" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="News" image="text.bubble" catalog="system" selectedImage="text.bubble.fill" id="HQC-zY-fPB"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="hmt-Uj-Oyf">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -1477,6 +1601,7 @@
         <segue reference="dJO-Ia-wA0"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="cover" width="4032" height="3024"/>
         <image name="house" catalog="system" width="128" height="110"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>

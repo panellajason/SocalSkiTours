@@ -20,6 +20,8 @@ import GoogleMaps
         // Override point for customization after application launch.
         FirebaseApp.configure()
         GMSServices.provideAPIKey("AIzaSyAclakTYQKiFytFuk16Jhe_fYq2qJt7-Ko")
+        DatabaseService.getArticles()
+        DatabaseService.getResortForecast()
         TourService.loadAllTours { tours in
             TourService.allTours = tours }
         

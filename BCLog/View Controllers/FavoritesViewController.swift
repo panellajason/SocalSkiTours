@@ -46,10 +46,6 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 38))
-        imageView.contentMode = .scaleToFill
-        imageView.image = UIImage(named: "favorites")
-        navigationItem.titleView = imageView
         
         tableView.dataSource = self
         tableView.delegate = self
