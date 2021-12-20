@@ -18,35 +18,35 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     private lazy var articles = [Article]()
     private lazy var resorts = [Resort]()
     
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        articles = DatabaseService.newsArticles
-        resorts = DatabaseService.skiResorts
-        resortsCollectionView.reloadData()
-        articlesTableView.reloadData()
-        if articles.count == 0 && resorts.count == 0 {
-            refreshLabel.isHidden = false
-        } else {
-            refreshLabel.isHidden = true
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if DatabaseService.skiResorts.count == 0 || DatabaseService.newsArticles.count == 0 {
+            self.showSpinner(onView: self.view)
+            fetchData()
         }
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.removeSpinner()
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         articlesTableView.dataSource = self
         articlesTableView.delegate = self
         resortsCollectionView.dataSource = self
         resortsCollectionView.delegate = self
+        
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         self.resortsCollectionView.collectionViewLayout = layout
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = SFSafariViewController(url: URL(string: DatabaseService.skiResorts[indexPath.row].url)!)
+        let vc = SFSafariViewController(url: URL(string: resorts[indexPath.row].url)!)
         present(vc, animated: false, completion: nil)
     }
     
@@ -66,7 +66,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = SFSafariViewController(url: URL(string: DatabaseService.newsArticles[indexPath.row].url)!)
+        let vc = SFSafariViewController(url: URL(string: articles[indexPath.row].url)!)
         present(vc, animated: false, completion: nil)
     }
     
@@ -89,27 +89,34 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @IBAction func refresh(_ sender: Any) {
-       
-        if articles.count == 0 {
-            DatabaseService.getArticles()
-            articles = DatabaseService.newsArticles
+
+        if articles.count == 0 || resorts.count == 0 {
+            fetchData()
         } else {
-            let indexPath = IndexPath(row: 0, section: 0)
-            self.articlesTableView.scrollToRow(at: indexPath, at: .top, animated: true)
+            if articles.count != 0 {
+                self.articlesTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+            }
+            if resorts.count != 0 {
+                resortsCollectionView.setContentOffset(.zero, animated: true)
+            }
         }
-        if resorts.count == 0 {
-            DatabaseService.getResortForecast()
-            resorts = DatabaseService.skiResorts
-        } else {
-            resortsCollectionView.setContentOffset(.zero, animated: true)
-        }
-        
-        if(resorts.count > 0 || articles.count > 0) {
-            refreshLabel.isHidden = true
-        }
-        resortsCollectionView.reloadData()
-        articlesTableView.reloadData()
     }
+    
+    private func fetchData() {
+        DatabaseService.getResortForecast { [weak self] resortsData in
+            DatabaseService.getArticles { [weak self] articlesData in
+                
+                self?.resorts = resortsData ?? [Resort]()
+                self?.articles = articlesData ?? [Article]()
+                DispatchQueue.main.async {
+                   self?.articlesTableView.reloadData()
+                   self?.resortsCollectionView.reloadData()
+                   self?.removeSpinner()
+                }
+            }
+        }
+    }
+    
 }
 
 

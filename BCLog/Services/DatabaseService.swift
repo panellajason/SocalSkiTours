@@ -143,33 +143,24 @@ class DatabaseService {
         }
     }
     
-    static func getArticles() {
-        let url = "https://snow-news-api.herokuapp.com/allnews"
-        let task = URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: {data, response, error in
-            guard let data = data, error == nil else {
-                return
-            }
-            
-            newsArticles = try! JSONDecoder().decode([Article].self, from: data)
-        })
-        task.resume()
-    }
-    
-    static func getResortForecast() {
-        let url = "https://snow-news-api.herokuapp.com/forecast"
-        let task = URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: {data, response, error in
-            guard let data = data, error == nil else {
-                return
-            }
-            
-            let resorts = try! JSONDecoder().decode([Resort].self, from: data)
-            skiResorts = resorts.sorted(by: { $0.fiveDaySnowTotal < $1.fiveDaySnowTotal })
-            skiResorts = skiResorts.sorted(by: { $0.resort < $1.resort })
-        })
-        task.resume()
+    static func getArticles(completion: @escaping ((_ resorts:[Article]?)->())) {
+        
+            let url = "https://snow-news-api.herokuapp.com/allnews"
+            let task = URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: {data, response, error in
+                guard let data = data, error == nil else {
+                    return
+                }
+                
+                var articles = try! JSONDecoder().decode([Article].self, from: data)
+                articles = articles.sorted(by: { $0.source < $1.source })
+                newsArticles = articles
+                return(completion(articles))
+            })
+            task.resume()
     }
     
     static func getResortForecast(completion: @escaping ((_ resorts:[Resort]?)->())) {
+        
             let url = "https://snow-news-api.herokuapp.com/forecast"
             let task = URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: {data, response, error in
                 guard let data = data, error == nil else {
@@ -177,8 +168,8 @@ class DatabaseService {
                 }
                 
                 var resorts = try! JSONDecoder().decode([Resort].self, from: data)
-                resorts = resorts.sorted(by: { $0.fiveDaySnowTotal < $1.fiveDaySnowTotal })
-                resorts = skiResorts.sorted(by: { $0.resort < $1.resort })
+                resorts = resorts.sorted(by: { $0.resort < $1.resort })
+                skiResorts = resorts
                 return(completion(resorts))
             })
             task.resume()
