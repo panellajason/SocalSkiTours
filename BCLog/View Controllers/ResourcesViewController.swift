@@ -73,7 +73,7 @@ class ResourcesViewController: UIViewController {
     
     @IBAction func openMtBaldyCamera(_ sender: Any) {
         
-        let vc = SFSafariViewController(url: URL(string:"https://mtbaldyresort.com/webcam/")!)
+        let vc = SFSafariViewController(url: URL(string:"https://mtbaldyresort.com/baldyvision/")!)
         present(vc, animated: false, completion: nil)
     }
     

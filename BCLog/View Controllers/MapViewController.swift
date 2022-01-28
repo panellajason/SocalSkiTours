@@ -15,11 +15,13 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
     private var passedTour: Tour!
     private lazy var isSatelliteView = false
     private var mapView: GMSMapView!
-    @IBOutlet var satelliteButton: UIBarButtonItem!
+    private var button: UIButton!
+
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         addToursToMap()
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     override func viewDidLoad() {
@@ -34,23 +36,36 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         mapView.settings.compassButton = true
         mapView.isMyLocationEnabled = true
         if (UIScreen.main.bounds.width > 375.0) {
-            mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 170, right: 0)
-        } else {
-            mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 110, right: 0)
-        }
+            mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 85, right: 0)
+            button = UIButton(frame: CGRect(x:UIScreen.main.bounds.width-62, y:UIScreen.main.bounds.height-210, width: 50, height: 50))
+            button.layer.cornerRadius = 25
 
+        } else {
+            mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
+            button = UIButton(frame: CGRect(x:UIScreen.main.bounds.width-62, y:UIScreen.main.bounds.height-170, width: 46, height: 46))
+            button.layer.cornerRadius = 23
+
+
+        }
         view.addSubview(mapView)
+        
+        button.setImage(UIImage(systemName: "square.stack.3d.up"), for: .normal)
+        button.backgroundColor = UIColor.clear
+        button.tintColor = .black
+        button.backgroundColor = .white
+        button.layer.borderWidth = 0.5
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.addTarget(self, action: #selector(showOrHideSatelliteView), for: .touchUpInside)
+        view.addSubview(button)
     }
     
-    @IBAction func showOrHideSatelliteView(_ sender: Any) {
+    @objc func showOrHideSatelliteView() {
         if isSatelliteView {
-            
-            satelliteButton.image = UIImage(systemName: "safari")
+            button.setImage(UIImage(systemName: "square.stack.3d.up"), for: .normal)
             mapView.mapType = .terrain
             isSatelliteView = false
         } else {
-            
-            satelliteButton.image = UIImage(systemName: "safari.fill")
+            button.setImage(UIImage(systemName: "square.stack.3d.up.fill"), for: .normal)
             mapView.mapType = .satellite
             isSatelliteView = true
         }
@@ -86,5 +101,10 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
             let viewController = segue.destination as! DetailTourViewController
             viewController.passedTour = tourToPass
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.isNavigationBarHidden = false
     }
 }

@@ -47,7 +47,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
     private lazy var aboutBoardManager: BLTNItemManager = {
         let item = BLTNPageItem(title: "About")
         item.appearance.titleTextColor = .systemBlue
-        item.descriptionText = "Known for its beaches and sunny weather, Southern California doesn't usually come to mind as a backcountry skiing destination. When winter does decide to show its face, the alpine terrain comes to life and so do the dedicated backcountry riders. This app is a great way to get to know the area and what it has in store for human-powered skiing."
+        item.descriptionText = "Known for its beaches and sunny weather, Southern California doesn't usually come to mind as a backcountry skiing destination. When winter does decide to show its face, the alpine terrain comes to life and so do the dedicated backcountry riders. This app covers some of the major ski descents in Southern California and can serve alongside one of the many tools needed for planning a backcountry ski tour."
         item.actionButtonTitle = "Ok"
         item.appearance.actionButtonColor = .systemBlue
         item.actionHandler = { [weak self] _ in
