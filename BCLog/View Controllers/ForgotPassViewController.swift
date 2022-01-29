@@ -26,6 +26,7 @@ class ForgotPassViewController: UIViewController {
         item.appearance.actionButtonColor = .systemBlue
         item.actionHandler = { [weak self] _ in
             self?.dismiss(animated: true, completion: nil)
+
         }
         return BLTNItemManager(rootItem: item)
     }()
@@ -56,21 +57,15 @@ class ForgotPassViewController: UIViewController {
         guard let email = emailTF.text else { return }
     
         if !email.isEmpty {
-            self.showSpinner(onView: self.view)
-
             DatabaseService.handlePasswordRecoveryEmail(email: email) { [weak self] error in
                 guard let self = self else { return }
-
                 guard error == nil else {
                     self.invalidBoardManager.showBulletin(above: self)
                     return
                 }
-                
                 self.successBoardManager.showBulletin(above: self)
-                self.removeSpinner()
-
             }
-        } 
+        }
     }
 }
 

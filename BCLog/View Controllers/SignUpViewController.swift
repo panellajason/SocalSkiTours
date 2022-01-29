@@ -31,7 +31,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
             password2TF.attributedPlaceholder = placeholderText
         }
     }
-    let disclaimer = "WARNING: Skiing and snowboarding are dangerous sports that can result in death, paralysis, or serious injury. Please take all precautions and use your own ability, evaluation, and judgement to assess the risks of your terrain choice on a particular day, rather than relying on the information in this app. It is imperative that you own, carry, and know how to use an avalanche beacon, shovel, and probe when skiing in the backcountry. The user assumes all risk associated with the use of this app and with the activities of skiing and snowboarding."
+    let disclaimer = "WARNING: Skiing and snowboarding are dangerous sports that can result in death, paralysis, or serious injury. Please take all precautions and use your own ability, evaluation, and judgement to assess the risks of your terrain choice on a particular day, rather than relying on the information in this app. It is imperative that you own, carry, and know how to use an avalanche beacon, shovel, and probe when skiing in the backcountry, as well as crampons and ice axe. The user assumes all risk associated with the use of this app and with the activities of skiing and snowboarding."
     @IBOutlet weak var errorLabel: UILabel!
     private lazy var disclaimerBoardManager: BLTNItemManager = {
         let item = BLTNPageItem(title: "Disclaimer")
