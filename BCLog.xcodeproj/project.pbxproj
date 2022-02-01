@@ -491,6 +491,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -503,8 +504,9 @@
 			baseConfigurationReference = F54F7EAACD13A70D5AB48BEE /* Pods-BCLog.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HY4ASVY222;
+				DEVELOPMENT_TEAM = 55A645456R;
 				INFOPLIST_FILE = BCLog/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -512,6 +514,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jp.BCLog;
 				PRODUCT_NAME = "SoCal Ski Tours";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -522,8 +525,9 @@
 			baseConfigurationReference = 3E6EA046542FCBFB004B01ED /* Pods-BCLog.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HY4ASVY222;
+				DEVELOPMENT_TEAM = 55A645456R;
 				INFOPLIST_FILE = BCLog/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -531,6 +535,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jp.BCLog;
 				PRODUCT_NAME = "SoCal Ski Tours";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
