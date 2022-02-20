@@ -512,7 +512,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jp.BCLog;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jp.BackcountryLog;
 				PRODUCT_NAME = "SoCal Ski Tours";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -533,7 +533,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jp.BCLog;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jp.BackcountryLog;
 				PRODUCT_NAME = "SoCal Ski Tours";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

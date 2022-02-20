@@ -44,7 +44,7 @@ class DetailMapViewController: UIViewController, GMSMapViewDelegate {
             button.layer.cornerRadius = 25
         } else {
             mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 114, right: 0)
-            button = UIButton(frame: CGRect(x:UIScreen.main.bounds.width-62, y:UIScreen.main.bounds.height-234, width: 46, height: 46))
+            button = UIButton(frame: CGRect(x:UIScreen.main.bounds.width-61, y:UIScreen.main.bounds.height-234, width: 46, height: 46))
             button.layer.cornerRadius = 23
         }
         view.addSubview(mapView)
