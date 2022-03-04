@@ -39,19 +39,12 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
         return menu
     }()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
         imageView.image = UIImage(named: "title2")
         navigationItem.titleView = imageView
-        
-        if isNewUser ?? false {
-            let vc = PreOnboardingViewController()
-            vc.modalPresentationStyle = .fullScreen
-            present(vc, animated: false, completion: nil)
-        }
         
         searchTF.delegate = self
         collectionView.dataSource = self
@@ -61,6 +54,12 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
         tours = TourService.allTours
         setUpMainMenu()
         setUpRegionMenu()
+        
+        if isNewUser ?? false {
+            let vc = PreOnboardingViewController()
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: false, completion: nil)
+        }
     }
     
     @IBAction func filterByRegion(_ sender: Any) {
@@ -90,11 +89,11 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        if (UIScreen.main.bounds.width > 375.0) {
-            return CGSize(width: 190, height: 225)
+        if (UIScreen.main.bounds.width <= 395.0) {
+            return CGSize(width: 170, height: 200)
         }
 
-        return CGSize(width: 170, height: 200)
+        return CGSize(width: 190, height: 225)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

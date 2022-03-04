@@ -20,7 +20,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if DatabaseService.skiResorts.count == 0 || DatabaseService.newsArticles.count == 0 {
+        if DatabaseService.skiResorts.count == 0 || DatabaseService.newsArticles.count == 0 || articles.count == 0 || resorts.count == 0 {
             self.showSpinner(onView: self.view)
             fetchData()
         }
