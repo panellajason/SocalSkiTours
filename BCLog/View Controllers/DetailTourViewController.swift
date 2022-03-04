@@ -115,10 +115,10 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
     
     private func setUpUI() {
         
-        if (UIScreen.main.bounds.width > 375.0) {
-            sizeLabels(sizeOfFont: 16)
-        } else {
+        if (UIScreen.main.bounds.width <= 395.0) {
             sizeLabels(sizeOfFont: 15)
+        } else {
+            sizeLabels(sizeOfFont: 16)
         }
         
         //Add the passed Tour's images to horizontal scrollview

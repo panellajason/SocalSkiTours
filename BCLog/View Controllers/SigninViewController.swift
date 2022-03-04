@@ -56,7 +56,7 @@ class SigninViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if (UIScreen.main.bounds.width > 375.0) {
+        if (UIScreen.main.bounds.width >= 395.0) {
             imageView.frame.size.height = 500.0
         }
         navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -66,7 +66,10 @@ class SigninViewController: UIViewController {
         super.viewDidAppear(animated)
         
         if Auth.auth().currentUser != nil {
-            self.performSegue(withIdentifier: "toHome", sender: self)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController
+            UIApplication.shared.windows.first?.rootViewController = viewController
+            UIApplication.shared.windows.first?.makeKeyAndVisible()
         }
     }
 
@@ -112,24 +115,26 @@ class SigninViewController: UIViewController {
         guard let email = emailTF.text else { return }
         guard let password = passwordTF.text else { return }
 
+        self.view.endEditing(true)
+
         if !email.isEmpty && !password.isEmpty {
             self.showSpinner(onView: self.view)
 
             DatabaseService.handleSignIn(email: email, password: password) { [weak self] error in
                 
                 guard error == nil else {
-                    
                     self?.errorLabel.text = ValidationError.invalidCredentials.localizedDescription
                     self?.removeSpinner()
                     return
                 }
                 
-                self?.performSegue(withIdentifier: "toHome", sender: self)
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let viewController = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController
+                UIApplication.shared.windows.first?.rootViewController = viewController
+                UIApplication.shared.windows.first?.makeKeyAndVisible()
             }
         } else {
             errorLabel.text = ValidationError.emptyTextFields.localizedDescription
         }
     }
 }
-
-

@@ -24,9 +24,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         item.actionHandler = { [weak self] _ in
             guard let self = self else { return }
 
-            try! Auth.auth().signOut()
-            DatabaseService.currentUserProfile = nil
-            self.performSegue(withIdentifier: "toLogout", sender: self)
+            self.logout()
         }
         return BLTNItemManager(rootItem: item)
     }()
@@ -52,6 +50,16 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.separatorStyle = .none
         tableView.dragInteractionEnabled = true
         tableView.dragDelegate = self
+    }
+    
+    func logout () {
+        try! Auth.auth().signOut()
+        DatabaseService.currentUserProfile = nil
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "EntryController") as? UINavigationController
+        UIApplication.shared.windows.first?.rootViewController = viewController
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
     
     @IBAction func openAccountPage(_ sender: Any) {

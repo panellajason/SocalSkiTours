@@ -80,6 +80,8 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
         guard let password1 = passwordTF.text else { return }
         guard let password2 = password2TF.text else { return }
 
+        self.view.endEditing(true)
+
         if !email.isEmpty && !password1.isEmpty && !password2.isEmpty {
             if password1 == password2 {
                 self.showSpinner(onView: self.view)
@@ -87,7 +89,6 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
                 DatabaseService.handleSignUp(email: email, password: password1) { [weak self] error in
                     
                     guard error == nil else {
-                        
                         self?.errorLabel.text = error?.localizedDescription
                         self?.removeSpinner()
                         return
@@ -95,26 +96,21 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
                     
                     let alertController = UIAlertController(title: "DISCLAIMER:", message: self?.disclaimer, preferredStyle: UIAlertController.Style.alert)
                     alertController.addAction(UIAlertAction(title: "CONTINUE", style: UIAlertAction.Style.destructive,handler: { action in
-                        self?.performSegue(withIdentifier: "toHome2", sender: self)
-                     }))
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        let tabController = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController
+                        UIApplication.shared.windows.first?.rootViewController = tabController
+                        UIApplication.shared.windows.first?.makeKeyAndVisible()
+                        let viewController = tabController?.viewControllers![0] as! UINavigationController
+                        let vc = viewController.viewControllers[0] as! HomeViewController
+                        vc.isNewUser = true
+                    }))
                     self?.present(alertController, animated: true)
-
                 }
             } else {
                 errorLabel.text = ValidationError.passwordsMustMatch.localizedDescription
             }
-            
         } else {
             errorLabel.text = ValidationError.emptyTextFields.localizedDescription
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        if (segue.identifier == "toHome2") {
-            let tabCtrl: UITabBarController = segue.destination as! UITabBarController
-            let viewController = tabCtrl.viewControllers![0] as! UINavigationController
-            let vc = viewController.viewControllers[0] as! HomeViewController
-            vc.isNewUser = true
         }
     }
 }
