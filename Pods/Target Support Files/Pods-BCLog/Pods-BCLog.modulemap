@@ -1,0 +1,6 @@
+framework module Pods_BCLog {
+  umbrella header "Pods-BCLog-umbrella.h"
+
+  export *
+  module * { export * }
+}
