@@ -35,15 +35,21 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         mapView.settings.myLocationButton = true
         mapView.settings.compassButton = true
         mapView.isMyLocationEnabled = true
-        if (UIScreen.main.bounds.width > 375.0) {
-            mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 85, right: 0)
-            button = UIButton(frame: CGRect(x:UIScreen.main.bounds.width-62, y:UIScreen.main.bounds.height-210, width: 50, height: 50))
+        
+        print(UIScreen.main.bounds.size)
+        
+
+        if (UIScreen.main.bounds.width > 375.0 || UIScreen.main.bounds.height == 812.0) {
+            mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 82, right: 0)
+            button = UIButton(frame: CGRect(x:UIScreen.main.bounds.width-62, y:UIScreen.main.bounds.height-207, width: 50, height: 50))
             button.layer.cornerRadius = 25
         } else {
             mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
             button = UIButton(frame: CGRect(x:UIScreen.main.bounds.width-61, y:UIScreen.main.bounds.height-170, width: 46, height: 46))
             button.layer.cornerRadius = 23
+            button.clipsToBounds = true
         }
+        
         view.addSubview(mapView)
         
         button.setImage(UIImage(systemName: "square.stack.3d.up"), for: .normal)
