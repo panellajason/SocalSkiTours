@@ -1145,8 +1145,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="542"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You don't have any favorites yet. Select a tour to favorite." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7v4-Tp-nAO">
-                                <rect key="frame" x="0.0" y="40" width="375" height="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You don't have any favorites yet.  Select a tour to favorite." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7v4-Tp-nAO">
+                                <rect key="frame" x="0.0" y="40" width="375" height="54"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -1570,7 +1570,7 @@
                     </view>
                     <connections>
                         <segue destination="rHl-dG-xoK" kind="showDetail" identifier="toHome2" animates="NO" id="pLq-Wa-wiB"/>
-                        <segue destination="GMK-5Q-W7s" kind="showDetail" identifier="toSignIn" id="phL-6A-x14"/>
+                        <segue destination="GMK-5Q-W7s" kind="showDetail" identifier="toSignIn" animates="NO" id="phL-6A-x14"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FOj-n4-tTX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

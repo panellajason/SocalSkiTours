@@ -41,10 +41,10 @@ class PreOnboardingViewController: UIViewController {
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
-        
+
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.font = UIFont.boldSystemFont(ofSize: 45)
-        titleLabel.textColor = .black
+        titleLabel.textColor = .white
  
         getStartedButton.addTarget(self, action: #selector(openOnboarding(_:)), for: .primaryActionTriggered)
         skipButton.addTarget(self, action: #selector(skipOnboarding (_:)), for: .primaryActionTriggered)
@@ -56,15 +56,17 @@ class PreOnboardingViewController: UIViewController {
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(getStartedButton)
         stackView.addArrangedSubview(skipButton)
-
+        
         view.backgroundColor = .black
         view.addSubview(stackView)
-        
+        view.subviews[0].layer.cornerRadius = imageView.frame.width/4.0
+        view.subviews[0].clipsToBounds = true
+
         NSLayoutConstraint.activate([
             stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             
-            imageView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
+            imageView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1),
             
             getStartedButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
             getStartedButton.heightAnchor.constraint(equalToConstant: 44),

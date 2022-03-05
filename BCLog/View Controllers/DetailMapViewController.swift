@@ -38,7 +38,7 @@ class DetailMapViewController: UIViewController, GMSMapViewDelegate {
         mapView.settings.myLocationButton = true
         mapView.settings.compassButton = true
         mapView.isMyLocationEnabled = true
-        if (UIScreen.main.bounds.width > 375.0) {
+        if (UIScreen.main.bounds.width > 375.0 || UIScreen.main.bounds.height == 812.0) {
             mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 173, right: 0)
             button = UIButton(frame: CGRect(x:UIScreen.main.bounds.width-62, y:UIScreen.main.bounds.height-298, width: 50, height: 50))
             button.layer.cornerRadius = 25
