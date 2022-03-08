@@ -8,6 +8,7 @@
 
 import UIKit
 import SafariServices
+import FirebaseAuth
 import EEZoomableImageView
 
 class DetailTourViewController: UIViewController, UIScrollViewDelegate {
@@ -31,20 +32,25 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        DatabaseService.checkIfTourIsFavorite(tourID: passedTour.tourID) { [weak self] error, isFavorite in
-            
-            guard error == nil else { return }
-            
-            if isFavorite {
+        if Auth.auth().currentUser != nil {
+            DatabaseService.checkIfTourIsFavorite(tourID: passedTour.tourID) { [weak self] error, isFavorite in
                 
-                self?.favoritesButton.image = UIImage(systemName: "star.fill")
-                self?.isFavorite = true
-            } else {
+                guard error == nil else { return }
                 
-                self?.isFavorite = false
-                self?.favoritesButton.image = UIImage(systemName: "star")
+                if isFavorite {
+                    
+                    self?.favoritesButton.image = UIImage(systemName: "star.fill")
+                    self?.isFavorite = true
+                } else {
+                    
+                    self?.isFavorite = false
+                    self?.favoritesButton.image = UIImage(systemName: "star")
+                }
             }
+        } else {
+            favoritesButton.isEnabled = false
         }
+        
     }
     
     override func viewDidLoad() {
@@ -127,7 +133,6 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
         topScrollView.delegate = self
         topScrollView.frame = view.frame
         for i in 0..<passedTour.tourImages.count {
-    
             let imageView = EEZoomableImageView()
             imageView.image = passedTour.tourImages[i]
             imageView.contentMode = .scaleToFill

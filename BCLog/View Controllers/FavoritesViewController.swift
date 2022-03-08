@@ -11,7 +11,7 @@ import FirebaseAuth
 import BLTNBoard
 
 class FavoritesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITableViewDragDelegate {
-    
+    @IBOutlet weak var emptyListLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     private var favoriteTours = [Tour]()
     private var tourToPass: Tour!
@@ -19,7 +19,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     private lazy var accountPage: BLTNItemManager = {
         let item = BLTNPageItem(title: "Account")
         item.appearance.titleTextColor = .systemBlue
-        item.actionButtonTitle = "Logout"
+        item.actionButtonTitle = Auth.auth().currentUser != nil ? "Logout" : "Back to Sign in"
         item.appearance.actionButtonColor = .systemRed
         item.actionHandler = { [weak self] _ in
             guard let self = self else { return }
@@ -32,14 +32,21 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        favoriteTours = DatabaseService.currentUserProfile!.favoriteTours
-        tableView.reloadData()
-        
-        if favoriteTours.count == 0 {
-            tableView.isHidden = true
+        if Auth.auth().currentUser != nil {
+            favoriteTours = DatabaseService.currentUserProfile!.favoriteTours
+            tableView.reloadData()
+            
+            if favoriteTours.count == 0 {
+                tableView.isHidden = true
+            } else {
+                tableView.isHidden = false
+            }
         } else {
-            tableView.isHidden = false
+            tableView.isHidden = true
+            emptyListLabel.text = "Please sign in to add favorites."
         }
+
+        
     }
     
     override func viewDidLoad() {
@@ -53,8 +60,10 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func logout () {
-        try! Auth.auth().signOut()
-        DatabaseService.currentUserProfile = nil
+        if Auth.auth().currentUser != nil {
+            try! Auth.auth().signOut()
+            DatabaseService.currentUserProfile = nil
+        }
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "EntryController") as? UINavigationController

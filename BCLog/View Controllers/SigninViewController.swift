@@ -32,7 +32,7 @@ class SigninViewController: UIViewController {
     private lazy var disclaimerBoardManager: BLTNItemManager = {
         let item = BLTNPageItem(title: "Disclaimer")
         item.appearance.titleTextColor = .red
-        item.descriptionText = "WARNING: Skiing and snowboarding are dangerous sports that can result in death, paralysis, or serious injury. Please take all precautions and use your own ability, evaluation, and judgement to assess the risks of your terrain choice on a particular day, rather than relying on the information in this app. It is imperative that you own, carry, and know how to use an avalanche beacon, shovel, and probe when skiing in the backcountry, as well as crampons and ice axe. The user assumes all risk associated with the use of this app and with the activities of skiing and snowboarding."
+        item.descriptionText = "WARNING: Skiing and snowboarding are dangerous sports that can result in death, paralysis, or serious injury. Please take all precautions and use your own ability, evaluation, and judgment to assess the risks of your terrain choice on a particular day, rather than relying on the information in this app. It is imperative that you own, carry, and know how to use an avalanche beacon, shovel, and probe when skiing in the backcountry, as well as crampons and ice axe. The user assumes all risks associated with the use of this app and with the activities of skiing and snowboarding."
         item.actionButtonTitle = "Ok"
         item.appearance.actionButtonColor = .systemBlue
         item.actionHandler = { [weak self] _ in
@@ -136,5 +136,15 @@ class SigninViewController: UIViewController {
         } else {
             errorLabel.text = ValidationError.emptyTextFields.localizedDescription
         }
+    }
+    
+    @IBAction func continueWithoutAccount(_ sender: UIButton) {
+        errorLabel.text = ""
+        self.view.endEditing(true)
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController
+        UIApplication.shared.windows.first?.rootViewController = viewController
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
 }

@@ -9,7 +9,6 @@
 import UIKit
 import DropDown
 import BLTNBoard
-import FirebaseAuth
 
 class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
     
@@ -63,7 +62,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
     }
     
     @IBAction func filterByRegion(_ sender: Any) {
-        
         self.view.endEditing(true)
         mainMenu.show()
     }
