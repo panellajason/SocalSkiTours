@@ -49,6 +49,7 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
             }
         } else {
             favoritesButton.isEnabled = false
+            favoritesButton.tintColor = .clear
         }
         
     }

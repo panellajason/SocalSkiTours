@@ -26,6 +26,57 @@ class SanBernardinoTours {
         sugarTH.title = "Sugarloaf Trailhead"
         sugarTH.icon = GMSMarker.markerImage(with: .black)
 
+        let gorgPath = GMSMutablePath()
+        gorgPath.add(CLLocationCoordinate2D(latitude: 34.161167, longitude: -116.871683))
+        gorgPath.add(CLLocationCoordinate2D(latitude: 34.158697, longitude: -116.871030))
+        gorgPath.add(CLLocationCoordinate2D(latitude: 34.157153, longitude: -116.867553))
+        gorgPath.add(CLLocationCoordinate2D(latitude: 34.155129, longitude: -116.868068))
+        gorgPath.add(CLLocationCoordinate2D(latitude: 34.147831, longitude: -116.855580))
+        gorgPath.add(CLLocationCoordinate2D(latitude: 34.130464, longitude: -116.843415))
+        gorgPath.add(CLLocationCoordinate2D(latitude: 34.120446, longitude: -116.842900))
+        gorgPath.add(CLLocationCoordinate2D(latitude: 34.118907, longitude: -116.839350))
+        gorgPath.add(CLLocationCoordinate2D(latitude: 34.108832, longitude: -116.838182))
+        gorgPath.add(CLLocationCoordinate2D(latitude: 34.099683, longitude: -116.838692))
+        let gorgLine = GMSPolyline(path: gorgPath)
+        gorgLine.strokeWidth = 3
+        gorgLine.strokeColor = .red
+        let bigDrawMarker = GMSMarker()
+        bigDrawMarker.position = CLLocationCoordinate2D(latitude: 34.099683, longitude: -116.838692)
+        bigDrawMarker.title = "San Gorgonio"
+        bigDrawMarker.snippet = "The Big Draw"
+        bigDrawMarker.icon = GMSMarker.markerImage(with: .blue)
+        let bigdraw = Tour(title: "San Gorgonio: The Big Draw", difficulty: 3, path: gorgLine, id: "34.099683 -116.838692", imageURL: [#imageLiteral(resourceName: "big_draw"), #imageLiteral(resourceName: "IMG_0913"), #imageLiteral(resourceName: "IMG_0058"), #imageLiteral(resourceName: "IMG_0878"), #imageLiteral(resourceName: "gorgRoute")], distance: 6.5, description: "One of the most classic descents (alongside Baldy Bowl) in Southern California, the Big Draw has been skied by the San Gorgonio Ski Club and many others since the early 1930s. Developers attempted to build lodges and ropes tows here for decades but failed. Today, it is known as a rite of passage in SoCal backcountry skiing and offers one of the easiest ways up to the San Gorgonio/Jepson ridges. The ascent is very long and drawn out but steepens quickly at the top of the bowl. The Big Draw is an excellent catcher's mitt for snow as it is essentially a large bowl positioned between two windstrewn peaks. This area is usually the last remaining snow in Southern California, sometimes being rideable into June and having patches last into July (2019, for example). Follow the South Fork Trail for 3.5 miles, then cross South Fork meadows and continue up through the trees. The terrain will become a series of small gullies but head in the SE direction and the terrain will flatten out, the trees will clear, and the large bowl will become visible; climb or skin to the top.", marker: bigDrawMarker, aspect: "N", base: "6,900 ft", trailhead: southForkTH, summit: "11,200 ft", angle: "35")
+        
+        let nwPath = gorgPath.mutableCopy()
+        (nwPath as AnyObject).add(CLLocationCoordinate2D(latitude: 34.099769, longitude: -116.836071))
+        (nwPath as AnyObject).add(CLLocationCoordinate2D(latitude: 34.101406, longitude: -116.834642))
+        let gorgNWLine = GMSPolyline(path: (nwPath as! GMSPath))
+        gorgNWLine.strokeWidth = 3
+        gorgNWLine.strokeColor = .red
+        let gorgNWMarker = GMSMarker()
+        gorgNWMarker.position = CLLocationCoordinate2D(latitude: 34.101406, longitude: -116.834642)
+        gorgNWMarker.title = "San Gorgonio"
+        gorgNWMarker.snippet = "NW Chutes"
+        gorgNWMarker.icon = GMSMarker.markerImage(with: .blue)
+        let gorgNW = Tour(title: "San Gorgonio: NW Chutes", difficulty: 3, path: gorgNWLine, id: "34.101406 -116.834642", imageURL: [#imageLiteral(resourceName: "IMG_8932"), #imageLiteral(resourceName: "IMG_2175_2"), #imageLiteral(resourceName: "gorg_nw"), #imageLiteral(resourceName: "nwchu"), #imageLiteral(resourceName: "gorgRoute")], distance: 6.5, description: "Often overlooked for the more popular descents nearby, these chutes offer a much more steep and exciting descent down San Gorgonio compared to the typical North Face descent. This area is subject to very high winds and therefore variable riding conditions in winter (think ice), so spring is usually the best season to ski these chutes. Due to their westerly exposure, this side of the mountain usually softens a bit later in the day so these chutes and are a great link up with Jepson's NE chutes which heat up early. Follow the South Fork Trail for 3.5 miles, then cross South Fork meadows and continue up through the trees. The terrain will become a series of small gullies but head in the SE direction and the terrain will flatten out, the trees will clear, and the large bowl known as the Big Draw will become visible; climb or skin to the top. Continue along the San Gorgonio ridge in the NE direction until you find your desired chute.", marker: gorgNWMarker, aspect: "NW", base: "6,900 ft", trailhead: southForkTH, summit: "11,200 ft", angle: "40-45")
+        
+        let nPath = (nwPath as AnyObject).mutableCopy()
+        (nPath as AnyObject).add(CLLocationCoordinate2D(latitude: 34.101979, longitude: -116.830673))
+        (nPath as AnyObject).add(CLLocationCoordinate2D(latitude: 34.104418, longitude: -116.830350))
+        (nPath as AnyObject).add(CLLocationCoordinate2D(latitude: 34.113525, longitude: -116.832207))
+        (nPath as AnyObject).add(CLLocationCoordinate2D(latitude: 34.116652, longitude: -116.837860))
+        (nPath as AnyObject).add(CLLocationCoordinate2D(latitude: 34.118907, longitude: -116.839350))
+
+        let gorgNLine = GMSPolyline(path: (nPath as! GMSPath))
+        gorgNLine.strokeWidth = 3
+        gorgNLine.strokeColor = .red
+        let gorgNMarker = GMSMarker()
+        gorgNMarker.position = CLLocationCoordinate2D(latitude: 34.101979, longitude: -116.830673)
+        gorgNMarker.title = "San Gorgonio"
+        gorgNMarker.snippet = "North Face"
+        gorgNMarker.icon = GMSMarker.markerImage(with: .blue)
+        let gorgN = Tour(title: "San Gorgonio: North Face", difficulty: 3, path: gorgNLine, id: "34.101979 -116.830673", imageURL: [#imageLiteral(resourceName: "IMG_1436"), #imageLiteral(resourceName: "gorg_n"), #imageLiteral(resourceName: "IMG_9002"), #imageLiteral(resourceName: "gorg1"), #imageLiteral(resourceName: "cover")], distance: 6.5, description: "The tallest mountain in Southern California at 11,500 ft and a 2,000+ ft descent down broad chutes. Most of the tours in the San Gorgonio Wilderness have very long approaches so be prepared to spend most, if not all of your day back there. Winter skiing conditions are variable at this elevation due to winds and it is common for the upper few hundred feet of some of the chutes to be wind-stripped. The north face of San Gorgonio is also known for its massive avalanches (See pic 4 of the 2019 Valentines Day slides, courtesy of Socalsnow.org; these occurred after a large atmopsheric river and high snow levels). Spring is the most popular season to ride and climb Gorgonio; the snow is consolidated and quick to travel on, the days are longer, and the riding conditions are consistent during melt-freeze cycles. If skiing conditions are favorable, these chutes feel like your average black-diamond ski resort run despite the mountain looking like a giant from afar. This area was under threat of development in the early-mid 1900s, but the ultimate decision was that “San Gorgonio Primitive Area has a higher public value as a wilderness and a watershed than as a downhill ski area”. Either follow the Big Draw route to the San Gorgonio ridge as the route shows, or branch off when the North face comes into view and climb the chutes for a slightly steeper but more direct route.", marker: gorgNMarker, aspect: "N", base: "6,900 ft", trailhead: southForkTH, summit: "11,500 ft", angle: "35")
+        
         let jepsonNWPath = GMSMutablePath()
         jepsonNWPath.add(CLLocationCoordinate2D(latitude: 34.161167, longitude: -116.871683))
         jepsonNWPath.add(CLLocationCoordinate2D(latitude: 34.158697, longitude: -116.871030))
@@ -49,7 +100,7 @@ class SanBernardinoTours {
         jepsonNWMarker.icon = GMSMarker.markerImage(with: .blue)
         let jepsonNW = Tour(title: "Jepson Peak: North Chutes", difficulty: 3, path: jepNWLine, id: "34.103435 -116.847386", imageURL: [#imageLiteral(resourceName: "IMG_4364"), #imageLiteral(resourceName: "jepson_nw"), #imageLiteral(resourceName: "IMG_0673"), #imageLiteral(resourceName: "DDF34D9F-6ABB-4F2A-A1CE-3BB8D4CB6A4C"), #imageLiteral(resourceName: "IMG_1214"), #imageLiteral(resourceName: "IMG_1185"), #imageLiteral(resourceName: "gorgRoute")], distance: 6, description: "Three defined, north facing chutes with many others that fill in during good snow years. This is alpine terrain so cornices, avalanches and everything else that can be expected in above-treeline terrain should be expected here. Winter can be highly variable and with long periods of no snow, these north facing chutes turn into an ice rink until the spring thaw. Late winter/spring is the most popular time to ski this area due to the predictable melt-freeze cycles and longer daylight hours (it's a long way back here, especially in deep powder). These chutes are typically rideable well into spring if there has been a decent snow year, sometimes even early June. Follow the South Fork Trail for 3.5 miles, then cross the South Fork meadows and continue south. The terrain will become a series of treed gullies but head in the SW direction and follow the gullies up and around Charlton Peak until the trees begin to clear. Continue up this avalanche path until you are able to see the obvious saddle between Jepson Peak and Little Charlton Peak; boot or skin up this and follow Jepson's ridge up to the summit chutes (or just climb the chutes directly).", marker: jepsonNWMarker, aspect: "N", base: "6,900 ft", trailhead: southForkTH, summit: "11,200 ft", angle: "40-45")
 
-        let nePath = jepsonNWPath.mutableCopy()
+        let nePath = gorgPath.mutableCopy()
         (nePath as AnyObject).add(CLLocationCoordinate2D(latitude: 34.101618, longitude: -116.843024))
         let jepNELine = GMSPolyline(path: (nePath as! GMSPath))
         jepNELine.strokeWidth = 3
@@ -61,52 +112,6 @@ class SanBernardinoTours {
         jepsonNEMarker.icon = GMSMarker.markerImage(with: .blue)
         let jepsonNE = Tour(title: "Jepson Peak: NE Chutes", difficulty: 3, path: jepNELine, id: "34.101618 -116.843024", imageURL: [#imageLiteral(resourceName: "jepson_ne"), #imageLiteral(resourceName: "IMG_2138_2"), #imageLiteral(resourceName: "IMG_1402"), #imageLiteral(resourceName: "IMG_0794"), #imageLiteral(resourceName: "IMG_0875"), #imageLiteral(resourceName: "IMG_1216"), #imageLiteral(resourceName: "gorgRoute")], distance: 6.5, description: "Jepson's northeast cirque is one of the most beautiful set of lines in the region. Similar to Jepson's North chutes, except these are slightly steeper and there are more to choose from. In good corn cycles, these chutes and the North chutes are a great link-up as these will soften first due to their easterly exposure. This exposure to the sun also allows the snow to heat up fairly quickly so wet slides will become increasingly prevalent throughout the season. That being said, spring is typically the best time to ski these chutes so an early-ish start and an early-ish descent is ideal before the sun cooks the snow too much. Follow the South Fork Trail for 3.5 miles, then cross the South Fork meadows and continue south. The terrain will become a series of treed gullies but head in the SW direction and follow the gullies up and around Charlton Peak until the trees begin to clear. Continue up this avalanche path until you are able to see the obvious saddle between Jepson Peak and Little Charlton Peak; boot or skin up this and follow Jepson's ridge up to the summit. Alternatively, follow the Big Draw route (which gets a better a look at the chutes) or just climb the chutes directly.", marker: jepsonNEMarker, aspect: "NE", base: "6,900 ft", trailhead: southForkTH, summit: "11,200 ft", angle: "40-45")
 
-        let gorgPath = GMSMutablePath()
-        gorgPath.add(CLLocationCoordinate2D(latitude: 34.161167, longitude: -116.871683))
-        gorgPath.add(CLLocationCoordinate2D(latitude: 34.158697, longitude: -116.871030))
-        gorgPath.add(CLLocationCoordinate2D(latitude: 34.157153, longitude: -116.867553))
-        gorgPath.add(CLLocationCoordinate2D(latitude: 34.155129, longitude: -116.868068))
-        gorgPath.add(CLLocationCoordinate2D(latitude: 34.147831, longitude: -116.855580))
-        gorgPath.add(CLLocationCoordinate2D(latitude: 34.130464, longitude: -116.843415))
-        gorgPath.add(CLLocationCoordinate2D(latitude: 34.120446, longitude: -116.842900))
-        gorgPath.add(CLLocationCoordinate2D(latitude: 34.118907, longitude: -116.839350))
-        gorgPath.add(CLLocationCoordinate2D(latitude: 34.108832, longitude: -116.838182))
-        gorgPath.add(CLLocationCoordinate2D(latitude: 34.099683, longitude: -116.838692))
-        let gorgLine = GMSPolyline(path: gorgPath)
-        gorgLine.strokeWidth = 3
-        gorgLine.strokeColor = .red
-        let bigDrawMarker = GMSMarker()
-        bigDrawMarker.position = CLLocationCoordinate2D(latitude: 34.099683, longitude: -116.838692)
-        bigDrawMarker.title = "San Gorgonio"
-        bigDrawMarker.snippet = "The Big Draw"
-        bigDrawMarker.icon = GMSMarker.markerImage(with: .blue)
-        let bigdraw = Tour(title: "San Gorgonio: The Big Draw", difficulty: 3, path: gorgLine, id: "34.099683 -116.838692", imageURL: [#imageLiteral(resourceName: "big_draw"), #imageLiteral(resourceName: "IMG_0913"), #imageLiteral(resourceName: "IMG_0058"), #imageLiteral(resourceName: "IMG_0878"), #imageLiteral(resourceName: "gorgRoute")], distance: 6.5, description: "One of the most classic descents (alongside Baldy Bowl) in Southern California, the Big Draw has been skied by the San Gorgonio Ski Club and many others since the early 1930s. Developers attempted to build lodges and ropes tows here for decades but failed. Today, it is known as a rite of passage in SoCal backcountry skiing and offers one of the easiest ways up to the San Gorgonio/Jepson ridges. The ascent is very long and drawn out but steepens quickly at the top of the bowl. The Big Draw is an excellent catcher's mitt for snow as it is essentially a large bowl positioned between two windstrewn peaks. This area is usually the last remaining snow in Southern California, sometimes being rideable into June and having patches last into July (2019, for example). Follow the South Fork Trail for 3.5 miles, then cross South Fork meadows and continue up through the trees. The terrain will become a series of small gullies but head in the SE direction and the terrain will flatten out, the trees will clear, and the large bowl will become visible; climb or skin to the top.", marker: bigDrawMarker, aspect: "N", base: "6,900 ft", trailhead: southForkTH, summit: "11,200 ft", angle: "35")
-
-        let nwPath = gorgPath.mutableCopy()
-        (nwPath as AnyObject).add(CLLocationCoordinate2D(latitude: 34.099769, longitude: -116.836071))
-        (nwPath as AnyObject).add(CLLocationCoordinate2D(latitude: 34.101406, longitude: -116.834642))
-        let gorgNWLine = GMSPolyline(path: (nwPath as! GMSPath))
-        gorgNWLine.strokeWidth = 3
-        gorgNWLine.strokeColor = .red
-        let gorgNWMarker = GMSMarker()
-        gorgNWMarker.position = CLLocationCoordinate2D(latitude: 34.101406, longitude: -116.834642)
-        gorgNWMarker.title = "San Gorgonio"
-        gorgNWMarker.snippet = "NW Chutes"
-        gorgNWMarker.icon = GMSMarker.markerImage(with: .blue)
-        let gorgNW = Tour(title: "San Gorgonio: NW Chutes", difficulty: 3, path: gorgNWLine, id: "34.101406 -116.834642", imageURL: [#imageLiteral(resourceName: "IMG_8932"), #imageLiteral(resourceName: "IMG_2175_2"), #imageLiteral(resourceName: "gorg_nw"), #imageLiteral(resourceName: "nwchu"), #imageLiteral(resourceName: "gorgRoute")], distance: 6.5, description: "Often overlooked for the more popular descents nearby, these chutes offer a much more steep and exciting descent down San Gorgonio compared to the typical North Face descent. This area is subject to very high winds and therefore variable riding conditions in winter (think ice), so spring is usually the best season to ski these chutes. Due to their westerly exposure, this side of the mountain usually softens a bit later in the day so these chutes and are a great link up with Jepson's NE chutes which heat up early. Follow the South Fork Trail for 3.5 miles, then cross South Fork meadows and continue up through the trees. The terrain will become a series of small gullies but head in the SE direction and the terrain will flatten out, the trees will clear, and the large bowl known as the Big Draw will become visible; climb or skin to the top. Continue along the San Gorgonio ridge in the NE direction until you find your desired chute.", marker: gorgNWMarker, aspect: "NW", base: "6,900 ft", trailhead: southForkTH, summit: "11,200 ft", angle: "40-45")
-
-        let nPath = (nwPath as AnyObject).mutableCopy()
-        (nPath as AnyObject).add(CLLocationCoordinate2D(latitude: 34.101979, longitude: -116.830673))
-        let gorgNLine = GMSPolyline(path: (nPath as! GMSPath))
-        gorgNLine.strokeWidth = 3
-        gorgNLine.strokeColor = .red
-        let gorgNMarker = GMSMarker()
-        gorgNMarker.position = CLLocationCoordinate2D(latitude: 34.101979, longitude: -116.830673)
-        gorgNMarker.title = "San Gorgonio"
-        gorgNMarker.snippet = "North Face"
-        gorgNMarker.icon = GMSMarker.markerImage(with: .blue)
-        let gorgN = Tour(title: "San Gorgonio: North Face", difficulty: 3, path: gorgNLine, id: "34.101979 -116.830673", imageURL: [#imageLiteral(resourceName: "IMG_1436"), #imageLiteral(resourceName: "gorg_n"), #imageLiteral(resourceName: "IMG_9002"), #imageLiteral(resourceName: "gorg1"), #imageLiteral(resourceName: "cover")], distance: 6.5, description: "The tallest mountain in Southern California at 11,500 ft and a 2,000+ ft descent down broad chutes. Most of the tours in the San Gorgonio Wilderness have very long approaches so be prepared to spend most, if not all of your day back there. Winter skiing conditions are variable at this elevation due to winds and it is common for the upper few hundred feet of some of the chutes to be wind-stripped. The north face of San Gorgonio is also known for its massive avalanches (See pic 4 of the 2019 Valentines Day slides, courtesy of Socalsnow.org; these occurred after a large atmopsheric river and high snow levels). Spring is the most popular season to ride and climb Gorgonio; the snow is consolidated and quick to travel on, the days are longer, and the riding conditions are consistent during melt-freeze cycles. If skiing conditions are favorable, these chutes feel like your average black-diamond ski resort run despite the mountain looking like a giant from afar. This area was under threat of development in the early-mid 1900s, but the ultimate decision was that “San Gorgonio Primitive Area has a higher public value as a wilderness and a watershed than as a downhill ski area”. Either follow the Big Draw route to the San Gorgonio ridge as the route shows, or branch off when the North face comes into view and climb the chutes for a slightly steeper but more direct route.", marker: gorgNMarker, aspect: "N", base: "6,900 ft", trailhead: southForkTH, summit: "11,500 ft", angle: "35")
-
         let charPath = GMSMutablePath()
         charPath.add(CLLocationCoordinate2D(latitude: 34.161167, longitude: -116.871683))
         charPath.add(CLLocationCoordinate2D(latitude: 34.158697, longitude: -116.871030))
@@ -116,6 +121,7 @@ class SanBernardinoTours {
         charPath.add(CLLocationCoordinate2D(latitude: 34.130464, longitude: -116.843415))
         charPath.add(CLLocationCoordinate2D(latitude: 34.120446, longitude: -116.842900))
         charPath.add(CLLocationCoordinate2D(latitude: 34.116077, longitude: -116.842706))
+        charPath.add(CLLocationCoordinate2D(latitude: 34.114875, longitude: -116.844087))
         charPath.add(CLLocationCoordinate2D(latitude: 34.114104, longitude: -116.851331))
         charPath.add(CLLocationCoordinate2D(latitude: 34.114789, longitude: -116.852401))
         let charLine = GMSPolyline(path: charPath)
