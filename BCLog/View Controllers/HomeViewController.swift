@@ -67,11 +67,9 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
     }
     
     @IBAction func showOrHideSearch(_ sender: Any) {
-        
         if topStackView.isHidden {
             //open search
             topStackView.isHidden = false
-            
         } else {
             //Reset everything and close search
             topStackView.isHidden = true
@@ -86,7 +84,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
         if (UIScreen.main.bounds.width <= 395.0) {
             return CGSize(width: 170, height: 200)
         }
@@ -95,7 +92,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         if isFiltered {
             return filteredTours.count
         }
@@ -104,7 +100,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ToursCollectionViewCell.identifier, for: indexPath) as! ToursCollectionViewCell
         
         var tour: Tour
@@ -120,7 +115,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         if isFiltered {
             tourToPass = filteredTours[indexPath.row]
         } else {
@@ -139,7 +133,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
         if let text = textField.text {
             if string.count == 0 {
                 filterText(String(text.dropLast()))
@@ -191,7 +184,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
     
     private func setUpRegionMenu() {
         regionMenu.anchorView = collectionView
-        
         regionMenu.selectionAction = { [weak self] index, title in
             guard let self = self else { return }
 
@@ -232,7 +224,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
     }
     
     private func filterByDifficulty() {
-        
         let sorted1 = self.tours.sorted(by: { $0.tourDistance < $1.tourDistance })
         let sorted2 = sorted1.sorted(by: { $0.tourAngle < $1.tourAngle })
         filteredTours = sorted2.sorted(by: { $0.tourDifficulty < $1.tourDifficulty })
@@ -243,7 +234,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
     }
     
     private func filterByDistance() {
-        
         filteredTours = self.tours.sorted(by: { $0.tourDistance < $1.tourDistance })
         let placeholderText = NSAttributedString(string: "Distance: Shortest to Longest", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
         searchTF.attributedPlaceholder = placeholderText

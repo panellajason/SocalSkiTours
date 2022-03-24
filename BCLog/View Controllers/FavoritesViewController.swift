@@ -80,7 +80,6 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        
             let deleteAction = UIContextualAction(style: .normal, title: nil) { [weak self] (_, _, completionHandler) in
                 guard let self = self else { return }
 
@@ -118,7 +117,6 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         let favoritesCell = tableView.dequeueReusableCell(withIdentifier: FavoritesTableViewCell.identifier, for: indexPath) as! FavoritesTableViewCell
         favoritesCell.configure(with: favoriteTours[indexPath.row])
         return favoritesCell
@@ -126,7 +124,6 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         self.tourToPass = favoriteTours[indexPath.row]
         self.performSegue(withIdentifier: "toDetailTour3", sender: self)
     }
@@ -136,14 +133,12 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     }
 
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        
         let mover = favoriteTours.remove(at: sourceIndexPath.row)
         favoriteTours.insert(mover, at: destinationIndexPath.row)
         DatabaseService.currentUserProfile?.favoriteTours = favoriteTours
     }
     
     func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
-        
         let dragItem = UIDragItem(itemProvider: NSItemProvider())
         dragItem.localObject = favoriteTours[indexPath.row]
         return [ dragItem ]

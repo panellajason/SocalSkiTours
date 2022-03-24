@@ -74,7 +74,6 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     @IBAction func signUp(_ sender: UIButton) {
-        
         errorLabel.text = ""
         guard let email = emailTF.text else { return }
         guard let password1 = passwordTF.text else { return }
@@ -114,4 +113,3 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
         }
     }
 }
-

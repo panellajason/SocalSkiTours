@@ -513,7 +513,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.01;
+				MARKETING_VERSION = 1.02;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jp.BackcountryLog;
 				PRODUCT_NAME = "SoCal Ski Tours";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -535,7 +535,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.01;
+				MARKETING_VERSION = 1.02;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jp.BackcountryLog;
 				PRODUCT_NAME = "SoCal Ski Tours";
 				PROVISIONING_PROFILE_SPECIFIER = "";

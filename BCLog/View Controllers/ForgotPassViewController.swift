@@ -44,7 +44,6 @@ class ForgotPassViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
@@ -53,9 +52,7 @@ class ForgotPassViewController: UIViewController {
     }
     
     @IBAction func sendPasswordRecoveryEmail(_ sender: Any) {
-        
         guard let email = emailTF.text else { return }
-    
         if !email.isEmpty {
             DatabaseService.handlePasswordRecoveryEmail(email: email) { [weak self] error in
                 guard let self = self else { return }
@@ -68,5 +65,3 @@ class ForgotPassViewController: UIViewController {
         }
     }
 }
-
-

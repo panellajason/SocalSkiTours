@@ -11,7 +11,6 @@ import FirebaseAuth
 
 class EntryViewController: UIViewController {
     
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -24,9 +23,7 @@ class EntryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
-
 }
 
 var vSpinner : UIView?
@@ -43,6 +40,7 @@ extension UIViewController {
         }
         vSpinner = spinnerView
     }
+    
     func removeSpinner() {
         DispatchQueue.main.async {
             vSpinner?.removeFromSuperview()

@@ -10,7 +10,6 @@ import UIKit
 import GoogleMaps
 
 class DetailMapViewController: UIViewController, GMSMapViewDelegate {
-
     var passedTour: Tour!
     private var mapView: GMSMapView!
     private lazy var isSatelliteView = false
@@ -24,8 +23,8 @@ class DetailMapViewController: UIViewController, GMSMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = passedTour.tourTitle.uppercased()
         
+        self.title = passedTour.tourTitle.uppercased()
         //Setup for the passed Tour's MapView
         let location = passedTour.tourID.split(separator: " ").map{ String($0) }
         let lat = (location[0] as NSString).doubleValue
@@ -47,8 +46,8 @@ class DetailMapViewController: UIViewController, GMSMapViewDelegate {
             button = UIButton(frame: CGRect(x:UIScreen.main.bounds.width-61, y:UIScreen.main.bounds.height-234, width: 46, height: 46))
             button.layer.cornerRadius = 23
         }
-        view.addSubview(mapView)
         
+        view.addSubview(mapView)
         button.setImage(UIImage(systemName: "square.stack.3d.up"), for: .normal)
         button.backgroundColor = UIColor.clear
         button.tintColor = .black
@@ -60,7 +59,6 @@ class DetailMapViewController: UIViewController, GMSMapViewDelegate {
     }
     
     @IBAction func showOrHideSatelliteView(_ sender: Any) {
-        
         if(isSatelliteView) {
             button.setImage(UIImage(systemName: "square.stack.3d.up"), for: .normal)
             mapView.mapType = .terrain
@@ -73,7 +71,6 @@ class DetailMapViewController: UIViewController, GMSMapViewDelegate {
     }
     
     private func addTourToMap() {
-        
         //Tour Marker
         let tempMarker = GMSMarker()
         tempMarker.title = passedTour.tourMarker.snippet

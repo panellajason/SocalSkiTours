@@ -5,12 +5,10 @@
 //  Created by Jason Panella on 9/5/21.
 //  Copyright © 2021 Jason Panella. All rights reserved.
 //
-
 import UIKit
 import EEZoomableImageView
 
 class OnboardingPageViewController: UIPageViewController {
-
     private var pages = [UIViewController]()
     private let pageControl = UIPageControl()
     private let initialPage = 0
@@ -24,7 +22,6 @@ class OnboardingPageViewController: UIPageViewController {
     }
     
     private func setupPages() {
-        
         dataSource = self
         delegate = self
         
@@ -52,7 +49,6 @@ class OnboardingPageViewController: UIPageViewController {
     }
     
     private func style() {
-        
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         pageControl.currentPageIndicatorTintColor = .white
         pageControl.pageIndicatorTintColor = .darkGray
@@ -61,9 +57,7 @@ class OnboardingPageViewController: UIPageViewController {
     }
     
     private func layout() {
-        
         view.addSubview(pageControl)
-        
         NSLayoutConstraint.activate([
             pageControl.widthAnchor.constraint(equalTo: view.widthAnchor),
             pageControl.heightAnchor.constraint(equalToConstant: 20),
@@ -73,7 +67,6 @@ class OnboardingPageViewController: UIPageViewController {
 }
 
 extension OnboardingPageViewController: UIPageViewControllerDataSource {
-    
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
         guard let currentIndex = pages.firstIndex(of: viewController) else { return nil }
@@ -86,9 +79,7 @@ extension OnboardingPageViewController: UIPageViewControllerDataSource {
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        
         guard let currentIndex = pages.firstIndex(of: viewController) else { return nil }
-
         if currentIndex < pages.count - 1 {
             return pages[currentIndex + 1]  // go next
         } else {
@@ -98,12 +89,9 @@ extension OnboardingPageViewController: UIPageViewControllerDataSource {
 }
 
 extension OnboardingPageViewController: UIPageViewControllerDelegate {
-    
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        
         guard let viewControllers = pageViewController.viewControllers else { return }
         guard let currentIndex = pages.firstIndex(of: viewControllers[0]) else { return }
-        
         pageControl.currentPage = currentIndex
     }
 }
@@ -133,7 +121,6 @@ class OnboardingViewController: UIViewController {
     }
     
     private func style() {
-        
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.alignment = .center
@@ -154,13 +141,11 @@ class OnboardingViewController: UIViewController {
     }
         
     private func layout() {
-        
         stackView.addArrangedSubview(imageView)
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(subtitleLabel)
         view.backgroundColor = .black
         view.addSubview(stackView)
-        
         NSLayoutConstraint.activate([
             stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
@@ -203,7 +188,6 @@ class LastOnboardingViewController: UIViewController {
     }
     
     private func style() {
-        
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.alignment = .center
@@ -226,7 +210,6 @@ class LastOnboardingViewController: UIViewController {
     }
         
     private func layout() {
-        
         stackView.addArrangedSubview(imageView)
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(subtitleLabel)

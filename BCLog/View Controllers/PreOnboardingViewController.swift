@@ -5,7 +5,6 @@
 //  Created by Jason Panella on 9/5/21.
 //  Copyright © 2021 Jason Panella. All rights reserved.
 //
-
 import UIKit
 
 class PreOnboardingViewController: UIViewController {
@@ -33,7 +32,6 @@ class PreOnboardingViewController: UIViewController {
     }
     
     private func style() {
-        
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.alignment = .center
@@ -51,7 +49,6 @@ class PreOnboardingViewController: UIViewController {
     }
         
     private func layout() {
-        
         stackView.addArrangedSubview(imageView)
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(getStartedButton)

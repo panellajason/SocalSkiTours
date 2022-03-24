@@ -12,7 +12,6 @@ import FirebaseAuth
 import EEZoomableImageView
 
 class DetailTourViewController: UIViewController, UIScrollViewDelegate {
-    
     var passedTour: Tour!
     private var tourToPass: Tour!
     private lazy var isFavorite: Bool = false
@@ -34,15 +33,12 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
         
         if Auth.auth().currentUser != nil {
             DatabaseService.checkIfTourIsFavorite(tourID: passedTour.tourID) { [weak self] error, isFavorite in
-                
                 guard error == nil else { return }
                 
                 if isFavorite {
-                    
                     self?.favoritesButton.image = UIImage(systemName: "star.fill")
                     self?.isFavorite = true
                 } else {
-                    
                     self?.isFavorite = false
                     self?.favoritesButton.image = UIImage(systemName: "star")
                 }
@@ -51,7 +47,6 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
             favoritesButton.isEnabled = false
             favoritesButton.tintColor = .clear
         }
-        
     }
     
     override func viewDidLoad() {
@@ -62,7 +57,6 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
         //Determine current page by calculating x posistion of scrollview
         let pageIndex = round(scrollView.contentOffset.x/view.frame.width)
         pageControl.currentPage = Int(pageIndex)
@@ -75,9 +69,7 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
         errorAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
         
         if !isFavorite {
-            
             DatabaseService.addToFavorites(tourID: passedTour.tourID) { [weak self] error in
-                
                 guard error == nil else {
                     self?.present(errorAlert, animated: true)
                     return
@@ -88,9 +80,7 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
             }
             
         } else {
-            
             DatabaseService.removeFromFavorites(tourID: passedTour.tourID) { [weak self] error in
-                
                 guard error == nil else {
                     errorAlert.message = "Unable to remove from favorites."
                     self?.present(errorAlert, animated: true)
@@ -105,13 +95,11 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
     }
     
     @IBAction func goToMapView(_ sender: Any) {
-        
         self.tourToPass = passedTour
         self.performSegue(withIdentifier: "toDetailMap", sender: self)
     }
         
     @IBAction func goToWeather(_ sender: Any) {
-        
         let location = passedTour.tourID.split(separator: " ").map{ String($0) }
         let lat = location[0]
         let lon = location[1]
@@ -121,7 +109,6 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
     }
     
     private func setUpUI() {
-        
         if (UIScreen.main.bounds.width <= 395.0) {
             sizeLabels(sizeOfFont: 15)
         } else {
@@ -145,7 +132,6 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
     }
     
     private func sizeLabels(sizeOfFont: CGFloat) {
-        
         let approach: String = String(format: "%.1f", passedTour.tourDistance)
         let miles = (passedTour.tourDistance == 1.0) ? " mile" : " miles"
         firstLine.text = passedTour.tourTrailhead.title! + " // Approach: " + approach + miles

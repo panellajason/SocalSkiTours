@@ -176,7 +176,6 @@ class DatabaseService {
     }
 }
 
-
 struct Resort : Codable {
     var resort: String
     var fiveDaySnowTotal: String

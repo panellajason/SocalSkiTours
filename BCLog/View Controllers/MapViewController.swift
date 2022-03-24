@@ -10,7 +10,6 @@ import UIKit
 import GoogleMaps
 
 class MapViewController: UIViewController, GMSMapViewDelegate {
-
     private var tourToPass: Tour!
     private var passedTour: Tour!
     private lazy var isSatelliteView = false
@@ -26,7 +25,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-            
         //MapView setup
         let camera = GMSCameraPosition.camera(withLatitude: 34.070986, longitude: -117.326830, zoom: 8.0)
         mapView = GMSMapView.map(withFrame: view.frame, camera: camera)
@@ -36,9 +34,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         mapView.settings.compassButton = true
         mapView.isMyLocationEnabled = true
         
-        print(UIScreen.main.bounds.size)
-        
-
         if (UIScreen.main.bounds.width > 375.0 || UIScreen.main.bounds.height == 812.0) {
             mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 82, right: 0)
             button = UIButton(frame: CGRect(x:UIScreen.main.bounds.width-62, y:UIScreen.main.bounds.height-207, width: 50, height: 50))
@@ -51,7 +46,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         }
         
         view.addSubview(mapView)
-        
         button.setImage(UIImage(systemName: "square.stack.3d.up"), for: .normal)
         button.backgroundColor = UIColor.clear
         button.tintColor = .black
@@ -75,7 +69,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
     }
     
     private func addToursToMap() {
-        
         for tour in TourService.allTours {
             
             tour.tourTrailhead.map = mapView
@@ -85,7 +78,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
     }
         
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
-                
         if marker.snippet == nil {
             //do nothing for now
         } else {

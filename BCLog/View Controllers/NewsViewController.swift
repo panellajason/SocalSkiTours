@@ -28,9 +28,9 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+        
         self.removeSpinner()
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +64,6 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         return CGSize(width: 110, height: 100)
     }
     
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = SFSafariViewController(url: URL(string: articles[indexPath.row].url)!)
         present(vc, animated: false, completion: nil)
@@ -89,7 +88,6 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @IBAction func refresh(_ sender: Any) {
-
         if articles.count == 0 || resorts.count == 0 {
             fetchData()
         } else {
@@ -105,9 +103,9 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     private func fetchData() {
         DatabaseService.getResortForecast { [weak self] resortsData in
             DatabaseService.getArticles { [weak self] articlesData in
-                
                 self?.resorts = resortsData ?? [Resort]()
                 self?.articles = articlesData ?? [Article]()
+                
                 DispatchQueue.main.async {
                    self?.articlesTableView.reloadData()
                    self?.resortsCollectionView.reloadData()
@@ -116,7 +114,4 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
     }
-    
 }
-
-
