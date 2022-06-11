@@ -40,9 +40,15 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UICollectionVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let imageView = UIImageView()
-        imageView.contentMode = .scaleToFill
-        imageView.image = UIImage(named: "title2")
+        if(UIDevice.current.userInterfaceIdiom == .pad) {
+            imageView.contentMode = .scaleAspectFit
+            imageView.image = UIImage(named: "title")
+        } else {
+            imageView.contentMode = .scaleToFill
+            imageView.image = UIImage(named: "title2")
+        }
         navigationItem.titleView = imageView
         
         searchTF.delegate = self

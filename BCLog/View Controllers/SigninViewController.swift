@@ -12,6 +12,7 @@ import BLTNBoard
 
 class SigninViewController: UIViewController {
 
+    @IBOutlet weak var imageViewConstraint: NSLayoutConstraint!
     @IBOutlet weak var emailTF: UITextField! {
         didSet {
             let placeholderText = NSAttributedString(string: "Email address",
@@ -55,10 +56,6 @@ class SigninViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        if (UIScreen.main.bounds.width >= 395.0) {
-            imageView.frame.size.height = 500.0
-        }
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
@@ -75,6 +72,15 @@ class SigninViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if (UIScreen.main.bounds.width >= 395.0) {
+            if(UIDevice.current.userInterfaceIdiom == .pad) {
+                imageViewConstraint.constant = 500
+            } else {
+                imageViewConstraint.constant = 350
+            }
+            imageView.layoutIfNeeded()
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {

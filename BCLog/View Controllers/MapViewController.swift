@@ -35,8 +35,14 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         mapView.isMyLocationEnabled = true
         
         if (UIScreen.main.bounds.width > 375.0 || UIScreen.main.bounds.height == 812.0) {
-            mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 82, right: 0)
-            button = UIButton(frame: CGRect(x:UIScreen.main.bounds.width-62, y:UIScreen.main.bounds.height-207, width: 50, height: 50))
+            if(UIDevice.current.userInterfaceIdiom == .pad) {
+                mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 56, right: 0)
+                button = UIButton(frame: CGRect(x:UIScreen.main.bounds.width-62, y:UIScreen.main.bounds.height-191, width: 50, height: 50))
+            } else {
+                mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 82, right: 0)
+                button = UIButton(frame: CGRect(x:UIScreen.main.bounds.width-62, y:UIScreen.main.bounds.height-207, width: 50, height: 50))
+            }
+           
             button.layer.cornerRadius = 25
         } else {
             mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)

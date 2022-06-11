@@ -27,7 +27,9 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var favoritesButton: UIBarButtonItem!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var topScrollView: UIScrollView!
+    @IBOutlet weak var topScrollViewContainer: UIView!
     
+    @IBOutlet weak var topViewConstraint: NSLayoutConstraint!
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -112,20 +114,32 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
         if (UIScreen.main.bounds.width <= 395.0) {
             sizeLabels(sizeOfFont: 15)
         } else {
-            sizeLabels(sizeOfFont: 16)
+            if(UIDevice.current.userInterfaceIdiom == .pad) {
+                sizeLabels(sizeOfFont: 23)
+            } else {
+                sizeLabels(sizeOfFont: 16)
+            }
         }
         
         //Add the passed Tour's images to horizontal scrollview
         pageControl.numberOfPages = passedTour.tourImages.count
         pageControl.currentPage = 0
         topScrollView.delegate = self
+        if(UIDevice.current.userInterfaceIdiom == .pad) {
+            topViewConstraint.constant = 600
+            topScrollViewContainer.layoutIfNeeded()
+        }
         topScrollView.frame = view.frame
         for i in 0..<passedTour.tourImages.count {
             let imageView = EEZoomableImageView()
             imageView.image = passedTour.tourImages[i]
             imageView.contentMode = .scaleToFill
             let xPos = self.view.frame.width * CGFloat(i)
-            imageView.frame = CGRect(x: xPos, y: 0, width: self.topScrollView.frame.width, height: 300)
+            if(UIDevice.current.userInterfaceIdiom == .pad) {
+                imageView.frame = CGRect(x: xPos, y: 0, width: self.topScrollView.frame.width, height: 600)
+            } else {
+                imageView.frame = CGRect(x: xPos, y: 0, width: self.topScrollView.frame.width, height: 300)
+            }
             topScrollView.contentSize.width = topScrollView.frame.width * CGFloat(i + 1)
             topScrollView.addSubview(imageView)
         }
