@@ -6,7 +6,6 @@ target 'BCLog' do
   use_frameworks!
 
   # Pods for BCLog
-  pod 'Firebase/Analytics'
   pod 'FirebaseFirestoreSwift'
   pod 'Firebase/Auth'
   pod 'GoogleMaps', '5.0.0'

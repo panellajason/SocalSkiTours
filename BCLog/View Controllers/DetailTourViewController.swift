@@ -72,6 +72,8 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
         
         if !isFavorite {
             DatabaseService.addToFavorites(tourID: passedTour.tourID) { [weak self] error in
+                self?.removeSpinner()
+
                 guard error == nil else {
                     self?.present(errorAlert, animated: true)
                     return
@@ -83,6 +85,8 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
             
         } else {
             DatabaseService.removeFromFavorites(tourID: passedTour.tourID) { [weak self] error in
+                self?.removeSpinner()
+
                 guard error == nil else {
                     errorAlert.message = "Unable to remove from favorites."
                     self?.present(errorAlert, animated: true)
@@ -93,7 +97,6 @@ class DetailTourViewController: UIViewController, UIScrollViewDelegate {
                 self?.favoritesButton.image = UIImage(systemName: "star")
             }
         }
-        self.removeSpinner()
     }
     
     @IBAction func goToMapView(_ sender: Any) {

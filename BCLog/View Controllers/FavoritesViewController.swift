@@ -80,32 +80,32 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-            let deleteAction = UIContextualAction(style: .normal, title: nil) { [weak self] (_, _, completionHandler) in
-                guard let self = self else { return }
+        let deleteAction = UIContextualAction(style: .normal, title: nil) { [weak self] (_, _, completionHandler) in
+            guard let self = self else { return }
 
-                DatabaseService.removeFromFavorites(tourID: self.favoriteTours[indexPath.row].tourID) { [weak self] error in
-                    
-                    guard error == nil else {
-                        let errorAlert = UIAlertController(title: "Error", message: "Unable to remove from favorites.", preferredStyle: .alert)
-                        errorAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-                        self?.present(errorAlert, animated: true)
-                        return
-                    }
-                    
-                    self?.favoriteTours.remove(at: indexPath.row)
-                    self?.tableView.reloadData()
-                    
-                    //Hide tableView if last tour has been deleted from Favorites
-                    if self?.favoriteTours.count == 0 {
-                        self?.tableView.isHidden = true
-                    }
+            DatabaseService.removeFromFavorites(tourID: self.favoriteTours[indexPath.row].tourID) { [weak self] error in
+                
+                guard error == nil else {
+                    let errorAlert = UIAlertController(title: "Error", message: "Unable to remove from favorites.", preferredStyle: .alert)
+                    errorAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                    self?.present(errorAlert, animated: true)
+                    return
                 }
-                completionHandler(true)
+                
+                self?.favoriteTours.remove(at: indexPath.row)
+                self?.tableView.reloadData()
+                
+                //Hide tableView if last tour has been deleted from Favorites
+                if self?.favoriteTours.count == 0 {
+                    self?.tableView.isHidden = true
+                }
             }
-        
-            deleteAction.image = UIImage(systemName: "xmark.circle")
-            deleteAction.backgroundColor = .black
-            return UISwipeActionsConfiguration(actions: [deleteAction])
+            completionHandler(true)
+        }
+    
+        deleteAction.image = UIImage(systemName: "xmark.circle")
+        deleteAction.backgroundColor = .black
+        return UISwipeActionsConfiguration(actions: [deleteAction])
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -30,8 +30,9 @@ class DatabaseService {
             
             observeUserProfile(userID) { userProfile in
                 currentUserProfile = userProfile
+                
+                return completion(error)
             }
-            completion(error)
         }
     }
     
@@ -84,9 +85,13 @@ class DatabaseService {
             }
         }
         
+        guard let currentUser = Auth.auth().currentUser else { return }
+        let userID = currentUser.uid
+        
         databaseInstance.collection("user_favorites").addDocument(data: [
             "tour_id": tourID,
-            "user_id": currentUserProfile?.userID as Any])
+            "user_id": userID
+        ])
         {  error in
             
             guard error == nil else {
@@ -100,7 +105,10 @@ class DatabaseService {
     
     static func removeFromFavorites(tourID: String, completion: @escaping(Error?) ->()) {
 
-        databaseInstance.collection("user_favorites").whereField("tour_id", isEqualTo: tourID).whereField("user_id", isEqualTo: currentUserProfile?.userID as Any).getDocuments() { (querySnapshot, error) in
+        guard let currentUser = Auth.auth().currentUser else { return }
+        let userID = currentUser.uid
+        
+        databaseInstance.collection("user_favorites").whereField("tour_id", isEqualTo: tourID).whereField("user_id", isEqualTo: userID).getDocuments() { (querySnapshot, error) in
                 
                 guard error == nil else {
                     completion(error)
@@ -144,35 +152,37 @@ class DatabaseService {
     }
     
     static func getArticles(completion: @escaping ((_ resorts:[Article]?)->())) {
+        let url = "https://us-central1-snownewsapi.cloudfunctions.net/app/allnews"
         
-            let url = "https://snow-news-api.herokuapp.com/allnews"
-            let task = URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: {data, response, error in
-                guard let data = data, error == nil else {
-                    return
-                }
-                
-                var articles = try! JSONDecoder().decode([Article].self, from: data)
-                articles = articles.sorted(by: { $0.source < $1.source })
-                newsArticles = articles
-                return(completion(articles))
-            })
-            task.resume()
+        let task = URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: {data, response, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            var articles = try! JSONDecoder().decode([Article].self, from: data)
+            articles = articles.sorted(by: { $0.source < $1.source })
+            newsArticles = articles
+            return(completion(articles))
+        })
+        
+        task.resume()
     }
     
     static func getResortForecast(completion: @escaping ((_ resorts:[Resort]?)->())) {
+        let url = "https://us-central1-snownewsapi.cloudfunctions.net/app/forecast"
         
-            let url = "https://snow-news-api.herokuapp.com/forecast"
-            let task = URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: {data, response, error in
-                guard let data = data, error == nil else {
-                    return
-                }
-                
-                var resorts = try! JSONDecoder().decode([Resort].self, from: data)
-                resorts = resorts.sorted(by: { $0.resort < $1.resort })
-                skiResorts = resorts
-                return(completion(resorts))
-            })
-            task.resume()
+        let task = URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: {data, response, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            var resorts = try! JSONDecoder().decode([Resort].self, from: data)
+            resorts = resorts.sorted(by: { $0.resort < $1.resort })
+            skiResorts = resorts
+            return(completion(resorts))
+        })
+        
+        task.resume()
     }
 }
 
